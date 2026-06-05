@@ -1,0 +1,116 @@
+{
+  "artist": {
+    "name": "SARRIA",
+    "tagline": "La revelación del tribal",
+    "location": "Medellín, Colombia",
+    "contact": "mikee890130@gmail.com",
+    "whatsapp": "+57 301 9306176",
+    "heroPhoto": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/hero.jpg",
+    "bioPhoto": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/editorial-1.jpg",
+    "genres": ["Tribal", "Circuit", "House"],
+    "stats": {
+      "debut": "2024",
+      "shows": "15+",
+      "countries": "3"
+    }
+  },
+  "bio": {
+    "es": {
+      "lede": "SARRIA es la revelación del tribal desde Medellín, Colombia.",
+      "body": "SARRIA construye sets de tribal, circuit y house con una lectura directa de la pista y una identidad enfocada en energía, tensión y liberación.\n\nSu propuesta ya lo ha llevado a escenarios en distintos países y a consolidar una base de shows en crecimiento, con una presencia que apunta a circuitos club y eventos especializados.\n\nActualmente trabaja en expandir su alcance regional y posicionar su nombre como una referencia nueva dentro de la escena tribal latina."
+    },
+    "en": {
+      "lede": "SARRIA is the rising tribal revelation from Medellín, Colombia.",
+      "body": "SARRIA shapes tribal, circuit, and house sets with a direct connection to the dancefloor and a style built on energy, tension, and release.\n\nHis project has already reached stages across different countries and continues to grow through club dates and specialized events.\n\nHe is now expanding his regional reach and positioning his name as a new reference in the Latin tribal scene."
+    },
+    "pt": {
+      "lede": "SARRIA é a revelação do tribal vindo de Medellín, Colômbia.",
+      "body": "SARRIA constrói sets de tribal, circuit e house com leitura direta da pista e uma identidade baseada em energia, tensão e liberação.\n\nSeu projeto já passou por diferentes países e segue crescendo com datas em clubes e eventos especializados.\n\nAgora ele amplia seu alcance regional e posiciona seu nome como uma nova referência na cena tribal latina."
+    }
+  },
+  "shows": [
+    {
+      "id": 1,
+      "date": "2026-06-09",
+      "venue": "LA CALETA",
+      "city": "Simpson Bay",
+      "country": "Sint Maarten",
+      "type": "Club Show",
+      "status": "upcoming",
+      "ticketUrl": "#"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/editorial-1.jpg",
+      "caption": "Sesión editorial",
+      "category": "lifestyle",
+      "span": "feat"
+    },
+    {
+      "id": 2,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/prensa-1.jpg",
+      "caption": "Portrait",
+      "category": "prensa",
+      "span": "tall"
+    },
+    {
+      "id": 3,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/hero.jpg",
+      "caption": "SARRIA",
+      "category": "prensa",
+      "span": ""
+    },
+    {
+      "id": 4,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/prensa-2.jpg",
+      "caption": "Stage energy",
+      "category": "shows",
+      "span": ""
+    },
+    {
+      "id": 5,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/editorial-2.jpg",
+      "caption": "Editorial",
+      "category": "lifestyle",
+      "span": ""
+    },
+    {
+      "id": 6,
+      "url": "https://{{PROJECT_ID}}.supabase.co/storage/v1/object/public/epk-assets/dj-sarria/photos/prensa-3.jpg",
+      "caption": "Performance",
+      "category": "shows",
+      "span": "wide"
+    }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "title": "RESURGENCE 2026",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fr-e-s-u-r-g-e-n-c-e-2026&color=%2300a86b&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 2,
+      "title": "BRUJERIA05 BY SARRIADJ",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fbrujeria05-by-sarriadj&color=%2300a86b&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    }
+  ],
+  "presskit": {
+    "description": "Descargas directas para prensa, promotores y productoras.",
+    "items": []
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/sarriamike/",
+    "soundcloud": "https://soundcloud.com/mikee89",
+    "youtube": "",
+    "facebook": "",
+    "spotify": "",
+    "tiktok": ""
+  },
+  "admin": {
+    "password": "sarria2026"
+  }
+}
