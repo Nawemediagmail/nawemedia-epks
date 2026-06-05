@@ -23,6 +23,7 @@ nawemedia-epks/
 | Artista | Slug | Dominio | Vercel project |
 |---|---|---|---|
 | Ambar Lombardi | `ambar-lombardi` | ambarlombardi.com | dj-ambarlombardi-epk |
+| YEMIX | `yemix` | yemixdj.com | nawemedia-epks/djs/yemix |
 
 ## Crear un nuevo EPK
 
