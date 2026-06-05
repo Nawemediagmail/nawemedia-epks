@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YEMIX — DJ EPK</title>
+<meta name="description" content="DJ YEMIX — Tribal House, Circuit, Tech House, Afro House. Buenos Aires · Argentina. Booking: Castromarvi@gmail.com">
+<meta property="og:title" content="YEMIX — DJ EPK">
+<meta property="og:description" content="Circuit energy, tribal soul. 500+ shows. 6 países. Desde 2013.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pu: #f04fcf;
+  --pur: 240,79,207;
+  --pu2: #8f63ff;
+  --bg: #070707;
+  --bg2: #121018;
+  --bg3: #1a1525;
+  --text: #ffffff;
+  --text2: #b9a9c9;
+  --lime: #d7ff3f;
+  --muted: rgba(185,169,201,.7);
+  --faint: rgba(185,169,201,.25);
+  --d: \'Anton\', Impact, sans-serif;
+  --h: \'Oswald\', sans-serif;
+  --s: \'Inter\', system-ui, sans-serif;
+  --m: \'JetBrains Mono\', monospace;
+  --max: 1320px;
+  --gap: clamp(1.25rem, 4vw, 3rem);
+  --r: 16px; --r2: 22px; --r3: 32px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--s);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
+#loader.out{opacity:0;visibility:hidden}
+.loader-name{font-family:var(--d);font-size:clamp(2.5rem,8vw,6rem);letter-spacing:.15em;background:linear-gradient(135deg,var(--pu),var(--pu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem var(--gap);display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,7,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--faint)}
+.nav-logo{font-family:var(--d);font-size:1.4rem;letter-spacing:.12em;background:linear-gradient(90deg,var(--pu),var(--pu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:1.8rem;align-items:center}
+.nav-links a{font-family:var(--m);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--pu)}
+.nav-admin{background:none;border:1px solid var(--faint);color:var(--text2);padding:.35rem .7rem;border-radius:8px;font-size:.8rem;transition:all .2s}
+.nav-admin:hover{border-color:var(--pu);color:var(--pu)}
+@media(max-width:600px){.nav-links a:not(.nav-admin){display:none}}
+
+/* HERO */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:calc(var(--gap)*2) var(--gap) calc(var(--gap)*2);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a2e 0%,#0a0515 40%,#070707 100%);z-index:0;background-size:cover;background-position:center top}
+.hero-bg[style]{background:none}
+.hero-bg[style]::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,7,.92) 0%,rgba(7,7,7,.6) 50%,rgba(7,7,7,.35) 100%);z-index:1}
+.hero-bg::after{content:\'\';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(var(--pur),.18) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(143,99,255,.12) 0%,transparent 60%)}
+.hero-beams{position:absolute;inset:0;overflow:hidden;z-index:2}
+.beam{position:absolute;width:1px;background:linear-gradient(180deg,transparent,rgba(var(--pur),.4),transparent);animation:beam-fall linear infinite}
+@keyframes beam-fall{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+.hero-content{position:relative;z-index:3;max-width:var(--max);width:100%;margin:0 auto}
+.hero-genres{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.genre-tag{font-family:var(--m);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid rgba(var(--pur),.35);border-radius:999px;color:var(--pu);background:rgba(var(--pur),.08)}
+.hero-name{font-family:var(--d);font-size:clamp(4rem,15vw,11rem);line-height:.9;letter-spacing:.03em;margin-bottom:.5rem}
+.hero-name span{background:linear-gradient(135deg,#fff 0%,var(--text2) 40%,var(--pu) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline{font-family:var(--h);font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2.5rem}
+.hero-stats{display:flex;gap:clamp(1.5rem,4vw,3rem);margin-bottom:2.5rem;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:.2rem}
+.stat-num{font-family:var(--d);font-size:clamp(1.8rem,4vw,2.8rem);background:linear-gradient(135deg,var(--pu),var(--pu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-label{font-family:var(--m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2)}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:linear-gradient(135deg,var(--pu),var(--pu2));color:#fff;font-family:var(--h);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r);transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(var(--pur),.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border:1px solid rgba(var(--pur),.4);color:var(--pu);font-family:var(--h);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r);transition:all .2s}
+.btn-secondary:hover{background:rgba(var(--pur),.1);border-color:var(--pu)}
+.hero-location{position:absolute;top:calc(var(--gap)*3);right:var(--gap);font-family:var(--m);font-size:.75rem;letter-spacing:.1em;color:var(--text2);text-transform:uppercase;z-index:2}
+
+/* SECTION BASE */
+section{padding:clamp(4rem,8vw,7rem) var(--gap)}
+.section-inner{max-width:var(--max);margin:0 auto}
+.section-label{font-family:var(--m);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pu);margin-bottom:.8rem}
+.section-title{font-family:var(--d);font-size:clamp(2rem,5vw,3.5rem);line-height:1;margin-bottom:2rem}
+
+/* BIO */
+#bio{background:var(--bg2)}
+.bio-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media(max-width:768px){.bio-grid{grid-template-columns:1fr}}
+.bio-photo-wrap{position:relative;border-radius:var(--r2);overflow:hidden;aspect-ratio:3/4}
+.bio-photo-wrap img{width:100%;height:100%;object-fit:cover}
+.bio-photo-wrap::after{content:\'\';position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--pur),.3) 0%,transparent 60%)}
+.bio-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:2rem}
+.highlight{background:rgba(var(--pur),.07);border:1px solid rgba(var(--pur),.2);border-radius:var(--r);padding:.9rem 1rem}
+.hl-num{font-family:var(--d);font-size:1.8rem;background:linear-gradient(135deg,var(--pu),var(--pu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.2rem}
+.hl-label{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
+.bio-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem}
+.bio-tab{font-family:var(--m);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid var(--faint);border-radius:999px;color:var(--text2);transition:all .2s;cursor:pointer}
+.bio-tab.active{background:var(--pu);border-color:var(--pu);color:#fff}
+.bio-lede{font-family:var(--h);font-size:clamp(1rem,2vw,1.25rem);font-weight:400;color:var(--text2);line-height:1.5;margin-bottom:1.2rem;font-style:italic}
+.bio-body{color:var(--text2);line-height:1.8;font-size:.95rem}
+.bio-body p{margin-bottom:1rem}
+.bio-content{display:none}
+.bio-content.active{display:block}
+
+/* MUSIC */
+#music{background:var(--bg)}
+.music-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:1.5rem}
+.music-card{background:rgba(255,255,255,.03);border:1px solid var(--faint);border-radius:var(--r2);overflow:hidden;transition:border-color .2s}
+.music-card:hover{border-color:rgba(var(--pur),.4)}
+.music-card-header{padding:1.2rem 1.5rem .8rem;display:flex;align-items:center;gap:.8rem}
+.music-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--pu),var(--pu2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.music-title{font-family:var(--h);font-size:.95rem;font-weight:500;letter-spacing:.03em;color:var(--text)}
+.music-type{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
+.music-embed{padding:0 .5rem .5rem}
+.music-embed iframe{border-radius:10px;width:100%;height:166px;border:none}
+
+/* GALLERY */
+#gallery{background:var(--bg2)}
+.gallery-filters{display:flex;gap:.6rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{font-family:var(--m);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid var(--faint);border-radius:999px;color:var(--text2);transition:all .2s;cursor:pointer}
+.filter-btn.active{background:var(--pu);border-color:var(--pu);color:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.gallery-grid{grid-template-columns:1fr;grid-auto-rows:280px}}
+.gallery-item{border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer;background:var(--bg3)}
+.gallery-item.feat{grid-column:span 2;grid-row:span 2}
+.gallery-item.tall{grid-row:span 2}
+.gallery-item.wide{grid-column:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,7,.8) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.gallery-item:hover .gallery-item-overlay{opacity:1}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:1rem;font-family:var(--h);font-size:.85rem;font-weight:500;transform:translateY(100%);transition:transform .3s}
+.gallery-item:hover .gallery-caption{transform:translateY(0)}
+.gallery-placeholder{background:rgba(255,255,255,.04);border:1px dashed var(--faint);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.gallery-placeholder span{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+/* SHOWS */
+#shows{background:var(--bg)}
+.shows-empty{font-family:var(--h);color:var(--text2);font-size:1.1rem;font-weight:400}
+.shows-list{display:flex;flex-direction:column;gap:1rem}
+.show-card{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--faint);border-radius:var(--r2);padding:1.5rem 2rem;transition:border-color .2s}
+.show-card:hover{border-color:rgba(var(--pur),.35)}
+@media(max-width:600px){.show-card{grid-template-columns:1fr;gap:.8rem}}
+.show-date{font-family:var(--d);font-size:2rem;color:var(--pu);line-height:1;min-width:60px;text-align:center}
+.show-date-sub{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);text-align:center}
+.show-info-venue{font-family:var(--h);font-size:1.1rem;font-weight:600;margin-bottom:.2rem}
+.show-info-location{font-family:var(--m);font-size:.75rem;letter-spacing:.08em;color:var(--text2)}
+.show-badge{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;border:1px solid rgba(var(--pur),.35);color:var(--pu)}
+
+/* PRESSKIT */
+#presskit{background:var(--bg2)}
+.presskit-desc{color:var(--text2);margin-bottom:2rem;max-width:600px}
+.presskit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.pk-item{background:rgba(255,255,255,.03);border:1px solid var(--faint);border-radius:var(--r2);padding:1.5rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s,background .2s}
+.pk-item:hover{border-color:rgba(var(--pur),.35);background:rgba(var(--pur),.05)}
+.pk-icon{font-size:2rem;line-height:1}
+.pk-name{font-family:var(--h);font-size:1rem;font-weight:600}
+.pk-meta{font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
+.pk-link{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--m);font-size:.75rem;letter-spacing:.08em;color:var(--pu);border:1px solid rgba(var(--pur),.3);padding:.4rem .9rem;border-radius:999px;transition:all .2s;margin-top:auto}
+.pk-link:hover{background:rgba(var(--pur),.1)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--faint);padding:clamp(3rem,6vw,5rem) var(--gap) 2rem}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:3rem}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+.footer-name{font-family:var(--d);font-size:clamp(2.5rem,8vw,5rem);line-height:.9;background:linear-gradient(135deg,#fff,var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-contact{display:flex;flex-direction:column;gap:.6rem;text-align:right}
+@media(max-width:600px){.footer-contact{text-align:left}}
+.contact-label{font-family:var(--m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text2)}
+.contact-value{font-family:var(--h);font-size:1rem;font-weight:500;color:var(--pu)}
+.social-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.social-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);padding:.5rem 1rem;border:1px solid var(--faint);border-radius:999px;transition:all .2s}
+.social-link:hover{color:var(--pu);border-color:rgba(var(--pur),.4)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--faint);flex-wrap:wrap;gap:1rem}
+.footer-copy{font-family:var(--m);font-size:.65rem;letter-spacing:.08em;color:var(--faint)}
+.footer-nawemedia{font-family:var(--m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.footer-nawemedia span{color:var(--pu)}
+
+/* ADMIN OVERLAY */
+#admOv{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);overflow-y:auto;padding:2rem var(--gap)}
+#admOv.open{display:flex;align-items:flex-start;justify-content:center}
+.adm-panel{background:var(--bg2);border:1px solid rgba(var(--pur),.3);border-radius:var(--r3);width:100%;max-width:800px;overflow:hidden}
+.adm-header{padding:1.5rem 2rem;border-bottom:1px solid var(--faint);display:flex;align-items:center;justify-content:space-between}
+.adm-title{font-family:var(--d);font-size:1.5rem;letter-spacing:.08em}
+.adm-close{font-size:1.5rem;color:var(--text2);transition:color .2s}
+.adm-close:hover{color:var(--pu)}
+.adm-body{padding:2rem}
+#admLogin{display:flex;flex-direction:column;gap:1rem}
+#admLogin input{background:rgba(255,255,255,.05);border:1px solid var(--faint);border-radius:var(--r);padding:.8rem 1rem;color:var(--text);font-family:var(--s);font-size:.95rem;outline:none;transition:border-color .2s}
+#admLogin input:focus{border-color:var(--pu)}
+.adm-save-btn{padding:.8rem 2rem;background:linear-gradient(135deg,var(--pu),var(--pu2));color:#fff;font-family:var(--h);font-size:.95rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r);transition:transform .2s,box-shadow .2s}
+.adm-save-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(var(--pur),.4)}
+.adm-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
+.adm-tab{font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .9rem;border:1px solid var(--faint);border-radius:999px;color:var(--text2);cursor:pointer;transition:all .2s}
+.adm-tab.active{background:var(--pu);border-color:var(--pu);color:#fff}
+.adm-field{margin-bottom:1.2rem}
+.adm-label{font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:.4rem;display:block}
+.adm-input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--faint);border-radius:var(--r);padding:.7rem 1rem;color:var(--text);font-family:var(--s);font-size:.9rem;outline:none;transition:border-color .2s}
+.adm-input:focus{border-color:var(--pu)}
+.adm-textarea{resize:vertical;min-height:100px}
+.adm-content{display:none}
+.adm-content.active{display:block}
+
+/* TOAST */
+#toast{position:fixed;bottom:2rem;right:2rem;background:var(--pu);color:#fff;font-family:var(--h);font-size:.9rem;font-weight:600;padding:.8rem 1.5rem;border-radius:var(--r);opacity:0;transform:translateY(1rem);transition:all .3s;pointer-events:none;z-index:300}
+#toast.show{opacity:1;transform:translateY(0)}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.95);align-items:center;justify-content:center}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--r)}
+.lb-close{position:absolute;top:1.5rem;right:1.5rem;font-size:2rem;color:var(--text2);cursor:pointer;transition:color .2s}
+.lb-close:hover{color:var(--pu)}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-name">YEMIX</div></div>
+
+<nav>
+  <div class="nav-logo">YEMIX</div>
+  <div class="nav-links">
+    <a href="#bio">Bio</a>
+    <a href="#music">Música</a>
+    <a href="#gallery">Galería</a>
+    <a href="#shows">Shows</a>
+    <a href="#presskit">Press Kit</a>
+    <button class="nav-admin" onclick="openAdmin()">⚙️</button>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<div id="admOv">
+  <div class="adm-panel">
+    <div class="adm-header">
+      <div class="adm-title">ADMIN PANEL</div>
+      <button class="adm-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="adm-body">
+      <div id="admLogin">
+        <input type="password" id="admPwd" placeholder="Contraseña admin" onkeydown="if(event.key==='Enter')admAuth()">
+        <button class="adm-save-btn" onclick="admAuth()">Acceder</button>
+      </div>
+      <div id="admPanel" style="display:none">
+        <div class="adm-tabs">
+          <button class="adm-tab active" onclick="admTab(this,\'artista\')">Artista</button>
+          <button class="adm-tab" onclick="admTab(this,\'bio\')">Bio</button>
+          <button class="adm-tab" onclick="admTab(this,\'shows\')">Shows</button>
+          <button class="adm-tab" onclick="admTab(this,\'galeria\')">Galería</button>
+          <button class="adm-tab" onclick="admTab(this,\'musica\')">Música</button>
+          <button class="adm-tab" onclick="admTab(this,\'presskit\')">Press Kit</button>
+          <button class="adm-tab" onclick="admTab(this,\'config\')">Config</button>
+        </div>
+        <div id="adm-artista" class="adm-content active">
+          <div class="adm-field"><label class="adm-label">Nombre artístico</label><input class="adm-input" id="a-name"></div>
+          <div class="adm-field"><label class="adm-label">Tagline</label><input class="adm-input" id="a-tagline"></div>
+          <div class="adm-field"><label class="adm-label">Ubicación</label><input class="adm-input" id="a-location"></div>
+          <div class="adm-field"><label class="adm-label">Email booking</label><input class="adm-input" id="a-contact"></div>
+          <div class="adm-field"><label class="adm-label">WhatsApp</label><input class="adm-input" id="a-whatsapp"></div>
+          <div class="adm-field"><label class="adm-label">Hero Photo URL</label><input class="adm-input" id="a-hero"></div>
+          <div class="adm-field"><label class="adm-label">Bio Photo URL</label><input class="adm-input" id="a-bio-photo"></div>
+          <div class="adm-field"><label class="adm-label">Géneros (separados por coma)</label><input class="adm-input" id="a-genres"></div>
+          <div class="adm-field"><label class="adm-label">Año debut</label><input class="adm-input" id="a-debut"></div>
+          <div class="adm-field"><label class="adm-label">Shows</label><input class="adm-input" id="a-shows"></div>
+          <div class="adm-field"><label class="adm-label">Países</label><input class="adm-input" id="a-countries"></div>
+        </div>
+        <div id="adm-bio" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Lede ES</label><textarea class="adm-input adm-textarea" id="b-lede-es"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Body ES</label><textarea class="adm-input adm-textarea" style="min-height:160px" id="b-body-es"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Lede EN</label><textarea class="adm-input adm-textarea" id="b-lede-en"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Body EN</label><textarea class="adm-input adm-textarea" style="min-height:160px" id="b-body-en"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Lede PT</label><textarea class="adm-input adm-textarea" id="b-lede-pt"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Body PT</label><textarea class="adm-input adm-textarea" style="min-height:160px" id="b-body-pt"></textarea></div>
+        </div>
+        <div id="adm-shows" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Shows JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="s-json"></textarea></div>
+        </div>
+        <div id="adm-galeria" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Gallery JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="g-json"></textarea></div>
+        </div>
+        <div id="adm-musica" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Music JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="m-json"></textarea></div>
+        </div>
+        <div id="adm-presskit" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Descripción press kit</label><textarea class="adm-input adm-textarea" id="pk-desc"></textarea></div>
+          <div class="adm-field"><label class="adm-label">Items JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="pk-json"></textarea></div>
+        </div>
+        <div id="adm-config" class="adm-content">
+          <div class="adm-field"><label class="adm-label">Instagram</label><input class="adm-input" id="sc-ig"></div>
+          <div class="adm-field"><label class="adm-label">SoundCloud</label><input class="adm-input" id="sc-sc"></div>
+          <div class="adm-field"><label class="adm-label">YouTube</label><input class="adm-input" id="sc-yt"></div>
+          <div class="adm-field"><label class="adm-label">Facebook</label><input class="adm-input" id="sc-fb"></div>
+          <div class="adm-field"><label class="adm-label">Spotify</label><input class="adm-input" id="sc-sp"></div>
+          <div class="adm-field"><label class="adm-label">TikTok</label><input class="adm-input" id="sc-tt"></div>
+          <div class="adm-field"><label class="adm-label">Nueva contraseña admin</label><input class="adm-input" id="cfg-pwd" type="password"></div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+            <button class="adm-save-btn" onclick="admExport()">Exportar HTML</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
+          <button class="adm-save-btn" onclick="admSave()">💾 Guardar</button>
+          <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none" onclick="admReset()">↩ Restaurar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<div id="lightbox" onclick="closeLightbox()"><span class="lb-close">✕</span><img id="lb-img" src="" alt=""></div>
+
+<script id="epk-data" type="application/json">
+{
+  "artist": {
+    "name": "YEMIX",
+    "tagline": "Circuit energy, tribal soul",
+    "location": "Buenos Aires · Argentina",
+    "contact": "Castromarvi@gmail.com",
+    "whatsapp": "+5491123065138",
+    "heroPhoto": "https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/hero.jpg",
+    "bioPhoto": "https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/bio.jpg",
+    "genres": ["Tribal House", "Circuit", "Tech House", "Afro House"],
+    "stats": {
+      "debut": "2013",
+      "shows": "500+",
+      "countries": "6"
+    }
+  },
+  "bio": {
+    "es": {
+      "lede": "Yemix es una DJ con más de 9 años de trayectoria y una presencia consolidada en la escena LGBTQ, circuit y tribal de Argentina.",
+      "body": "Su propuesta combina tribal house, circuit, tech house y afro house con una lectura de pista orientada a la energía, la sensualidad y el impacto en club. Sets pensados para sostener tensión, elevar la temperatura y hacer bailar sin pausa.\\n\\nFue residente de MALEVO, una de las fiestas más fuertes del circuito tribal y circuit en Buenos Aires, y participó en fiestas clave como La Fiesta del Perrito, Glam, Touch Party Chile 2022 y Pandora Chile 2023. Compartió cabina con Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro e Iván Gómez.\\n\\nCon más de 500 shows, presencia en 6 países y una carrera iniciada en 2013, Yemix consolida su lugar como referente de la escena nocturna LGBTQ en Argentina y la región."
+    },
+    "en": {
+      "lede": "Yemix is a DJ with over 9 years of experience and a consolidated presence in Argentina's LGBTQ, circuit and tribal scene.",
+      "body": "Her sets combine tribal house, circuit, tech house and afro house with a dancefloor-driven approach focused on energy, sensuality and club impact. Built to sustain tension, elevate the room and keep the floor moving.\\n\\nShe was resident at MALEVO, one of Buenos Aires' strongest tribal and circuit parties, and has played key events including La Fiesta del Perrito, Glam, Touch Party Chile 2022 and Pandora Chile 2023. She has shared the booth with Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro and Iván Gómez.\\n\\nWith 500+ shows, presence in 6 countries and a career started in 2013, Yemix stands as a leading figure in Argentina's LGBTQ nightlife scene."
+    },
+    "pt": {
+      "lede": "Yemix é uma DJ com mais de 9 anos de trajetória e presença consolidada na cena LGBTQ, circuit e tribal da Argentina.",
+      "body": "Seus sets combinam tribal house, circuit, tech house e afro house com uma leitura de pista voltada para energia, sensualidade e impacto em club. Construídos para sustentar tensão, elevar o ambiente e manter a pista em movimento.\\n\\nFoi residente do MALEVO, uma das festas mais fortes do circuito tribal e circuit de Buenos Aires, e participou de eventos como La Fiesta del Perrito, Glam, Touch Party Chile 2022 e Pandora Chile 2023. Dividiu a cabine com Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro e Iván Gómez.\\n\\nCom mais de 500 shows, presença em 6 países e carreira iniciada em 2013, Yemix se consolida como referência da cena noturna LGBTQ na Argentina e na região."
+    }
+  },
+  "shows": [],
+  "gallery": [
+    {"id":1,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/hero.jpg","caption":"YEMIX","category":"prensa","span":"feat"},
+    {"id":2,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/bio.jpg","caption":"Press portrait","category":"prensa","span":"tall"},
+    {"id":3,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/editorial-1.jpg","caption":"Editorial","category":"lifestyle","span":""},
+    {"id":4,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/editorial-2.jpg","caption":"Editorial","category":"lifestyle","span":""},
+    {"id":5,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/press-1.jpg","caption":"Stage energy","category":"shows","span":""},
+    {"id":6,"url":"https://qbpjuuesgsrotsagorcr.supabase.co/storage/v1/object/public/epk-assets/yemix/photos/press-2.jpg","caption":"Performance","category":"shows","span":"wide"}
+  ],
+  "music": [
+    {"id":1,"title":"Dj YEMIX Tribal Session vol2 Ma.cho2026","type":"set","embedUrl":"https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2261616104&color=%23f04fcf&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"},
+    {"id":2,"title":"Rihanna — Rude Boy D# (YEMIX REMIX PVT)","type":"set","embedUrl":"https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1838913702&color=%23f04fcf&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"}
+  ],
+  "presskit": {
+    "description": "Descargas directas para prensa, promotores y productoras.",
+    "items": [
+      {"id":1,"name":"Fotos HD","size":"Drive","format":"JPG","url":"https://drive.google.com/drive/folders/1T91YS8vuadRcqtEV04mFgHRd57YqjfSf?usp=sharing","icon":"📷"}
+    ]
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/yemixmusic/",
+    "soundcloud": "https://soundcloud.com/emixc",
+    "youtube": "",
+    "facebook": "",
+    "spotify": "",
+    "tiktok": ""
+  },
+  "admin": {
+    "password": "yemix2026"
+  }
+}
+</script>
+
+<script>
+const SLUG = 'yemix';
+let EPK = {};
+let _SB_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
+let _SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFicGp1dWVzZ3Nyb3RzYWdvcmNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MDc1ODksImV4cCI6MjA5NjE4MzU4OX0.CWCOb23nuq0JkHNAJT3CTLWtfT7cLBYdOKOjRZqVZLc';
+let _sb = null;
+
+const DL = {
+  load() {
+    try {
+      const d = localStorage.getItem('epk_'+SLUG+'_v2');
+      return d ? JSON.parse(d) : null;
+    } catch(e){ return null; }
+  },
+  save(d) {
+    const ts = new Date().toISOString();
+    try {
+      localStorage.setItem('epk_'+SLUG+'_v2', JSON.stringify(d));
+      localStorage.setItem('epk_'+SLUG+'_ts', ts);
+    } catch(e){}
+    if(_sb) {
+      _sb.from('epk').upsert({slug:SLUG,data:d,updated_at:ts},{onConflict:'slug'}).then(()=>{});
+    }
+  },
+  sync() {
+    if(!_sb) return;
+    const localTs = localStorage.getItem('epk_'+SLUG+'_ts') || '0';
+    _sb.from('epk').select('data,updated_at').eq('slug',SLUG).single().then(({data})=>{
+      if(data && data.updated_at > localTs) {
+        EPK = data.data;
+        localStorage.setItem('epk_'+SLUG+'_v2', JSON.stringify(EPK));
+        localStorage.setItem('epk_'+SLUG+'_ts', data.updated_at);
+        renderAll();
+      }
+    });
+  }
+};
+
+function init() {
+  const embedded = JSON.parse(document.getElementById('epk-data').textContent);
+  const stored = DL.load();
+  EPK = stored || embedded;
+  renderAll();
+  setTimeout(()=>{ document.getElementById('loader').classList.add('out'); }, 1400);
+  (function(){
+    if(_SB_URL.includes('%%')) return;
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+    s.async = true;
+    s.onload = function(){
+      _sb = supabase.createClient(_SB_URL, _SB_KEY);
+      _sb.from('epk_views').insert({slug:SLUG}).then(()=>{});
+      DL.sync();
+    };
+    document.head.appendChild(s);
+  })();
+}
+
+function renderAll() {
+  document.getElementById('main').innerHTML = [
+    renderHero(),
+    renderBio(),
+    renderMusic(),
+    renderGallery(),
+    renderShows(),
+    renderPressKit(),
+    renderFooter()
+  ].join('');
+  bindGallery();
+  bindBioTabs();
+}
+
+function renderHero() {
+  const a = EPK.artist;
+  const beams = Array.from({length:6},(_,i)=>{
+    const left = 10+i*15;
+    const dur = 8+i*3;
+    const delay = i*1.5;
+    return `<div class="beam" style="left:${left}%;height:${40+i*10}%;animation-duration:${dur}s;animation-delay:${delay}s;opacity:${0.3+i*.05}"></div>`;
+  }).join('');
+  const genres = (a.genres||[]).map(g=>`<span class="genre-tag">${g}</span>`).join('');
+  const heroBgStyle = a.heroPhoto ? ` style="background-image:url('${a.heroPhoto}');background-size:cover;background-position:center top"` : '';
+  return `
+<section id="hero">
+  <div class="hero-bg" id="hero-bg-el"${heroBgStyle}></div>
+  <div class="hero-beams">${beams}</div>
+  <div class="hero-location">${a.location}</div>
+  <div class="hero-content">
+    <div class="hero-genres">${genres}</div>
+    <h1 class="hero-name"><span>${a.name}</span></h1>
+    <div class="hero-tagline">${a.tagline}</div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">${a.stats.shows}</div><div class="stat-label">Shows</div></div>
+      <div class="stat"><div class="stat-num">${a.stats.countries}</div><div class="stat-label">Países</div></div>
+      <div class="stat"><div class="stat-num">desde '${a.stats.debut.slice(-2)}</div><div class="stat-label">En escena</div></div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:${a.contact}" class="btn-primary">✉ Booking</a>
+      <a href="https://wa.me/${a.whatsapp.replace(/[^0-9]/g,'')}" class="btn-secondary" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</section>`;
+}
+
+function renderBio() {
+  const a = EPK.artist;
+  const b = EPK.bio;
+  function bioHTML(lang) {
+    const bd = b[lang];
+    if(!bd) return '';
+    const paras = bd.body.split('\\n\\n').map(p=>`<p>${p}</p>`).join('');
+    return `<div class="bio-lede">"${bd.lede}"</div><div class="bio-body">${paras}</div>`;
+  }
+  const photoHTML = a.bioPhoto && !a.bioPhoto.includes('{project}')
+    ? `<img src="${a.bioPhoto}" alt="${a.name}" loading="lazy">`
+    : `<div style="height:100%;background:linear-gradient(135deg,rgba(240,79,207,.15),rgba(143,99,255,.15));display:flex;align-items:center;justify-content:center"><span style="font-family:var(--d);font-size:4rem;opacity:.3">Y</span></div>`;
+  return `
+<section id="bio">
+  <div class="section-inner">
+    <div class="bio-grid">
+      <div>
+        <div class="bio-photo-wrap">${photoHTML}</div>
+      </div>
+      <div>
+        <div class="section-label">Acerca de</div>
+        <h2 class="section-title">${a.name}</h2>
+        <div class="bio-highlights">
+          <div class="highlight"><div class="hl-num">${a.stats.shows}</div><div class="hl-label">Shows</div></div>
+          <div class="highlight"><div class="hl-num">${a.stats.countries}</div><div class="hl-label">Países</div></div>
+          <div class="highlight"><div class="hl-num">${a.stats.debut}</div><div class="hl-label">Debut</div></div>
+          <div class="highlight"><div class="hl-num">${a.location.split("·")[0].trim()}</div><div class="hl-label">Base</div></div>
+        </div>
+        <div class="bio-tabs">
+          <button class="bio-tab active" data-lang="es">ES</button>
+          <button class="bio-tab" data-lang="en">EN</button>
+          <button class="bio-tab" data-lang="pt">PT</button>
+        </div>
+        <div class="bio-content active" data-content="es">${bioHTML('es')}</div>
+        <div class="bio-content" data-content="en">${bioHTML('en')}</div>
+        <div class="bio-content" data-content="pt">${bioHTML('pt')}</div>
+      </div>
+    </div>
+  </div>
+</section>`;
+}
+
+function renderMusic() {
+  const cards = (EPK.music||[]).map(m=>`
+<div class="music-card">
+  <div class="music-card-header">
+    <div class="music-icon">🎧</div>
+    <div><div class="music-title">${m.title}</div><div class="music-type">${m.type}</div></div>
+  </div>
+  <div class="music-embed"><iframe src="${m.embedUrl}" scrolling="no" allow="autoplay"></iframe></div>
+</div>`).join('');
+  return `
+<section id="music">
+  <div class="section-inner">
+    <div class="section-label">Escuchar</div>
+    <h2 class="section-title">Sets & Tracks</h2>
+    <div class="music-grid">${cards}</div>
+  </div>
+</section>`;
+}
+
+function renderGallery() {
+  const items = (EPK.gallery||[]).map(g=>{
+    const spanClass = g.span ? g.span : '';
+    const hasPhoto = g.url && !g.url.includes('{project}');
+    const inner = hasPhoto
+      ? `<img src="${g.url}" alt="${g.caption}" loading="lazy"><div class="gallery-item-overlay"></div><div class="gallery-caption">${g.caption}</div>`
+      : `<div class="gallery-placeholder"><span>📷</span><span>${g.caption}</span></div>`;
+    const click = hasPhoto ? `onclick="openLightbox('${g.url}')"` : '';
+    return `<div class="gallery-item ${spanClass}" ${click} data-cat="${g.category}">${inner}</div>`;
+  }).join('');
+  return `
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-label">Visual</div>
+    <h2 class="section-title">Galería</h2>
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery(this,'all')">Todos</button>
+      <button class="filter-btn" onclick="filterGallery(this,'prensa')">Prensa</button>
+      <button class="filter-btn" onclick="filterGallery(this,'lifestyle')">Editorial</button>
+      <button class="filter-btn" onclick="filterGallery(this,'shows')">Shows</button>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">${items}</div>
+  </div>
+</section>`;
+}
+
+function renderShows() {
+  const shows = EPK.shows||[];
+  const list = shows.length === 0
+    ? '<div class="shows-empty">Próximas fechas por confirmar.</div>'
+    : shows.map(s=>{
+        const d = new Date(s.date);
+        const day = d.getDate();
+        const mon = d.toLocaleString('es',{month:'short'}).toUpperCase();
+        return `<div class="show-card">
+          <div><div class="show-date">${day}</div><div class="show-date-sub">${mon}</div></div>
+          <div><div class="show-info-venue">${s.venue}</div><div class="show-info-location">${s.city} · ${s.country}</div></div>
+          <div><span class="show-badge">${s.type}</span></div>
+        </div>`;
+      }).join('');
+  return `
+<section id="shows">
+  <div class="section-inner">
+    <div class="section-label">Agenda</div>
+    <h2 class="section-title">Shows</h2>
+    <div class="shows-list">${list}</div>
+  </div>
+</section>`;
+}
+
+function renderPressKit() {
+  const pk = EPK.presskit||{};
+  const items = (pk.items||[]).map(i=>`
+<a class="pk-item" href="${i.url}" target="_blank" rel="noopener">
+  <div class="pk-icon">${i.icon}</div>
+  <div class="pk-name">${i.name}</div>
+  <div class="pk-meta">${i.format} · ${i.size}</div>
+  <div class="pk-link">Descargar ↗</div>
+</a>`).join('');
+  return `
+<section id="presskit">
+  <div class="section-inner">
+    <div class="section-label">Prensa</div>
+    <h2 class="section-title">Press Kit</h2>
+    <p class="presskit-desc">${pk.description||''}</p>
+    <div class="presskit-grid">${items}</div>
+  </div>
+</section>`;
+}
+
+function renderFooter() {
+  const a = EPK.artist;
+  const s = EPK.social||{};
+  const socialDef = [
+    {key:'instagram',label:'Instagram',icon:'IG'},
+    {key:'soundcloud',label:'SoundCloud',icon:'SC'},
+    {key:'youtube',label:'YouTube',icon:'YT'},
+    {key:'facebook',label:'Facebook',icon:'FB'},
+    {key:'spotify',label:'Spotify',icon:'SP'},
+    {key:'tiktok',label:'TikTok',icon:'TK'}
+  ];
+  const socials = socialDef.filter(sd=>s[sd.key]).map(sd=>`
+<a class="social-link" href="${s[sd.key]}" target="_blank" rel="noopener">
+  <span>${sd.icon}</span><span>${sd.label}</span>
+</a>`).join('');
+  return `
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-name">${a.name}</div>
+      <div class="footer-contact">
+        <div class="contact-label">Booking</div>
+        <a class="contact-value" href="mailto:${a.contact}">${a.contact}</a>
+        <div class="contact-label" style="margin-top:.4rem">WhatsApp</div>
+        <a class="contact-value" href="https://wa.me/${a.whatsapp.replace(/[^0-9]/g,'')}" target="_blank">${a.whatsapp}</a>
+      </div>
+    </div>
+    <div class="social-row">${socials}</div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© ${new Date().getFullYear()} ${a.name} · ${a.location}</div>
+      <div class="footer-nawemedia">EPK by <span>NAWEMEDIA</span></div>
+    </div>
+  </div>
+</footer>`;
+}
+
+function bindBioTabs() {
+  document.querySelectorAll('.bio-tab').forEach(tab=>{
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.bio-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.bio-content').forEach(c=>c.classList.remove('active'));
+      this.classList.add('active');
+      document.querySelector('.bio-content[data-content="'+this.dataset.lang+'"]').classList.add('active');
+    });
+  });
+}
+
+function bindGallery() {}
+
+function filterGallery(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item=>{
+    item.style.display = (cat==='all' || item.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+function openLightbox(url) {
+  document.getElementById('lb-img').src = url;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+
+function openAdmin() { document.getElementById('admOv').classList.add('open'); }
+function closeAdmin() { document.getElementById('admOv').classList.remove('open'); }
+
+function admAuth() {
+  const pwd = document.getElementById('admPwd').value;
+  if(pwd === EPK.admin.password) {
+    document.getElementById('admLogin').style.display='none';
+    document.getElementById('admPanel').style.display='block';
+    localStorage.setItem('epk_'+SLUG+'_auth','1');
+    loadAdmFields();
+  } else {
+    showToast('Contraseña incorrecta');
+  }
+}
+
+function admTab(btn, tab) {
+  document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.adm-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('adm-'+tab).classList.add('active');
+}
+
+function loadAdmFields() {
+  const a = EPK.artist;
+  document.getElementById('a-name').value = a.name||'';
+  document.getElementById('a-tagline').value = a.tagline||'';
+  document.getElementById('a-location').value = a.location||'';
+  document.getElementById('a-contact').value = a.contact||'';
+  document.getElementById('a-whatsapp').value = a.whatsapp||'';
+  document.getElementById('a-hero').value = a.heroPhoto||'';
+  document.getElementById('a-bio-photo').value = a.bioPhoto||'';
+  document.getElementById('a-genres').value = (a.genres||[]).join(', ');
+  document.getElementById('a-debut').value = a.stats.debut||'';
+  document.getElementById('a-shows').value = a.stats.shows||'';
+  document.getElementById('a-countries').value = a.stats.countries||'';
+  document.getElementById('b-lede-es').value = EPK.bio.es.lede||'';
+  document.getElementById('b-body-es').value = EPK.bio.es.body||'';
+  document.getElementById('b-lede-en').value = EPK.bio.en.lede||'';
+  document.getElementById('b-body-en').value = EPK.bio.en.body||'';
+  document.getElementById('b-lede-pt').value = EPK.bio.pt.lede||'';
+  document.getElementById('b-body-pt').value = EPK.bio.pt.body||'';
+  document.getElementById('s-json').value = JSON.stringify(EPK.shows||[], null, 2);
+  document.getElementById('g-json').value = JSON.stringify(EPK.gallery||[], null, 2);
+  document.getElementById('m-json').value = JSON.stringify(EPK.music||[], null, 2);
+  document.getElementById('pk-desc').value = (EPK.presskit||{}).description||'';
+  document.getElementById('pk-json').value = JSON.stringify((EPK.presskit||{}).items||[], null, 2);
+  const s = EPK.social||{};
+  document.getElementById('sc-ig').value = s.instagram||'';
+  document.getElementById('sc-sc').value = s.soundcloud||'';
+  document.getElementById('sc-yt').value = s.youtube||'';
+  document.getElementById('sc-fb').value = s.facebook||'';
+  document.getElementById('sc-sp').value = s.spotify||'';
+  document.getElementById('sc-tt').value = s.tiktok||'';
+}
+
+function admSave() {
+  try {
+    EPK.artist.name = document.getElementById('a-name').value;
+    EPK.artist.tagline = document.getElementById('a-tagline').value;
+    EPK.artist.location = document.getElementById('a-location').value;
+    EPK.artist.contact = document.getElementById('a-contact').value;
+    EPK.artist.whatsapp = document.getElementById('a-whatsapp').value;
+    EPK.artist.heroPhoto = document.getElementById('a-hero').value;
+    EPK.artist.bioPhoto = document.getElementById('a-bio-photo').value;
+    EPK.artist.genres = document.getElementById('a-genres').value.split(',').map(g=>g.trim()).filter(Boolean);
+    EPK.artist.stats.debut = document.getElementById('a-debut').value;
+    EPK.artist.stats.shows = document.getElementById('a-shows').value;
+    EPK.artist.stats.countries = document.getElementById('a-countries').value;
+    EPK.bio.es.lede = document.getElementById('b-lede-es').value;
+    EPK.bio.es.body = document.getElementById('b-body-es').value;
+    EPK.bio.en.lede = document.getElementById('b-lede-en').value;
+    EPK.bio.en.body = document.getElementById('b-body-en').value;
+    EPK.bio.pt.lede = document.getElementById('b-lede-pt').value;
+    EPK.bio.pt.body = document.getElementById('b-body-pt').value;
+    EPK.shows = JSON.parse(document.getElementById('s-json').value||'[]');
+    EPK.gallery = JSON.parse(document.getElementById('g-json').value||'[]');
+    EPK.music = JSON.parse(document.getElementById('m-json').value||'[]');
+    EPK.presskit.description = document.getElementById('pk-desc').value;
+    EPK.presskit.items = JSON.parse(document.getElementById('pk-json').value||'[]');
+    EPK.social.instagram = document.getElementById('sc-ig').value;
+    EPK.social.soundcloud = document.getElementById('sc-sc').value;
+    EPK.social.youtube = document.getElementById('sc-yt').value;
+    EPK.social.facebook = document.getElementById('sc-fb').value;
+    EPK.social.spotify = document.getElementById('sc-sp').value;
+    EPK.social.tiktok = document.getElementById('sc-tt').value;
+    const newPwd = document.getElementById('cfg-pwd').value;
+    if(newPwd) EPK.admin.password = newPwd;
+    DL.save(EPK);
+    renderAll();
+    showToast('✓ Guardado');
+  } catch(e) { showToast('Error: '+e.message); }
+}
+
+function admReset() {
+  if(!confirm('Restaurar datos originales?')) return;
+  localStorage.removeItem('epk_'+SLUG+'_v2');
+  localStorage.removeItem('epk_'+SLUG+'_ts');
+  EPK = JSON.parse(document.getElementById('epk-data').textContent);
+  renderAll();
+  loadAdmFields();
+  showToast('↩ Restaurado');
+}
+
+function admExport() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'yemix-epk.html';
+  a.click();
+  showToast('↓ Exportado');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+init();
+</script>
+</body>
+</html>
