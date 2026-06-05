@@ -24,10 +24,10 @@
   --lime: #d7ff3f;
   --muted: rgba(185,169,201,.7);
   --faint: rgba(185,169,201,.25);
-  --d: \'Anton\', Impact, sans-serif;
-  --h: \'Oswald\', sans-serif;
-  --s: \'Inter\', system-ui, sans-serif;
-  --m: \'JetBrains Mono\', monospace;
+  --d: 'Anton', Impact, sans-serif;
+  --h: 'Oswald', sans-serif;
+  --s: 'Inter', system-ui, sans-serif;
+  --m: 'JetBrains Mono', monospace;
   --max: 1320px;
   --gap: clamp(1.25rem, 4vw, 3rem);
   --r: 16px; --r2: 22px; --r3: 32px;
@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem var(--gap);dis
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a2e 0%,#0a0515 40%,#070707 100%);z-index:0;background-size:cover;background-position:center top}
 .hero-bg[style]{background:none}
 .hero-bg[style]::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,7,.92) 0%,rgba(7,7,7,.6) 50%,rgba(7,7,7,.35) 100%);z-index:1}
-.hero-bg::after{content:\'\';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(var(--pur),.18) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(143,99,255,.12) 0%,transparent 60%)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(var(--pur),.18) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(143,99,255,.12) 0%,transparent 60%)}
 .hero-beams{position:absolute;inset:0;overflow:hidden;z-index:2}
 .beam{position:absolute;width:1px;background:linear-gradient(180deg,transparent,rgba(var(--pur),.4),transparent);animation:beam-fall linear infinite}
 @keyframes beam-fall{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
@@ -93,7 +93,7 @@ section{padding:clamp(4rem,8vw,7rem) var(--gap)}
 @media(max-width:768px){.bio-grid{grid-template-columns:1fr}}
 .bio-photo-wrap{position:relative;border-radius:var(--r2);overflow:hidden;aspect-ratio:3/4}
 .bio-photo-wrap img{width:100%;height:100%;object-fit:cover}
-.bio-photo-wrap::after{content:\'\';position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--pur),.3) 0%,transparent 60%)}
+.bio-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--pur),.3) 0%,transparent 60%)}
 .bio-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:2rem}
 .highlight{background:rgba(var(--pur),.07);border:1px solid rgba(var(--pur),.2);border-radius:var(--r);padding:.9rem 1rem}
 .hl-num{font-family:var(--d);font-size:1.8rem;background:linear-gradient(135deg,var(--pu),var(--pu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.2rem}
@@ -251,13 +251,13 @@ footer{background:var(--bg);border-top:1px solid var(--faint);padding:clamp(3rem
       </div>
       <div id="admPanel" style="display:none">
         <div class="adm-tabs">
-          <button class="adm-tab active" onclick="admTab(this,\'artista\')">Artista</button>
-          <button class="adm-tab" onclick="admTab(this,\'bio\')">Bio</button>
-          <button class="adm-tab" onclick="admTab(this,\'shows\')">Shows</button>
-          <button class="adm-tab" onclick="admTab(this,\'galeria\')">Galería</button>
-          <button class="adm-tab" onclick="admTab(this,\'musica\')">Música</button>
-          <button class="adm-tab" onclick="admTab(this,\'presskit\')">Press Kit</button>
-          <button class="adm-tab" onclick="admTab(this,\'config\')">Config</button>
+          <button class="adm-tab active" onclick="admTab(this,'artista')">Artista</button>
+          <button class="adm-tab" onclick="admTab(this,'bio')">Bio</button>
+          <button class="adm-tab" onclick="admTab(this,'shows')">Shows</button>
+          <button class="adm-tab" onclick="admTab(this,'galeria')">Galería</button>
+          <button class="adm-tab" onclick="admTab(this,'musica')">Música</button>
+          <button class="adm-tab" onclick="admTab(this,'presskit')">Press Kit</button>
+          <button class="adm-tab" onclick="admTab(this,'config')">Config</button>
         </div>
         <div id="adm-artista" class="adm-content active">
           <div class="adm-field"><label class="adm-label">Nombre artístico</label><input class="adm-input" id="a-name"></div>
