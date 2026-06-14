@@ -1,6 +1,16 @@
 {
   "rewrites": [
     {
+      "source": "/assets/:path*",
+      "destination": "/djs/dj-bini/assets/:path*",
+      "has": [{ "type": "host", "value": "djbini.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/dj-bini/assets/:path*",
+      "has": [{ "type": "host", "value": "www.djbini.com" }]
+    },
+    {
       "source": "/(.*)",
       "destination": "/djs/dj-bini/index.html",
       "has": [{ "type": "host", "value": "djbini.com" }]
