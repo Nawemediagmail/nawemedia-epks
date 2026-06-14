@@ -18,7 +18,7 @@ serve(async (req) => {
   }
 
   const { data, error } = await supabase
-    .from("epk_data")
+    .from("epk")
     .select("data, updated_at")
     .eq("slug", slug)
     .single()

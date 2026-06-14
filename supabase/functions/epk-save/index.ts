@@ -24,7 +24,7 @@ serve(async (req) => {
   }
 
   const { data: result, error } = await supabase
-    .from("epk_data")
+    .from("epk")
     .upsert({ slug, data }, { onConflict: "slug" })
     .select()
 
