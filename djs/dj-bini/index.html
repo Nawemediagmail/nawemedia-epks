@@ -46,7 +46,7 @@
   }
 
   *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     margin:0;
     background:var(--bg);
@@ -111,6 +111,7 @@
     backdrop-filter:blur(20px) saturate(140%);
     background:linear-gradient(180deg,rgba(8,4,10,.85),rgba(8,4,10,.55));
     border-bottom:1px solid var(--line);
+    overflow:hidden;
   }
   nav.top .inner{
     max-width:var(--maxw);margin:0 auto;
@@ -910,7 +911,8 @@
 
   
   .brand__logo{
-    height:54px;width:auto;display:block;
+    height:44px;width:auto;display:block;
+    max-width:160px;
     filter:none;
   }
   .hero__logo{
