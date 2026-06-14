@@ -1550,8 +1550,25 @@ PRESS KIT WEB · 2026</span>
     ]
   };
 
-  let adminData = JSON.parse(localStorage.getItem("epk-bini-data")) || defaultData;
-  let isAuth = false; // never persist auth — always require password on reload
+  let adminData = defaultData;
+  let isAuth = false;
+  const SUPABASE_URL = "https://qbpjuuesgsrotsagorcr.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf";
+  const DJ_SLUG = "dj-bini";
+
+  async function loadFromSupabase() {
+    try {
+      const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-load?slug=${DJ_SLUG}`, {
+        method: "GET",
+        headers: { "apikey": SUPABASE_ANON_KEY }
+      });
+      if (!response.ok) throw new Error("Load failed");
+      const result = await response.json();
+      if (result.data) adminData = result.data;
+    } catch (e) {
+      console.log("Load from Supabase failed, using cached data:", e.message);
+    }
+  }
 
   // ── AUTH ──
   const adminModal = document.getElementById("admin-modal");
@@ -1563,13 +1580,15 @@ PRESS KIT WEB · 2026</span>
   const loginScreen = document.getElementById("login-screen");
   const adminContent = document.getElementById("admin-content");
 
-  function openAdmin(){ 
-    adminModal.classList.add("open"); 
+  async function openAdmin(){
+    adminModal.classList.add("open");
     if(!isAuth) {
       loginScreen.style.display = "flex";
       adminContent.style.display = "none";
       adminPwd.focus();
     } else {
+      await loadFromSupabase();
+      renderAdmin();
       loginScreen.style.display = "none";
       adminContent.style.display = "flex";
       adminContent.style.flexDirection = "column";
@@ -1696,7 +1715,7 @@ PRESS KIT WEB · 2026</span>
 
   // ── SAVE LOGIC ──
   document.querySelectorAll("[data-save]").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
+    btn.addEventListener("click", async ()=>{
       const tab = btn.dataset.save;
       if(tab === "bio"){
         adminData.bio.en = document.getElementById("bio-en").value;
@@ -1728,19 +1747,19 @@ PRESS KIT WEB · 2026</span>
           s.url = document.querySelector(`[data-social-field="${i}-url"]`).value;
         });
       }
-      saveData();
-      alert("¡Guardado! Recargá la página para ver los cambios.");
+      const success = await saveData();
+      alert(success ? "¡Guardado! Recargá la página para ver los cambios." : "Error al guardar. Intenta de nuevo.");
     });
   });
 
-  document.getElementById("save-video").addEventListener("click", ()=>{
+  document.getElementById("save-video").addEventListener("click", async ()=>{
     adminData.video.url = document.getElementById("video-url").value;
     adminData.video.title = document.getElementById("video-title").value;
-    saveData();
-    alert("¡Video guardado! Recargá la página para ver los cambios.");
+    const success = await saveData();
+    alert(success ? "¡Video guardado! Recargá la página para ver los cambios." : "Error al guardar. Intenta de nuevo.");
   });
 
-  document.getElementById("admin-save-all").addEventListener("click", ()=>{
+  document.getElementById("admin-save-all").addEventListener("click", async ()=>{
     adminData.bio.en = document.getElementById("bio-en").value;
     adminData.bio.es = document.getElementById("bio-es").value;
     adminData.bio.de = document.getElementById("bio-de").value;
@@ -1767,12 +1786,26 @@ PRESS KIT WEB · 2026</span>
       s.handle = document.querySelector(`[data-social-field="${i}-handle"]`).value;
       s.url = document.querySelector(`[data-social-field="${i}-url"]`).value;
     });
-    saveData();
-    alert("¡Todos los cambios guardados! Recargá para actualizar.");
+    const success = await saveData();
+    alert(success ? "¡Todos los cambios guardados! Recargá para actualizar." : "Error al guardar. Intenta de nuevo.");
   });
 
-  function saveData(){
-    localStorage.setItem("epk-bini-data", JSON.stringify(adminData));
+  async function saveData(){
+    try {
+      const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-save`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({ slug: DJ_SLUG, data: adminData })
+      });
+      if (!response.ok) throw new Error("Save failed");
+      return true;
+    } catch (e) {
+      console.error("Save to Supabase failed:", e.message);
+      return false;
+    }
   }
 
   // ── INIT — always show login on page load ──
