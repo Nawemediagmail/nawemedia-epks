@@ -499,38 +499,45 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:r
    load: (await sb.from('epk').select('*').eq('slug','ambar')).data[0]
    save: await sb.from('epk').upsert({slug:'ambar', ...data})
 */
-const _SB_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
-const _SB_KEY = 'sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf';
-let _sb = null; // initialized async after first render
-const DL = {
-  KEY:'epk_ambar_v2',
-  TS:'epk_ambar_v2_ts',
-  load(){ try{const d=localStorage.getItem(this.KEY);return d?JSON.parse(d):null}catch(e){return null} },
-  save(d){
-    const ts=new Date().toISOString();
-    try{localStorage.setItem(this.KEY,JSON.stringify(d));localStorage.setItem(this.TS,ts)}catch(e){}
-    if(_sb) _sb.from('epk').upsert({slug:'ambar-lombardi',data:d,updated_at:ts}).catch(()=>{});
-  },
-  async sync(){
-    if(!_sb) return null;
-    try{
-      const {data,error}=await _sb.from('epk').select('data,updated_at').eq('slug','ambar-lombardi').single();
-      if(data&&!error){
-        const remoteTs=new Date(data.updated_at).getTime();
-        const localTs=new Date(localStorage.getItem(this.TS)||0).getTime();
-        if(remoteTs>localTs){
-          localStorage.setItem(this.KEY,JSON.stringify(data.data));
-          localStorage.setItem(this.TS,data.updated_at);
-          return data.data;
-        }
-      }
-    }catch(e){}
-    return null;
+const SUPABASE_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf';
+const DJ_SLUG = 'ambar-lombardi';
+
+async function loadFromSupabase() {
+  try {
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-load?slug=${DJ_SLUG}`, {
+      method: "GET",
+      headers: { "apikey": SUPABASE_ANON_KEY }
+    });
+    if (!response.ok) throw new Error("Load failed");
+    const result = await response.json();
+    if (result.data) return result.data;
+  } catch (e) {
+    console.log("Load from Supabase failed, using cached data:", e.message);
   }
-};
+  return null;
+}
+
+async function saveData(data) {
+  try {
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-save`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY
+      },
+      body: JSON.stringify({ slug: DJ_SLUG, data })
+    });
+    if (!response.ok) throw new Error("Save failed");
+    return true;
+  } catch (e) {
+    console.error("Save to Supabase failed:", e.message);
+    return false;
+  }
+}
 
 const RAW = JSON.parse(document.getElementById('epk-data').textContent);
-let EPK = DL.load() || JSON.parse(JSON.stringify(RAW));
+let EPK = JSON.parse(JSON.stringify(RAW));
 let cdTimer = null;
 let curLang = 'es';
 let curTab = 'artista';
@@ -999,11 +1006,11 @@ function renderTab(tab){
       </div>`).join('')}</div>
     <button class="a-add" id="add-show">+ Agregar show</button>`;
     ct.querySelectorAll('[data-rm-show]').forEach(btn=>{
-      btn.onclick=()=>{EPK.shows.splice(+btn.dataset.rmShow,1);DL.save(EPK);renderTab('shows');renderAll()};
+      btn.onclick=()=>{EPK.shows.splice(+btn.dataset.rmShow,1);saveData(EPK);renderTab('shows');renderAll()};
     });
     $('add-show').onclick=()=>{
       EPK.shows.push({id:Date.now(),date:'',venue:'',city:'',country:'',type:'Club Show',status:'upcoming',ticketUrl:'#'});
-      DL.save(EPK);renderTab('shows');renderAll();
+      saveData(EPK);renderTab('shows');renderAll();
     };
   }
   else if(tab==='galeria'){
@@ -1020,11 +1027,11 @@ function renderTab(tab){
       </div>`).join('')}</div>
     <button class="a-add" id="add-gallery">+ Agregar foto</button>`;
     ct.querySelectorAll('[data-rm-g]').forEach(btn=>{
-      btn.onclick=()=>{EPK.gallery.splice(+btn.dataset.rmG,1);DL.save(EPK);renderTab('galeria');renderAll()};
+      btn.onclick=()=>{EPK.gallery.splice(+btn.dataset.rmG,1);saveData(EPK);renderTab('galeria');renderAll()};
     });
     $('add-gallery').onclick=()=>{
       EPK.gallery.push({id:Date.now(),url:'',caption:'',category:'prensa',span:''});
-      DL.save(EPK);renderTab('galeria');renderAll();
+      saveData(EPK);renderTab('galeria');renderAll();
     };
   }
   else if(tab==='musica'){
@@ -1043,11 +1050,11 @@ function renderTab(tab){
       </div>`).join('')}</div>
     <button class="a-add" id="add-music">+ Agregar track</button>`;
     ct.querySelectorAll('[data-rm-m]').forEach(btn=>{
-      btn.onclick=()=>{EPK.music.splice(+btn.dataset.rmM,1);DL.save(EPK);renderTab('musica');renderAll()};
+      btn.onclick=()=>{EPK.music.splice(+btn.dataset.rmM,1);saveData(EPK);renderTab('musica');renderAll()};
     });
     $('add-music').onclick=()=>{
       EPK.music.push({id:Date.now(),title:'',type:'set',embedUrl:''});
-      DL.save(EPK);renderTab('musica');renderAll();
+      saveData(EPK);renderTab('musica');renderAll();
     };
   }
   else if(tab==='presskit'){
@@ -1067,11 +1074,11 @@ function renderTab(tab){
       </div>`).join('')}</div>
     <button class="a-add" id="add-pk">+ Agregar recurso</button>`;
     ct.querySelectorAll('[data-rm-pk]').forEach(btn=>{
-      btn.onclick=()=>{EPK.presskit.items.splice(+btn.dataset.rmPk,1);DL.save(EPK);renderTab('presskit');renderAll()};
+      btn.onclick=()=>{EPK.presskit.items.splice(+btn.dataset.rmPk,1);saveData(EPK);renderTab('presskit');renderAll()};
     });
     $('add-pk').onclick=()=>{
       EPK.presskit.items.push({id:Date.now(),name:'',icon:'📁',url:'',format:'',size:''});
-      DL.save(EPK);renderTab('presskit');renderAll();
+      saveData(EPK);renderTab('presskit');renderAll();
     };
   }
   else if(tab==='redes'){
@@ -1105,13 +1112,13 @@ function renderTab(tab){
       if(cur!==EPK.admin.password){toast('Contraseña actual incorrecta');return}
       if(!nw){toast('Ingresá la nueva contraseña');return}
       if(nw!==con){toast('Las contraseñas no coinciden');return}
-      EPK.admin.password=nw;DL.save(EPK);
+      EPK.admin.password=nw;saveData(EPK);
       $('fc-cur').value='';$('fc-new').value='';$('fc-con').value='';
       toast('¡Contraseña actualizada!');
     };
     $('reset-data').onclick=()=>{
       if(confirm('¿Restaurar todos los datos al original? Se perderán los cambios.')){
-        EPK=JSON.parse(JSON.stringify(RAW));DL.save(EPK);renderAll();renderTab('config');toast('Datos restaurados');
+        EPK=JSON.parse(JSON.stringify(RAW));saveData(EPK);renderAll();renderTab('config');toast('Datos restaurados');
       }
     };
   }
@@ -1174,7 +1181,7 @@ function saveAll(){
   collectTab(curTab);
   // update epk-data script
   document.getElementById('epk-data').textContent=JSON.stringify(EPK,null,2);
-  DL.save(EPK);
+  saveData(EPK);
   renderAll();
   toast('¡Guardado!');
 }
@@ -1183,7 +1190,7 @@ function saveAll(){
 function exportHTML(){
   collectTab(curTab);
   document.getElementById('epk-data').textContent=JSON.stringify(EPK,null,2);
-  DL.save(EPK);
+  saveData(EPK);
   // close admin overlay for clean export
   $('admOv').classList.remove('open');
   setTimeout(()=>{
@@ -1202,17 +1209,23 @@ function exportHTML(){
 /* ── INIT ────────────────────────────────────────────── */
 renderAll();
 if(isAuth)showPanel();
-// Load Supabase async after render — page never freezes waiting for CDN
-(function(){
-  const s=document.createElement('script');
-  s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-  s.async=true;
-  s.onload=function(){
-    _sb=supabase.createClient(_SB_URL,_SB_KEY);
-    _sb.from('epk_views').insert({slug:'ambar-lombardi',viewed_at:new Date().toISOString()}).catch(()=>{});
-    DL.sync().then(remote=>{if(remote){EPK=remote;renderAll();}}).catch(()=>{});
-  };
-  document.head.appendChild(s);
+
+(async function(){
+  try {
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-load?slug=${DJ_SLUG}`, {
+      method: "GET",
+      headers: { "apikey": SUPABASE_ANON_KEY }
+    });
+    if (response.ok) {
+      const result = await response.json();
+      if (result.data) {
+        EPK = result.data;
+        renderAll();
+      }
+    }
+  } catch (e) {
+    console.log("Load from Supabase failed on init");
+  }
 })();
 </script>
 </body>

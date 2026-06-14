@@ -478,56 +478,50 @@ footer{background:var(--bg);border-top:1px solid rgba(var(--pur),.1);padding:cla
 </script>
 
 <script>
-const SLUG = 'yemix';
+const SUPABASE_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf';
+const DJ_SLUG = 'yemix';
 let EPK = {};
-let _SB_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
-let _SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFicGp1dWVzZ3Nyb3RzYWdvcmNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MDc1ODksImV4cCI6MjA5NjE4MzU4OX0.CWCOb23nuq0JkHNAJT3CTLWtfT7cLBYdOKOjRZqVZLc';
-let _sb = null;
 
-const DL = {
-  load() {
-    try { const d = localStorage.getItem('epk_'+SLUG+'_v2'); return d ? JSON.parse(d) : null; } catch(e){ return null; }
-  },
-  save(d) {
-    const ts = new Date().toISOString();
-    try {
-      localStorage.setItem('epk_'+SLUG+'_v2', JSON.stringify(d));
-      localStorage.setItem('epk_'+SLUG+'_ts', ts);
-    } catch(e){}
-    if(_sb) { _sb.from('epk').upsert({slug:SLUG,data:d,updated_at:ts},{onConflict:'slug'}).then(()=>{}); }
-  },
-  sync() {
-    if(!_sb) return;
-    const localTs = localStorage.getItem('epk_'+SLUG+'_ts') || '0';
-    _sb.from('epk').select('data,updated_at').eq('slug',SLUG).single().then(({data})=>{
-      if(data && data.updated_at > localTs) {
-        EPK = data.data;
-        localStorage.setItem('epk_'+SLUG+'_v2', JSON.stringify(EPK));
-        localStorage.setItem('epk_'+SLUG+'_ts', data.updated_at);
-        renderAll();
-      }
+async function loadFromSupabase() {
+  try {
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-load?slug=${DJ_SLUG}`, {
+      method: "GET",
+      headers: { "apikey": SUPABASE_ANON_KEY }
     });
+    if (!response.ok) throw new Error("Load failed");
+    const result = await response.json();
+    if (result.data) return result.data;
+  } catch (e) {
+    console.log("Load from Supabase failed, using embedded data:", e.message);
   }
-};
+  return null;
+}
 
-function init() {
+async function saveData(data) {
+  try {
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-save`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY
+      },
+      body: JSON.stringify({ slug: DJ_SLUG, data })
+    });
+    if (!response.ok) throw new Error("Save failed");
+    return true;
+  } catch (e) {
+    console.error("Save to Supabase failed:", e.message);
+    return false;
+  }
+}
+
+async function init() {
   const embedded = JSON.parse(document.getElementById('epk-data').textContent);
-  const stored = DL.load();
-  EPK = stored || embedded;
+  const remote = await loadFromSupabase();
+  EPK = remote || embedded;
   renderAll();
   setTimeout(()=>{ document.getElementById('loader').classList.add('out'); }, 600);
-  (function(){
-    if(_SB_URL.includes('%%')) return;
-    const s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-    s.async = true;
-    s.onload = function(){
-      _sb = supabase.createClient(_SB_URL, _SB_KEY);
-      _sb.from('epk_views').insert({slug:SLUG}).then(()=>{});
-      DL.sync();
-    };
-    document.head.appendChild(s);
-  })();
 }
 
 function renderAll() {
@@ -883,7 +877,7 @@ function admSave() {
     EPK.social.tiktok = document.getElementById('sc-tt').value;
     const newPwd = document.getElementById('cfg-pwd').value;
     if(newPwd) EPK.admin.password = newPwd;
-    DL.save(EPK);
+    saveData(EPK);
     renderAll();
     showToast('✓ Guardado');
   } catch(e) { showToast('Error: '+e.message); }
