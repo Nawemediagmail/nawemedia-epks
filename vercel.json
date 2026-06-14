@@ -1,1 +1,14 @@
-{}
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/djs/dj-bini/index.html",
+      "has": [{ "type": "host", "value": "djbini.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/djs/dj-bini/index.html",
+      "has": [{ "type": "host", "value": "www.djbini.com" }]
+    }
+  ]
+}
