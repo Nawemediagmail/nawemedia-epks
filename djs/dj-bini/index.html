@@ -909,6 +909,15 @@
   .center{display:flex;justify-content:center}
   .mt-2{margin-top:2rem}.mt-3{margin-top:3rem}
 
+  /* ── MOBILE OVERFLOW FIX ── */
+  html,body{max-width:100%;overflow-x:hidden}
+  @media(max-width:767px){
+    nav.top .inner{padding:10px 16px !important;margin:0 !important;border:none !important}
+    .brand__logo{max-width:130px !important;height:36px !important}
+    .hero__stats{width:100%;max-width:100%}
+    .hero__grid{padding:0 1rem}
+  }
+
   
   .brand__logo{
     height:44px;width:auto;display:block;
@@ -946,7 +955,7 @@
 
   <!-- ─────────── NAV ─────────── -->
   <nav class="top" data-screen-label="nav">
-    <div class="inner" style="padding: 14px 48px 20px; border-width: 1px; border-style: solid; margin: 1px">
+    <div class="inner" style="padding: 14px 48px 20px; border-width: 1px; border-style: solid; margin: 1px 0">
       <a href="#top" class="brand" aria-label="BINI home" style="letter-spacing: 0.2px; gap: 10px; padding: 0px; margin: 1px">
         <img class="brand__logo" src="assets/BINI LOGO_TITULO.png" alt="BINI"/>
         <span class="brand__word" style="font-size: 14px; text-align: center; padding: 0px; margin: 0px 0px -21px; border-width: 0px; border-style: solid">
