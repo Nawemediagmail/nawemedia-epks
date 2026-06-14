@@ -2,6 +2,8 @@
 
 **Create a new DJ EPK in the monorepo with Supabase integration.**
 
+**PROACTIVE SKILL** — Used automatically when creating new DJs.
+
 ## Description
 
 Automates the setup of a new DJ Electronic Press Kit (EPK) in the `djs/` folder with:
@@ -29,6 +31,30 @@ Automates the setup of a new DJ Electronic Press Kit (EPK) in the `djs/` folder 
 /new-dj yara-yara Yara
 /new-dj dj-tech
 ```
+
+## Proactive Triggers
+
+This skill is **used automatically** when you mention:
+
+- "Tengo un nuevo DJ" / "I have a new DJ"
+- "Agregar DJ [name]" / "Add DJ [name]"
+- "Crear EPK para" / "Create EPK for"
+- "Nuevo artista" / "New artist"
+- "Onboard [name]"
+- "Setup DJ [name]"
+
+**What I'll do:** Extract DJ name and slug, then automatically run `/new-dj` without asking for the command.
+
+### How it works
+
+**You say:** `"Tengo un nuevo DJ llamado Carlos López para el monorepo"`
+
+**I automatically:**
+1. Detect this is a DJ creation request
+2. Extract name: "Carlos López"
+3. Generate slug: "dj-carlos" (or ask if ambiguous)
+4. Run skill: `/new-dj dj-carlos "Carlos López"`
+5. Show you the result (folder created, next steps)
 
 ## What it does
 
