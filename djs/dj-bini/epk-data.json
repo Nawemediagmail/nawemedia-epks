@@ -1,0 +1,84 @@
+{
+  "bio": {
+    "en": "BINI is a Chilean DJ and producer based in Santiago — founder of the ALPHA collective and one of the new forces in circuit and tribal sound across Latin America.",
+    "es": "BINI es DJ y productor chileno radicado en Santiago — fundador del colectivo ALPHA y una de las nuevas fuerzas del sonido circuit y tribal en Latinoamérica.",
+    "de": "BINI ist ein chilenischer DJ und Produzent aus Santiago — Gründer des ALPHA-Kollektivs und eine der neuen Kräfte im Circuit- und Tribal-Sound Lateinamerikas."
+  },
+  "music": [
+    {
+      "id": 1,
+      "title": "Intro Judas — Lady Gaga · Walter Caminha + DJ BINI",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2080188447&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"
+    },
+    {
+      "id": 2,
+      "title": "El Barquito — Dj Bini 🛳️ Boat Festa #facetoface",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2045137856&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"
+    }
+  ],
+  "video": {
+    "url": "",
+    "title": ""
+  },
+  "shows": [
+    {
+      "id": 1,
+      "date": "2026-07-18",
+      "venue": "ALPHA Night",
+      "city": "Santiago",
+      "country": "Chile",
+      "type": "club",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "date": "2026-08-09",
+      "venue": "Tribal Festival",
+      "city": "São Paulo",
+      "country": "Brasil",
+      "type": "festival",
+      "url": "#"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "src": "assets/ZHG_0915.jpg",
+      "cap": "01 · Denim"
+    },
+    {
+      "id": 2,
+      "src": "assets/ZHG_0844.jpg",
+      "cap": "02 · Studio"
+    }
+  ],
+  "socials": [
+    {
+      "id": 1,
+      "plat": "Instagram",
+      "handle": "@djbini_",
+      "url": "https://www.instagram.com/djbini_/"
+    },
+    {
+      "id": 2,
+      "plat": "SoundCloud",
+      "handle": "/bini_dj",
+      "url": "https://soundcloud.com/bini_dj"
+    }
+  ],
+  "stats": {
+    "toques": "90+",
+    "paises": "4",
+    "activo_desde": "2018"
+  },
+  "artist": {
+    "name": "BINI",
+    "tagline": "Circuit · Tribal House · Progressive",
+    "location": "Santiago · Chile",
+    "genres": ["Circuit", "Tribal House", "Progressive"],
+    "contact": "binimelismusic@gmail.com",
+    "whatsapp": "+56931159640"
+  }
+}

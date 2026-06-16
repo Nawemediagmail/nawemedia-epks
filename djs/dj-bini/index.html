@@ -1584,21 +1584,18 @@ PRESS KIT WEB · 2026</span>
 
   let adminData = defaultData;
   let isAuth = false;
-  const SUPABASE_URL = "https://qbpjuuesgsrotsagorcr.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf";
   const DJ_SLUG = "dj-bini";
 
-  async function loadFromSupabase() {
+  async function loadFromGitHub() {
     try {
-      const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-load?slug=${DJ_SLUG}`, {
-        method: "GET",
-        headers: { "apikey": SUPABASE_ANON_KEY }
+      const response = await fetch(`/api/epk-load?slug=${DJ_SLUG}`, {
+        method: "GET"
       });
       if (!response.ok) throw new Error("Load failed");
       const result = await response.json();
       if (result.data) adminData = result.data;
     } catch (e) {
-      console.log("Load from Supabase failed, using cached data:", e.message);
+      console.log("Load from GitHub failed, using cached data:", e.message);
     }
   }
 
@@ -1619,7 +1616,7 @@ PRESS KIT WEB · 2026</span>
       adminContent.style.display = "none";
       adminPwd.focus();
     } else {
-      await loadFromSupabase();
+      await loadFromGitHub();
       renderAdmin();
       updateStats();
       loginScreen.style.display = "none";
@@ -1918,18 +1915,17 @@ PRESS KIT WEB · 2026</span>
 
   async function saveData(){
     try {
-      const response = await fetch(`${SUPABASE_URL}/functions/v1/epk-save`, {
+      const response = await fetch(`/api/epk-save`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_ANON_KEY
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ slug: DJ_SLUG, data: adminData })
       });
       if (!response.ok) throw new Error("Save failed");
       return true;
     } catch (e) {
-      console.error("Save to Supabase failed:", e.message);
+      console.error("Save to GitHub failed:", e.message);
       return false;
     }
   }
