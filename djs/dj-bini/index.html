@@ -1808,7 +1808,16 @@ PRESS KIT WEB · 2026</span>
         });
 
         renderAdmin();
-        statusEl.textContent = "✅ Foto subida a GitHub! Clickea 'Save Gallery' para guardar.";
+
+        // Auto-save to GitHub
+        statusEl.textContent = "⏳ Guardando en GitHub...";
+        const saved = await saveData();
+
+        if (saved) {
+          statusEl.textContent = "✅ Foto subida y guardada!";
+        } else {
+          statusEl.textContent = "⚠️ Foto subida pero fallo el guardado. Clickea 'Save Gallery'.";
+        }
         document.getElementById("gallery-file-input").value = "";
       };
       reader.readAsDataURL(file);
