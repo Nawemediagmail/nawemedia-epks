@@ -1491,7 +1491,15 @@ PRESS KIT WEB · 2026</span>
           <div class="admin-tab" data-tab="gallery">
             <h3>Fotos de Prensa</h3>
             <div id="gallery-list"></div>
-            <button class="admin-btn" id="add-gallery">+ Add Photo</button>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Upload New Photo</label>
+              <input type="file" id="gallery-file-input" accept="image/*" placeholder="Select image..." style="padding:0.8rem;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted)" />
+              <button class="admin-btn" id="upload-photo" style="margin-top:0.8rem">📤 Upload to Supabase</button>
+              <p id="upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+
+            <button class="admin-btn" id="add-gallery">+ Add Manual Photo Link</button>
             <button class="admin-btn admin-btn--save" data-save="gallery">Save Gallery</button>
           </div>
 
@@ -1750,6 +1758,57 @@ PRESS KIT WEB · 2026</span>
     renderAdmin();
   });
 
+  // ── PHOTO UPLOAD TO SUPABASE STORAGE ──
+  async function uploadPhotoToSupabase(file) {
+    const statusEl = document.getElementById("upload-status");
+    try {
+      // Load Supabase client
+      const { createClient } = window.supabase;
+      const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      // Create unique filename
+      const timestamp = Date.now();
+      const filename = `dj-bini-${timestamp}-${file.name.replace(/\s+/g, '-')}`;
+
+      // Upload to Storage
+      const { data, error } = await sb.storage
+        .from('epk-assets')
+        .upload(`dj-bini/photos/${filename}`, file);
+
+      if(error) throw error;
+
+      // Get public URL
+      const { data: urlData } = sb.storage
+        .from('epk-assets')
+        .getPublicUrl(`dj-bini/photos/${filename}`);
+
+      const publicUrl = urlData.publicUrl;
+
+      // Add to gallery
+      adminData.gallery.push({
+        id: timestamp,
+        src: publicUrl,
+        cap: file.name.replace(/\.[^.]+$/, '')
+      });
+
+      renderAdmin();
+      statusEl.textContent = "✅ Foto subida! Clickea 'Save Gallery' para guardar.";
+      document.getElementById("gallery-file-input").value = "";
+
+    } catch(error) {
+      statusEl.textContent = `❌ Error: ${error.message}`;
+    }
+  }
+
+  document.getElementById("upload-photo").addEventListener("click", ()=>{
+    const fileInput = document.getElementById("gallery-file-input");
+    if(!fileInput.files.length) {
+      document.getElementById("upload-status").textContent = "⚠️ Selecciona una foto primero";
+      return;
+    }
+    uploadPhotoToSupabase(fileInput.files[0]);
+  });
+
   // ── SAVE LOGIC ──
   document.querySelectorAll("[data-save]").forEach(btn=>{
     btn.addEventListener("click", async ()=>{
@@ -1879,6 +1938,11 @@ PRESS KIT WEB · 2026</span>
   });
 
   switchLang('es');
+
+  // Load Supabase JS library for storage
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+  document.head.appendChild(script);
 </script>
 </body>
 </html>
