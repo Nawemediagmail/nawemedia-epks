@@ -1491,7 +1491,15 @@ PRESS KIT WEB · 2026</span>
           <div class="admin-tab" data-tab="gallery">
             <h3>Fotos de Prensa</h3>
             <div id="gallery-list"></div>
-            <button class="admin-btn" id="add-gallery">+ Add Photo</button>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Upload New Photo</label>
+              <input type="file" id="gallery-file-input" accept="image/*" placeholder="Select image..." style="padding:0.8rem;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted)" />
+              <button class="admin-btn" id="upload-photo" style="margin-top:0.8rem">📤 Upload to Supabase</button>
+              <p id="upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+
+            <button class="admin-btn" id="add-gallery">+ Add Manual Photo Link</button>
             <button class="admin-btn admin-btn--save" data-save="gallery">Save Gallery</button>
           </div>
 
@@ -1748,6 +1756,70 @@ PRESS KIT WEB · 2026</span>
   document.getElementById("add-social").addEventListener("click", ()=>{
     adminData.socials.push({id:Date.now(), plat:"", handle:"", url:""});
     renderAdmin();
+  });
+
+  // ── PHOTO UPLOAD TO GITHUB ──
+  async function uploadPhotoToGithub(file) {
+    const statusEl = document.getElementById("upload-status");
+    try {
+      // Convert file to base64
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target.result.split(',')[1]; // Remove data:image/... prefix
+
+        // Create unique filename
+        const timestamp = Date.now();
+        const ext = file.name.split('.').pop();
+        const fileName = `photo-${timestamp}.${ext}`;
+
+        // Call Edge Function
+        statusEl.textContent = "⏳ Uploading...";
+
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/photo-upload`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_ANON_KEY
+          },
+          body: JSON.stringify({
+            fileData: base64Data,
+            fileName: fileName,
+            slug: DJ_SLUG
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          statusEl.textContent = `❌ Error: ${result.error}`;
+          return;
+        }
+
+        // Add to gallery
+        adminData.gallery.push({
+          id: timestamp,
+          src: result.url,
+          cap: file.name.replace(/\.[^.]+$/, '')
+        });
+
+        renderAdmin();
+        statusEl.textContent = "✅ Foto subida a GitHub! Clickea 'Save Gallery' para guardar.";
+        document.getElementById("gallery-file-input").value = "";
+      };
+      reader.readAsDataURL(file);
+
+    } catch(error) {
+      statusEl.textContent = `❌ Error: ${error.message}`;
+    }
+  }
+
+  document.getElementById("upload-photo").addEventListener("click", ()=>{
+    const fileInput = document.getElementById("gallery-file-input");
+    if(!fileInput.files.length) {
+      document.getElementById("upload-status").textContent = "⚠️ Selecciona una foto primero";
+      return;
+    }
+    uploadPhotoToGithub(fileInput.files[0]);
   });
 
   // ── SAVE LOGIC ──
