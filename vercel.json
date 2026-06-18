@@ -11,12 +11,12 @@
       "has": [{ "type": "host", "value": "www.djbini.com" }]
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/djs/dj-bini/index.html",
       "has": [{ "type": "host", "value": "djbini.com" }]
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/djs/dj-bini/index.html",
       "has": [{ "type": "host", "value": "www.djbini.com" }]
     }
