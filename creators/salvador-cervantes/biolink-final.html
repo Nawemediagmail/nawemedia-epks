@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#d4af37" />
+  <title>Salvador Cervantes — Modelo Publicitario | Media Kit</title>
+  <meta name="description" content="Salvador Cervantes | Modelo Publicitario • Influencer Digital • 27.9K Seguidores | Campañas LATAM | +56 9 4253 4567" />
+  <meta property="og:title" content="Salvador Cervantes — Modelo Publicitario" />
+  <meta property="og:description" content="Modelo publicitario, influencer y creador de contenido digital. Especializado en campañas de marcas LATAM." />
+  <meta property="og:image" content="assets/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0408;
+      --surface: #13102a;
+      --primary: #d4af37;
+      --primary-dark: #9d7b3c;
+      --secondary: #e74c3c;
+      --accent: #e8c547;
+      --text: #f0e8ff;
+      --muted: rgba(240,232,255,.65);
+      --line: rgba(212,175,55,.15);
+      --line-strong: rgba(212,175,55,.3);
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0408 0%, #13102a 50%, #0f080a 100%);
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(212,175,55,.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(230,116,60,.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.8rem;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      overflow: hidden;
+      box-shadow:
+        0 0 40px rgba(212,175,55,.4),
+        0 0 80px rgba(212,175,55,.2),
+        inset 0 0 20px rgba(212,175,55,.1);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: brightness(1.05);
+    }
+
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(212,175,55,.1) 0%, transparent 50%, rgba(230,116,60,.05) 100%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      background: var(--primary);
+      color: #0a0408;
+      font-family: 'Saira', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(212,175,55,.3);
+    }
+
+    .name {
+      font-family: 'Saira', Impact, sans-serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #d4af37 0%, #e8c547 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .bio {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      max-width: 42ch;
+      margin: 0 auto 1.8rem;
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 2.2rem;
+      width: 100%;
+    }
+
+    .stat-box {
+      padding: 1rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      background: rgba(212,175,55,.04);
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      border-color: var(--primary);
+      background: rgba(212,175,55,.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(212,175,55,.15);
+    }
+
+    .stat-number {
+      font-family: 'Saira', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    .section {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      width: 100%;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      aspect-ratio: 1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--surface);
+      min-height: 120px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(212,175,55,.2);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.95) saturate(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 1.8rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* SPECIALTIES */
+    .specialties {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .specialty-tag {
+      padding: 0.8rem;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.02);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .specialty-tag:hover {
+      border-color: var(--primary);
+      background: rgba(212,175,55,.12);
+      color: var(--primary);
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(212,175,55,.2);
+    }
+
+    /* CALL TO ACTION */
+    .cta-section {
+      width: 100%;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      width: 100%;
+      padding: 1.1rem;
+      margin-bottom: 0.7rem;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Saira', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37 0%, #e8c547 100%);
+      color: #0a0408;
+      border: 2px solid transparent;
+      box-shadow: 0 8px 24px rgba(212,175,55,.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(212,175,55,.45);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--line-strong);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background: rgba(212,175,55,.1);
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(212,175,55,.2);
+    }
+
+    /* SOCIAL LINKS */
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      width: 100%;
+    }
+
+    .social-btn {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-btn:hover {
+      border-color: var(--primary);
+      background: rgba(212,175,55,.1);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212,175,55,.2);
+    }
+
+    .social-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .container { padding: 14px; }
+      .name { font-size: 1.8rem; }
+      .avatar { width: 140px; height: 140px; }
+      .stats { gap: 0.6rem; }
+      .specialties { grid-template-columns: repeat(2, 1fr); }
+      .socials { grid-template-columns: 1fr; }
+    }
+
+    /* PRINT FRIENDLY */
+    @media print {
+      body::before { display: none; }
+      .btn { display: none; }
+      .footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">⭐ MODELO PUBLICITARIO</div>
+      <div class="avatar">
+        <img src="assets/hero.jpg" alt="Salvador Cervantes — Modelo Publicitario" loading="lazy" />
+      </div>
+      <h1 class="name">Salvador Cervantes</h1>
+      <p class="title">Modelo · Influencer · Creador</p>
+      <p class="bio">Modelo publicitario y creador de contenido digital con alcance en LATAM. Especializado en campañas de marcas, influencer marketing y contenido audiovisual.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-number">27.9K</div>
+        <div class="stat-label">Seguidores</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Campañas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">🌍</div>
+        <div class="stat-label">LATAM</div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="section">
+      <p class="section-title">📸 Portfolio Profesional</p>
+      <div class="gallery">
+        <a href="assets/foto-1.jpg" class="gallery-item" target="_blank" rel="noopener" title="Foto 1">
+          <img src="assets/foto-1.jpg" alt="Portfolio 1" loading="lazy" />
+          <div class="gallery-overlay">👁️</div>
+        </a>
+        <a href="assets/foto-2.jpg" class="gallery-item" target="_blank" rel="noopener" title="Foto 2">
+          <img src="assets/foto-2.jpg" alt="Portfolio 2" loading="lazy" />
+          <div class="gallery-overlay">👁️</div>
+        </a>
+        <a href="assets/foto-3.jpg" class="gallery-item" target="_blank" rel="noopener" title="Foto 3">
+          <img src="assets/foto-3.jpg" alt="Portfolio 3" loading="lazy" />
+          <div class="gallery-overlay">👁️</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SPECIALTIES -->
+    <div class="section">
+      <p class="section-title">💼 Especialidades</p>
+      <div class="specialties">
+        <div class="specialty-tag">📸 Modelo</div>
+        <div class="specialty-tag">🎬 Influencer</div>
+        <div class="specialty-tag">✍️ Creador</div>
+      </div>
+    </div>
+
+    <!-- PRIMARY CTA -->
+    <div class="cta-section">
+      <a href="https://wa.me/+56942534567?text=Hola%20Salvador%2C%20tengo%20una%20propuesta%20de%20trabajo%20para%20ti." class="btn btn-primary">
+        💬 Contactar por WhatsApp
+      </a>
+      <a href="tel:+56942534567" class="btn btn-secondary">
+        📞 Llamar Directamente
+      </a>
+    </div>
+
+    <!-- SOCIAL LINKS -->
+    <div class="section">
+      <p class="section-title">🔗 Sígueme en Redes</p>
+      <div class="socials">
+        <a href="https://instagram.com/salvador_ceu" class="social-btn" target="_blank" rel="noopener" title="Instagram">
+          <span class="social-icon">📷</span>
+          <strong>Instagram</strong>
+        </a>
+        <a href="https://www.tiktok.com/@cervantesu" class="social-btn" target="_blank" rel="noopener" title="TikTok">
+          <span class="social-icon">🎵</span>
+          <strong>TikTok</strong>
+        </a>
+        <a href="https://x.com/cervantesulloa" class="social-btn" target="_blank" rel="noopener" title="X/Twitter">
+          <span class="social-icon">𝕏</span>
+          <strong>X/Twitter</strong>
+        </a>
+        <a href="https://onlyfans.com/salvador_ceu" class="social-btn" target="_blank" rel="noopener" title="OnlyFans">
+          <span class="social-icon">🔞</span>
+          <strong>OnlyFans</strong>
+        </a>
+      </div>
+    </div>
+
+    <!-- SECONDARY CTA -->
+    <div class="cta-section">
+      <a href="index.html" class="btn btn-secondary">
+        📋 Ver Media Kit Completo
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>Biolink profesional creado por <a href="https://nawemedia.pro" target="_blank" rel="noopener">NAWEMEDIA.PRO</a></p>
+      <p style="margin-top: 0.8rem; color: rgba(240,232,255,.35);">© 2026 · Salvador Cervantes</p>
+    </div>
+
+  </div>
+</body>
+</html>
