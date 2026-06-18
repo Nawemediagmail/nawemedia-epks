@@ -76,26 +76,19 @@
     }
   ],
   "gallery": [
-    {
-      "id": 1,
-      "src": "assets/ZHG_0915.jpg",
-      "cap": "01 · Denim"
-    },
-    {
-      "id": 2,
-      "src": "assets/ZHG_0844.jpg",
-      "cap": "02 · Studio"
-    },
-    {
-      "id": 3,
-      "src": "assets/ZHG_0839.jpg",
-      "cap": "03 · Portrait"
-    },
-    {
-      "id": 4,
-      "src": "assets/ZHG_0812.jpg",
-      "cap": "04 · Full Body"
-    }
+    {"id": 2, "src": "assets/ZHG_0844.jpg", "cap": "02 · Studio"},
+    {"id": 4, "src": "assets/ZHG_0812.jpg", "cap": "04 · Full Body"},
+    {"id": 1781641133518, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781641133518.jpg", "cap": "PRENSA 2026"},
+    {"id": 1781641219364, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781641219364.jpg", "cap": "PRENSA 2026"},
+    {"id": 1781749903819, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781749903819.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781750030352, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781750030352.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781751819059, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781751819059.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781752968249, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781752968249.jpg", "cap": "PRENSA 2026"},
+    {"id": 1781752991116, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781752991116.jpg", "cap": "PRENSA 2026"},
+    {"id": 1781753201830, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781753201830.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781753210980, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781753210980.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781753218697, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781753218697.jpeg", "cap": "PRENSA 2026"},
+    {"id": 1781753226031, "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781753226031.jpeg", "cap": "PRENSA 2026"}
   ],
   "socials": [
     {
@@ -128,5 +121,5 @@
     "paises": "4",
     "activo_desde": "2022"
   },
-  "hero_photo": "assets/bini_PHOTO HERO.jpg"
+  "hero_photo": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/hero-1781752471366.jpg"
 }
