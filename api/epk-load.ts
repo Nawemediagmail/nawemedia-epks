@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       method: "GET",
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
-        Accept: "application/vnd.github.v3.raw+json",
+        Accept: "application/vnd.github.v3.raw",
         "User-Agent": "NAWEMEDIA-EPK-Load",
       },
     })
