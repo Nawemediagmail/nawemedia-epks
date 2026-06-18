@@ -77,19 +77,9 @@
   ],
   "gallery": [
     {
-      "id": 1,
-      "src": "assets/ZHG_0915.jpg",
-      "cap": "01 · Denim"
-    },
-    {
       "id": 2,
       "src": "assets/ZHG_0844.jpg",
       "cap": "02 · Studio"
-    },
-    {
-      "id": 3,
-      "src": "assets/ZHG_0839.jpg",
-      "cap": "03 · Portrait"
     },
     {
       "id": 4,
@@ -105,6 +95,11 @@
       "id": 1781752991116,
       "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781752991116.jpg",
       "cap": "PRENSA 2026"
+    },
+    {
+      "id": 1781753201830,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781753201830.jpeg",
+      "cap": "WhatsApp Image 2026-06-17 at 23.19.41"
     }
   ],
   "socials": [
