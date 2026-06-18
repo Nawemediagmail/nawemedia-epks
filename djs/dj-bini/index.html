@@ -1593,7 +1593,16 @@ PRESS KIT WEB · 2026</span>
       });
       if (!response.ok) throw new Error("Load failed");
       const result = await response.json();
-      if (result.data) adminData = result.data;
+      if (result.data) {
+        // Merge loaded data with defaults to ensure all fields exist
+        adminData = {
+          ...defaultData,
+          ...result.data,
+          bio: { ...defaultData.bio, ...(result.data.bio || {}) },
+          stats: { ...defaultData.stats, ...(result.data.stats || {}) },
+          video: { ...defaultData.video, ...(result.data.video || {}) },
+        };
+      }
     } catch (e) {
       console.log("Load from GitHub failed, using cached data:", e.message);
     }
