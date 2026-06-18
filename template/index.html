@@ -1506,6 +1506,16 @@ PRESS KIT WEB · 2026</span>
     }
   }
 
+  // ── BIO TEXT/HTML CONVERSION ──
+  function htmlToText(html) {
+    // Remove <p> tags and join with double newline
+    return html.replace(/<p>/g, '').replace(/<\/p>/g, '\n\n').trim();
+  }
+  function textToHtml(text) {
+    // Split by double newline and wrap each paragraph in <p> tags
+    return text.trim().split(/\n\s*\n+/).map(para => `<p>${para.trim()}</p>`).join('\n');
+  }
+
   // ── AUTH ──
   const adminModal = document.getElementById("admin-modal");
   const adminTrigger = document.getElementById("admin-trigger");
@@ -1607,9 +1617,9 @@ PRESS KIT WEB · 2026</span>
   // ── RENDER ADMIN FORMS ──
   function renderAdmin(){
     // Bio
-    document.getElementById("bio-en").value = adminData.bio.en;
-    document.getElementById("bio-es").value = adminData.bio.es;
-    document.getElementById("bio-de").value = adminData.bio.de;
+    document.getElementById("bio-en").value = htmlToText(adminData.bio.en);
+    document.getElementById("bio-es").value = htmlToText(adminData.bio.es);
+    document.getElementById("bio-de").value = htmlToText(adminData.bio.de);
     // Hero photo preview
     updateHeroPhoto();
 
@@ -1695,9 +1705,9 @@ PRESS KIT WEB · 2026</span>
     btn.addEventListener("click", async ()=>{
       const tab = btn.dataset.save;
       if(tab === "bio"){
-        adminData.bio.en = document.getElementById("bio-en").value;
-        adminData.bio.es = document.getElementById("bio-es").value;
-        adminData.bio.de = document.getElementById("bio-de").value;
+        adminData.bio.en = textToHtml(document.getElementById("bio-en").value);
+        adminData.bio.es = textToHtml(document.getElementById("bio-es").value);
+        adminData.bio.de = textToHtml(document.getElementById("bio-de").value);
       } else if(tab === "music"){
         adminData.music.forEach((t,i)=>{
           t.title = document.querySelector(`[data-music-field="${i}-title"]`).value;
