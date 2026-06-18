@@ -1117,21 +1117,8 @@ PRESS KIT WEB · 2026</span>
             <button class="lang" data-lang="de" role="tab" aria-selected="false">DE</button>
           </div>
 
-          <p class="bio__lede" data-bio-lede>
-            ARTISTA es DJ y productor radicado en la ciudad.
-          </p>
-
-          <div class="bio__body" data-lang-body="es">
-            <p>Bio en español. Editar en el panel de administración.</p>
-            <p><strong>Booking?</strong> Disponible para clubes, festivales y eventos privados. <a href="https://wa.me/1234567890" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
-          </div>
-          <div class="bio__body" data-lang-body="en" style="display:none">
-            <p>English bio. Edit in the admin panel.</p>
-            <p><strong>Booking?</strong> Available for clubs, festivals and private events. <a href="https://wa.me/1234567890" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
-          </div>
-          <div class="bio__body" data-lang-body="de" style="display:none">
-            <p>Deutsch Bio. Im Admin-Panel bearbeiten.</p>
-            <p><strong>Booking?</strong> Verfügbar für Clubs, Festivals und private Events. <a href="https://wa.me/1234567890" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
+          <div id="bio-content" class="bio__body">
+            <!-- Renderizado dinámicamente desde adminData.bio[lang] -->
           </div>
 
           <div class="bio__meta">
@@ -1476,9 +1463,9 @@ PRESS KIT WEB · 2026</span>
   // ── DATA STRUCTURE ──
   const defaultData = {
     bio: {
-      en: "English bio here.",
-      es: "Bio en español aquí.",
-      de: "Deutsche Bio hier."
+      en: "<p>English bio. Edit in the admin panel.</p>",
+      es: "<p>Bio en español aquí. Editar en el panel de administración.</p>",
+      de: "<p>Deutsche Bio hier. Im Admin-Panel bearbeiten.</p>"
     },
     music: [],
     video: { url: "", title: "" },
@@ -1939,10 +1926,10 @@ PRESS KIT WEB · 2026</span>
 
   function switchLang(lang) {
     currentLang = lang;
-    document.querySelector('[data-bio-lede]').textContent = adminData.bio[lang] || adminData.bio.es;
-    document.querySelectorAll('[data-lang-body]').forEach(el => {
-      el.style.display = el.dataset.langBody === lang ? '' : 'none';
-    });
+    const bioContent = document.getElementById('bio-content');
+    if (bioContent) {
+      bioContent.innerHTML = adminData.bio[lang] || adminData.bio.es;
+    }
     document.querySelectorAll('.lang').forEach(btn => {
       btn.classList.toggle('on', btn.dataset.lang === lang);
       btn.setAttribute('aria-selected', btn.dataset.lang === lang ? 'true' : 'false');

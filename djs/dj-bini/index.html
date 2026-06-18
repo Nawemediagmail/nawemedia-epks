@@ -1117,27 +1117,8 @@ PRESS KIT WEB · 2026</span>
             <button class="lang" data-lang="de" role="tab" aria-selected="false">DE</button>
           </div>
 
-          <p class="bio__lede" data-bio-lede>
-            BINI es DJ y productor chileno radicado en Santiago — fundador del colectivo ALPHA y una de las nuevas fuerzas del sonido circuit y tribal en Latinoamérica.
-          </p>
-
-          <div class="bio__body" data-lang-body="es">
-            <p><strong>El sonido.</strong> BINI mueve la pista en el cruce entre Circuit, Tribal House y Progressive — percusión potente, climas hipnóticos y un peak-time pensado para la noche. Su track <strong>"Quero Mais"</strong> marca el pulso de su proyecto: enérgico, latino y de alcance internacional.</p>
-            <p><strong>ALPHA 🐺.</strong> Como fundador de ALPHA, BINI impulsa una comunidad de pista que conecta Chile, Brasil, Argentina y Perú — fiestas, line-ups y una identidad sonora propia.</p>
-            <p><strong>En vivo.</strong> De clubes a festivales, sus sets construyen tensión y la sueltan en el momento justo. Energía, sudor y conexión total con el público.</p>
-            <p><strong>¿Booking?</strong> Disponible para clubes, festivales y eventos privados en toda Latinoamérica. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
-          </div>
-          <div class="bio__body" data-lang-body="en" style="display:none">
-            <p><strong>The sound.</strong> BINI moves the floor at the intersection of Circuit, Tribal House and Progressive — powerful percussion, hypnotic atmospheres and a peak-time built for the night. His track <strong>"Quero Mais"</strong> defines the pulse of his project: energetic, Latin and internationally reaching.</p>
-            <p><strong>ALPHA 🐺.</strong> As founder of ALPHA, BINI drives a dancefloor community connecting Chile, Brazil, Argentina and Peru — parties, lineups and a sound identity of their own.</p>
-            <p><strong>Live.</strong> From clubs to festivals, his sets build tension and release it at just the right moment. Energy, sweat and total connection with the crowd.</p>
-            <p><strong>Booking?</strong> Available for clubs, festivals and private events across Latin America. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
-          </div>
-          <div class="bio__body" data-lang-body="de" style="display:none">
-            <p><strong>Der Sound.</strong> BINI bewegt die Tanzfläche an der Schnittstelle von Circuit, Tribal House und Progressive — kraftvolle Perkussion, hypnotische Atmosphäre und ein Peak-Time-Sound für die Nacht. Sein Track <strong>„Quero Mais"</strong> bestimmt den Puls seines Projekts: energetisch, lateinamerikanisch und international.</p>
-            <p><strong>ALPHA 🐺.</strong> Als Gründer von ALPHA treibt BINI eine Tanzflächen-Community voran, die Chile, Brasilien, Argentinien und Peru verbindet — Partys, Line-ups und eine eigene Klangidentität.</p>
-            <p><strong>Live.</strong> Von Clubs bis Festivals bauen seine Sets Spannung auf und lösen sie im richtigen Moment. Energie, Schweiß und totale Verbindung zum Publikum.</p>
-            <p><strong>Booking?</strong> Verfügbar für Clubs, Festivals und private Events in ganz Lateinamerika. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
+          <div id="bio-content" class="bio__body">
+            <!-- Renderizado dinámicamente desde adminData.bio[lang] -->
           </div>
 
           <div class="bio__meta">
@@ -1537,9 +1518,18 @@ PRESS KIT WEB · 2026</span>
   // ── DATA STRUCTURE ──
   const defaultData = {
     bio: {
-      en: "BINI is a Chilean DJ and producer based in Santiago — founder of the ALPHA collective and one of the new forces in circuit and tribal sound across Latin America.",
-      es: "BINI es DJ y productor chileno radicado en Santiago — fundador del colectivo ALPHA y una de las nuevas fuerzas del sonido circuit y tribal en Latinoamérica.",
-      de: "BINI ist ein chilenischer DJ und Produzent aus Santiago — Gründer des ALPHA-Kollektivs und eine der neuen Kräfte im Circuit- und Tribal-Sound Lateinamerikas."
+      en: `<p><strong>The sound.</strong> BINI moves the floor at the intersection of Circuit, Tribal House and Progressive — powerful percussion, hypnotic atmospheres and a peak-time built for the night. His track <strong>"Quero Mais"</strong> defines the pulse of his project: energetic, Latin and internationally reaching.</p>
+<p><strong>ALPHA 🐺.</strong> As founder of ALPHA, BINI drives a dancefloor community connecting Chile, Brazil, Argentina and Peru — parties, lineups and a sound identity of their own.</p>
+<p><strong>Live.</strong> From clubs to festivals, his sets build tension and release it at just the right moment. Energy, sweat and total connection with the crowd.</p>
+<p><strong>Booking?</strong> Available for clubs, festivals and private events across Latin America. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>`,
+      es: `<p><strong>El sonido.</strong> BINI mueve la pista en el cruce entre Circuit, Tribal House y Progressive — percusión potente, climas hipnóticos y un peak-time pensado para la noche. Su track <strong>"Quero Mais"</strong> marca el pulso de su proyecto: enérgico, latino y de alcance internacional.</p>
+<p><strong>ALPHA 🐺.</strong> Como fundador de ALPHA, BINI impulsa una comunidad de pista que conecta Chile, Brasil, Argentina y Perú — fiestas, line-ups y una identidad sonora propia.</p>
+<p><strong>En vivo.</strong> De clubes a festivales, sus sets construyen tensión y la sueltan en el momento justo. Energía, sudor y conexión total con el público.</p>
+<p><strong>¿Booking?</strong> Disponible para clubes, festivales y eventos privados en toda Latinoamérica. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>`,
+      de: `<p><strong>Der Sound.</strong> BINI bewegt die Tanzfläche an der Schnittstelle von Circuit, Tribal House und Progressive — kraftvolle Perkussion, hypnotische Atmosphäre und ein Peak-Time-Sound für die Nacht. Sein Track <strong>„Quero Mais"</strong> bestimmt den Puls seines Projekts: energetisch, lateinamerikanisch und international.</p>
+<p><strong>ALPHA 🐺.</strong> Als Gründer von ALPHA treibt BINI eine Tanzflächen-Community voran, die Chile, Brasilien, Argentinien und Peru verbindet — Partys, Line-ups und eine eigene Klangidentität.</p>
+<p><strong>Live.</strong> Von Clubs bis Festivals bauen seine Sets Spannung auf und lösen sie im richtigen Moment. Energie, Schweiß und totale Verbindung zum Publikum.</p>
+<p><strong>Booking?</strong> Verfügbar für Clubs, Festivals und private Events in ganz Lateinamerika. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>`
     },
     music: [
       {id:1, title:"Intro Judas — Lady Gaga · Walter Caminha + DJ BINI", type:"set", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2080188447&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"},
@@ -2024,10 +2014,10 @@ PRESS KIT WEB · 2026</span>
 
   function switchLang(lang) {
     currentLang = lang;
-    document.querySelector('[data-bio-lede]').textContent = adminData.bio[lang] || adminData.bio.es;
-    document.querySelectorAll('[data-lang-body]').forEach(el => {
-      el.style.display = el.dataset.langBody === lang ? '' : 'none';
-    });
+    const bioContent = document.getElementById('bio-content');
+    if (bioContent) {
+      bioContent.innerHTML = adminData.bio[lang] || adminData.bio.es;
+    }
     document.querySelectorAll('.lang').forEach(btn => {
       btn.classList.toggle('on', btn.dataset.lang === lang);
       btn.setAttribute('aria-selected', btn.dataset.lang === lang ? 'true' : 'false');
