@@ -97,13 +97,8 @@
       "cap": "04 · Full Body"
     },
     {
-      "id": 1781749886564,
-      "src": "",
-      "cap": ""
-    },
-    {
-      "id": 1781749903819,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781749903819.jpeg",
+      "id": 1781750030352,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/dj-bini/assets/photo-1781750030352.jpeg",
       "cap": "REFERENCIA ESTILO GRAFICO"
     }
   ],
@@ -136,6 +131,6 @@
   "stats": {
     "toques": "90+",
     "paises": "4",
-    "activo_desde": "2022"
+    "activo_desde": "2018"
   }
 }
