@@ -1,17 +1,17 @@
 # new-dj
 
-**Create a new DJ EPK in the monorepo with Supabase integration.**
+**Create a new DJ EPK in the monorepo with GitHub + Vercel data persistence.**
 
 **PROACTIVE SKILL** — Used automatically when creating new DJs.
 
 ## Description
 
 Automates the setup of a new DJ Electronic Press Kit (EPK) in the `djs/` folder with:
-- Template HTML + admin panel
-- Supabase Edge Functions integration (epk-save, epk-load)
-- Data persistence across devices
-- Vercel deployment ready
-- Git commit
+- Template HTML copied from clean generic template
+- GitHub API integration for data persistence (epk-save, epk-load)
+- Photo upload to GitHub via `/api/upload-photo`
+- Admin panel with gallery, bio, stats, music, shows, socials management
+- Ready for Vercel deployment
 
 ## Usage
 
@@ -45,187 +45,96 @@ This skill is **used automatically** when you mention:
 
 **What I'll do:** Extract DJ name and slug, then automatically run `/new-dj` without asking for the command.
 
-### How it works
+## Architecture
 
-**You say:** `"Tengo un nuevo DJ llamado Carlos López para el monorepo"`
-
-**I automatically:**
-1. Detect this is a DJ creation request
-2. Extract name: "Carlos López"
-3. Generate slug: "dj-carlos" (or ask if ambiguous)
-4. Run skill: `/new-dj dj-carlos "Carlos López"`
-5. Show you the result (folder created, next steps)
+Data is stored in GitHub (no Supabase):
+- **EPK data** → `djs/{slug}/epk-data.json` (auto-updated via admin panel)
+- **Photos** → `djs/{slug}/assets/` (uploaded via admin panel)
+- **API routes** → `/api/epk-load`, `/api/epk-save`, `/api/upload-photo` (Vercel serverless functions)
 
 ## What it does
 
 1. **Create folder structure**
    ```
    djs/[dj-slug]/
-   ├── index.html      (from template)
-   ├── vercel.json
+   ├── index.html      (from template/index.html)
+   ├── epk-data.json   (initial empty data)
+   ├── README.md       (setup checklist)
    └── assets/         (empty, ready for photos)
    ```
 
 2. **Update configuration**
-   - Set `const DJ_SLUG = "[dj-slug]"` in HTML
-   - Prepare `defaultData` with placeholders
+   - Set `const DJ_SLUG = "[dj-slug]"` in HTML (sed replacement)
+   - Replace "ARTISTA" placeholder with DJ name in HTML
 
-3. **Prepare Supabase entry**
-   - Generate SQL INSERT for table `epk`
-   - Ready to copy/paste into Supabase
+3. **Create initial data file**
+   - `epk-data.json` with empty structure
+   - Ready to be populated via admin panel
 
-4. **Create seed documentation**
-   - Generate `djs/[dj-slug]/README.md` with:
-     - Admin credentials
-     - Next steps checklist
-     - SoundCloud embed instructions
-     - Photo naming convention
+4. **Git commit**
+   - Stages all new files
+   - Commits with standard message
 
-5. **Git commit**
-   - Stage all files
-   - Commit with standard message
-   - Ready to push
+## After the Skill: Manual HTML Customization
 
-## Next Steps After Skill
+The admin panel handles all data (bio, music, shows, gallery, socials, photos).
+But some HTML content must be edited manually in `djs/[dj-slug]/index.html`:
 
-The DJ will still need:
-
-1. **Add bio & data** (5 min)
-   - Edit `defaultData` in `djs/[dj-slug]/index.html`
-   - EN, ES, DE versions
-   - SoundCloud embed URLs
-
-2. **Upload photos** (3 min)
-   - Place in `djs/[dj-slug]/assets/`
-   - Update gallery URLs
-
-3. **Test admin panel** (2 min)
-   - Ctrl+Alt+A to open (password: `demo2026`)
-   - Test save/sync with Supabase
-
-4. **Deploy**
-   - Push to main or feature branch
-   - Vercel auto-deploys
-
-## Skill Implementation
-
-This skill will:
-
-```bash
-#!/bin/bash
-
-DJ_SLUG=$1
-DJ_NAME=${2:-${DJ_SLUG}}
-
-# 1. Create directory structure
-mkdir -p djs/$DJ_SLUG/assets
-
-# 2. Copy template
-cp template/index.html djs/$DJ_SLUG/
-cp template/vercel.json djs/$DJ_SLUG/
-
-# 3. Update DJ_SLUG in HTML
-sed -i "s/const DJ_SLUG = \"dj-bini\"/const DJ_SLUG = \"$DJ_SLUG\"/" djs/$DJ_SLUG/index.html
-
-# 4. Create README with next steps
-cat > djs/$DJ_SLUG/README.md << 'EOF'
-# [DJ_NAME] EPK
-
-Admin Password: `demo2026`
-
-## Next Steps
-
-- [ ] Edit bio (EN, ES, DE) in index.html
-- [ ] Add SoundCloud tracks
-- [ ] Add upcoming shows
-- [ ] Upload photos to assets/
-- [ ] Update artist info (name, contact, genres)
-- [ ] Test admin panel (Ctrl+Alt+A)
-- [ ] Push to main
-
-## Files
-
-- `index.html` - Complete EPK (edit defaultData)
-- `vercel.json` - Domain routing
-- `assets/` - Photos and media
-
-## Admin Panel
-
-1. Open EPK
-2. Press Ctrl+Alt+A
-3. Enter password: `demo2026`
-4. Edit tabs: Bio, Music, Shows, Gallery, Socials
-5. Changes auto-save to Supabase
-EOF
-
-# 5. Generate Supabase SQL (for manual insert if needed)
-cat > djs/$DJ_SLUG/supabase-seed.sql << 'EOF'
-INSERT INTO epk (slug, data) VALUES (
-  '[DJ_SLUG]',
-  '{
-    "bio": {"en": "", "es": "", "de": ""},
-    "music": [],
-    "shows": [],
-    "gallery": [],
-    "socials": [],
-    "artist": {"name": "[DJ_NAME]"}
-  }'::jsonb
-);
-EOF
-
-# 6. Git commit
-git add djs/$DJ_SLUG/
-git commit -m "feat: add $DJ_NAME EPK to monorepo
-
-- Created DJ profile with admin panel
-- Connected to Supabase for persistent data sync
-- Ready to customize bio, music, shows, and gallery"
-```
+- **Ticker** (top bar): lines ~945-952 — custom tour/event text
+- **Hero location**: `CIUDAD · PAÍS`
+- **Genre cards**: names and descriptions (~lines 1064-1087)
+- **Bio meta**: City, Country, Active Since, Collective (~lines 1144-1147)
+- **Contact email/WhatsApp**: in nav, hero, and footer
+- **Footer text**: DJ name and genre description
 
 ## Files Generated
 
 | File | Purpose |
 |---|---|
-| `djs/[dj-slug]/index.html` | Complete EPK (edit to customize) |
-| `djs/[dj-slug]/vercel.json` | Domain routing config |
-| `djs/[dj-slug]/assets/` | Folder for photos (empty) |
-| `djs/[dj-slug]/README.md` | Setup checklist and next steps |
-| `djs/[dj-slug]/supabase-seed.sql` | SQL INSERT (optional manual setup) |
+| `djs/[dj-slug]/index.html` | Complete EPK (some HTML to customize) |
+| `djs/[dj-slug]/epk-data.json` | Initial empty data |
+| `djs/[dj-slug]/assets/` | Folder for photos |
+| `djs/[dj-slug]/README.md` | Setup checklist |
 
 ## Time Estimate
 
-- Skill execution: 30 seconds
-- Manual data entry: 10-15 minutes
-- Photos upload: 5 minutes
-- **Total per DJ: ~15-20 minutes**
+- Skill execution: ~30 seconds
+- Asset uploads (logo, hero, press photo): ~5 minutes
+- Admin panel data entry: ~10 minutes
+- Manual HTML customization: ~5 minutes
+- **Total per DJ: ~20 minutes**
 
-## Status Check
+## Custom Domain
 
-After running skill:
-```bash
-# Verify structure
-ls -la djs/[dj-slug]/
+After creating the EPK, if the DJ has a custom domain, add to root `vercel.json`:
 
-# Preview HTML
-grep "const DJ_SLUG" djs/[dj-slug]/index.html
-
-# Check git staging
-git status
+```json
+{
+  "source": "/assets/:path*",
+  "destination": "/djs/[dj-slug]/assets/:path*",
+  "has": [{"type": "host", "value": "theirdomain.com"}]
+},
+{
+  "source": "/((?!api/).*)",
+  "destination": "/djs/[dj-slug]/index.html",
+  "has": [{"type": "host", "value": "theirdomain.com"}]
+}
 ```
 
 ## Troubleshooting
 
 **Problem:** Slug already exists  
-**Solution:** Choose different slug (e.g., `dj-carlos-2`, `carlos-lopez-chile`)
+**Solution:** Choose different slug or check existing folder
 
-**Problem:** SoundCloud embeds not showing  
-**Solution:** Ensure URL is SoundCloud embed format: `https://w.soundcloud.com/player/?url=...`
+**Problem:** Admin panel won't save  
+**Solution:** Check GITHUB_TOKEN in Vercel environment variables (Settings → Environment Variables)
 
-**Problem:** Photos not displaying  
-**Solution:** Check file path in `gallery[].src` — should be relative: `assets/photo.jpg`
+**Problem:** Photos not uploading  
+**Solution:** Check file size (max 2MB). Check browser console for errors.
+
+**Problem:** Data not persisting after page reload  
+**Solution:** Check `/api/epk-load` response in browser network tab. Verify `epk-data.json` exists in GitHub.
 
 ## Related Skills
 
-- `/dj-photos-upload` - Optimize and upload photos for DJ
-- `/dj-admin-test` - Test admin panel connectivity
-- `/dj-supabase-migrate` - Migrate legacy DJ to Supabase model
+- Apply to existing DJ: read their `index.html`, replace Supabase API calls with GitHub API calls, add `loadFromGitHub()`, `renderGalleryPublic()`, `updateStats()`, `updateHeroPhoto()` functions matching `djs/dj-bini/index.html`
