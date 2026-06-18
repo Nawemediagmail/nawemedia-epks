@@ -1305,22 +1305,7 @@ PRESS KIT WEB · 2026</span>
       <h2 class="sec-title">Galería <em>y visuales</em></h2>
 
       <div class="gallery mt-3" id="gallery-grid">
-        <button class="gtile gtile--big" data-i="0" type="button">
-          <img src="assets/ZHG_0915.jpg" alt="BINI — Denim" loading="lazy"/>
-          <span class="gtile__cap">01 · Denim</span>
-        </button>
-        <button class="gtile gtile--wide" data-i="1" type="button">
-          <img src="assets/ZHG_0844.jpg" alt="BINI — Studio" loading="lazy"/>
-          <span class="gtile__cap">02 · Studio</span>
-        </button>
-        <button class="gtile" data-i="2" type="button">
-          <img src="assets/ZHG_0839.jpg" alt="BINI — Portrait" loading="lazy"/>
-          <span class="gtile__cap">03 · Portrait</span>
-        </button>
-        <button class="gtile" data-i="3" type="button">
-          <img src="assets/ZHG_0812.jpg" alt="BINI — Full body" loading="lazy"/>
-          <span class="gtile__cap">04 · Full Body</span>
-        </button>
+        <!-- Rendered dynamically from epk-data.json -->
       </div>
     </div>
   </section>
@@ -1680,6 +1665,19 @@ PRESS KIT WEB · 2026</span>
     document.getElementById("stat-activo").textContent = adminData.stats.activo_desde;
   }
 
+  // ── RENDER GALLERY ON PUBLIC PAGE ──
+  function renderGalleryPublic(){
+    const grid = document.getElementById("gallery-grid");
+    if(!grid || !adminData.gallery.length) return;
+    grid.innerHTML = adminData.gallery.map((g, i) => {
+      const sizeClass = i === 0 ? "gtile--big" : i === 1 ? "gtile--wide" : "";
+      return `<button class="gtile ${sizeClass}" data-i="${i}" type="button">
+        <img src="${g.src}" alt="${g.cap}" loading="lazy"/>
+        <span class="gtile__cap">${g.cap}</span>
+      </button>`;
+    }).join("");
+  }
+
   // ── RENDER ADMIN FORMS ──
   function renderAdmin(){
     // Bio
@@ -1948,12 +1946,7 @@ PRESS KIT WEB · 2026</span>
     }
   }
 
-  // ── INIT — always show login on page load ──
-  updateStats();
-  loginScreen.style.display = "flex";
-  adminContent.style.display = "none";
-
-  // ── LANGUAGE SWITCHING ──
+  // ── LANGUAGE ──
   let currentLang = 'es';
 
   function switchLang(lang) {
@@ -1972,7 +1965,23 @@ PRESS KIT WEB · 2026</span>
     btn.addEventListener('click', () => switchLang(btn.dataset.lang));
   });
 
+  // ── INIT — load from GitHub then render public page ──
+  loginScreen.style.display = "flex";
+  adminContent.style.display = "none";
+  // Render with defaults immediately so page doesn't look empty
+  updateStats();
+  renderGalleryPublic();
   switchLang('es');
+  // Then load saved data from GitHub and re-render
+  loadFromGitHub().then(() => {
+    updateStats();
+    renderGalleryPublic();
+    switchLang(currentLang);
+  });
+
+  // ── LANGUAGE SWITCHING ──
+  let currentLang = 'es';
+
 </script>
 </body>
 </html>
