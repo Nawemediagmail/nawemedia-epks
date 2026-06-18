@@ -1506,7 +1506,15 @@ PRESS KIT WEB · 2026</span>
     }
   }
 
-  // ── BIO RENDER (plain text → HTML paragraphs for public page) ──
+  // ── BIO HELPERS ──
+  function bioToPlain(val) {
+    if (!val) return '';
+    const div = document.createElement('div');
+    div.innerHTML = val;
+    const paras = Array.from(div.querySelectorAll('p'));
+    if (paras.length) return paras.map(p => p.textContent.trim()).filter(Boolean).join('\n\n');
+    return div.textContent.trim();
+  }
   function bioToHtml(text) {
     return (text || '').trim().split(/\n\s*\n+/).map(p => `<p>${p.trim()}</p>`).join('\n');
   }
@@ -1612,9 +1620,9 @@ PRESS KIT WEB · 2026</span>
   // ── RENDER ADMIN FORMS ──
   function renderAdmin(){
     // Bio
-    document.getElementById("bio-en").value = adminData.bio.en;
-    document.getElementById("bio-es").value = adminData.bio.es;
-    document.getElementById("bio-de").value = adminData.bio.de;
+    document.getElementById("bio-en").value = bioToPlain(adminData.bio.en);
+    document.getElementById("bio-es").value = bioToPlain(adminData.bio.es);
+    document.getElementById("bio-de").value = bioToPlain(adminData.bio.de);
     // Hero photo preview
     updateHeroPhoto();
 
