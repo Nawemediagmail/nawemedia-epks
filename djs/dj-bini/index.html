@@ -1025,7 +1025,7 @@ PRESS KIT WEB · 2026</span>
       </div>
 
       <div class="hero__portrait" aria-hidden="true">
-        <img src="assets/bini_PHOTO HERO.jpg" alt="BINI portrait" />
+        <img id="hero-photo-img" src="assets/bini_PHOTO HERO.jpg" alt="BINI portrait" />
       </div>
 
       <div class="hero__marquee" aria-hidden="true">
@@ -1440,6 +1440,16 @@ PRESS KIT WEB · 2026</span>
               <textarea id="bio-de" placeholder="DE bio..."></textarea>
             </div>
             <button class="admin-btn admin-btn--save" data-save="bio">Save Bio</button>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Foto Hero</label>
+              <div id="hero-photo-preview" style="margin-bottom:0.8rem;border-radius:8px;overflow:hidden;max-height:180px;display:none">
+                <img id="hero-photo-admin-preview" style="width:100%;height:180px;object-fit:cover;object-position:top" />
+              </div>
+              <input type="file" id="hero-photo-input" accept="image/*" style="padding:0.8rem;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted)" />
+              <button class="admin-btn" id="upload-hero-photo" style="margin-top:0.8rem">📤 Reemplazar Foto Hero</button>
+              <p id="hero-upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
           </div>
 
           <!-- MUSIC TAB -->
@@ -1564,7 +1574,8 @@ PRESS KIT WEB · 2026</span>
       toques: "90+",
       paises: "4",
       activo_desde: "2018"
-    }
+    },
+    hero_photo: "assets/bini_PHOTO HERO.jpg"
   };
 
   let adminData = defaultData;
@@ -1665,6 +1676,19 @@ PRESS KIT WEB · 2026</span>
     document.getElementById("stat-activo").textContent = adminData.stats.activo_desde;
   }
 
+  // ── UPDATE HERO PHOTO ──
+  function updateHeroPhoto(){
+    const src = adminData.hero_photo || "assets/bini_PHOTO HERO.jpg";
+    document.getElementById("hero-photo-img").src = src;
+    // Update preview in admin panel if visible
+    const preview = document.getElementById("hero-photo-preview");
+    const previewImg = document.getElementById("hero-photo-admin-preview");
+    if(preview && previewImg) {
+      previewImg.src = src;
+      preview.style.display = "block";
+    }
+  }
+
   // ── RENDER GALLERY ON PUBLIC PAGE ──
   function renderGalleryPublic(){
     const grid = document.getElementById("gallery-grid");
@@ -1684,6 +1708,8 @@ PRESS KIT WEB · 2026</span>
     document.getElementById("bio-en").value = adminData.bio.en;
     document.getElementById("bio-es").value = adminData.bio.es;
     document.getElementById("bio-de").value = adminData.bio.de;
+    // Hero photo preview
+    updateHeroPhoto();
 
     // Video
     document.getElementById("video-url").value = adminData.video.url || "";
@@ -1843,6 +1869,53 @@ PRESS KIT WEB · 2026</span>
     uploadPhotoToGithub(fileInput.files[0]);
   });
 
+  // ── HERO PHOTO UPLOAD ──
+  document.getElementById("upload-hero-photo").addEventListener("click", async ()=>{
+    const fileInput = document.getElementById("hero-photo-input");
+    const statusEl = document.getElementById("hero-upload-status");
+    if(!fileInput.files.length) {
+      statusEl.textContent = "⚠️ Selecciona una foto primero";
+      return;
+    }
+    const file = fileInput.files[0];
+    const MAX_SIZE = 2 * 1024 * 1024;
+    if(file.size > MAX_SIZE) {
+      statusEl.textContent = `❌ Archivo muy grande: ${(file.size/1024/1024).toFixed(2)}MB (máximo 2MB)`;
+      return;
+    }
+    statusEl.textContent = "⏳ Subiendo foto hero...";
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64Data = e.target.result.split(',')[1];
+      const ext = file.name.split('.').pop();
+      const fileName = `hero-${Date.now()}.${ext}`;
+      const response = await fetch("/api/upload-photo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileData: base64Data, fileName, slug: DJ_SLUG })
+      });
+      const result = await response.json();
+      if(!response.ok) {
+        statusEl.textContent = `❌ Error: ${result.error}`;
+        return;
+      }
+      adminData.hero_photo = result.url;
+      updateHeroPhoto();
+      const saved = await saveData();
+      statusEl.textContent = saved ? "✅ Foto hero actualizada!" : "⚠️ Subida pero fallo el guardado. Intentá de nuevo.";
+      fileInput.value = "";
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Mostrar preview cuando se selecciona archivo
+  document.getElementById("hero-photo-input").addEventListener("change", (e)=>{
+    if(!e.target.files.length) return;
+    const url = URL.createObjectURL(e.target.files[0]);
+    document.getElementById("hero-photo-admin-preview").src = url;
+    document.getElementById("hero-photo-preview").style.display = "block";
+  });
+
   // ── SAVE LOGIC ──
   document.querySelectorAll("[data-save]").forEach(btn=>{
     btn.addEventListener("click", async ()=>{
@@ -1970,11 +2043,13 @@ PRESS KIT WEB · 2026</span>
   adminContent.style.display = "none";
   // Render with defaults immediately so page doesn't look empty
   updateStats();
+  updateHeroPhoto();
   renderGalleryPublic();
   switchLang('es');
   // Then load saved data from GitHub and re-render
   loadFromGitHub().then(() => {
     updateStats();
+    updateHeroPhoto();
     renderGalleryPublic();
     switchLang(currentLang);
   });
