@@ -1117,8 +1117,27 @@ PRESS KIT WEB · 2026</span>
             <button class="lang" data-lang="de" role="tab" aria-selected="false">DE</button>
           </div>
 
-          <div id="bio-content" class="bio__body">
-            <!-- Renderizado dinámicamente desde adminData.bio[lang] -->
+          <p class="bio__lede" data-bio-lede>
+            BINI es DJ y productor chileno radicado en Santiago — fundador del colectivo ALPHA y una de las nuevas fuerzas del sonido circuit y tribal en Latinoamérica.
+          </p>
+
+          <div class="bio__body" data-lang-body="es">
+            <p><strong>El sonido.</strong> BINI mueve la pista en el cruce entre Circuit, Tribal House y Progressive — percusión potente, climas hipnóticos y un peak-time pensado para la noche. Su track <strong>"Quero Mais"</strong> marca el pulso de su proyecto: enérgico, latino y de alcance internacional.</p>
+            <p><strong>ALPHA 🐺.</strong> Como fundador de ALPHA, BINI impulsa una comunidad de pista que conecta Chile, Brasil, Argentina y Perú — fiestas, line-ups y una identidad sonora propia.</p>
+            <p><strong>En vivo.</strong> De clubes a festivales, sus sets construyen tensión y la sueltan en el momento justo. Energía, sudor y conexión total con el público.</p>
+            <p><strong>¿Booking?</strong> Disponible para clubes, festivales y eventos privados en toda Latinoamérica. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
+          </div>
+          <div class="bio__body" data-lang-body="en" style="display:none">
+            <p><strong>The sound.</strong> BINI moves the floor at the intersection of Circuit, Tribal House and Progressive — powerful percussion, hypnotic atmospheres and a peak-time built for the night. His track <strong>"Quero Mais"</strong> defines the pulse of his project: energetic, Latin and internationally reaching.</p>
+            <p><strong>ALPHA 🐺.</strong> As founder of ALPHA, BINI drives a dancefloor community connecting Chile, Brazil, Argentina and Peru — parties, lineups and a sound identity of their own.</p>
+            <p><strong>Live.</strong> From clubs to festivals, his sets build tension and release it at just the right moment. Energy, sweat and total connection with the crowd.</p>
+            <p><strong>Booking?</strong> Available for clubs, festivals and private events across Latin America. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
+          </div>
+          <div class="bio__body" data-lang-body="de" style="display:none">
+            <p><strong>Der Sound.</strong> BINI bewegt die Tanzfläche an der Schnittstelle von Circuit, Tribal House und Progressive — kraftvolle Perkussion, hypnotische Atmosphäre und ein Peak-Time-Sound für die Nacht. Sein Track <strong>„Quero Mais"</strong> bestimmt den Puls seines Projekts: energetisch, lateinamerikanisch und international.</p>
+            <p><strong>ALPHA 🐺.</strong> Als Gründer von ALPHA treibt BINI eine Tanzflächen-Community voran, die Chile, Brasilien, Argentinien und Peru verbindet — Partys, Line-ups und eine eigene Klangidentität.</p>
+            <p><strong>Live.</strong> Von Clubs bis Festivals bauen seine Sets Spannung auf und lösen sie im richtigen Moment. Energie, Schweiß und totale Verbindung zum Publikum.</p>
+            <p><strong>Booking?</strong> Verfügbar für Clubs, Festivals und private Events in ganz Lateinamerika. <a href="https://wa.me/56931159640" target="_blank" rel="noopener" style="color:var(--magenta);text-decoration:underline;text-underline-offset:3px">WhatsApp →</a></p>
           </div>
 
           <div class="bio__meta">
@@ -1518,9 +1537,9 @@ PRESS KIT WEB · 2026</span>
   // ── DATA STRUCTURE ──
   const defaultData = {
     bio: {
-      en: "The sound. BINI moves the floor at the intersection of Circuit, Tribal House and Progressive — powerful percussion, hypnotic atmospheres and a peak-time built for the night. His track \"Quero Mais\" defines the pulse of his project: energetic, Latin and internationally reaching.\n\nALPHA 🐺. As founder of ALPHA, BINI drives a dancefloor community connecting Chile, Brazil, Argentina and Peru — parties, lineups and a sound identity of their own.\n\nLive. From clubs to festivals, his sets build tension and release it at just the right moment. Energy, sweat and total connection with the crowd.\n\nBooking? Available for clubs, festivals and private events across Latin America.",
-      es: "El sonido. BINI mueve la pista en el cruce entre Circuit, Tribal House y Progressive — percusión potente, climas hipnóticos y un peak-time pensado para la noche. Su track \"Quero Mais\" marca el pulso de su proyecto: enérgico, latino y de alcance internacional.\n\nALPHA 🐺. Como fundador de ALPHA, BINI impulsa una comunidad de pista que conecta Chile, Brasil, Argentina y Perú — fiestas, line-ups y una identidad sonora propia.\n\nEn vivo. De clubes a festivales, sus sets construyen tensión y la sueltan en el momento justo. Energía, sudor y conexión total con el público.\n\n¿Booking? Disponible para clubes, festivales y eventos privados en toda Latinoamérica.",
-      de: "Der Sound. BINI bewegt die Tanzfläche an der Schnittstelle von Circuit, Tribal House und Progressive — kraftvolle Perkussion, hypnotische Atmosphäre und ein Peak-Time-Sound für die Nacht. Sein Track „Quero Mais“ bestimmt den Puls seines Projekts: energetisch, lateinamerikanisch und international.\n\nALPHA 🐺. Als Gründer von ALPHA treibt BINI eine Tanzflächen-Community voran, die Chile, Brasilien, Argentinien und Peru verbindet — Partys, Line-ups und eine eigene Klangidentität.\n\nLive. Von Clubs bis Festivals bauen seine Sets Spannung auf und lösen sie im richtigen Moment. Energie, Schweiß und totale Verbindung zum Publikum.\n\nBooking? Verfügbar für Clubs, Festivals und private Events in ganz Lateinamerika."
+      en: "BINI is a Chilean DJ and producer based in Santiago — founder of the ALPHA collective and one of the new forces in circuit and tribal sound across Latin America.",
+      es: "BINI es DJ y productor chileno radicado en Santiago — fundador del colectivo ALPHA y una de las nuevas fuerzas del sonido circuit y tribal en Latinoamérica.",
+      de: "BINI ist ein chilenischer DJ und Produzent aus Santiago — Gründer des ALPHA-Kollektivs und eine der neuen Kräfte im Circuit- und Tribal-Sound Lateinamerikas."
     },
     music: [
       {id:1, title:"Intro Judas — Lady Gaga · Walter Caminha + DJ BINI", type:"set", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2080188447&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"},
@@ -1583,21 +1602,6 @@ PRESS KIT WEB · 2026</span>
     } catch (e) {
       console.log("Load from GitHub failed, using cached data:", e.message);
     }
-  }
-
-  // ── BIO HELPERS ──
-  // Strip any HTML tags → clean plain text (handles legacy HTML-stored bios)
-  function bioToPlain(val) {
-    if (!val) return '';
-    const div = document.createElement('div');
-    div.innerHTML = val;
-    const paras = Array.from(div.querySelectorAll('p'));
-    if (paras.length) return paras.map(p => p.textContent.trim()).filter(Boolean).join('\n\n');
-    return div.textContent.trim();
-  }
-  // Plain text → HTML paragraphs for public page rendering
-  function bioToHtml(text) {
-    return (text || '').trim().split(/\n\s*\n+/).map(p => `<p>${p.trim()}</p>`).join('\n');
   }
 
   // ── AUTH ──
@@ -1701,9 +1705,9 @@ PRESS KIT WEB · 2026</span>
   // ── RENDER ADMIN FORMS ──
   function renderAdmin(){
     // Bio
-    document.getElementById("bio-en").value = bioToPlain(adminData.bio.en);
-    document.getElementById("bio-es").value = bioToPlain(adminData.bio.es);
-    document.getElementById("bio-de").value = bioToPlain(adminData.bio.de);
+    document.getElementById("bio-en").value = adminData.bio.en;
+    document.getElementById("bio-es").value = adminData.bio.es;
+    document.getElementById("bio-de").value = adminData.bio.de;
     // Hero photo preview
     updateHeroPhoto();
 
@@ -1964,9 +1968,9 @@ PRESS KIT WEB · 2026</span>
   });
 
   document.getElementById("admin-save-all").addEventListener("click", async ()=>{
-    adminData.bio.en = textToHtml(document.getElementById("bio-en").value);
-    adminData.bio.es = textToHtml(document.getElementById("bio-es").value);
-    adminData.bio.de = textToHtml(document.getElementById("bio-de").value);
+    adminData.bio.en = document.getElementById("bio-en").value;
+    adminData.bio.es = document.getElementById("bio-es").value;
+    adminData.bio.de = document.getElementById("bio-de").value;
     adminData.video.url = document.getElementById("video-url").value;
     adminData.video.title = document.getElementById("video-title").value;
     adminData.music.forEach((t,i)=>{
@@ -2020,10 +2024,10 @@ PRESS KIT WEB · 2026</span>
 
   function switchLang(lang) {
     currentLang = lang;
-    const bioContent = document.getElementById('bio-content');
-    if (bioContent) {
-      bioContent.innerHTML = bioToHtml(adminData.bio[lang] || adminData.bio.es);
-    }
+    document.querySelector('[data-bio-lede]').textContent = adminData.bio[lang] || adminData.bio.es;
+    document.querySelectorAll('[data-lang-body]').forEach(el => {
+      el.style.display = el.dataset.langBody === lang ? '' : 'none';
+    });
     document.querySelectorAll('.lang').forEach(btn => {
       btn.classList.toggle('on', btn.dataset.lang === lang);
       btn.setAttribute('aria-selected', btn.dataset.lang === lang ? 'true' : 'false');
