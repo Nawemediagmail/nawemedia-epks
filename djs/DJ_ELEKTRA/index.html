@@ -223,25 +223,14 @@
     max-width:var(--maxw);margin:0 auto;
     padding:0 var(--gutter);
     display:grid;grid-template-columns:1fr;gap:0;
-    align-items:end;min-height:100svh;
+    align-items:end;min-height:40svh;
   }
 
   .hero__meta{
     display:flex;flex-direction:column;gap:1.1rem;
     align-self:end;
-    padding-top:calc(34px + 90px);
+    padding-top:calc(34px + 20px);
     padding-bottom:2rem;
-    /* glass frame */
-    background:rgba(4,0,0,.52);
-    backdrop-filter:blur(14px) saturate(120%);
-    -webkit-backdrop-filter:blur(14px) saturate(120%);
-    border:1px solid rgba(180,10,10,.22);
-    border-bottom:none;
-    padding-left:1.6rem;
-    padding-right:1.6rem;
-    margin-left:calc(-1 * var(--gutter));
-    margin-right:calc(-1 * var(--gutter));
-    width:calc(100% + var(--gutter) * 2);
   }
   .hero__location{
     display:inline-flex;align-items:center;gap:.6rem;
@@ -990,7 +979,7 @@ PRESS KIT WEB · 2026</span>
 
     <!-- Full-bleed background photo -->
     <div class="hero__portrait" aria-hidden="true">
-      <img id="hero-photo-img" src="ASSETS/hero.jpeg" alt="ELEKTRA MON portrait" />
+      <img id="hero-photo-img" src="ASSETS/BANNER NUEVO.jpg" alt="ELEKTRA MON portrait" />
     </div>
 
     <div class="hero__grid">
@@ -1493,7 +1482,7 @@ PRESS KIT WEB · 2026</span>
       paises: "0",
       activo_desde: "2024"
     },
-    hero_photo: "ASSETS/hero.jpeg"
+    hero_photo: "ASSETS/BANNER NUEVO.jpg"
   };
 
   let adminData = defaultData;
@@ -1609,7 +1598,7 @@ PRESS KIT WEB · 2026</span>
 
   // ── UPDATE HERO PHOTO ──
   function updateHeroPhoto(){
-    const src = adminData.hero_photo || "ASSETS/hero.jpeg";
+    const src = adminData.hero_photo || "ASSETS/BANNER NUEVO.jpg";
     document.getElementById("hero-photo-img").src = src;
     // Update preview in admin panel if visible
     const preview = document.getElementById("hero-photo-preview");
