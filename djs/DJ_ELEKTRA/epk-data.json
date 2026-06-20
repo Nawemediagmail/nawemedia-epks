@@ -1,0 +1,90 @@
+{
+  "bio": {
+    "en": "<p>I'm a passionate DJ and singer who takes you on a musical journey, where rhythm and energy fuse to create unforgettable moments. Get ready to feel the music in every heartbeat! From 🇨🇺 to the world.</p>",
+    "es": "<p>Soy un DJ y cantante apasionado que te lleva en un viaje musical, donde el ritmo y la energía se fusionan para crear momentos inolvidables. ¡Prepárate para sentir la música en cada latido! De 🇨🇺 para el mundo.</p>",
+    "de": "<p>Ich bin ein leidenschaftlicher DJ und Sänger, der dich auf eine musikalische Reise mitnimmt, wo Rhythmus und Energie verschmelzen, um unvergessliche Momente zu schaffen. Mach dich bereit, die Musik in jedem Herzschlag zu spüren! Von 🇨🇺 für die Welt.</p>"
+  },
+  "music": [
+    {
+      "id": 1,
+      "title": "LIVE SET REBOTA — ELEKTRA MON",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2313105278&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"
+    }
+  ],
+  "video": {
+    "url": "https://www.youtube.com/embed/Aha4bHilm0g?si=lA_g3iXDjylHnMvO",
+    "title": "ELEKTRA MON — Live Set"
+  },
+  "shows": [],
+  "gallery": [
+    {
+      "id": 1,
+      "src": "ASSETS/ELEKTRA PHOTO 1.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 2,
+      "src": "ASSETS/ELEKTRA PHOTO 2.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 3,
+      "src": "ASSETS/ELEKTRA PHOTO 3.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 4,
+      "src": "ASSETS/ELEKTRA PHOTO 4.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 5,
+      "src": "ASSETS/ELEKTRA PHOTO 5.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 6,
+      "src": "ASSETS/ELEKTRA PHOTO 6.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    }
+  ],
+  "socials": [
+    {
+      "id": 1,
+      "plat": "Instagram",
+      "handle": "@elektramon_oficial",
+      "url": "https://www.instagram.com/elektramon_oficial/"
+    },
+    {
+      "id": 2,
+      "plat": "SoundCloud",
+      "handle": "/elektra-mon",
+      "url": "https://soundcloud.com/daniel-letuse-241093285"
+    },
+    {
+      "id": 3,
+      "plat": "YouTube",
+      "handle": "@Elektramon",
+      "url": "https://www.youtube.com/@Elektramon"
+    },
+    {
+      "id": 4,
+      "plat": "TikTok",
+      "handle": "@elektra_mon",
+      "url": "https://www.tiktok.com/@elektra_mon"
+    },
+    {
+      "id": 5,
+      "plat": "WhatsApp",
+      "handle": "booking · +51 903 434 568",
+      "url": "https://wa.me/51903434568"
+    }
+  ],
+  "stats": {
+    "toques": "50+",
+    "paises": "2",
+    "activo_desde": "2020"
+  },
+  "hero_photo": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/hero.jpeg"
+}
