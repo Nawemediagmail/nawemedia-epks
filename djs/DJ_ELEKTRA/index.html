@@ -1,0 +1,1976 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ELEKTRA MON — Electronic Press Kit · NAWEMEDIA</title>
+<meta name="description" content="DJ, cantante y modelo. Tribal · Afro House · Electronic. De Cuba para el mundo. Electronic Press Kit · NAWEMEDIA." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─────────── TOKENS ─────────── */
+  :root{
+    --bg:#04101d;
+    --bg-elev:#07192c;
+    --ink:#eafaff;
+    --muted:rgba(234,250,255,.60);
+    --line:rgba(160,225,255,.12);
+    --line-strong:rgba(160,225,255,.26);
+
+    /* electric cyan = primary (mapped onto old --magenta hooks) */
+    --magenta:#19c3ff;
+    --magenta-2:#6fe4ff;
+    /* warm coral = secondary accent (butterfly tips) (mapped onto --yellow hooks) */
+    --yellow:#ff8a47;
+    --red:#ff5364;
+    --gold:#ffc46b;
+    --teal:#36e6c0;
+    --violet:#8f7bff;
+
+    --iri:linear-gradient(115deg,#6fe4ff 0%,#19c3ff 28%,#8f7bff 55%,#ff8a47 100%);
+    --chrome:linear-gradient(180deg,#ffffff 0%,#cdeeff 16%,#19c3ff 44%,#0a5f96 58%,#6fe4ff 74%,#ffffff 92%);
+
+    --hazard:repeating-linear-gradient(135deg,#19c3ff 0 22px,#04101d 22px 38px);
+
+    --display:"Saira",Impact,sans-serif;
+    --sans:"Space Grotesk",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+
+    --maxw:1320px;
+    --gutter:clamp(1.25rem,4vw,3rem);
+
+    --shadow-glow:0 30px 90px rgba(25,195,255,.34);
+  }
+
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.55;
+    overflow-x:hidden;
+    text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;cursor:pointer}
+
+  ::selection{background:var(--magenta);color:#02101c}
+
+  /* page bg ambient — tropical neon / underwater */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(62rem 44rem at 82% -12%, rgba(25,195,255,.22), transparent 60%),
+      radial-gradient(52rem 40rem at -8% 18%, rgba(54,230,192,.16), transparent 60%),
+      radial-gradient(46rem 34rem at 50% 116%, rgba(143,123,255,.14), transparent 62%),
+      radial-gradient(30rem 24rem at 18% 92%, rgba(255,138,71,.08), transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+
+  /* grain */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/></svg>");
+  }
+
+  /* ─────────── HAZARD DEMO BAR (top) ─────────── */
+  .demo-bar{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    height:34px;display:flex;align-items:center;
+    background:var(--hazard);
+    border-bottom:2px solid #0a0408;
+    overflow:hidden;
+    font-family:var(--display);font-weight:900;letter-spacing:.04em;
+    color:#0a0408;
+  }
+  .demo-bar__track{
+    display:flex;gap:2.2rem;white-space:nowrap;
+    animation:marquee 28s linear infinite;
+    padding-left:2rem;
+  }
+  .demo-bar span{font-size:14px;line-height:1;text-transform:uppercase}
+  .demo-bar .dot{width:7px;height:7px;border-radius:50%;background:#0a0408;display:inline-block;margin:0 .2rem}
+
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){
+    .demo-bar__track,.marquee__track{animation:none}
+  }
+
+  /* ─────────── NAV ─────────── */
+  nav.top{
+    position:fixed;top:34px;left:0;right:0;z-index:50;
+    backdrop-filter:blur(20px) saturate(140%);
+    background:linear-gradient(180deg,rgba(8,4,10,.85),rgba(8,4,10,.55));
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  nav.top .inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:.85rem var(--gutter);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;flex-direction:column;align-items:flex-start;gap:.35rem}
+  .brand__mark{
+    width:40px;height:34px;border-radius:7px;
+    background:var(--iri);
+    display:grid;place-items:center;
+    font-family:var(--display);font-weight:900;
+    font-size:19px;line-height:1;color:#02101c;
+    box-shadow:0 0 24px rgba(25,195,255,.6);
+    clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);
+  }
+  .brand__word{
+    font-family:var(--display);font-weight:900;letter-spacing:.02em;font-size:22px;
+    text-transform:uppercase;line-height:1;
+  }
+  .brand__word small{
+    display:block;font-family:var(--mono);font-weight:500;font-size:9px;
+    color:var(--muted);letter-spacing:.3em;margin-top:3px;
+  }
+  nav .links{display:none;gap:1.75rem}
+  nav .links a{
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--muted);
+    padding:.4rem 0;border-bottom:1px solid transparent;
+    transition:.2s;
+  }
+  nav .links a:hover{color:var(--ink);border-bottom-color:var(--magenta)}
+  nav .cta{display:flex;align-items:center;gap:.5rem}
+  @media (min-width:980px){ nav .links{display:flex} }
+
+  /* ─────────── BUTTONS ─────────── */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    min-height:44px;padding:0 1.1rem;
+    border-radius:999px;
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);
+    color:var(--ink);
+    transition:.2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--magenta);background:rgba(255,31,143,.08);transform:translateY(-1px)}
+  .btn--solid{
+    background:var(--ink);color:#0a0408;border-color:var(--ink);
+  }
+  .btn--solid:hover{background:var(--yellow);border-color:var(--yellow);color:#0a0408}
+  .btn--magenta{
+    background:var(--magenta);color:#0a0408;border-color:var(--magenta);
+    box-shadow:0 12px 32px rgba(255,31,143,.4);
+  }
+  .btn--magenta:hover{background:var(--yellow);border-color:var(--yellow)}
+  .btn--ghost{background:transparent}
+  .btn--xs{min-height:32px;padding:0 .8rem;font-size:10px;letter-spacing:.14em}
+
+  /* ─────────── SECTION SCAFFOLD ─────────── */
+  section{position:relative;z-index:2;padding:clamp(4rem,9vw,7.5rem) 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+    margin-bottom:clamp(2rem,4vw,3.5rem);
+    border-bottom:1px solid var(--line);padding-bottom:1.5rem;
+  }
+  .sec-head__l{display:flex;align-items:baseline;gap:1.25rem;flex-wrap:wrap}
+  .sec-num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+    color:var(--yellow);text-transform:uppercase;font-weight:500;
+  }
+  .sec-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    color:var(--muted);text-transform:uppercase;font-weight:500;
+  }
+  .sec-title{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(2.6rem,7vw,5.6rem);line-height:.88;
+    letter-spacing:-.01em;text-transform:uppercase;
+    margin:1rem 0 0;
+  }
+  .sec-title em{font-style:italic;font-weight:800;
+    background:var(--iri);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;}
+  .sec-title .stroke{
+    -webkit-text-stroke:1.5px var(--ink);
+    color:transparent;font-style:normal;
+  }
+  .sec-head__r{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:right;
+  }
+
+  /* ─────────── HERO ─────────── */
+  header.hero{
+    position:relative;
+    min-height:100svh;
+    padding-top:calc(34px + 80px);
+    padding-bottom:0;
+    overflow:hidden;
+    z-index:2;
+  }
+  .hero__grid{
+    max-width:var(--maxw);margin:0 auto;
+    padding:0 var(--gutter);
+    display:grid;grid-template-columns:1fr;gap:2rem;
+    align-items:end;min-height:calc(100svh - 114px);
+  }
+  @media(min-width:980px){
+    .hero__grid{grid-template-columns:1fr 1fr;gap:3rem}
+  }
+
+  .hero__meta{
+    display:flex;flex-direction:column;gap:1.25rem;
+    align-self:start;padding-top:1.5rem;
+  }
+  .hero__location{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--line-strong);border-radius:999px;
+    padding:.45rem .9rem;width:fit-content;
+    background:rgba(255,255,255,.03);
+  }
+  .hero__location .pulse{
+    width:7px;height:7px;border-radius:50%;background:var(--magenta);
+    box-shadow:0 0 0 0 var(--magenta);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,195,255,.7)}70%{box-shadow:0 0 0 10px rgba(25,195,255,0)}100%{box-shadow:0 0 0 0 rgba(25,195,255,0)}}
+
+  .hero__banner{
+    display:block;margin:0;padding:0;width:100%;
+    line-height:0;
+  }
+  .hero__banner img{
+    display:block;width:100%;height:auto;
+  }
+
+  .hero__name{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(6rem,22vw,17rem);
+    line-height:.8;letter-spacing:-.03em;
+    text-transform:uppercase;margin:0;
+    background:var(--chrome);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    filter:drop-shadow(0 4px 30px rgba(25,195,255,.45));
+  }
+  .hero__name .line1{display:block}
+  .hero__name .line2{
+    display:block;
+    -webkit-text-stroke:2px rgba(111,228,255,.55);
+    -webkit-text-fill-color:transparent;
+    background:none;
+  }
+  .hero__sub{
+    font-family:var(--mono);font-size:13px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+    display:flex;flex-wrap:wrap;gap:.4rem .9rem;
+  }
+  .hero__sub b{color:var(--magenta-2);font-weight:700}
+  .hero__tags{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+  .hero__alpha{
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:#02101c;
+    background:var(--iri);padding:.4rem .8rem;border-radius:999px;
+    box-shadow:0 6px 22px rgba(25,195,255,.35);
+  }
+  .hero__flags{
+    font-size:15px;letter-spacing:.18em;line-height:1;
+    border:1px solid var(--line-strong);border-radius:999px;
+    padding:.42rem .8rem;background:rgba(160,225,255,.04);
+  }
+  .hero__lede{
+    max-width:46ch;font-size:1.05rem;line-height:1.6;color:var(--muted);
+    margin:.5rem 0 0;
+  }
+  .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+
+  /* tiny stat strip */
+  .hero__stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.5rem;
+    max-width:520px;
+  }
+  .stat{
+    padding:.9rem 1rem;border:1px solid var(--line);
+    background:rgba(255,255,255,.025);border-radius:14px;
+  }
+  .stat__k{
+    font-family:var(--display);font-weight:900;font-size:1.9rem;line-height:1;
+    color:var(--ink);letter-spacing:-.01em;
+  }
+  .stat__l{
+    font-family:var(--mono);font-size:9px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted);margin-top:.4rem;
+  }
+
+  /* hero portrait */
+  .hero__portrait{
+    position:relative;
+    aspect-ratio:4/5;
+    min-height:420px;
+    border-radius:0;
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+    background:#0a0408;
+    isolation:isolate;
+  }
+  .hero__portrait img{
+    width:100%;height:100%;object-fit:cover;object-position:center top;
+    filter:contrast(1.05) saturate(1.1);
+  }
+  .hero__portrait::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(8,4,10,.85));
+    pointer-events:none;
+  }
+  .hero__portrait__tag{
+    position:absolute;left:1rem;bottom:1rem;z-index:2;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink);
+    background:rgba(8,4,10,.7);backdrop-filter:blur(6px);
+    border:1px solid var(--line-strong);border-radius:999px;
+    padding:.4rem .8rem;
+  }
+  .hero__portrait__corner{
+    position:absolute;top:1rem;right:1rem;z-index:2;
+    background:var(--yellow);color:#0a0408;
+    font-family:var(--display);font-weight:900;font-size:1rem;
+    padding:.4rem .7rem;letter-spacing:.04em;text-transform:uppercase;line-height:1;
+    transform:rotate(4deg);
+  }
+
+  /* hero marquee bottom */
+  .hero__marquee{
+    margin-top:auto;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;background:rgba(255,255,255,.02);
+    height:64px;display:flex;align-items:center;
+    grid-column:1/-1;
+  }
+  .marquee__track{
+    display:flex;gap:3rem;white-space:nowrap;
+    animation:marquee 32s linear infinite;padding-left:3rem;
+    font-family:var(--display);font-weight:900;font-size:2.2rem;
+    text-transform:uppercase;letter-spacing:-.01em;line-height:1;
+  }
+  .marquee__track span{display:inline-flex;align-items:center;gap:1.3rem}
+  .marquee__track .dot{
+    width:14px;height:14px;background:var(--magenta);border-radius:50%;
+    display:inline-block;
+  }
+  .marquee__track .strk{
+    -webkit-text-stroke:1.5px var(--ink);color:transparent;
+  }
+
+  /* ─────────── DEMO CALLOUT ─────────── */
+  .demo-callout{
+    position:relative;
+    padding:clamp(3rem,7vw,5rem) 0;
+    z-index:2;
+  }
+  .demo-callout .wrap{
+    display:grid;grid-template-columns:1fr;gap:1.5rem;
+    align-items:stretch;
+  }
+  @media(min-width:880px){
+    .demo-callout .wrap{grid-template-columns:1.1fr .9fr;gap:2rem}
+  }
+  .demo-card{
+    border:1px solid var(--line-strong);
+    background:linear-gradient(135deg,rgba(255,31,143,.10),rgba(225,20,43,.08));
+    padding:clamp(1.5rem,3vw,2.4rem);
+    border-radius:18px;position:relative;overflow:hidden;
+  }
+  .demo-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:6px;
+    background:var(--hazard);
+  }
+  .demo-card__tag{
+    display:inline-block;padding:.3rem .65rem;
+    background:var(--yellow);color:#0a0408;
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;
+  }
+  .demo-card h3{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(1.6rem,3vw,2.4rem);line-height:1;
+    text-transform:uppercase;margin:0 0 1rem;letter-spacing:-.01em;
+  }
+  .demo-card h3 em{color:var(--yellow);font-style:italic}
+  .demo-card p{color:var(--muted);margin:0 0 1.2rem;max-width:46ch}
+  .demo-card .actions{display:flex;flex-wrap:wrap;gap:.6rem}
+
+  /* sell box */
+  .pitch{
+    border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.03);
+    padding:clamp(1.5rem,3vw,2.4rem);
+    border-radius:18px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    position:relative;overflow:hidden;
+  }
+  .pitch__label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--yellow);
+  }
+  .pitch ul{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.55rem}
+  .pitch li{
+    display:flex;align-items:flex-start;gap:.7rem;
+    font-size:.95rem;color:var(--ink);
+  }
+  .pitch li svg{flex-shrink:0;margin-top:3px;color:var(--magenta)}
+  .pitch__cta{margin-top:1.4rem;display:flex;gap:.6rem;flex-wrap:wrap}
+
+  /* ─────────── GENRES ─────────── */
+  .genres{background:linear-gradient(180deg,transparent,rgba(255,31,143,.04),transparent)}
+  .genre-grid{
+    display:grid;grid-template-columns:1fr;gap:1rem;
+  }
+  @media(min-width:760px){.genre-grid{grid-template-columns:repeat(3,1fr)}}
+  .gcard{
+    position:relative;border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    padding:1.75rem 1.5rem 1.4rem;border-radius:16px;
+    transition:.3s ease;overflow:hidden;
+    min-height:240px;display:flex;flex-direction:column;
+  }
+  .gcard:hover{
+    transform:translateY(-4px);
+    border-color:var(--magenta);
+    background:rgba(255,31,143,.06);
+    box-shadow:var(--shadow-glow);
+  }
+  .gcard__num{
+    position:absolute;top:1.2rem;right:1.4rem;
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    color:var(--muted);
+  }
+  .gcard__icon{
+    width:46px;height:46px;border-radius:12px;
+    border:1px solid var(--line-strong);
+    display:grid;place-items:center;color:var(--magenta);
+    background:rgba(255,31,143,.06);margin-bottom:1.2rem;
+  }
+  .gcard__title{
+    font-family:var(--display);font-weight:900;
+    font-size:1.9rem;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;
+    margin:0 0 .55rem;
+  }
+  .gcard__desc{color:var(--muted);font-size:.95rem;margin:0;flex:1}
+  .gcard__meter{
+    margin-top:1.2rem;display:flex;gap:6px;
+  }
+  .gcard__meter span{
+    height:5px;flex:1;background:rgba(255,255,255,.08);border-radius:2px;
+  }
+  .gcard__meter span.on{background:var(--magenta)}
+
+  /* ─────────── BIO ─────────── */
+  .bio-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+  @media(min-width:980px){.bio-grid{grid-template-columns:.7fr 1fr;gap:3rem;align-items:start}}
+
+  .bio__photo{
+    position:relative;border:1px solid var(--line-strong);
+    aspect-ratio:3/4;overflow:hidden;
+  }
+  .bio__photo img{
+    width:100%;height:100%;object-fit:cover;object-position:center 8%;
+    filter:contrast(1.05) saturate(1.1);
+  }
+  .bio__photo__tag{
+    position:absolute;left:0;bottom:0;
+    background:var(--ink);color:#0a0408;
+    padding:.6rem .9rem;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+  }
+  .bio__photo__sticker{
+    position:absolute;top:1rem;right:1rem;
+    width:90px;height:90px;border-radius:50%;
+    background:var(--yellow);color:#0a0408;
+    display:grid;place-items:center;text-align:center;
+    font-family:var(--display);font-weight:900;font-size:11px;line-height:1.1;
+    text-transform:uppercase;letter-spacing:.05em;padding:.5rem;
+    transform:rotate(-10deg);
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+
+  .langs{display:flex;gap:.4rem;margin-bottom:1.4rem;flex-wrap:wrap}
+  .lang{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;font-weight:700;
+    padding:.55rem .85rem;border-radius:0;
+    border:1px solid var(--line-strong);background:transparent;color:var(--muted);
+    transition:.2s;
+  }
+  .lang:hover{color:var(--ink);border-color:var(--ink)}
+  .lang.on{background:var(--ink);color:#0a0408;border-color:var(--ink)}
+
+  .bio__lede{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(1.4rem,2.5vw,1.85rem);line-height:1.15;
+    letter-spacing:-.01em;text-transform:none;
+    color:var(--ink);margin:0 0 1.5rem;
+    border-left:3px solid var(--magenta);padding-left:1.1rem;
+  }
+  .bio__body{color:var(--muted);font-size:1rem;line-height:1.75}
+  .bio__body p{margin:0 0 1.05rem}
+  .bio__body p:last-child{margin:0}
+  .bio__body strong{color:var(--ink);font-weight:600}
+
+  .bio__meta{
+    margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;
+  }
+  @media(min-width:680px){.bio__meta{grid-template-columns:repeat(4,1fr)}}
+  .meta{display:flex;flex-direction:column;gap:.3rem}
+  .meta__k{
+    font-family:var(--mono);font-size:9px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+  }
+  .meta__v{
+    font-family:var(--display);font-weight:800;font-size:1.05rem;
+    text-transform:uppercase;letter-spacing:.01em;
+  }
+
+  /* ─────────── MUSIC ─────────── */
+  .music-list{display:grid;gap:1rem}
+  .track{
+    border:1px solid var(--line);background:rgba(255,255,255,.025);
+    border-radius:14px;overflow:hidden;
+    transition:.25s;
+  }
+  .track:hover{border-color:var(--magenta);background:rgba(255,31,143,.05)}
+  .track__head{
+    display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;
+    border-bottom:1px solid var(--line);
+  }
+  .track__num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    color:var(--muted);min-width:28px;
+  }
+  .track__title{
+    font-family:var(--display);font-weight:800;font-size:1.15rem;
+    text-transform:uppercase;letter-spacing:-.005em;flex:1;line-height:1.1;
+  }
+  .track__badge{
+    font-family:var(--mono);font-size:9px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.2em;
+    padding:.3rem .55rem;border-radius:3px;
+    background:var(--magenta);color:#0a0408;
+  }
+  .track__badge.rel{background:var(--yellow)}
+  .track__player{padding:.8rem 1.2rem 1rem;background:rgba(0,0,0,.25)}
+  .track__player iframe{
+    width:100%;height:130px;border:0;border-radius:8px;display:block;
+  }
+
+  /* ─────────── VIDEO ─────────── */
+  .video-wrap{
+    position:relative;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line-strong);
+    background:#0a0408;
+  }
+  .video-wrap::before{content:"";display:block;padding-bottom:56.25%}
+  .video-wrap iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+  }
+  .video-corner{
+    position:absolute;top:1rem;left:1rem;z-index:3;
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink);
+    background:rgba(8,4,10,.75);backdrop-filter:blur(6px);
+    border:1px solid var(--line-strong);
+    padding:.4rem .75rem;border-radius:999px;pointer-events:none;
+  }
+  .video-corner .rec{
+    width:8px;height:8px;border-radius:50%;background:var(--red);
+    animation:pulse 1.4s infinite;
+  }
+
+  /* ─────────── SHOWS ─────────── */
+  .show{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;gap:1.5rem;
+    padding:1.5rem 0;border-bottom:1px solid var(--line);
+    transition:.2s;
+  }
+  .show:hover{background:rgba(255,31,143,.03);padding-left:.6rem}
+  .show:last-of-type{border-bottom:none}
+  .show__date{
+    font-family:var(--display);font-weight:900;
+    line-height:.85;text-transform:uppercase;letter-spacing:-.01em;
+  }
+  .show__date .d{
+    display:block;font-size:2.6rem;color:var(--ink);
+  }
+  .show__date .m{
+    display:block;font-size:1.05rem;color:var(--yellow);letter-spacing:.04em;
+    margin-top:.15rem;
+  }
+  .show__info{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+  .show__venue{
+    font-family:var(--display);font-weight:800;font-size:1.4rem;
+    text-transform:uppercase;letter-spacing:-.005em;line-height:1.05;
+  }
+  .show__city{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .show__type{
+    display:none;font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    padding:.3rem .6rem;border:1px solid var(--line-strong);border-radius:3px;
+    color:var(--muted);justify-self:start;align-self:center;
+  }
+  @media(min-width:760px){
+    .show{grid-template-columns:auto 1fr auto auto}
+    .show__type{display:inline-block}
+  }
+
+  /* ─────────── GALLERY ─────────── */
+  .gallery{
+    display:grid;gap:.6rem;
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:200px;
+  }
+  @media(min-width:760px){
+    .gallery{
+      grid-template-columns:repeat(4,1fr);
+      grid-auto-rows:240px;
+    }
+  }
+  .gtile{
+    position:relative;overflow:hidden;
+    border:1px solid var(--line);background:#0a0408;
+    cursor:pointer;
+  }
+  .gtile img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .5s ease, filter .5s ease;
+    filter:saturate(1.05);
+  }
+  .gtile:hover img{transform:scale(1.04);filter:saturate(1.2) brightness(1.05)}
+  .gtile::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(8,4,10,.75));
+    pointer-events:none;
+  }
+  .gtile__cap{
+    position:absolute;left:.8rem;bottom:.7rem;z-index:2;
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .gtile--wide{grid-column:span 2}
+  .gtile--tall{grid-row:span 2}
+  @media(min-width:760px){
+    .gtile--big{grid-column:span 2;grid-row:span 2}
+  }
+
+  /* ─────────── LINKS ─────────── */
+  .socials{
+    display:grid;gap:.8rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:680px){.socials{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.socials{grid-template-columns:repeat(4,1fr)}}
+  .soc{
+    display:flex;align-items:center;gap:1rem;
+    padding:1.1rem 1.2rem;border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.025);
+    transition:.25s;position:relative;overflow:hidden;
+  }
+  .soc:hover{
+    border-color:var(--magenta);
+    background:rgba(255,31,143,.06);
+    transform:translateY(-3px);
+  }
+  .soc__icon{
+    width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);
+    color:var(--ink);flex-shrink:0;
+  }
+  .soc__text{display:flex;flex-direction:column;min-width:0}
+  .soc__plat{
+    font-family:var(--display);font-weight:800;font-size:1.1rem;
+    text-transform:uppercase;letter-spacing:.01em;line-height:1;
+  }
+  .soc__handle{
+    font-family:var(--mono);font-size:10px;letter-spacing:.15em;
+    color:var(--muted);text-transform:lowercase;margin-top:.3rem;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .soc__arrow{margin-left:auto;color:var(--muted);transition:.2s}
+  .soc:hover .soc__arrow{color:var(--magenta);transform:translate(2px,-2px)}
+
+  /* promo big cta band */
+  .promo-band{
+    margin-top:3rem;padding:2rem;
+    border:1px solid var(--line-strong);
+    background:linear-gradient(135deg,rgba(255,212,0,.12),rgba(255,31,143,.10));
+    display:grid;grid-template-columns:1fr;gap:1rem;
+    border-radius:18px;align-items:center;position:relative;overflow:hidden;
+  }
+  .promo-band::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--hazard);
+  }
+  @media(min-width:760px){.promo-band{grid-template-columns:1fr auto;gap:2rem;padding:2.4rem}}
+  .promo-band h3{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;text-transform:uppercase;
+    margin:0;letter-spacing:-.01em;
+  }
+  .promo-band p{color:var(--muted);margin:.6rem 0 0;max-width:46ch}
+
+  /* ─────────── FOOTER ─────────── */
+  footer{
+    position:relative;z-index:2;
+    border-top:1px solid var(--line);
+    background:rgba(0,0,0,.5);
+    padding:clamp(3rem,6vw,5rem) 0 1.6rem;
+    margin-top:3rem;
+  }
+  .foot-grid{
+    display:grid;gap:2rem;grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  .foot-grid h4{
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+    margin:0 0 1rem;
+  }
+  .foot-grid a{color:var(--ink);font-size:.95rem;line-height:1.9;display:block;transition:.2s}
+  .foot-grid a:hover{color:var(--magenta)}
+  .foot-brand{font-family:var(--display);font-weight:900;font-size:2.2rem;text-transform:uppercase;line-height:1;margin:0 0 .8rem}
+  .foot-brand small{display:block;font-size:.7rem;font-family:var(--mono);font-weight:500;color:var(--muted);letter-spacing:.24em;margin-top:.5rem}
+  .foot-bot{
+    margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .foot-bot a{color:var(--ink)}
+
+  /* ─────────── LIGHTBOX ─────────── */
+  .lb{
+    position:fixed;inset:0;z-index:80;display:none;
+    align-items:center;justify-content:center;
+    background:rgba(8,4,10,.94);backdrop-filter:blur(20px);
+    padding:2rem;
+  }
+  .lb.on{display:flex}
+  .lb img{max-width:92vw;max-height:84vh;object-fit:contain;border:1px solid var(--line-strong)}
+  .lb__btn{
+    position:absolute;top:1.5rem;right:1.5rem;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.08);border:1px solid var(--line-strong);
+    color:var(--ink);display:grid;place-items:center;font-size:18px;
+  }
+  .lb__nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:54px;height:54px;border-radius:50%;
+    background:rgba(255,31,143,.18);border:1px solid var(--magenta);
+    color:var(--ink);display:grid;place-items:center;font-size:22px;
+  }
+  .lb__nav.prev{left:1.5rem}
+  .lb__nav.next{right:1.5rem}
+
+  /* ─────────── ADMIN PANEL ─────────── */
+  .admin-modal{
+    position:fixed;inset:0;z-index:100;display:none;
+    background:rgba(8,4,10,.96);backdrop-filter:blur(24px);
+    align-items:center;justify-content:center;padding:2rem;
+  }
+  .admin-modal.open{display:flex}
+  .admin-panel{
+    width:100%;max-width:900px;max-height:90vh;
+    background:var(--bg-elev);border:1px solid var(--line-strong);
+    border-radius:20px;overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 40px 120px rgba(0,0,0,.6);
+  }
+  #admin-content{display:none;flex:1;flex-direction:column;min-height:0}
+  #admin-content > div:first-child{flex:1;overflow-y:auto;padding:2rem;min-height:0}
+  .admin-header{
+    padding:1.5rem 2rem;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .admin-header h2{
+    font-family:var(--display);font-weight:900;font-size:1.8rem;
+    text-transform:uppercase;margin:0;letter-spacing:-.01em;
+  }
+  .admin-close{
+    background:none;border:1px solid var(--line-strong);
+    border-radius:50%;width:40px;height:40px;
+    display:grid;place-items:center;color:var(--ink);font-size:18px;
+    cursor:pointer;transition:.2s;
+  }
+  .admin-close:hover{background:rgba(255,255,255,.05);border-color:var(--magenta)}
+
+  .admin-body{
+    flex:1;overflow-y:auto;padding:2rem;
+    display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+  }
+  @media(max-width:760px){.admin-body{grid-template-columns:1fr}}
+
+  .admin-tab{display:none}
+  .admin-tab.active{display:block}
+  .admin-tab h3{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--yellow);margin:0 0 1.2rem;
+  }
+  .admin-tab .field-group{margin-bottom:1.4rem}
+  .admin-tab label{
+    display:block;font-family:var(--mono);font-size:10px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:.4rem;font-weight:500;
+  }
+  .admin-tab input,
+  .admin-tab textarea,
+  .admin-tab select{
+    width:100%;padding:.75rem;
+    background:rgba(255,255,255,.03);border:1px solid var(--line);
+    border-radius:8px;color:var(--ink);font-family:var(--sans);
+    font-size:14px;line-height:1.5;
+    transition:.2s;
+  }
+  .admin-tab input:focus,
+  .admin-tab textarea:focus,
+  .admin-tab select:focus{
+    outline:none;border-color:var(--magenta);
+    background:rgba(255,31,143,.04);
+  }
+  .admin-tab textarea{resize:vertical;min-height:100px;font-family:var(--mono);font-size:13px}
+
+  .admin-actions{
+    display:flex;gap:.6rem;padding:1.5rem 2rem;border-top:1px solid var(--line);
+    background:rgba(0,0,0,.3);
+  }
+  .admin-btn{
+    padding:.7rem 1.4rem;border-radius:8px;font-family:var(--mono);
+    font-size:11px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);color:var(--ink);
+    cursor:pointer;transition:.2s;
+  }
+  .admin-btn:hover{background:rgba(255,255,255,.08);border-color:var(--magenta)}
+  .admin-btn--save{background:var(--magenta);border-color:var(--magenta);color:#0a0408}
+  .admin-btn--save:hover{background:var(--yellow);border-color:var(--yellow)}
+
+  .admin-tabs-nav{
+    display:flex;gap:.4rem;margin-bottom:1.5rem;
+    border-bottom:1px solid var(--line);padding-bottom:.8rem;
+    flex-wrap:wrap;
+  }
+  .admin-tabs-nav button{
+    background:none;border:none;
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);cursor:pointer;
+    padding:.4rem .8rem;border-bottom:2px solid transparent;
+    transition:.2s;
+  }
+  .admin-tabs-nav button:hover,
+  .admin-tabs-nav button.active{
+    color:var(--ink);border-bottom-color:var(--magenta);
+  }
+
+  .login-screen{
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:1.5rem;
+  }
+  .login-screen h3{
+    font-family:var(--display);font-weight:900;font-size:2.2rem;
+    text-transform:uppercase;margin:0;letter-spacing:-.01em;
+  }
+  .login-screen p{color:var(--muted);max-width:42ch;margin:0}
+  .login-screen input{
+    width:100%;max-width:320px;padding:.9rem;
+    background:rgba(255,255,255,.04);border:1px solid var(--line-strong);
+    border-radius:8px;color:var(--ink);font-family:var(--mono);font-size:14px;
+  }
+  .login-screen button{
+    padding:.85rem 2rem;background:var(--magenta);border:none;
+    border-radius:8px;color:#0a0408;font-family:var(--mono);font-weight:700;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    cursor:pointer;transition:.2s;
+  }
+  .login-screen button:hover{background:var(--yellow)}
+
+  /* tiny utils */
+  .center{display:flex;justify-content:center}
+  .mt-2{margin-top:2rem}.mt-3{margin-top:3rem}
+
+  /* ── MOBILE OVERFLOW FIX ── */
+  html,body{max-width:100%;overflow-x:hidden}
+  @media(max-width:767px){
+    nav.top .inner{padding:10px 16px !important;margin:0 !important;border:none !important}
+    .brand__logo{max-width:130px !important;height:36px !important}
+    .hero__stats{width:100%;max-width:100%}
+    .hero__grid{padding:0 1rem}
+  }
+
+  
+  .brand__logo{
+    height:44px;width:auto;display:block;
+    max-width:160px;
+    filter:none;
+  }
+  .hero__logo{
+    display:block;
+    width:min(78vw,760px);max-width:100%;height:auto;
+    filter:brightness(0) invert(1) drop-shadow(0 8px 36px rgba(25,195,255,.55));
+  }
+
+  /* respect motion */
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ─────────── HAZARD DEMO BAR ─────────── -->
+  <div class="demo-bar" role="banner" aria-label="Demo notice">
+    <div class="demo-bar__track" aria-hidden="true">
+      <!-- repeated for seamless marquee -->
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+      <span>ELEKTRA MON — EPK — NAWEMEDIA <span class="dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ─────────── NAV ─────────── -->
+  <nav class="top" data-screen-label="nav">
+    <div class="inner">
+      <a href="#top" class="brand" aria-label="ELEKTRA MON home" style="letter-spacing: 0.2px; gap: 10px; padding: 0px; margin: 1px">
+        <img class="brand__logo" src="ASSETS/ELEKTRA LOGO COLOR.png" alt="ELEKTRA MON"/>
+        <span class="brand__word" style="font-size: 14px; text-align: center; padding: 0px; margin: 0px 0px -21px; border-width: 0px; border-style: solid">
+
+PRESS KIT WEB · 2026</span>
+      </a>
+      <div class="links">
+        <a href="#bio">Bio</a>
+        <a href="#music">Música</a>
+        <a href="#video">Video</a>
+        <a href="#shows">Shows</a>
+        <a href="#gallery">Galería</a>
+        <a href="#links">Links</a>
+      </div>
+      <div class="cta">
+        <a class="btn btn--magenta" href="https://www.instagram.com/elektramon_oficial/" target="_blank" rel="noopener">Contacto</a>
+        <button class="btn btn--ghost" id="admin-trigger" aria-label="Admin panel" title="Ctrl+Alt+A">⚙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────── HERO ─────────── -->
+  <header class="hero" id="top" data-screen-label="hero">
+    <div class="hero__grid">
+      <div class="hero__meta">
+        <span class="hero__location">LIMA · PERÚ</span>
+
+        <p class="hero__sub">
+          <b>TRIBAL</b>
+          <span aria-hidden="true">/</span>
+          <b>AFRO HOUSE</b>
+          <span aria-hidden="true">/</span>
+          <b>ELECTRONIC</b>
+        </p>
+
+        <div class="hero__tags">
+          <span class="hero__alpha">DJ · CANTANTE · MODELO</span>
+          <span class="hero__flags">🇨🇺 · 🇵🇪</span>
+        </div>
+
+        <p class="hero__lede">
+          Un viaje musical donde el ritmo y la energía se fusionan para crear momentos inolvidables. De Cuba para el mundo.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--magenta" href="https://www.instagram.com/elektramon_oficial/" target="_blank" rel="noopener">
+            Contacto →
+          </a>
+          <a class="btn" href="#music">Escuchar el set</a>
+          <a class="btn btn--ghost" href="#promo">Kit de prensa ↓</a>
+        </div>
+
+        <div class="hero__stats" aria-label="Key stats">
+          <div class="stat">
+            <div class="stat__k" id="stat-toques">0</div>
+            <div class="stat__l">Toques</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k" id="stat-paises">0</div>
+            <div class="stat__l">Países</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k" id="stat-activo">2024</div>
+            <div class="stat__l">Activo desde</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__portrait" aria-hidden="true">
+        <img id="hero-photo-img" src="ASSETS/hero.jpeg" alt="ELEKTRA MON portrait" />
+      </div>
+
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span><span>AGENDA ABIERTA</span> <span class="dot"></span></span>
+          <span><span class="strk">TRIBAL · AFRO HOUSE</span> <span class="dot"></span></span>
+          <span><span>DE CUBA PARA EL MUNDO</span> <span class="dot"></span></span>
+          <span><span class="strk">ELEKTRA MON</span> <span class="dot"></span></span>
+          <span><span>AGENDA ABIERTA</span> <span class="dot"></span></span>
+          <span><span class="strk">TRIBAL · AFRO HOUSE</span> <span class="dot"></span></span>
+          <span><span>DE CUBA PARA EL MUNDO</span> <span class="dot"></span></span>
+          <span><span class="strk">ELEKTRA MON</span> <span class="dot"></span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────── GENRES ─────────── -->
+  <section class="genres" id="genres" data-screen-label="genres">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">01 / 06</span>
+          <span class="sec-label">Identidad Sonora</span>
+        </div>
+        <div class="sec-head__r">Hecho<br>para<br>la pista</div>
+      </div>
+      <h2 class="sec-title">Ritmo, identidad <em>y fuego</em></h2>
+
+      <div class="genre-grid mt-3">
+        <article class="gcard">
+          <span class="gcard__num">→ 01</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M21 12h-3M6 12H3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="gcard__title">TRIBAL</h3>
+          <p class="gcard__desc">Percusiones tribales que llevan al límite del dancefloor. Alta energía, ritmo primitivo y electrónico al mismo tiempo.</p>
+          <div class="gcard__meter" aria-label="Intensity 5 of 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+        </article>
+        <article class="gcard">
+          <span class="gcard__num">→ 02</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4v16M12 2v20M19 6v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="gcard__title">AFRO HOUSE</h3>
+          <p class="gcard__desc">Energía africana fusionada con identidad latina. Grooves profundos y melodías que elevan cada momento en pista.</p>
+          <div class="gcard__meter" aria-label="Intensity 5 of 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+        </article>
+        <article class="gcard">
+          <span class="gcard__num">→ 03</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3-7 4 14 3-7h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="gcard__title">ELECTRONIC</h3>
+          <p class="gcard__desc">Sets electrónicos de alto impacto que mezclan universos sonoros con voz en vivo. Presencia dual — DJ y cantante.</p>
+          <div class="gcard__meter" aria-label="Intensity 4 of 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── BIO ─────────── -->
+  <section id="bio" data-screen-label="bio">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">02 / 06</span>
+          <span class="sec-label">Biografía</span>
+        </div>
+        <div class="sec-head__r">DEMO COPY<br>· ES / EN / DE</div>
+      </div>
+      <h2 class="sec-title">La energía <em>detrás de</em> <span class="stroke">LAS CABINAS</span></h2>
+
+      <div class="bio-grid mt-3">
+        <div class="bio__photo">
+          <img src="ASSETS/ELEKTRA PHOTO 1.jpg" alt="ELEKTRA MON portrait" />
+          <div class="bio__photo__tag">ELEKTRA MON · 2026</div>
+        </div>
+        <div>
+          <div class="langs" role="tablist" aria-label="Language">
+            <button class="lang" data-lang="en" role="tab" aria-selected="false">EN</button>
+            <button class="lang on" data-lang="es" role="tab" aria-selected="true">ES</button>
+            <button class="lang" data-lang="de" role="tab" aria-selected="false">DE</button>
+          </div>
+
+          <div id="bio-content" class="bio__body">
+            <!-- Renderizado dinámicamente desde adminData.bio[lang] -->
+          </div>
+
+          <div class="bio__meta">
+            <div class="meta"><span class="meta__k">Base</span><span class="meta__v">Lima, Perú</span></div>
+            <div class="meta"><span class="meta__k">Origen</span><span class="meta__v">Cuba 🇨🇺</span></div>
+            <div class="meta"><span class="meta__k">Activo desde</span><span class="meta__v">2020</span></div>
+            <div class="meta"><span class="meta__k">Proyecto</span><span class="meta__v">Elektra Mom</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── MUSIC ─────────── -->
+  <section id="music" data-screen-label="music">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">03 / 06</span>
+          <span class="sec-label">Sets y Lanzamientos</span>
+        </div>
+        <div class="sec-head__r">6 Destacados<br>SoundCloud</div>
+      </div>
+      <h2 class="sec-title">Escuchá <em>el set</em></h2>
+
+      <div class="music-list mt-3">
+        <article class="track">
+          <div class="track__head">
+            <span class="track__num">01</span>
+            <h3 class="track__title">Track Title — Artista</h3>
+            <span class="track__badge">SET</span>
+          </div>
+          <div class="track__player">
+            <iframe loading="lazy" scrolling="no" src="https://w.soundcloud.com/player/?url=" title="Track placeholder"></iframe>
+          </div>
+        </article>
+      </div>
+
+      <div class="center mt-2">
+        <a class="btn" href="https://soundcloud.com/daniel-letuse-241093285" target="_blank" rel="noopener">
+          Escuchar en SoundCloud →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SHOWS ─────────── -->
+  <section id="shows" data-screen-label="shows">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">05 / 06</span>
+          <span class="sec-label">Agenda</span>
+        </div>
+        <div class="sec-head__r">3 próximas<br>· fechas demo</div>
+      </div>
+      <h2 class="sec-title">Próximos <em>shows</em></h2>
+
+      <div class="mt-3">
+        <div class="show">
+          <div class="show__date">
+            <span class="d">18</span>
+            <span class="m">Jul · 26</span>
+          </div>
+          <div class="show__info">
+            <span class="show__venue">VENUE 1</span>
+            <span class="show__city">CIUDAD · PAÍS</span>
+          </div>
+          <span class="show__type">Club Night</span>
+          <a class="btn btn--solid btn--xs" href="#" target="_blank" rel="noopener">Tickets →</a>
+        </div>
+        <div class="show">
+          <div class="show__date">
+            <span class="d">09</span>
+            <span class="m">Ago · 26</span>
+          </div>
+          <div class="show__info">
+            <span class="show__venue">VENUE 2</span>
+            <span class="show__city">CIUDAD · PAÍS</span>
+          </div>
+          <span class="show__type">Festival</span>
+          <a class="btn btn--solid btn--xs" href="#" target="_blank" rel="noopener">Tickets →</a>
+        </div>
+        <div class="show">
+          <div class="show__date">
+            <span class="d">27</span>
+            <span class="m">Sep · 26</span>
+          </div>
+          <div class="show__info">
+            <span class="show__venue">VENUE 3</span>
+            <span class="show__city">CIUDAD · PAÍS</span>
+          </div>
+          <span class="show__type">Club Night</span>
+          <a class="btn btn--solid btn--xs" href="#" target="_blank" rel="noopener">Tickets →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── GALLERY ─────────── -->
+  <section id="gallery" data-screen-label="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">06 / 06</span>
+          <span class="sec-label">Fotos de Prensa</span>
+        </div>
+        <div class="sec-head__r">4 imágenes<br>· listas para prensa</div>
+      </div>
+      <h2 class="sec-title">Galería <em>y visuales</em></h2>
+
+      <div class="gallery mt-3" id="gallery-grid">
+        <!-- Rendered dynamically from epk-data.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SOCIALS / PROMO ─────────── -->
+  <section id="links" data-screen-label="links">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">+ / ∞</span>
+          <span class="sec-label">Conectar</span>
+        </div>
+        <div class="sec-head__r">Escuchar<br>Seguir<br>Contactar</div>
+      </div>
+      <h2 class="sec-title">Seguí <em>y escuchá</em></h2>
+
+      <div class="socials mt-3">
+        <a class="soc" href="https://www.instagram.com/elektramon_oficial/" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">Instagram</span><span class="soc__handle">@elektramon_oficial</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="https://soundcloud.com/daniel-letuse-241093285" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 16v-4M7 16v-7M10 16v-9M13 16V8M16 16V7a4 4 0 0 1 4 4v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">SoundCloud</span><span class="soc__handle">/elektra-mon</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="https://www.youtube.com/@Elektramon" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">YouTube</span><span class="soc__handle">@Elektramon</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="https://www.tiktok.com/@elektra_mon" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">TikTok</span><span class="soc__handle">@elektra_mon</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="promo-band" id="promo">
+        <div>
+          <span class="sec-label" style="color:var(--yellow)">Kit de prensa · descarga</span>
+          <h3 style="margin-top:.6rem">Kit de prensa completo, fotos y logos</h3>
+          <p>Imágenes en alta resolución, assets de marca y rider técnico — todo lo que un promotor necesita en un solo archivo.</p>
+        </div>
+        <a class="btn btn--solid"
+           href="https://www.instagram.com/elektramon_oficial/"
+           target="_blank" rel="noopener">CONTACTAR →
+</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FOOTER ─────────── -->
+  <footer data-screen-label="footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <h4>El artista</h4>
+
+          <div class="foot-brand">ELEKTRA MON<small>Tribal · Afro House · Electronic</small></div>
+          <p style="color:var(--muted);font-size:.95rem;max-width:38ch;margin:1rem 0 0">Press Kit Web de ELEKTRA MON. DJ · Cantante · Modelo. De Cuba para el mundo.</p>
+        </div>
+        <div>
+          <h4>Secciones</h4>
+          <a href="#bio">Bio</a>
+          <a href="#music">Música</a>
+          <a href="#video">Video</a>
+          <a href="#shows">Shows</a>
+          <a href="#gallery">Galería</a>
+          <a href="#links">Links</a>
+        </div>
+        <div>
+          <h4>Creado por NAWEMEDIA</h4>
+          <a href="mailto:nawemedia@gmail.com">nawemedia@gmail.com</a>
+          <a href="tel:+56959985061">+56 9 5998 5061</a>
+          <a href="https://instagram.com/nawemedia.pro" target="_blank" rel="noopener">@nawemedia.pro ↗</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 NAWEMEDIA · DEMO EPK v1</span>
+        <span>Sistema EPK por <a href="https://nawemedia.pro" target="_blank" rel="noopener">NAWEMEDIA.PRO</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─────────── ADMIN MODAL ─────────── -->
+  <div class="admin-modal" id="admin-modal">
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h2>Admin Panel</h2>
+        <button class="admin-close" id="admin-close">✕</button>
+      </div>
+
+      <!-- LOGIN SCREEN -->
+      <div class="admin-body" id="login-screen">
+        <div style="grid-column:1/-1">
+          <div class="login-screen">
+            <h3>Acceso Admin</h3>
+            <p>Ingresá la contraseña para editar este EPK.</p>
+            <input type="password" id="admin-pwd" placeholder="Contraseña" />
+            <button id="admin-login">Ingresar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMIN CONTENT (hidden until auth) -->
+      <div id="admin-content">
+        <div>
+          <div class="admin-tabs-nav">
+            <button class="admin-tab-btn active" data-tab="bio">Bio</button>
+            <button class="admin-tab-btn" data-tab="music">Music</button>
+            <button class="admin-tab-btn" data-tab="video">Video</button>
+            <button class="admin-tab-btn" data-tab="shows">Shows</button>
+            <button class="admin-tab-btn" data-tab="gallery">Gallery</button>
+            <button class="admin-tab-btn" data-tab="socials">Socials</button>
+            <button class="admin-tab-btn" data-tab="stats">Stats</button>
+          </div>
+
+          <!-- BIO TAB -->
+          <div class="admin-tab active" data-tab="bio">
+            <h3>Bio — Multi-language</h3>
+            <div class="field-group">
+              <label>English</label>
+              <textarea id="bio-en" placeholder="EN bio..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Español</label>
+              <textarea id="bio-es" placeholder="ES bio..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Deutsch</label>
+              <textarea id="bio-de" placeholder="DE bio..."></textarea>
+            </div>
+            <button class="admin-btn admin-btn--save" data-save="bio">Save Bio</button>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Foto Hero</label>
+              <div id="hero-photo-preview" style="margin-bottom:0.8rem;border-radius:8px;overflow:hidden;max-height:180px;display:none">
+                <img id="hero-photo-admin-preview" style="width:100%;height:180px;object-fit:cover;object-position:top" />
+              </div>
+              <input type="file" id="hero-photo-input" accept="image/*" style="padding:0.8rem;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted)" />
+              <button class="admin-btn" id="upload-hero-photo" style="margin-top:0.8rem">📤 Reemplazar Foto Hero</button>
+              <p id="hero-upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+          </div>
+
+          <!-- MUSIC TAB -->
+          <div class="admin-tab" data-tab="music">
+            <h3>Music Tracks</h3>
+            <div id="music-list"></div>
+            <button class="admin-btn" id="add-track">+ Add Track</button>
+            <button class="admin-btn admin-btn--save" data-save="music">Save Tracks</button>
+          </div>
+
+          <!-- VIDEO TAB -->
+          <div class="admin-tab" data-tab="video">
+            <h3>Agregar Enlace de Video</h3>
+            <div class="field-group">
+              <label>URL del Video (YouTube embed)</label>
+              <input type="text" id="video-url" placeholder="https://www.youtube-nocookie.com/embed/..." />
+            </div>
+            <div class="field-group">
+              <label>Título del Video</label>
+              <input type="text" id="video-title" placeholder="Ej: BINI Live Set 2026" />
+            </div>
+            <button class="admin-btn admin-btn--save" id="save-video">Guardar Video</button>
+          </div>
+
+          <!-- SHOWS TAB -->
+          <div class="admin-tab" data-tab="shows">
+            <h3>Upcoming Shows</h3>
+            <div id="shows-list"></div>
+            <button class="admin-btn" id="add-show">+ Add Show</button>
+            <button class="admin-btn admin-btn--save" data-save="shows">Save Shows</button>
+          </div>
+
+          <!-- GALLERY TAB -->
+          <div class="admin-tab" data-tab="gallery">
+            <h3>Fotos de Prensa</h3>
+            <div id="gallery-list"></div>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Upload New Photo</label>
+              <input type="file" id="gallery-file-input" accept="image/*" placeholder="Select image..." style="padding:0.8rem;border:1px solid var(--line-strong);border-radius:4px;color:var(--muted)" />
+              <button class="admin-btn" id="upload-photo" style="margin-top:0.8rem">📤 Upload Photo</button>
+              <p id="upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+
+            <button class="admin-btn" id="add-gallery">+ Add Manual Photo Link</button>
+            <button class="admin-btn admin-btn--save" data-save="gallery">Save Gallery</button>
+          </div>
+
+          <!-- SOCIALS TAB -->
+          <div class="admin-tab" data-tab="socials">
+            <h3>Social Links</h3>
+            <div id="socials-list"></div>
+            <button class="admin-btn" id="add-social">+ Add Link</button>
+            <button class="admin-btn admin-btn--save" data-save="socials">Save Socials</button>
+          </div>
+
+          <!-- STATS TAB -->
+          <div class="admin-tab" data-tab="stats">
+            <h3>Key Statistics</h3>
+            <div class="field-group">
+              <label>Quantity of Shows (Toques)</label>
+              <input type="text" id="stats-toques" placeholder="e.g., 90+" />
+            </div>
+            <div class="field-group">
+              <label>Number of Countries (Países)</label>
+              <input type="text" id="stats-paises" placeholder="e.g., 4" />
+            </div>
+            <div class="field-group">
+              <label>Active Since (Activo desde)</label>
+              <input type="text" id="stats-activo" placeholder="e.g., 2024" />
+            </div>
+            <button class="admin-btn admin-btn--save" data-save="stats">Save Stats</button>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="admin-btn" id="admin-logout">Logout</button>
+          <button class="admin-btn admin-btn--save" id="admin-save-all">Save All Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ── DATA STRUCTURE ──
+  const defaultData = {
+    bio: {
+      en: "<p>English bio. Edit in the admin panel.</p>",
+      es: "<p>Bio en español aquí. Editar en el panel de administración.</p>",
+      de: "<p>Deutsche Bio hier. Im Admin-Panel bearbeiten.</p>"
+    },
+    music: [],
+    video: { url: "", title: "" },
+    shows: [],
+    gallery: [],
+    socials: [],
+    stats: {
+      toques: "0",
+      paises: "0",
+      activo_desde: "2024"
+    },
+    hero_photo: "ASSETS/hero.jpeg"
+  };
+
+  let adminData = defaultData;
+  let isAuth = false;
+  const DJ_SLUG = "DJ_ELEKTRA";
+
+  async function loadFromGitHub() {
+    try {
+      const response = await fetch(`/api/epk-load?slug=${DJ_SLUG}`, {
+        method: "GET"
+      });
+      if (!response.ok) throw new Error("Load failed");
+      const result = await response.json();
+      if (result.data) {
+        // Merge loaded data with defaults to ensure all fields exist
+        adminData = {
+          ...defaultData,
+          ...result.data,
+          bio: { ...defaultData.bio, ...(result.data.bio || {}) },
+          stats: { ...defaultData.stats, ...(result.data.stats || {}) },
+          video: { ...defaultData.video, ...(result.data.video || {}) },
+        };
+      }
+    } catch (e) {
+      console.log("Load from GitHub failed, using cached data:", e.message);
+    }
+  }
+
+  // ── BIO HELPERS ──
+  function bioToPlain(val) {
+    if (!val) return '';
+    const div = document.createElement('div');
+    div.innerHTML = val;
+    const paras = Array.from(div.querySelectorAll('p'));
+    if (paras.length) return paras.map(p => p.textContent.trim()).filter(Boolean).join('\n\n');
+    return div.textContent.trim();
+  }
+  function bioToHtml(text) {
+    return (text || '').trim().split(/\n\s*\n+/).map(p => `<p>${p.trim()}</p>`).join('\n');
+  }
+
+  // ── AUTH ──
+  const adminModal = document.getElementById("admin-modal");
+  const adminTrigger = document.getElementById("admin-trigger");
+  const adminClose = document.getElementById("admin-close");
+  const adminPwd = document.getElementById("admin-pwd");
+  const adminLogin = document.getElementById("admin-login");
+  const adminLogout = document.getElementById("admin-logout");
+  const loginScreen = document.getElementById("login-screen");
+  const adminContent = document.getElementById("admin-content");
+
+  async function openAdmin(){
+    adminModal.classList.add("open");
+    if(!isAuth) {
+      loginScreen.style.display = "flex";
+      adminContent.style.display = "none";
+      adminPwd.focus();
+    } else {
+      await loadFromGitHub();
+      renderAdmin();
+      updateStats();
+      loginScreen.style.display = "none";
+      adminContent.style.display = "flex";
+      adminContent.style.flexDirection = "column";
+    }
+  }
+  function closeAdmin(){ adminModal.classList.remove("open"); }
+  function login(){
+    if(adminPwd.value === "demo2026"){
+      isAuth = true;
+      loginScreen.style.display = "none";
+      adminContent.style.display = "flex";
+      adminContent.style.flexDirection = "column";
+      renderAdmin();
+      adminPwd.value = "";
+    } else {
+      alert("Contraseña incorrecta");
+      adminPwd.value = "";
+      adminPwd.focus();
+    }
+  }
+  function logout(){
+    isAuth = false;
+    adminPwd.value = "";
+    loginScreen.style.display = "flex";
+    adminContent.style.display = "none";
+    closeAdmin();
+  }
+
+  adminTrigger.addEventListener("click", openAdmin);
+  adminClose.addEventListener("click", closeAdmin);
+  adminLogin.addEventListener("click", login);
+  adminLogout.addEventListener("click", logout);
+  adminPwd.addEventListener("keypress", (e)=>{ if(e.key==="Enter") login(); });
+  document.addEventListener("keydown", (e)=>{ if(e.ctrlKey && e.altKey && e.key==="a") openAdmin(); });
+
+  // ── TAB SWITCHING ──
+  document.querySelectorAll(".admin-tab-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".admin-tab-btn").forEach(b=>b.classList.remove("active"));
+      document.querySelectorAll(".admin-tab").forEach(t=>t.classList.remove("active"));
+      btn.classList.add("active");
+      document.querySelector(`.admin-tab[data-tab="${btn.dataset.tab}"]`).classList.add("active");
+    });
+  });
+
+  // ── UPDATE STATS ON PAGE ──
+  function updateStats(){
+    document.getElementById("stat-toques").textContent = adminData.stats.toques;
+    document.getElementById("stat-paises").textContent = adminData.stats.paises;
+    document.getElementById("stat-activo").textContent = adminData.stats.activo_desde;
+  }
+
+  // ── UPDATE HERO PHOTO ──
+  function updateHeroPhoto(){
+    const src = adminData.hero_photo || "ASSETS/hero.jpeg";
+    document.getElementById("hero-photo-img").src = src;
+    // Update preview in admin panel if visible
+    const preview = document.getElementById("hero-photo-preview");
+    const previewImg = document.getElementById("hero-photo-admin-preview");
+    if(preview && previewImg) {
+      previewImg.src = src;
+      preview.style.display = "block";
+    }
+  }
+
+  // ── RENDER GALLERY ON PUBLIC PAGE ──
+  function renderGalleryPublic(){
+    const grid = document.getElementById("gallery-grid");
+    if(!grid || !adminData.gallery.length) return;
+    grid.innerHTML = adminData.gallery.map((g, i) => {
+      const sizeClass = i === 0 ? "gtile--big" : i === 1 ? "gtile--wide" : "";
+      return `<button class="gtile ${sizeClass}" data-i="${i}" type="button">
+        <img src="${g.src}" alt="${g.cap}" loading="lazy"/>
+        <span class="gtile__cap">${g.cap}</span>
+      </button>`;
+    }).join("");
+  }
+
+  // ── RENDER ADMIN FORMS ──
+  function renderAdmin(){
+    // Bio
+    document.getElementById("bio-en").value = bioToPlain(adminData.bio.en);
+    document.getElementById("bio-es").value = bioToPlain(adminData.bio.es);
+    document.getElementById("bio-de").value = bioToPlain(adminData.bio.de);
+    // Hero photo preview
+    updateHeroPhoto();
+
+    // Video
+    document.getElementById("video-url").value = adminData.video.url || "";
+    document.getElementById("video-title").value = adminData.video.title || "";
+
+    // Music
+    const musicList = document.getElementById("music-list");
+    musicList.innerHTML = adminData.music.map((t,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;border-radius:8px;margin-bottom:.8rem">
+        <label>Track ${i+1}</label>
+        <input type="text" placeholder="Title" value="${t.title}" data-music-field="${i}-title" />
+        <select data-music-field="${i}-type" style="margin-top:.4rem"><option ${t.type==="set"?"selected":""}>set</option><option ${t.type==="release"?"selected":""}>release</option></select>
+        <textarea placeholder="SoundCloud embed URL" data-music-field="${i}-url" style="margin-top:.4rem;font-size:12px;min-height:60px">${t.url}</textarea>
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(225,20,43,.3);border-color:rgba(225,20,43,.5)" onclick="adminData.music.splice(${i},1);renderAdmin()">Remove</button>
+      </div>
+    `).join("");
+
+    // Shows
+    const showsList = document.getElementById("shows-list");
+    showsList.innerHTML = adminData.shows.map((s,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;border-radius:8px;margin-bottom:.8rem">
+        <label>Show ${i+1}</label>
+        <input type="date" value="${s.date}" data-show-field="${i}-date" />
+        <input type="text" placeholder="Venue" value="${s.venue}" data-show-field="${i}-venue" style="margin-top:.4rem" />
+        <input type="text" placeholder="City" value="${s.city}" data-show-field="${i}-city" style="margin-top:.4rem" />
+        <input type="text" placeholder="Country" value="${s.country}" data-show-field="${i}-country" style="margin-top:.4rem" />
+        <input type="text" placeholder="Type (club/festival/pride)" value="${s.type}" data-show-field="${i}-type" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(225,20,43,.3);border-color:rgba(225,20,43,.5)" onclick="adminData.shows.splice(${i},1);renderAdmin()">Remove</button>
+      </div>
+    `).join("");
+
+    // Gallery
+    const galleryList = document.getElementById("gallery-list");
+    galleryList.innerHTML = adminData.gallery.map((g,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;border-radius:8px;margin-bottom:.8rem">
+        <label>Photo ${i+1}</label>
+        <input type="text" placeholder="Image URL" value="${g.src}" data-gallery-field="${i}-src" />
+        <input type="text" placeholder="Caption" value="${g.cap}" data-gallery-field="${i}-cap" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(225,20,43,.3);border-color:rgba(225,20,43,.5)" onclick="adminData.gallery.splice(${i},1);renderAdmin()">Remove</button>
+      </div>
+    `).join("");
+
+    // Socials
+    const socialsList = document.getElementById("socials-list");
+    socialsList.innerHTML = adminData.socials.map((s,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;border-radius:8px;margin-bottom:.8rem">
+        <label>Social ${i+1}</label>
+        <input type="text" placeholder="Platform (Instagram, YouTube, etc)" value="${s.plat}" data-social-field="${i}-plat" />
+        <input type="text" placeholder="Handle" value="${s.handle}" data-social-field="${i}-handle" style="margin-top:.4rem" />
+        <input type="text" placeholder="URL" value="${s.url}" data-social-field="${i}-url" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(225,20,43,.3);border-color:rgba(225,20,43,.5)" onclick="adminData.socials.splice(${i},1);renderAdmin()">Remove</button>
+      </div>
+    `).join("");
+
+    // Stats
+    document.getElementById("stats-toques").value = adminData.stats.toques;
+    document.getElementById("stats-paises").value = adminData.stats.paises;
+    document.getElementById("stats-activo").value = adminData.stats.activo_desde;
+  }
+
+  // ── ADD BUTTONS ──
+  document.getElementById("add-track").addEventListener("click", ()=>{
+    adminData.music.push({id:Date.now(), title:"New Track", type:"set", url:""});
+    renderAdmin();
+  });
+  document.getElementById("add-show").addEventListener("click", ()=>{
+    adminData.shows.push({id:Date.now(), date:new Date().toISOString().split("T")[0], venue:"", city:"", country:"", type:"club", url:"#"});
+    renderAdmin();
+  });
+  document.getElementById("add-gallery").addEventListener("click", ()=>{
+    adminData.gallery.push({id:Date.now(), src:"", cap:""});
+    renderAdmin();
+  });
+  document.getElementById("add-social").addEventListener("click", ()=>{
+    adminData.socials.push({id:Date.now(), plat:"", handle:"", url:""});
+    renderAdmin();
+  });
+
+  // ── SAVE LOGIC ──
+  document.querySelectorAll("[data-save]").forEach(btn=>{
+    btn.addEventListener("click", async ()=>{
+      const tab = btn.dataset.save;
+      if(tab === "bio"){
+        adminData.bio.en = document.getElementById("bio-en").value;
+        adminData.bio.es = document.getElementById("bio-es").value;
+        adminData.bio.de = document.getElementById("bio-de").value;
+      } else if(tab === "music"){
+        adminData.music.forEach((t,i)=>{
+          t.title = document.querySelector(`[data-music-field="${i}-title"]`).value;
+          t.type = document.querySelector(`[data-music-field="${i}-type"]`).value;
+          t.url = document.querySelector(`[data-music-field="${i}-url"]`).value;
+        });
+      } else if(tab === "shows"){
+        adminData.shows.forEach((s,i)=>{
+          s.date = document.querySelector(`[data-show-field="${i}-date"]`).value;
+          s.venue = document.querySelector(`[data-show-field="${i}-venue"]`).value;
+          s.city = document.querySelector(`[data-show-field="${i}-city"]`).value;
+          s.country = document.querySelector(`[data-show-field="${i}-country"]`).value;
+          s.type = document.querySelector(`[data-show-field="${i}-type"]`).value;
+        });
+      } else if(tab === "gallery"){
+        adminData.gallery.forEach((g,i)=>{
+          g.src = document.querySelector(`[data-gallery-field="${i}-src"]`).value;
+          g.cap = document.querySelector(`[data-gallery-field="${i}-cap"]`).value;
+        });
+      } else if(tab === "socials"){
+        adminData.socials.forEach((s,i)=>{
+          s.plat = document.querySelector(`[data-social-field="${i}-plat"]`).value;
+          s.handle = document.querySelector(`[data-social-field="${i}-handle"]`).value;
+          s.url = document.querySelector(`[data-social-field="${i}-url"]`).value;
+        });
+      } else if(tab === "stats"){
+        adminData.stats.toques = document.getElementById("stats-toques").value;
+        adminData.stats.paises = document.getElementById("stats-paises").value;
+        adminData.stats.activo_desde = document.getElementById("stats-activo").value;
+        updateStats();
+      }
+      const success = await saveData();
+      alert(success ? "¡Guardado! Recargá la página para ver los cambios." : "Error al guardar. Intenta de nuevo.");
+    });
+  });
+
+  document.getElementById("save-video").addEventListener("click", async ()=>{
+    adminData.video.url = document.getElementById("video-url").value;
+    adminData.video.title = document.getElementById("video-title").value;
+    const success = await saveData();
+    alert(success ? "¡Video guardado! Recargá la página para ver los cambios." : "Error al guardar. Intenta de nuevo.");
+  });
+
+  document.getElementById("admin-save-all").addEventListener("click", async ()=>{
+    adminData.bio.en = document.getElementById("bio-en").value;
+    adminData.bio.es = document.getElementById("bio-es").value;
+    adminData.bio.de = document.getElementById("bio-de").value;
+    adminData.video.url = document.getElementById("video-url").value;
+    adminData.video.title = document.getElementById("video-title").value;
+    adminData.music.forEach((t,i)=>{
+      t.title = document.querySelector(`[data-music-field="${i}-title"]`).value;
+      t.type = document.querySelector(`[data-music-field="${i}-type"]`).value;
+      t.url = document.querySelector(`[data-music-field="${i}-url"]`).value;
+    });
+    adminData.shows.forEach((s,i)=>{
+      s.date = document.querySelector(`[data-show-field="${i}-date"]`).value;
+      s.venue = document.querySelector(`[data-show-field="${i}-venue"]`).value;
+      s.city = document.querySelector(`[data-show-field="${i}-city"]`).value;
+      s.country = document.querySelector(`[data-show-field="${i}-country"]`).value;
+      s.type = document.querySelector(`[data-show-field="${i}-type"]`).value;
+    });
+    adminData.gallery.forEach((g,i)=>{
+      g.src = document.querySelector(`[data-gallery-field="${i}-src"]`).value;
+      g.cap = document.querySelector(`[data-gallery-field="${i}-cap"]`).value;
+    });
+    adminData.socials.forEach((s,i)=>{
+      s.plat = document.querySelector(`[data-social-field="${i}-plat"]`).value;
+      s.handle = document.querySelector(`[data-social-field="${i}-handle"]`).value;
+      s.url = document.querySelector(`[data-social-field="${i}-url"]`).value;
+    });
+    adminData.stats.toques = document.getElementById("stats-toques").value;
+    adminData.stats.paises = document.getElementById("stats-paises").value;
+    adminData.stats.activo_desde = document.getElementById("stats-activo").value;
+    updateStats();
+    const success = await saveData();
+    alert(success ? "¡Todos los cambios guardados! Recargá para actualizar." : "Error al guardar. Intenta de nuevo.");
+  });
+
+  async function saveData(){
+    try {
+      const response = await fetch(`/api/epk-save`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ slug: DJ_SLUG, data: adminData })
+      });
+      if (!response.ok) throw new Error("Save failed");
+      return true;
+    } catch (e) {
+      console.error("Save to GitHub failed:", e.message);
+      return false;
+    }
+  }
+
+  // ── PHOTO UPLOAD TO GITHUB VIA VERCEL ──
+  async function uploadPhotoToGithub(file) {
+    const statusEl = document.getElementById("upload-status");
+    const MAX_SIZE_MB = 2;
+    const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+
+    try {
+      // Validate file size client-side
+      if (file.size > MAX_SIZE_BYTES) {
+        statusEl.textContent = `❌ Archivo muy grande: ${(file.size / 1024 / 1024).toFixed(2)}MB (máximo ${MAX_SIZE_MB}MB)`;
+        return;
+      }
+
+      // Convert file to base64
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target.result.split(',')[1]; // Remove data:image/... prefix
+
+        // Create unique filename
+        const timestamp = Date.now();
+        const ext = file.name.split('.').pop();
+        const fileName = `photo-${timestamp}.${ext}`;
+
+        // Call Vercel API
+        statusEl.textContent = "⏳ Subiendo...";
+
+        const response = await fetch("/api/upload-photo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            fileData: base64Data,
+            fileName: fileName,
+            slug: DJ_SLUG
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          statusEl.textContent = `❌ Error: ${result.error}`;
+          return;
+        }
+
+        // Add to gallery
+        adminData.gallery.push({
+          id: timestamp,
+          src: result.url,
+          cap: file.name.replace(/\.[^.]+$/, '')
+        });
+
+        renderAdmin();
+
+        // Auto-save to GitHub
+        statusEl.textContent = "⏳ Guardando en GitHub...";
+        const saved = await saveData();
+
+        if (saved) {
+          statusEl.textContent = "✅ Foto subida y guardada!";
+        } else {
+          statusEl.textContent = "⚠️ Foto subida pero fallo el guardado. Clickea 'Save Gallery'.";
+        }
+        document.getElementById("gallery-file-input").value = "";
+      };
+      reader.readAsDataURL(file);
+
+    } catch(error) {
+      statusEl.textContent = `❌ Error: ${error.message}`;
+    }
+  }
+
+  document.getElementById("upload-photo").addEventListener("click", ()=>{
+    const fileInput = document.getElementById("gallery-file-input");
+    if(!fileInput.files.length) {
+      document.getElementById("upload-status").textContent = "⚠️ Selecciona una foto primero";
+      return;
+    }
+    uploadPhotoToGithub(fileInput.files[0]);
+  });
+
+  // ── HERO PHOTO UPLOAD ──
+  document.getElementById("upload-hero-photo").addEventListener("click", async ()=>{
+    const fileInput = document.getElementById("hero-photo-input");
+    const statusEl = document.getElementById("hero-upload-status");
+    if(!fileInput.files.length) {
+      statusEl.textContent = "⚠️ Selecciona una foto primero";
+      return;
+    }
+    const file = fileInput.files[0];
+    const MAX_SIZE = 2 * 1024 * 1024;
+    if(file.size > MAX_SIZE) {
+      statusEl.textContent = `❌ Archivo muy grande: ${(file.size/1024/1024).toFixed(2)}MB (máximo 2MB)`;
+      return;
+    }
+    statusEl.textContent = "⏳ Subiendo foto hero...";
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64Data = e.target.result.split(',')[1];
+      const ext = file.name.split('.').pop();
+      const fileName = `hero-${Date.now()}.${ext}`;
+      const response = await fetch("/api/upload-photo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileData: base64Data, fileName, slug: DJ_SLUG })
+      });
+      const result = await response.json();
+      if(!response.ok) {
+        statusEl.textContent = `❌ Error: ${result.error}`;
+        return;
+      }
+      adminData.hero_photo = result.url;
+      updateHeroPhoto();
+      const saved = await saveData();
+      statusEl.textContent = saved ? "✅ Foto hero actualizada!" : "⚠️ Subida pero fallo el guardado. Intentá de nuevo.";
+      fileInput.value = "";
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Mostrar preview cuando se selecciona archivo
+  document.getElementById("hero-photo-input").addEventListener("change", (e)=>{
+    if(!e.target.files.length) return;
+    const url = URL.createObjectURL(e.target.files[0]);
+    document.getElementById("hero-photo-admin-preview").src = url;
+    document.getElementById("hero-photo-preview").style.display = "block";
+  });
+
+  // ── LANGUAGE ──
+  let currentLang = 'es';
+
+  function switchLang(lang) {
+    currentLang = lang;
+    const bioContent = document.getElementById('bio-content');
+    if (bioContent) {
+      bioContent.innerHTML = bioToHtml(adminData.bio[lang] || adminData.bio.es);
+    }
+    document.querySelectorAll('.lang').forEach(btn => {
+      btn.classList.toggle('on', btn.dataset.lang === lang);
+      btn.setAttribute('aria-selected', btn.dataset.lang === lang ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.lang').forEach(btn => {
+    btn.addEventListener('click', () => switchLang(btn.dataset.lang));
+  });
+
+  // ── INIT — load from GitHub then render public page ──
+  loginScreen.style.display = "flex";
+  adminContent.style.display = "none";
+  // Render with defaults immediately so page doesn't look empty
+  updateStats();
+  updateHeroPhoto();
+  renderGalleryPublic();
+  switchLang('es');
+  // Then load saved data from GitHub and re-render
+  loadFromGitHub().then(() => {
+    updateStats();
+    updateHeroPhoto();
+    renderGalleryPublic();
+    switchLang(currentLang);
+  });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "bio": {
+    "en": "<p>ELEKTRA MON is a Cuban-born DJ, singer, and model based in Lima, Peru — a dual presence with one vision. His sets fuse Tribal rhythms and Afro House grooves into an explosive, high-energy experience that ignites every dancefloor.</p><p>With a signature Afro Fashion aesthetic and the ability to seamlessly blend DJ performance with live vocals, ELEKTRA MON creates unforgettable musical journeys where rhythm, energy, and identity collide. From Cuba to the world — Tribal and Afro House que prende.</p>",
+    "es": "<p>ELEKTRA MON es un DJ, cantante y modelo cubano radicado en Lima, Perú. Una presencia dual con una sola visión: llevar al público en un viaje musical donde el ritmo y la energía se fusionan para crear momentos inolvidables.</p><p>Sus sets mezclan percusiones Tribales y grooves de Afro House con una estética Afro Fashion única, sumada a la capacidad de cantar en vivo mientras controla las cabinas. De Cuba para el mundo — Tribal y Afro House que prende.</p>",
+    "de": "<p>ELEKTRA MON ist ein in Lima, Peru ansässiger kubanischer DJ, Sänger und Model — eine duale Präsenz mit einer Vision. Seine Sets verbinden Tribal-Rhythmen mit Afro-House-Grooves zu einem explosiven Erlebnis, das jeden Dancefloor entfacht.</p><p>Mit unverwechselbarer Afro-Fashion-Ästhetik und der Fähigkeit, DJ-Performance mit Live-Gesang zu verbinden, schafft ELEKTRA MON unvergessliche musikalische Reisen. Von Kuba für die Welt.</p>"
+  },
+  "music": [
+    {
+      "id": 1,
+      "title": "LIVE SET REBOTA — ELEKTRA MON",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/daniel-letuse-241093285%2Flive-set-rebota-elektra-mon&color=%2319c3ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&inverse=true"
+    }
+  ],
+  "video": {
+    "url": "",
+    "title": ""
+  },
+  "shows": [],
+  "gallery": [
+    {
+      "id": 1,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%201.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 2,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%202.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 3,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%203.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 4,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%204.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 5,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%205.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    },
+    {
+      "id": 6,
+      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%206.jpg",
+      "cap": "ELEKTRA MON · 2026"
+    }
+  ],
+  "socials": [
+    {
+      "id": 1,
+      "plat": "Instagram",
+      "handle": "@elektramon_oficial",
+      "url": "https://www.instagram.com/elektramon_oficial/"
+    },
+    {
+      "id": 2,
+      "plat": "SoundCloud",
+      "handle": "/elektra-mon",
+      "url": "https://soundcloud.com/daniel-letuse-241093285"
+    },
+    {
+      "id": 3,
+      "plat": "YouTube",
+      "handle": "@Elektramon",
+      "url": "https://www.youtube.com/@Elektramon"
+    },
+    {
+      "id": 4,
+      "plat": "TikTok",
+      "handle": "@elektra_mon",
+      "url": "https://www.tiktok.com/@elektra_mon"
+    }
+  ],
+  "stats": {
+    "toques": "50+",
+    "paises": "2",
+    "activo_desde": "2020"
+  },
+  "hero_photo": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/hero.jpeg"
+}
