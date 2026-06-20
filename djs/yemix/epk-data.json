@@ -5,7 +5,7 @@
     "location": "Buenos Aires · Argentina",
     "contact": "Castromarvi@gmail.com",
     "whatsapp": "+5491123065138",
-    "heroPhoto": "assets/hero.jpg",
+    "heroPhoto": "assets/hero.png",
     "bioPhoto": "assets/bio.jpg",
     "genres": [
       "Tribal House",
@@ -37,7 +37,7 @@
   "gallery": [
     {
       "id": 1,
-      "url": "assets/hero.jpg",
+      "url": "assets/hero.png",
       "caption": "YEMIX",
       "category": "prensa",
       "span": "feat"
