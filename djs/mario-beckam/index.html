@@ -222,6 +222,15 @@
     overflow:hidden;
     z-index:2;
   }
+  .hero__banner{
+    max-width:var(--maxw);margin:0 auto 1.5rem;
+    padding:0 var(--gutter);
+  }
+  .hero__banner img{
+    display:block;width:100%;height:auto;
+    border-radius:14px;
+    box-shadow:0 12px 36px rgba(26,19,48,.08);
+  }
   .hero__grid{
     max-width:var(--maxw);margin:0 auto;
     padding:0 var(--gutter);
@@ -991,6 +1000,9 @@ PRESS KIT WEB · 2026</span>
 
   <!-- ─────────── HERO ─────────── -->
   <header class="hero" id="top" data-screen-label="hero">
+    <figure class="hero__banner">
+      <img src="assets/banner.jpg" alt="MARIO BECKMAN" loading="eager"/>
+    </figure>
     <div class="hero__grid">
       <div class="hero__meta">
         <span class="hero__location"><span class="pulse"></span>SÃO PAULO · BRASIL</span>
