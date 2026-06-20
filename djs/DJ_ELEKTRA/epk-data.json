@@ -20,32 +20,32 @@
   "gallery": [
     {
       "id": 1,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%201.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 1.jpg",
       "cap": "ELEKTRA MON · 2026"
     },
     {
       "id": 2,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%202.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 2.jpg",
       "cap": "ELEKTRA MON · 2026"
     },
     {
       "id": 3,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%203.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 3.jpg",
       "cap": "ELEKTRA MON · 2026"
     },
     {
       "id": 4,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%204.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 4.jpg",
       "cap": "ELEKTRA MON · 2026"
     },
     {
       "id": 5,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%205.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 5.jpg",
       "cap": "ELEKTRA MON · 2026"
     },
     {
       "id": 6,
-      "src": "https://raw.githubusercontent.com/Nawemediagmail/nawemedia-epks/main/djs/DJ_ELEKTRA/ASSETS/ELEKTRA%20PHOTO%206.jpg",
+      "src": "ASSETS/ELEKTRA PHOTO 6.jpg",
       "cap": "ELEKTRA MON · 2026"
     }
   ],

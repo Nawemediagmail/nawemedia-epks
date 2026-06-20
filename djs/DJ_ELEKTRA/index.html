@@ -227,10 +227,21 @@
   }
 
   .hero__meta{
-    display:flex;flex-direction:column;gap:1.25rem;
+    display:flex;flex-direction:column;gap:1.1rem;
     align-self:end;
     padding-top:calc(34px + 90px);
     padding-bottom:2rem;
+    /* glass frame */
+    background:rgba(4,0,0,.52);
+    backdrop-filter:blur(14px) saturate(120%);
+    -webkit-backdrop-filter:blur(14px) saturate(120%);
+    border:1px solid rgba(180,10,10,.22);
+    border-bottom:none;
+    padding-left:1.6rem;
+    padding-right:1.6rem;
+    margin-left:calc(-1 * var(--gutter));
+    margin-right:calc(-1 * var(--gutter));
+    width:calc(100% + var(--gutter) * 2);
   }
   .hero__location{
     display:inline-flex;align-items:center;gap:.6rem;
