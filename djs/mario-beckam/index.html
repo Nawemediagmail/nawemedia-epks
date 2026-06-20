@@ -108,11 +108,10 @@
     backdrop-filter:blur(20px) saturate(140%);
     background:rgba(255,255,255,.85);
     border-bottom:1px solid var(--line);
-    overflow:hidden;
   }
   nav.top .inner{
     max-width:var(--maxw);margin:0 auto;
-    padding:.85rem var(--gutter);
+    padding:.75rem var(--gutter);
     display:flex;align-items:center;justify-content:space-between;gap:1rem;
   }
   .brand{display:flex;flex-direction:column;align-items:flex-start;gap:.35rem}
@@ -312,7 +311,12 @@
     max-width:46ch;font-size:1.05rem;line-height:1.6;color:var(--muted);
     margin:.5rem 0 0;
   }
-  .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+  .hero__cta{display:flex;flex-wrap:nowrap;gap:.5rem;margin-top:.4rem}
+  .hero__cta .btn{padding:0 .85rem;font-size:10px;letter-spacing:.12em;white-space:nowrap;flex:0 1 auto}
+  @media(min-width:480px){
+    .hero__cta{gap:.7rem}
+    .hero__cta .btn{padding:0 1.1rem;font-size:11px;letter-spacing:.16em}
+  }
 
   /* tiny stat strip */
   .hero__stats{
@@ -977,11 +981,9 @@
   <!-- ─────────── NAV ─────────── -->
   <nav class="top" data-screen-label="nav">
     <div class="inner">
-      <a href="#top" class="brand" aria-label="MARIO BECKMAN home" style="letter-spacing: 0.2px; gap: 10px; padding: 0px; margin: 1px">
+      <a href="#top" class="brand" aria-label="MARIO BECKMAN home" style="letter-spacing:0.2px;gap:4px">
         <img class="brand__logo" src="assets/logo-color.png" alt="MARIO BECKMAN"/>
-        <span class="brand__word" style="font-size: 14px; text-align: center; padding: 0px; margin: 0px 0px -21px; border-width: 0px; border-style: solid">
-
-PRESS KIT WEB · 2026</span>
+        <span class="brand__word" style="font-size:10px;letter-spacing:.22em">PRESS KIT WEB · 2026</span>
       </a>
       <div class="links">
         <a href="#bio">Bio</a>
