@@ -1,0 +1,59 @@
+{
+  "bio": {
+    "es": "Respetable público: el artista aquí presentado tiene como objetivo principal entretener a todos con su buen gusto musical, su técnica y la más profesional de las performances en escena. Sus carreras en el teatro y la danza lo preceden, aportando una rica cultura musical y un feeling natural que sabe exactamente cómo conectar — de la manera más positiva — con quienes están ahí para disfrutar su sonido.\n\nEl talento descubierto durante la pandemia conquistó una gran masa de fans que ya lo hizo recorrer Brasil y países como Panamá, Chile, México, España, Canadá, Bélgica, Portugal, Colombia, Francia y Australia.\n\nDiversión, emoción y mucha buena vibra son las principales sensaciones que se pueden esperar en un live set de Mario Beckman.",
+    "en": "Ladies and Gentlemen, the artist presented here has as his main objective to entertain everyone with his good musical taste, technique and the most professional performances on stage. His careers in theater and dance precede him, bringing a rich musical culture and his natural feeling — knowing exactly how to reach, in the most positive way, anyone who's there to enjoy his sound.\n\nThe talent discovered during the pandemic conquered a large mass of fans who have already made him tour Brazil and countries such as Panama, Chile, Mexico, Spain, Canada, Belgium, Portugal, Colombia, France and Australia.\n\nFun, emotion and a lot of good vibes are the main sensations you can expect in a live set by Mario Beckman.",
+    "de": "Respeitável público, o artista aqui apresentado tem como seu principal objetivo entreter a todos com o seu bom gosto musical, técnica e a mais profissional das performances em cena. Suas carreiras no teatro e na dança o precedem, trazendo uma rica cultura musical e o seu feeling natural — sabendo exatamente como atingir, da maneira mais positiva, a quem está ali para curtir o seu som.\n\nO talento descoberto durante a pandemia conquistou uma grande massa de fãs que já o fez rodar o Brasil e alguns países como Panamá, Chile, México, Espanha, Canadá, Bélgica, Portugal, Colômbia, França e Austrália.\n\nDiversão, emoção e muita vibe boa são as principais sensações que você pode esperar em um live set de Mario Beckman."
+  },
+  "music": [
+    {
+      "id": 1,
+      "title": "Mario Beckman — Latin American 1",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mariobeckmandj/mario-beckman-latin-american-1&color=%23ff2e8a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"
+    },
+    {
+      "id": 2,
+      "title": "Mario Beckman — Sakalem · Analu",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mariobeckmandj/mario-beckman-sakalem-analu&color=%23ff2e8a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"
+    },
+    {
+      "id": 3,
+      "title": "GCircuit · SK2026 · Adroomada",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mariobeckmandj/gcircuit-sk2026-adroomada&color=%23ff2e8a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"
+    },
+    {
+      "id": 4,
+      "title": "Made in Brazil — Live Set · Guapo Circuit",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mariobeckmandj/made-in-brazil-mario-beckman-live-set-guapo-circuit-original&color=%23ff2e8a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"
+    }
+  ],
+  "video": {
+    "url": "https://www.youtube-nocookie.com/embed/HASFZx91AJ0",
+    "title": "Mario Beckman — Live Set"
+  },
+  "shows": [],
+  "gallery": [
+    { "id": 1, "src": "assets/photo-2.jpg", "cap": "Mario Beckman · Live" },
+    { "id": 2, "src": "assets/photo-3.jpg", "cap": "On Stage" },
+    { "id": 3, "src": "assets/photo-4.jpg", "cap": "Performance" },
+    { "id": 4, "src": "assets/photo-5.jpg", "cap": "Tour 2025" },
+    { "id": 5, "src": "assets/photo-6.jpg", "cap": "Mario Beckman" },
+    { "id": 6, "src": "assets/prensa.jpg", "cap": "Press Photo" }
+  ],
+  "socials": [
+    { "id": 1, "plat": "Instagram", "handle": "@mariobeckman", "url": "https://www.instagram.com/mariobeckman/" },
+    { "id": 2, "plat": "SoundCloud", "handle": "/mariobeckmandj", "url": "https://soundcloud.com/mariobeckmandj" },
+    { "id": 3, "plat": "YouTube", "handle": "@mariocbeckman", "url": "https://www.youtube.com/@mariocbeckman/videos" },
+    { "id": 4, "plat": "X", "handle": "@mariobeckman4", "url": "https://x.com/mariobeckman4" },
+    { "id": 5, "plat": "WhatsApp", "handle": "+55 11 99360-4059", "url": "https://wa.me/5511993604059" }
+  ],
+  "stats": {
+    "toques": "200+",
+    "paises": "10+",
+    "activo_desde": "2020"
+  },
+  "hero_photo": "assets/hero.jpg"
+}
