@@ -297,19 +297,37 @@ footer{background:var(--bg);border-top:1px solid rgba(var(--pur),.2);padding:cla
           <button class="adm-tab" onclick="admTab(this,'presskit')">Press Kit</button>
           <button class="adm-tab" onclick="admTab(this,'config')">Config</button>
         </div>
+
+        <!-- ARTISTA -->
         <div id="adm-artista" class="adm-content active">
           <div class="adm-field"><label class="adm-label">Nombre artístico</label><input class="adm-input" id="a-name"></div>
           <div class="adm-field"><label class="adm-label">Tagline</label><input class="adm-input" id="a-tagline"></div>
           <div class="adm-field"><label class="adm-label">Ubicación</label><input class="adm-input" id="a-location"></div>
           <div class="adm-field"><label class="adm-label">Email booking</label><input class="adm-input" id="a-contact"></div>
           <div class="adm-field"><label class="adm-label">WhatsApp</label><input class="adm-input" id="a-whatsapp"></div>
-          <div class="adm-field"><label class="adm-label">Hero Photo URL</label><input class="adm-input" id="a-hero"></div>
-          <div class="adm-field"><label class="adm-label">Bio Photo URL</label><input class="adm-input" id="a-bio-photo"></div>
           <div class="adm-field"><label class="adm-label">Géneros (separados por coma)</label><input class="adm-input" id="a-genres"></div>
           <div class="adm-field"><label class="adm-label">Año debut</label><input class="adm-input" id="a-debut"></div>
           <div class="adm-field"><label class="adm-label">Shows</label><input class="adm-input" id="a-shows"></div>
           <div class="adm-field"><label class="adm-label">Países</label><input class="adm-input" id="a-countries"></div>
+          <div class="adm-field" style="border-top:1px solid var(--faint);padding-top:1.2rem;margin-top:.5rem">
+            <label class="adm-label">Foto Hero — URL actual</label>
+            <input class="adm-input" id="a-hero" placeholder="URL de la foto hero" style="margin-bottom:.6rem">
+            <label class="adm-label">O subir nueva foto hero</label>
+            <input type="file" id="hero-file-input" accept="image/*" style="padding:.5rem;border:1px solid var(--faint);border-radius:var(--r);width:100%;color:var(--text2);background:rgba(255,255,255,.03)">
+            <button class="adm-save-btn" style="margin-top:.6rem" onclick="uploadHeroPhoto()">📤 Subir foto hero</button>
+            <div id="hero-upload-status" style="font-size:.75rem;color:var(--text2);margin-top:.4rem"></div>
+          </div>
+          <div class="adm-field">
+            <label class="adm-label">Foto Bio — URL actual</label>
+            <input class="adm-input" id="a-bio-photo" placeholder="URL de la foto bio" style="margin-bottom:.6rem">
+            <label class="adm-label">O subir nueva foto bio</label>
+            <input type="file" id="bio-photo-file-input" accept="image/*" style="padding:.5rem;border:1px solid var(--faint);border-radius:var(--r);width:100%;color:var(--text2);background:rgba(255,255,255,.03)">
+            <button class="adm-save-btn" style="margin-top:.6rem" onclick="uploadBioPhoto()">📤 Subir foto bio</button>
+            <div id="bio-photo-upload-status" style="font-size:.75rem;color:var(--text2);margin-top:.4rem"></div>
+          </div>
         </div>
+
+        <!-- BIO -->
         <div id="adm-bio" class="adm-content">
           <div class="adm-field"><label class="adm-label">Lede ES</label><textarea class="adm-input adm-textarea" id="b-lede-es"></textarea></div>
           <div class="adm-field"><label class="adm-label">Body ES</label><textarea class="adm-input adm-textarea" style="min-height:160px" id="b-body-es"></textarea></div>
@@ -318,19 +336,39 @@ footer{background:var(--bg);border-top:1px solid rgba(var(--pur),.2);padding:cla
           <div class="adm-field"><label class="adm-label">Lede PT</label><textarea class="adm-input adm-textarea" id="b-lede-pt"></textarea></div>
           <div class="adm-field"><label class="adm-label">Body PT</label><textarea class="adm-input adm-textarea" style="min-height:160px" id="b-body-pt"></textarea></div>
         </div>
+
+        <!-- SHOWS -->
         <div id="adm-shows" class="adm-content">
-          <div class="adm-field"><label class="adm-label">Shows JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="s-json"></textarea></div>
+          <div id="shows-list"></div>
+          <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none;margin-top:.8rem" onclick="addShow()">+ Agregar show</button>
         </div>
+
+        <!-- GALERÍA -->
         <div id="adm-galeria" class="adm-content">
-          <div class="adm-field"><label class="adm-label">Gallery JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="g-json"></textarea></div>
+          <div id="gallery-list"></div>
+          <div style="border-top:1px solid var(--faint);padding-top:1.2rem;margin-top:1rem">
+            <label class="adm-label">Subir nueva foto a la galería</label>
+            <input type="file" id="gallery-file-input" accept="image/*" style="margin-top:.4rem;padding:.5rem;border:1px solid var(--faint);border-radius:var(--r);width:100%;color:var(--text2);background:rgba(255,255,255,.03)">
+            <button class="adm-save-btn" style="margin-top:.6rem" onclick="uploadGalleryPhoto()">📤 Subir foto</button>
+            <div id="gallery-upload-status" style="font-size:.75rem;color:var(--text2);margin-top:.4rem"></div>
+          </div>
+          <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none;margin-top:.8rem" onclick="addGalleryItem()">+ Agregar foto manual (URL)</button>
         </div>
+
+        <!-- MÚSICA -->
         <div id="adm-musica" class="adm-content">
-          <div class="adm-field"><label class="adm-label">Music JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="m-json"></textarea></div>
+          <div id="music-list"></div>
+          <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none;margin-top:.8rem" onclick="addTrack()">+ Agregar track</button>
         </div>
+
+        <!-- PRESS KIT -->
         <div id="adm-presskit" class="adm-content">
           <div class="adm-field"><label class="adm-label">Descripción press kit</label><textarea class="adm-input adm-textarea" id="pk-desc"></textarea></div>
-          <div class="adm-field"><label class="adm-label">Items JSON</label><textarea class="adm-input adm-textarea" style="min-height:200px;font-family:monospace;font-size:.8rem" id="pk-json"></textarea></div>
+          <div id="presskit-list"></div>
+          <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none;margin-top:.8rem" onclick="addPressItem()">+ Agregar item</button>
         </div>
+
+        <!-- CONFIG -->
         <div id="adm-config" class="adm-content">
           <div class="adm-field"><label class="adm-label">Instagram</label><input class="adm-input" id="sc-ig"></div>
           <div class="adm-field"><label class="adm-label">SoundCloud</label><input class="adm-input" id="sc-sc"></div>
@@ -339,12 +377,10 @@ footer{background:var(--bg);border-top:1px solid rgba(var(--pur),.2);padding:cla
           <div class="adm-field"><label class="adm-label">Spotify</label><input class="adm-input" id="sc-sp"></div>
           <div class="adm-field"><label class="adm-label">TikTok</label><input class="adm-input" id="sc-tt"></div>
           <div class="adm-field"><label class="adm-label">Nueva contraseña admin</label><input class="adm-input" id="cfg-pwd" type="password"></div>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem">
-            <button class="adm-save-btn" onclick="admExport()">Exportar HTML</button>
-          </div>
         </div>
+
         <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
-          <button class="adm-save-btn" onclick="admSave()">💾 Guardar</button>
+          <button class="adm-save-btn" onclick="admSave()">💾 Guardar todo</button>
           <button class="adm-save-btn" style="background:rgba(255,255,255,.08);box-shadow:none" onclick="admReset()">↩ Restaurar</button>
         </div>
       </div>
@@ -798,8 +834,7 @@ function admAuth() {
   if(pwd === EPK.admin.password) {
     document.getElementById('admLogin').style.display='none';
     document.getElementById('admPanel').style.display='block';
-    localStorage.setItem('epk_'+SLUG+'_auth','1');
-    loadAdmFields();
+    renderAdmin();
   } else { showToast('Contraseña incorrecta'); }
 }
 
@@ -810,7 +845,7 @@ function admTab(btn, tab) {
   document.getElementById('adm-'+tab).classList.add('active');
 }
 
-function loadAdmFields() {
+function renderAdmin() {
   const a = EPK.artist;
   document.getElementById('a-name').value = a.name||'';
   document.getElementById('a-tagline').value = a.tagline||'';
@@ -829,11 +864,7 @@ function loadAdmFields() {
   document.getElementById('b-body-en').value = EPK.bio.en.body||'';
   document.getElementById('b-lede-pt').value = EPK.bio.pt.lede||'';
   document.getElementById('b-body-pt').value = EPK.bio.pt.body||'';
-  document.getElementById('s-json').value = JSON.stringify(EPK.shows||[], null, 2);
-  document.getElementById('g-json').value = JSON.stringify(EPK.gallery||[], null, 2);
-  document.getElementById('m-json').value = JSON.stringify(EPK.music||[], null, 2);
   document.getElementById('pk-desc').value = (EPK.presskit||{}).description||'';
-  document.getElementById('pk-json').value = JSON.stringify((EPK.presskit||{}).items||[], null, 2);
   const s = EPK.social||{};
   document.getElementById('sc-ig').value = s.instagram||'';
   document.getElementById('sc-sc').value = s.soundcloud||'';
@@ -841,9 +872,140 @@ function loadAdmFields() {
   document.getElementById('sc-fb').value = s.facebook||'';
   document.getElementById('sc-sp').value = s.spotify||'';
   document.getElementById('sc-tt').value = s.tiktok||'';
+
+  const showsList = document.getElementById('shows-list');
+  showsList.innerHTML = (EPK.shows||[]).map((sh,i)=>`
+    <div style="border:1px solid var(--faint);padding:1rem;border-radius:var(--r);margin-bottom:.8rem">
+      <label class="adm-label">Show ${i+1}</label>
+      <input class="adm-input" placeholder="Venue" value="${sh.venue||''}" data-show-field="${i}-venue" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Ciudad" value="${sh.city||''}" data-show-field="${i}-city" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="País" value="${sh.country||''}" data-show-field="${i}-country" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Fecha (YYYY-MM-DD)" value="${sh.date||''}" data-show-field="${i}-date" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Tipo (festival, club...)" value="${sh.type||''}" data-show-field="${i}-type" style="margin-top:.4rem">
+      <button class="adm-save-btn" style="margin-top:.6rem;background:rgba(200,0,0,.25);box-shadow:none" onclick="EPK.shows.splice(${i},1);renderAdmin()">✕ Eliminar</button>
+    </div>`).join('');
+
+  const galleryList = document.getElementById('gallery-list');
+  galleryList.innerHTML = (EPK.gallery||[]).map((g,i)=>`
+    <div style="border:1px solid var(--faint);padding:1rem;border-radius:var(--r);margin-bottom:.8rem">
+      <label class="adm-label">Foto ${i+1}</label>
+      <input class="adm-input" placeholder="URL imagen" value="${g.url||''}" data-gallery-field="${i}-url" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Caption" value="${g.caption||''}" data-gallery-field="${i}-caption" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Categoría (prensa/lifestyle/shows)" value="${g.category||''}" data-gallery-field="${i}-category" style="margin-top:.4rem">
+      <select data-gallery-field="${i}-span" style="margin-top:.4rem;width:100%;background:rgba(255,255,255,.05);border:1px solid var(--faint);border-radius:var(--r);padding:.6rem;color:var(--text)">
+        <option value="" ${!g.span?'selected':''}>Normal</option>
+        <option value="feat" ${g.span==='feat'?'selected':''}>Featured (grande)</option>
+        <option value="wide" ${g.span==='wide'?'selected':''}>Wide</option>
+        <option value="tall" ${g.span==='tall'?'selected':''}>Tall</option>
+      </select>
+      <button class="adm-save-btn" style="margin-top:.6rem;background:rgba(200,0,0,.25);box-shadow:none" onclick="EPK.gallery.splice(${i},1);renderAdmin()">✕ Eliminar</button>
+    </div>`).join('');
+
+  const musicList = document.getElementById('music-list');
+  musicList.innerHTML = (EPK.music||[]).map((m,i)=>`
+    <div style="border:1px solid var(--faint);padding:1rem;border-radius:var(--r);margin-bottom:.8rem">
+      <label class="adm-label">Track ${i+1}</label>
+      <input class="adm-input" placeholder="Título" value="${m.title||''}" data-music-field="${i}-title" style="margin-top:.4rem">
+      <select data-music-field="${i}-type" style="margin-top:.4rem;width:100%;background:rgba(255,255,255,.05);border:1px solid var(--faint);border-radius:var(--r);padding:.6rem;color:var(--text)">
+        <option value="set" ${m.type==='set'?'selected':''}>Set</option>
+        <option value="remix" ${m.type==='remix'?'selected':''}>Remix</option>
+        <option value="release" ${m.type==='release'?'selected':''}>Release</option>
+      </select>
+      <textarea class="adm-input adm-textarea" placeholder="SoundCloud embed URL" data-music-field="${i}-embedUrl" style="margin-top:.4rem;font-size:12px;min-height:60px">${m.embedUrl||''}</textarea>
+      <button class="adm-save-btn" style="margin-top:.6rem;background:rgba(200,0,0,.25);box-shadow:none" onclick="EPK.music.splice(${i},1);renderAdmin()">✕ Eliminar</button>
+    </div>`).join('');
+
+  const presskitList = document.getElementById('presskit-list');
+  presskitList.innerHTML = ((EPK.presskit||{}).items||[]).map((pk,i)=>`
+    <div style="border:1px solid var(--faint);padding:1rem;border-radius:var(--r);margin-bottom:.8rem">
+      <label class="adm-label">Item ${i+1}</label>
+      <input class="adm-input" placeholder="Nombre" value="${pk.name||''}" data-pk-field="${i}-name" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="URL descarga" value="${pk.url||''}" data-pk-field="${i}-url" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Formato (JPG, MP3...)" value="${pk.format||''}" data-pk-field="${i}-format" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Tamaño / descripción" value="${pk.size||''}" data-pk-field="${i}-size" style="margin-top:.4rem">
+      <input class="adm-input" placeholder="Ícono emoji" value="${pk.icon||''}" data-pk-field="${i}-icon" style="margin-top:.4rem">
+      <button class="adm-save-btn" style="margin-top:.6rem;background:rgba(200,0,0,.25);box-shadow:none" onclick="EPK.presskit.items.splice(${i},1);renderAdmin()">✕ Eliminar</button>
+    </div>`).join('');
 }
 
-function admSave() {
+function addShow() {
+  if(!EPK.shows) EPK.shows = [];
+  EPK.shows.push({id:Date.now(),venue:'',city:'',country:'',date:'',type:'club'});
+  renderAdmin();
+}
+
+function addGalleryItem() {
+  if(!EPK.gallery) EPK.gallery = [];
+  EPK.gallery.push({id:Date.now(),url:'',caption:'',category:'prensa',span:''});
+  renderAdmin();
+}
+
+function addTrack() {
+  if(!EPK.music) EPK.music = [];
+  EPK.music.push({id:Date.now(),title:'',type:'set',embedUrl:''});
+  renderAdmin();
+}
+
+function addPressItem() {
+  if(!EPK.presskit) EPK.presskit = {description:'',items:[]};
+  if(!EPK.presskit.items) EPK.presskit.items = [];
+  EPK.presskit.items.push({id:Date.now(),name:'',url:'',format:'',size:'',icon:'📄'});
+  renderAdmin();
+}
+
+async function uploadPhotoToGithub(file, type) {
+  const statusId = type==='hero' ? 'hero-upload-status' : type==='bio' ? 'bio-photo-upload-status' : 'gallery-upload-status';
+  const statusEl = document.getElementById(statusId);
+  if(file.size > 2*1024*1024){ statusEl.textContent='❌ Archivo muy grande (máx. 2MB)'; return; }
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const base64Data = e.target.result.split(',')[1];
+    const ts = Date.now();
+    const ext = file.name.split('.').pop();
+    const fileName = type==='gallery' ? `photo-${ts}.${ext}` : `${type}-${ts}.${ext}`;
+    statusEl.textContent='⏳ Subiendo...';
+    try {
+      const r = await fetch('/api/upload-photo',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fileData:base64Data,fileName,slug:DJ_SLUG})});
+      const result = await r.json();
+      if(!r.ok){ statusEl.textContent=`❌ Error: ${result.error}`; return; }
+      if(type==='hero'){
+        EPK.artist.heroPhoto = result.url;
+        document.getElementById('a-hero').value = result.url;
+      } else if(type==='bio'){
+        EPK.artist.bioPhoto = result.url;
+        document.getElementById('a-bio-photo').value = result.url;
+      } else {
+        if(!EPK.gallery) EPK.gallery=[];
+        EPK.gallery.push({id:ts,url:result.url,caption:file.name.replace(/\.[^.]+$/,''),category:'prensa',span:''});
+        renderAdmin();
+      }
+      const ok = await saveData();
+      statusEl.textContent = ok ? '✅ Subido y guardado!' : '⚠️ Subido pero error al guardar';
+      if(ok) renderAll();
+    } catch(err){ statusEl.textContent=`❌ ${err.message}`; }
+  };
+  reader.readAsDataURL(file);
+}
+
+function uploadHeroPhoto() {
+  const f = document.getElementById('hero-file-input').files[0];
+  if(!f){ document.getElementById('hero-upload-status').textContent='⚠️ Selecciona una foto primero'; return; }
+  uploadPhotoToGithub(f,'hero');
+}
+
+function uploadBioPhoto() {
+  const f = document.getElementById('bio-photo-file-input').files[0];
+  if(!f){ document.getElementById('bio-photo-upload-status').textContent='⚠️ Selecciona una foto primero'; return; }
+  uploadPhotoToGithub(f,'bio');
+}
+
+function uploadGalleryPhoto() {
+  const f = document.getElementById('gallery-file-input').files[0];
+  if(!f){ document.getElementById('gallery-upload-status').textContent='⚠️ Selecciona una foto primero'; return; }
+  uploadPhotoToGithub(f,'gallery');
+}
+
+async function admSave() {
   try {
     EPK.artist.name = document.getElementById('a-name').value;
     EPK.artist.tagline = document.getElementById('a-tagline').value;
@@ -862,11 +1024,8 @@ function admSave() {
     EPK.bio.en.body = document.getElementById('b-body-en').value;
     EPK.bio.pt.lede = document.getElementById('b-lede-pt').value;
     EPK.bio.pt.body = document.getElementById('b-body-pt').value;
-    EPK.shows = JSON.parse(document.getElementById('s-json').value||'[]');
-    EPK.gallery = JSON.parse(document.getElementById('g-json').value||'[]');
-    EPK.music = JSON.parse(document.getElementById('m-json').value||'[]');
+    if(!EPK.presskit) EPK.presskit = {};
     EPK.presskit.description = document.getElementById('pk-desc').value;
-    EPK.presskit.items = JSON.parse(document.getElementById('pk-json').value||'[]');
     EPK.social.instagram = document.getElementById('sc-ig').value;
     EPK.social.soundcloud = document.getElementById('sc-sc').value;
     EPK.social.youtube = document.getElementById('sc-yt').value;
@@ -875,19 +1034,44 @@ function admSave() {
     EPK.social.tiktok = document.getElementById('sc-tt').value;
     const newPwd = document.getElementById('cfg-pwd').value;
     if(newPwd) EPK.admin.password = newPwd;
-    saveData();
+
+    (EPK.shows||[]).forEach((sh,i)=>{
+      sh.venue    = (document.querySelector(`[data-show-field="${i}-venue"]`)||{}).value||sh.venue;
+      sh.city     = (document.querySelector(`[data-show-field="${i}-city"]`)||{}).value||sh.city;
+      sh.country  = (document.querySelector(`[data-show-field="${i}-country"]`)||{}).value||sh.country;
+      sh.date     = (document.querySelector(`[data-show-field="${i}-date"]`)||{}).value||sh.date;
+      sh.type     = (document.querySelector(`[data-show-field="${i}-type"]`)||{}).value||sh.type;
+    });
+    (EPK.gallery||[]).forEach((g,i)=>{
+      g.url      = (document.querySelector(`[data-gallery-field="${i}-url"]`)||{}).value||g.url;
+      g.caption  = (document.querySelector(`[data-gallery-field="${i}-caption"]`)||{}).value||g.caption;
+      g.category = (document.querySelector(`[data-gallery-field="${i}-category"]`)||{}).value||g.category;
+      g.span     = (document.querySelector(`[data-gallery-field="${i}-span"]`)||{}).value||'';
+    });
+    (EPK.music||[]).forEach((m,i)=>{
+      m.title    = (document.querySelector(`[data-music-field="${i}-title"]`)||{}).value||m.title;
+      m.type     = (document.querySelector(`[data-music-field="${i}-type"]`)||{}).value||m.type;
+      m.embedUrl = (document.querySelector(`[data-music-field="${i}-embedUrl"]`)||{}).value||m.embedUrl;
+    });
+    ((EPK.presskit||{}).items||[]).forEach((pk,i)=>{
+      pk.name   = (document.querySelector(`[data-pk-field="${i}-name"]`)||{}).value||pk.name;
+      pk.url    = (document.querySelector(`[data-pk-field="${i}-url"]`)||{}).value||pk.url;
+      pk.format = (document.querySelector(`[data-pk-field="${i}-format"]`)||{}).value||pk.format;
+      pk.size   = (document.querySelector(`[data-pk-field="${i}-size"]`)||{}).value||pk.size;
+      pk.icon   = (document.querySelector(`[data-pk-field="${i}-icon"]`)||{}).value||pk.icon;
+    });
+
+    const ok = await saveData();
     renderAll();
-    showToast('✓ Guardado');
+    showToast(ok ? '✓ Guardado' : '⚠️ Error al guardar');
   } catch(e) { showToast('Error: '+e.message); }
 }
 
 function admReset() {
   if(!confirm('Restaurar datos originales?')) return;
-  localStorage.removeItem('epk_'+SLUG+'_v2');
-  localStorage.removeItem('epk_'+SLUG+'_ts');
   EPK = JSON.parse(document.getElementById('epk-data').textContent);
   renderAll();
-  loadAdmFields();
+  renderAdmin();
   showToast('↩ Restaurado');
 }
 
