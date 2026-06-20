@@ -213,24 +213,24 @@
   header.hero{
     position:relative;
     min-height:100svh;
-    padding-top:calc(34px + 80px);
+    padding-top:0;
     padding-bottom:0;
     overflow:hidden;
     z-index:2;
   }
   .hero__grid{
+    position:relative;z-index:2;
     max-width:var(--maxw);margin:0 auto;
     padding:0 var(--gutter);
-    display:grid;grid-template-columns:1fr;gap:2rem;
-    align-items:end;min-height:calc(100svh - 114px);
-  }
-  @media(min-width:980px){
-    .hero__grid{grid-template-columns:1fr 1fr;gap:3rem}
+    display:grid;grid-template-columns:1fr;gap:0;
+    align-items:end;min-height:100svh;
   }
 
   .hero__meta{
     display:flex;flex-direction:column;gap:1.25rem;
-    align-self:start;padding-top:1.5rem;
+    align-self:end;
+    padding-top:calc(34px + 90px);
+    padding-bottom:2rem;
   }
   .hero__location{
     display:inline-flex;align-items:center;gap:.6rem;
@@ -302,8 +302,8 @@
     max-width:520px;
   }
   .stat{
-    padding:.9rem 1rem;border:1px solid var(--line);
-    background:rgba(255,255,255,.025);border-radius:14px;
+    padding:.9rem 1rem;border:1px solid rgba(180,10,10,.25);
+    background:rgba(4,0,0,.55);backdrop-filter:blur(10px);border-radius:14px;
   }
   .stat__k{
     font-family:var(--display);font-weight:900;font-size:1.9rem;line-height:1;
@@ -314,49 +314,45 @@
     text-transform:uppercase;color:var(--muted);margin-top:.4rem;
   }
 
-  /* hero portrait */
+  /* hero portrait — full-bleed background */
   .hero__portrait{
-    position:relative;
-    aspect-ratio:4/5;
-    min-height:420px;
-    border-radius:0;
+    position:absolute;
+    inset:0;
+    z-index:0;
     overflow:hidden;
-    border:1px solid rgba(180,10,10,.35);
     background:#0a0202;
-    isolation:isolate;
   }
   .hero__portrait img{
     width:100%;height:100%;object-fit:cover;object-position:center top;
-    filter:contrast(1.08) saturate(0.95) brightness(0.95);
+    filter:contrast(1.05) saturate(0.9) brightness(0.88);
   }
   .hero__portrait::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 45%,rgba(6,2,2,.88));
+    background:
+      linear-gradient(180deg,
+        rgba(6,2,2,.45) 0%,
+        rgba(6,2,2,.10) 25%,
+        rgba(6,2,2,.15) 50%,
+        rgba(6,2,2,.72) 75%,
+        rgba(6,2,2,.96) 100%
+      ),
+      linear-gradient(90deg,rgba(6,2,2,.30) 0%,transparent 40%,transparent 60%,rgba(6,2,2,.20) 100%);
     pointer-events:none;
   }
-  .hero__portrait__tag{
-    position:absolute;left:1rem;bottom:1rem;z-index:2;
-    font-family:var(--mono);font-size:10px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--ink);
-    background:rgba(8,4,10,.7);backdrop-filter:blur(6px);
-    border:1px solid var(--line-strong);border-radius:999px;
-    padding:.4rem .8rem;
-  }
-  .hero__portrait__corner{
-    position:absolute;top:1rem;right:1rem;z-index:2;
-    background:var(--magenta);color:#f0ede8;
-    font-family:var(--display);font-weight:900;font-size:1rem;
-    padding:.4rem .7rem;letter-spacing:.04em;text-transform:uppercase;line-height:1;
-    transform:rotate(4deg);
-  }
+  .hero__portrait__tag{display:none}
+  .hero__portrait__corner{display:none}
 
   /* hero marquee bottom */
   .hero__marquee{
-    margin-top:auto;
-    border-top:1px solid rgba(180,10,10,.25);border-bottom:1px solid rgba(180,10,10,.25);
-    overflow:hidden;background:rgba(180,10,10,.04);
+    margin-top:2rem;
+    border-top:1px solid rgba(180,10,10,.35);border-bottom:none;
+    overflow:hidden;background:rgba(4,0,0,.55);
+    backdrop-filter:blur(8px);
     height:64px;display:flex;align-items:center;
     grid-column:1/-1;
+    margin-left:calc(-1 * var(--gutter));
+    margin-right:calc(-1 * var(--gutter));
+    width:calc(100% + var(--gutter) * 2);
   }
   .marquee__track{
     display:flex;gap:3rem;white-space:nowrap;
@@ -980,6 +976,12 @@ PRESS KIT WEB · 2026</span>
 
   <!-- ─────────── HERO ─────────── -->
   <header class="hero" id="top" data-screen-label="hero">
+
+    <!-- Full-bleed background photo -->
+    <div class="hero__portrait" aria-hidden="true">
+      <img id="hero-photo-img" src="ASSETS/hero.jpeg" alt="ELEKTRA MON portrait" />
+    </div>
+
     <div class="hero__grid">
       <div class="hero__meta">
         <span class="hero__location">LIMA · PERÚ</span>
@@ -1023,10 +1025,6 @@ PRESS KIT WEB · 2026</span>
             <div class="stat__l">Activo desde</div>
           </div>
         </div>
-      </div>
-
-      <div class="hero__portrait" aria-hidden="true">
-        <img id="hero-photo-img" src="ASSETS/hero.jpeg" alt="ELEKTRA MON portrait" />
       </div>
 
       <div class="hero__marquee" aria-hidden="true">
