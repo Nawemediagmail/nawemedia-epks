@@ -5,8 +5,8 @@
     "location": "Buenos Aires · Argentina",
     "contact": "Castromarvi@gmail.com",
     "whatsapp": "+5491123065138",
-    "heroPhoto": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/hero.jpg",
-    "bioPhoto": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/bio.jpg",
+    "heroPhoto": "assets/hero.jpg",
+    "bioPhoto": "assets/bio.jpg",
     "genres": [
       "Tribal House",
       "Circuit",
@@ -37,42 +37,42 @@
   "gallery": [
     {
       "id": 1,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/hero.jpg",
+      "url": "assets/hero.jpg",
       "caption": "YEMIX",
       "category": "prensa",
       "span": "feat"
     },
     {
       "id": 2,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/bio.jpg",
+      "url": "assets/bio.jpg",
       "caption": "Press portrait",
       "category": "prensa",
       "span": "tall"
     },
     {
       "id": 3,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/editorial-1.jpg",
+      "url": "assets/editorial-1.jpg",
       "caption": "Editorial",
       "category": "lifestyle",
       "span": ""
     },
     {
       "id": 4,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/editorial-2.jpg",
+      "url": "assets/editorial-2.jpg",
       "caption": "Editorial",
       "category": "lifestyle",
       "span": ""
     },
     {
       "id": 5,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/press-1.jpg",
+      "url": "assets/press-1.jpg",
       "caption": "Stage energy",
       "category": "shows",
       "span": ""
     },
     {
       "id": 6,
-      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/press-2.jpg",
+      "url": "assets/press-2.jpg",
       "caption": "Performance",
       "category": "shows",
       "span": "wide"
