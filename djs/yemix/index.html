@@ -478,46 +478,46 @@ footer{background:var(--bg);border-top:1px solid rgba(var(--pur),.1);padding:cla
 </script>
 
 <script>
-const SUPABASE_URL = 'https://qbpjuuesgsrotsagorcr.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_HG3_rBYqqHIZHSfXVlaARA_clc2nNOf';
 const DJ_SLUG = 'yemix';
 let EPK = {};
 
-async function loadFromSupabase() {
+async function loadFromGitHub() {
   try {
     const response = await fetch(`/api/epk-load?slug=${DJ_SLUG}`, {
       method: "GET"
     });
     if (!response.ok) throw new Error("Load failed");
     const result = await response.json();
-    if (result.data) return result.data;
+    if (result.data) {
+      EPK = { ...EPK, ...result.data };
+    }
   } catch (e) {
-    console.log("Load from Vercel failed, using embedded data:", e.message);
+    console.log("Load from GitHub failed, using embedded data:", e.message);
   }
-  return null;
 }
 
-async function saveData(data) {
+async function saveData() {
   try {
     const response = await fetch(`/api/epk-save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ slug: DJ_SLUG, data })
+      body: JSON.stringify({ slug: DJ_SLUG, data: EPK })
     });
     if (!response.ok) throw new Error("Save failed");
     return true;
   } catch (e) {
-    console.error("Save to Vercel failed:", e.message);
+    console.error("Save to GitHub failed:", e.message);
     return false;
   }
 }
 
 async function init() {
   const embedded = JSON.parse(document.getElementById('epk-data').textContent);
-  const remote = await loadFromSupabase();
-  EPK = remote || embedded;
+  EPK = embedded;
+  renderAll();
+  await loadFromGitHub();
   renderAll();
   setTimeout(()=>{ document.getElementById('loader').classList.add('out'); }, 600);
 }
@@ -875,7 +875,7 @@ function admSave() {
     EPK.social.tiktok = document.getElementById('sc-tt').value;
     const newPwd = document.getElementById('cfg-pwd').value;
     if(newPwd) EPK.admin.password = newPwd;
-    saveData(EPK);
+    saveData();
     renderAll();
     showToast('✓ Guardado');
   } catch(e) { showToast('Error: '+e.message); }

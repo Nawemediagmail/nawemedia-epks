@@ -1,0 +1,119 @@
+{
+  "artist": {
+    "name": "YEMIX",
+    "tagline": "Circuit energy, tribal soul",
+    "location": "Buenos Aires · Argentina",
+    "contact": "Castromarvi@gmail.com",
+    "whatsapp": "+5491123065138",
+    "heroPhoto": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/hero.jpg",
+    "bioPhoto": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/bio.jpg",
+    "genres": [
+      "Tribal House",
+      "Circuit",
+      "Tech House",
+      "Afro House"
+    ],
+    "stats": {
+      "debut": "2013",
+      "shows": "500+",
+      "countries": "6"
+    }
+  },
+  "bio": {
+    "es": {
+      "lede": "Yemix es una DJ con más de 9 años de trayectoria y una presencia consolidada en la escena LGBTQ, circuit y tribal de Argentina.",
+      "body": "Su propuesta combina tribal house, circuit, tech house y afro house con una lectura de pista orientada a la energía, la sensualidad y el impacto en club. Sets pensados para sostener tensión, elevar la temperatura y hacer bailar sin pausa.\n\nFue residente de MALEVO, una de las fiestas más fuertes del circuito tribal y circuit en Buenos Aires, y participó en fiestas clave como La Fiesta del Perrito, Glam, Touch Party Chile 2022 y Pandora Chile 2023. Compartió cabina con Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro e Iván Gómez.\n\nCon más de 500 shows, presencia en 6 países y una carrera iniciada en 2013, Yemix consolida su lugar como referente de la escena nocturna LGBTQ en Argentina y la región."
+    },
+    "en": {
+      "lede": "Yemix is a DJ with over 9 years of experience and a consolidated presence in Argentina's LGBTQ, circuit and tribal scene.",
+      "body": "Her sets combine tribal house, circuit, tech house and afro house with a dancefloor-driven approach focused on energy, sensuality and club impact. Built to sustain tension, elevate the room and keep the floor moving.\n\nShe was resident at MALEVO, one of Buenos Aires' strongest tribal and circuit parties, and has played key events including La Fiesta del Perrito, Glam, Touch Party Chile 2022 and Pandora Chile 2023. She has shared the booth with Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro and Iván Gómez.\n\nWith 500+ shows, presence in 6 countries and a career started in 2013, Yemix stands as a leading figure in Argentina's LGBTQ nightlife scene."
+    },
+    "pt": {
+      "lede": "Yemix é uma DJ com mais de 9 anos de trajetória e presença consolidada na cena LGBTQ, circuit e tribal da Argentina.",
+      "body": "Seus sets combinam tribal house, circuit, tech house e afro house com uma leitura de pista voltada para energia, sensualidade e impacto em club. Construídos para sustentar tensão, elevar o ambiente e manter a pista em movimento.\n\nFoi residente do MALEVO, uma das festas mais fortes do circuito tribal e circuit de Buenos Aires, e participou de eventos como La Fiesta del Perrito, Glam, Touch Party Chile 2022 e Pandora Chile 2023. Dividiu a cabine com Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro e Iván Gómez.\n\nCom mais de 500 shows, presença em 6 países e carreira iniciada em 2013, Yemix se consolida como referência da cena noturna LGBTQ na Argentina e na região."
+    }
+  },
+  "shows": [],
+  "gallery": [
+    {
+      "id": 1,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/hero.jpg",
+      "caption": "YEMIX",
+      "category": "prensa",
+      "span": "feat"
+    },
+    {
+      "id": 2,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/bio.jpg",
+      "caption": "Press portrait",
+      "category": "prensa",
+      "span": "tall"
+    },
+    {
+      "id": 3,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/editorial-1.jpg",
+      "caption": "Editorial",
+      "category": "lifestyle",
+      "span": ""
+    },
+    {
+      "id": 4,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/editorial-2.jpg",
+      "caption": "Editorial",
+      "category": "lifestyle",
+      "span": ""
+    },
+    {
+      "id": 5,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/press-1.jpg",
+      "caption": "Stage energy",
+      "category": "shows",
+      "span": ""
+    },
+    {
+      "id": 6,
+      "url": "https://cniopzbhvkynawlj.public.blob.vercel-storage.com/photos/press-2.jpg",
+      "caption": "Performance",
+      "category": "shows",
+      "span": "wide"
+    }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "title": "Dj YEMIX Tribal Session vol2 Ma.cho2026",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2261616104&color=%23FF00AA&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 2,
+      "title": "Rihanna — Rude Boy D# (YEMIX REMIX PVT)",
+      "type": "remix",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1838913702&color=%23FF00AA&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    }
+  ],
+  "presskit": {
+    "description": "Descargas directas para prensa, promotores y productoras.",
+    "items": [
+      {
+        "id": 1,
+        "name": "Fotos HD",
+        "size": "Drive",
+        "format": "JPG",
+        "url": "https://drive.google.com/drive/folders/1T91YS8vuadRcqtEV04mFgHRd57YqjfSf?usp=sharing",
+        "icon": "📷"
+      }
+    ]
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/yemixmusic/",
+    "soundcloud": "https://soundcloud.com/emixc",
+    "youtube": "",
+    "facebook": "",
+    "spotify": "",
+    "tiktok": ""
+  },
+  "admin": {
+    "password": "yemix2026"
+  }
+}
