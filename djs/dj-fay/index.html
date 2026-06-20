@@ -123,10 +123,15 @@
   .brand__word{
     font-family:var(--display);font-weight:900;letter-spacing:.06em;font-size:24px;
     text-transform:uppercase;line-height:1;color:var(--ink);
+    display:flex;flex-direction:column;align-items:flex-start;gap:3px;
+  }
+  .brand__logo{
+    height:28px;width:auto;display:block;
+    filter:brightness(0) invert(1);
   }
   .brand__word small{
     display:block;font-family:var(--mono);font-weight:500;font-size:9px;
-    color:var(--muted);letter-spacing:.3em;margin-top:3px;
+    color:var(--muted);letter-spacing:.3em;
   }
   nav .links{display:none;gap:1.75rem}
   nav .links a{
@@ -238,20 +243,13 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,0,0,.7)}70%{box-shadow:0 0 0 10px rgba(230,0,0,0)}100%{box-shadow:0 0 0 0 rgba(230,0,0,0)}}
 
   .hero__name{
-    font-family:var(--display);font-weight:900;
-    font-size:clamp(6rem,22vw,17rem);
-    line-height:.8;letter-spacing:-.03em;
-    text-transform:uppercase;margin:0;
-    background:var(--chrome);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
+    margin:0;padding:0;
     filter:drop-shadow(0 4px 30px rgba(230,0,0,.40));
   }
-  .hero__name .line2{
+  .hero__logo{
     display:block;
-    -webkit-text-stroke:2px rgba(255,100,100,.50);
-    -webkit-text-fill-color:transparent;
-    background:none;
+    width:clamp(260px,38vw,620px);height:auto;
+    filter:brightness(0) invert(1) drop-shadow(0 2px 20px rgba(230,0,0,.5));
   }
   .hero__sub{
     font-family:var(--mono);font-size:13px;letter-spacing:.22em;
@@ -787,7 +785,7 @@
   <nav class="top" data-screen-label="nav">
     <div class="inner">
       <a href="#top" class="brand" aria-label="DJ FAY home">
-        <span class="brand__word">DJ FAY<small>PRESS KIT · 2025</small></span>
+        <span class="brand__word"><img src="assets/LOGO_FAY_V01.png" alt="DJ FAY" class="brand__logo"><small>PRESS KIT WEB 2026</small></span>
       </a>
       <div class="links">
         <a href="#bio">Bio</a>
@@ -812,7 +810,7 @@
         </span>
 
         <h1 class="hero__name">
-          DJ<br><span class="line2">FAY</span>
+          <img src="assets/LOGO_FAY_V02.png" alt="DJ FAY" class="hero__logo">
         </h1>
 
         <p class="hero__sub">
