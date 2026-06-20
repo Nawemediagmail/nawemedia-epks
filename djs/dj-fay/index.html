@@ -126,7 +126,7 @@
     display:flex;flex-direction:column;align-items:flex-start;gap:3px;
   }
   .brand__logo{
-    height:28px;width:auto;display:block;
+    height:84px;width:auto;display:block;
     filter:brightness(0) invert(1);
   }
   .brand__word small{
@@ -250,6 +250,11 @@
     display:block;
     width:clamp(260px,38vw,620px);height:auto;
     filter:brightness(0) invert(1) drop-shadow(0 2px 20px rgba(230,0,0,.5));
+  }
+  .hero__logo--v01{
+    width:clamp(140px,20vw,320px);
+    margin-bottom:.6rem;
+    filter:brightness(0) invert(1) drop-shadow(0 1px 10px rgba(230,0,0,.4));
   }
   .hero__sub{
     font-family:var(--mono);font-size:13px;letter-spacing:.22em;
@@ -810,6 +815,7 @@
         </span>
 
         <h1 class="hero__name">
+          <img src="assets/LOGO_FAY_V01.png" alt="DJ FAY" class="hero__logo hero__logo--v01">
           <img src="assets/LOGO_FAY_V02.png" alt="DJ FAY" class="hero__logo">
         </h1>
 
