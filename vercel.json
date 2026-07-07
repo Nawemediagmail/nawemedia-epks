@@ -19,6 +19,26 @@
       "source": "/((?!api/).*)",
       "destination": "/djs/dj-bini/index.html",
       "has": [{ "type": "host", "value": "www.djbini.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/dj-fay/assets/:path*",
+      "has": [{ "type": "host", "value": "faydj.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/dj-fay/assets/:path*",
+      "has": [{ "type": "host", "value": "www.faydj.com" }]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/djs/dj-fay/index.html",
+      "has": [{ "type": "host", "value": "faydj.com" }]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/djs/dj-fay/index.html",
+      "has": [{ "type": "host", "value": "www.faydj.com" }]
     }
   ]
 }

@@ -951,6 +951,7 @@
         <div>
           <div class="langs" role="tablist" aria-label="Idioma">
             <button class="lang on" data-lang="es" role="tab" aria-selected="true">ES</button>
+            <button class="lang" data-lang="pt" role="tab" aria-selected="false">PT</button>
             <button class="lang" data-lang="en" role="tab" aria-selected="false">EN</button>
           </div>
 
@@ -962,6 +963,11 @@
             <p><strong>El sonido.</strong> A pesar de su corta trayectoria, Fay se ha hecho un nombre en la escena con su gusto por la música <strong>Tribal House</strong>, influenciado por los sonidos tribales de Latinoamérica y Europa. Mezclas únicas llenas de mucho ritmo, energía y conexión con el público.</p>
             <p><strong>La experiencia.</strong> Tocando en países como España y Brasil, promete más que un simple set — una experiencia completa llena de emoción y energía. Cada actuación es un viaje sonoro cuidadosamente construido para llevar la pista al límite.</p>
             <p><strong>¿Booking?</strong> Disponible para clubs, festivales y eventos en toda Europa y Latinoamérica. <a href="mailto:djfayalejandro@gmail.com" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">Contactar →</a></p>
+          </div>
+          <div class="bio__body" data-lang-body="pt" style="display:none">
+            <p><strong>O som.</strong> Apesar de sua breve trajetória, Fay se fez um nome na cena com seu gosto pela música <strong>Tribal House</strong>, influenciado pelos sons tribais da América Latina e Europa. Misturas únicas repletas de muito ritmo, energia e conexão com o público.</p>
+            <p><strong>A experiência.</strong> Tocando em países como Espanha e Brasil, promete mais do que um simples set — uma experiência completa repleta de emoção e energia. Cada apresentação é uma jornada sonora cuidadosamente construída para levar a pista ao limite.</p>
+            <p><strong>Booking?</strong> Disponível para clubes, festivais e eventos em toda a Europa e América Latina. <a href="mailto:djfayalejandro@gmail.com" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">Contatar →</a></p>
           </div>
           <div class="bio__body" data-lang-body="en" style="display:none">
             <p><strong>The sound.</strong> Despite his short career, Fay has made a name for himself with his taste for <strong>Tribal House</strong> music, influenced by the tribal sounds of Latin America and Europe. Unique mixes full of rhythm, energy, and crowd connection.</p>
@@ -1185,6 +1191,10 @@
               <textarea id="bio-es" placeholder="Bio en español..."></textarea>
             </div>
             <div class="field-group">
+              <label>Português</label>
+              <textarea id="bio-pt" placeholder="Bio em português..."></textarea>
+            </div>
+            <div class="field-group">
               <label>English</label>
               <textarea id="bio-en" placeholder="Bio in English..."></textarea>
             </div>
@@ -1259,6 +1269,7 @@
   const defaultData = {
     bio: {
       es: "Nacido en Venezuela y radicado en Madrid, España. A pesar de su corta trayectoria, Fay se ha hecho un nombre en la escena con su gusto por la música Tribal House, influenciado por la música Tribal de Latinoamérica y Europa — ofreciendo mezclas únicas llenas de mucho ritmo. Tocando en países como España y Brasil, promete mucho más que un simple set: una experiencia llena de emoción y energía.",
+      pt: "Nascido na Venezuela e radicado em Madri, Espanha. Apesar de sua breve trajetória, Fay se fez um nome na cena com seu gosto pela música Tribal House, influenciado pela música Tribal da América Latina e Europa — oferecendo misturas únicas repletas de muito ritmo. Tocando em países como Espanha e Brasil, promete muito mais do que um simples set: uma experiência repleta de emoção e energia.",
       en: "Born in Venezuela and based in Madrid, Spain. Despite his short career, Fay has made a name for himself on the scene with his taste for Tribal House music, influenced by the Tribal sounds of Latin America and Europe — delivering unique mixes full of rhythm. Playing in countries like Spain and Brazil, he promises more than just a set: a full experience loaded with emotion and energy."
     },
     music: [
@@ -1393,6 +1404,7 @@
   // ── RENDER ADMIN FORMS ──
   function renderAdmin(){
     document.getElementById("bio-es").value = adminData.bio.es;
+    document.getElementById("bio-pt").value = adminData.bio.pt;
     document.getElementById("bio-en").value = adminData.bio.en;
     updateHeroPhoto();
 
@@ -1476,7 +1488,7 @@
   document.querySelectorAll("[data-save]").forEach(btn=>{
     btn.addEventListener("click", async ()=>{
       const tab = btn.dataset.save;
-      if(tab==="bio"){ adminData.bio.es=document.getElementById("bio-es").value; adminData.bio.en=document.getElementById("bio-en").value; }
+      if(tab==="bio"){ adminData.bio.es=document.getElementById("bio-es").value; adminData.bio.pt=document.getElementById("bio-pt").value; adminData.bio.en=document.getElementById("bio-en").value; }
       else if(tab==="music"){ adminData.music.forEach((t,i)=>{ t.title=document.querySelector(`[data-music-field="${i}-title"]`).value; t.type=document.querySelector(`[data-music-field="${i}-type"]`).value; t.url=document.querySelector(`[data-music-field="${i}-url"]`).value; }); }
       else if(tab==="gallery"){ adminData.gallery.forEach((g,i)=>{ g.src=document.querySelector(`[data-gallery-field="${i}-src"]`).value; g.cap=document.querySelector(`[data-gallery-field="${i}-cap"]`).value; }); }
       else if(tab==="socials"){ adminData.socials.forEach((s,i)=>{ s.plat=document.querySelector(`[data-social-field="${i}-plat"]`).value; s.handle=document.querySelector(`[data-social-field="${i}-handle"]`).value; s.url=document.querySelector(`[data-social-field="${i}-url"]`).value; }); }
@@ -1488,6 +1500,7 @@
 
   document.getElementById("admin-save-all").addEventListener("click", async ()=>{
     adminData.bio.es=document.getElementById("bio-es").value;
+    adminData.bio.pt=document.getElementById("bio-pt").value;
     adminData.bio.en=document.getElementById("bio-en").value;
     adminData.music.forEach((t,i)=>{ t.title=document.querySelector(`[data-music-field="${i}-title"]`).value; t.type=document.querySelector(`[data-music-field="${i}-type"]`).value; t.url=document.querySelector(`[data-music-field="${i}-url"]`).value; });
     adminData.gallery.forEach((g,i)=>{ g.src=document.querySelector(`[data-gallery-field="${i}-src"]`).value; g.cap=document.querySelector(`[data-gallery-field="${i}-cap"]`).value; });
