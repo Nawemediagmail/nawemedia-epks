@@ -1,0 +1,50 @@
+{
+  "bio": {
+    "es": "SARRIA es la revelación del tribal desde Medellín, Colombia.",
+    "pt": "SARRIA é a revelação do tribal vindo de Medellín, Colômbia.",
+    "en": "SARRIA is the rising tribal revelation from Medellín, Colombia."
+  },
+  "music": [
+    {
+      "id": 1,
+      "title": "RE·S·U·R·G·E·N·CE 2026",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fr-e-s-u-r-g-e-n-c-e-2026&color=%239333ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+    },
+    {
+      "id": 2,
+      "title": "BRUJERIA05 BY SARRIADJ",
+      "type": "set",
+      "url": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fbrujeria05-by-sarriadj&color=%239333ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+    }
+  ],
+  "video": { "url": "", "title": "" },
+  "shows": [
+    {
+      "id": 1,
+      "date": "2026-06-09",
+      "venue": "LA CALETA",
+      "city": "Simpson Bay, Sint Maarten",
+      "country": "",
+      "type": "CLUB",
+      "status": "upcoming",
+      "ticketUrl": ""
+    }
+  ],
+  "gallery": [
+    { "id": 1, "src": "assets/photos/editorial-2.jpg", "cap": "01 · Voyage" },
+    { "id": 2, "src": "assets/photos/press-3.jpg", "cap": "02 · Cabina" },
+    { "id": 3, "src": "assets/photos/hero.jpg", "cap": "03 · Prensa" },
+    { "id": 4, "src": "assets/photos/press-1.jpg", "cap": "04 · Studio" },
+    { "id": 5, "src": "assets/photos/editorial-1.jpg", "cap": "05 · Editorial" },
+    { "id": 6, "src": "assets/photos/press-2.jpg", "cap": "06 · Perfil" }
+  ],
+  "socials": [
+    { "id": 1, "plat": "Instagram", "handle": "@sarriamike", "url": "https://www.instagram.com/sarriamike/" },
+    { "id": 2, "plat": "SoundCloud", "handle": "/mikee89", "url": "https://soundcloud.com/mikee89" },
+    { "id": 3, "plat": "WhatsApp", "handle": "+57 301 930 6176", "url": "https://wa.me/573019306176" },
+    { "id": 4, "plat": "Booking", "handle": "mikee890130@gmail.com", "url": "mailto:mikee890130@gmail.com" }
+  ],
+  "stats": { "debut": "2024", "shows": "15+", "countries": "3" },
+  "hero_photo": "assets/photos/editorial-2.jpg"
+}
