@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SARRIA — Electronic Press Kit · NAWEMEDIA</title>
+<meta name="description" content="Official Electronic Press Kit for SARRIA — Tribal · Circuit · House desde Medellín, Colombia. Built by NAWEMEDIA." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─────────── TOKENS ─────────── */
+  :root{
+    --bg:#050414;
+    --bg-elev:#0e0a26;
+    --ink:#f5f1ff;
+    --muted:rgba(245,241,255,.58);
+    --line:rgba(255,255,255,.10);
+    --line-strong:rgba(255,255,255,.20);
+
+    /* Violet = primary accent · Cyan = secondary · Magenta = tertiary — from SARRIA VOYAGE cover art */
+    --violet:#9333ea;
+    --violet-2:#c084fc;
+    --violet-dark:#4c1d95;
+    --cyan:#22d3ee;
+    --cyan-2:#67e8f9;
+    --magenta:#e0339e;
+    --magenta-2:#f472b6;
+
+    --iri:linear-gradient(115deg,#22d3ee 0%,#a855f7 45%,#e0339e 100%);
+    --chrome:linear-gradient(180deg,#ffffff 0%,#e8e8ff 18%,#c4b5fd 36%,#9333ea 55%,#4c1d95 70%,#f0abfc 88%,#ffffff 100%);
+    --hazard:repeating-linear-gradient(135deg,#9333ea 0 22px,#050414 22px 38px);
+    --pride:linear-gradient(90deg,#ff3b30,#ff9500,#ffe600,#34c759,#0a84ff,#af52de);
+
+    --display:"Orbitron",Impact,sans-serif;
+    --sans:"Space Grotesk",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+
+    --maxw:1320px;
+    --gutter:clamp(1.25rem,4vw,3rem);
+
+    --shadow-glow:0 30px 90px rgba(147,51,234,.32);
+  }
+
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.55;
+    overflow-x:hidden;
+    text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;cursor:pointer}
+
+  ::selection{background:var(--violet);color:#fff}
+
+  /* ambient glow */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(56rem 38rem at 88% -10%, rgba(147,51,234,.22), transparent 62%),
+      radial-gradient(44rem 36rem at -6% 22%, rgba(34,211,238,.14), transparent 60%),
+      radial-gradient(40rem 30rem at 50% 110%, rgba(224,51,158,.16), transparent 64%);
+    pointer-events:none;z-index:0;
+  }
+  /* cyberpunk grid floor */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.12;
+    background-image:
+      linear-gradient(rgba(147,51,234,.6) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,211,238,.4) 1px,transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,black 25%,black 75%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,black 25%,black 75%,transparent);
+  }
+  /* grain */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    opacity:.035;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/></svg>");
+  }
+
+  /* ─────────── TOP ANNOUNCEMENT BAR ─────────── */
+  .demo-bar{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    height:34px;display:flex;align-items:center;
+    background:var(--hazard);
+    border-bottom:2px solid #000;
+    overflow:hidden;
+    font-family:var(--display);font-weight:900;letter-spacing:.04em;
+    color:#fff;
+  }
+  .demo-bar__track{
+    display:flex;gap:2.2rem;white-space:nowrap;
+    animation:marquee 30s linear infinite;
+    padding-left:2rem;
+  }
+  .demo-bar span{font-size:12px;line-height:1;text-transform:uppercase}
+  .demo-bar .dot{width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block;margin:0 .2rem}
+
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){ .demo-bar__track,.marquee__track{animation:none} }
+
+  /* ─────────── NAV ─────────── */
+  nav.top{
+    position:fixed;top:34px;left:0;right:0;z-index:50;
+    backdrop-filter:blur(20px) saturate(140%);
+    background:linear-gradient(180deg,rgba(5,4,20,.92),rgba(5,4,20,.62));
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  nav.top .inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:.7rem var(--gutter);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand__logo{
+    height:40px;width:auto;display:block;
+    filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(147,51,234,.6)) drop-shadow(0 0 18px rgba(34,211,238,.3));
+  }
+  .brand small{
+    display:block;font-family:var(--mono);font-weight:500;font-size:9px;
+    color:var(--muted);letter-spacing:.3em;
+  }
+  nav .links{display:none;gap:1.75rem}
+  nav .links a{
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--muted);
+    padding:.4rem 0;border-bottom:1px solid transparent;
+    transition:.2s;
+  }
+  nav .links a:hover{color:var(--ink);border-bottom-color:var(--violet)}
+  nav .cta{display:flex;align-items:center;gap:.5rem}
+  @media (min-width:980px){ nav .links{display:flex} }
+
+  /* ─────────── BUTTONS ─────────── */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    min-height:44px;padding:0 1.1rem;
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);
+    color:var(--ink);
+    transition:.2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--violet);background:rgba(147,51,234,.12);transform:translateY(-1px)}
+  .btn--solid{background:var(--ink);color:#050414;border-color:var(--ink)}
+  .btn--solid:hover{background:var(--violet);border-color:var(--violet);color:#fff}
+  .btn--magenta{
+    background:linear-gradient(115deg,var(--violet),var(--magenta));color:#fff;border-color:var(--violet);
+    box-shadow:0 10px 28px rgba(147,51,234,.4);
+  }
+  .btn--magenta:hover{filter:brightness(1.12)}
+  .btn--ghost{background:transparent}
+  .btn--xs{min-height:32px;padding:0 .8rem;font-size:10px;letter-spacing:.14em}
+
+  /* ─────────── SECTION SCAFFOLD ─────────── */
+  section{position:relative;z-index:2;padding:clamp(4rem,9vw,7.5rem) 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+    margin-bottom:clamp(2rem,4vw,3.5rem);
+    border-bottom:1px solid var(--line);padding-bottom:1.5rem;
+  }
+  .sec-head__l{display:flex;align-items:baseline;gap:1.25rem;flex-wrap:wrap}
+  .sec-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--violet-2);text-transform:uppercase;font-weight:500}
+  .sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;font-weight:500}
+  .sec-title{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(2.4rem,6.5vw,5rem);line-height:.92;
+    letter-spacing:-.01em;text-transform:uppercase;
+    margin:1rem 0 0;
+  }
+  .sec-title em{font-style:normal;font-weight:800;
+    background:var(--iri);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;}
+  .sec-title .stroke{-webkit-text-stroke:1.5px var(--ink);color:transparent;font-style:normal}
+  .sec-head__r{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+  /* ─────────── HERO ─────────── */
+  header.hero{position:relative;min-height:100svh;padding-top:calc(34px + 76px);padding-bottom:0;overflow:hidden;z-index:2}
+  .hero__grid{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr;gap:2rem;align-items:end;min-height:calc(100svh - 110px)}
+  @media(min-width:980px){ .hero__grid{grid-template-columns:1fr 1fr;gap:3rem} }
+
+  .hero__meta{display:flex;flex-direction:column;gap:1.25rem;align-self:start;padding-top:1.5rem}
+  .hero__location{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--line-strong);padding:.45rem .9rem;width:fit-content;background:rgba(255,255,255,.04);
+  }
+  .hero__location .pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 var(--cyan);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,.7)}70%{box-shadow:0 0 0 10px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
+
+  .hero__name{margin:0;padding:0;filter:drop-shadow(0 4px 30px rgba(147,51,234,.45))}
+  .hero__logo{display:block;width:clamp(280px,40vw,660px);height:auto;
+    filter:brightness(0) invert(1) drop-shadow(0 0 26px rgba(147,51,234,.55)) drop-shadow(0 0 46px rgba(34,211,238,.32));}
+  .hero__sub{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;flex-wrap:wrap;gap:.4rem .9rem}
+  .hero__sub b{color:var(--cyan);font-weight:700}
+  .hero__tags{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+  .hero__badge{
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;
+    background:linear-gradient(115deg,var(--violet),var(--magenta));padding:.4rem .8rem;
+    box-shadow:0 6px 22px rgba(147,51,234,.4);
+  }
+  .hero__flags{font-size:15px;letter-spacing:.18em;line-height:1;border:1px solid var(--line-strong);padding:.42rem .8rem;background:rgba(255,255,255,.04)}
+  .hero__lede{max-width:46ch;font-size:1.05rem;line-height:1.6;color:var(--muted);margin:.5rem 0 0}
+  .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+
+  .hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.5rem;max-width:520px}
+  .stat{padding:.9rem 1rem;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+  .stat__k{font-family:var(--display);font-weight:900;font-size:1.9rem;line-height:1;color:var(--ink);letter-spacing:-.01em}
+  .stat__l{font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+
+  /* hero portrait */
+  .hero__portrait{position:relative;aspect-ratio:4/5;min-height:420px;overflow:hidden;border:1px solid var(--line-strong);background:#0a0a0a;isolation:isolate}
+  .hero__portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:contrast(1.08) saturate(1.15)}
+  .hero__portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,4,20,.9));pointer-events:none}
+  .hero__portrait__tag{position:absolute;left:1rem;bottom:1rem;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:rgba(5,4,20,.75);backdrop-filter:blur(6px);border:1px solid var(--line-strong);padding:.4rem .8rem}
+  .hero__portrait__corner{position:absolute;top:1rem;right:1rem;z-index:2;background:linear-gradient(115deg,var(--violet),var(--magenta));color:#fff;font-family:var(--display);font-weight:900;font-size:.9rem;padding:.4rem .7rem;letter-spacing:.04em;text-transform:uppercase;line-height:1;transform:rotate(3deg)}
+
+  .hero__marquee{margin-top:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:rgba(255,255,255,.02);height:64px;display:flex;align-items:center;grid-column:1/-1}
+  .marquee__track{display:flex;gap:3rem;white-space:nowrap;animation:marquee 32s linear infinite;padding-left:3rem;font-family:var(--display);font-weight:900;font-size:2rem;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+  .marquee__track span{display:inline-flex;align-items:center;gap:1.3rem}
+  .marquee__track .dot{width:14px;height:14px;background:var(--violet);border-radius:50%;display:inline-block}
+  .marquee__track .strk{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+
+  /* ─────────── FEATURED RELEASE ─────────── */
+  .release{background:linear-gradient(180deg,transparent,rgba(147,51,234,.05),transparent)}
+  .release-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
+  @media(min-width:900px){.release-grid{grid-template-columns:.62fr 1fr}}
+  .release__art{position:relative;border:1px solid var(--line-strong);overflow:hidden;box-shadow:var(--shadow-glow)}
+  .release__art img{width:100%;height:100%;object-fit:cover;display:block}
+  .release__pride{height:5px;background:var(--pride)}
+  .release__badge{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:linear-gradient(115deg,var(--violet),var(--cyan));padding:.4rem .8rem;display:inline-block;margin-bottom:1.2rem}
+  .release__title{font-family:var(--display);font-weight:900;font-size:clamp(2.2rem,5vw,3.6rem);line-height:.95;text-transform:uppercase;margin:0 0 .6rem}
+  .release__sub{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 1.4rem}
+  .release__desc{color:var(--muted);font-size:1rem;line-height:1.75;max-width:52ch;margin:0 0 1.6rem}
+  .release__cta{display:flex;gap:.8rem;flex-wrap:wrap}
+
+  /* ─────────── GENRES ─────────── */
+  .genre-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:760px){.genre-grid{grid-template-columns:repeat(3,1fr)}}
+  .gcard{position:relative;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:1.75rem 1.5rem 1.4rem;transition:.3s ease;overflow:hidden;min-height:240px;display:flex;flex-direction:column}
+  .gcard:hover{transform:translateY(-4px);border-color:var(--violet);background:rgba(147,51,234,.07);box-shadow:var(--shadow-glow)}
+  .gcard__num{position:absolute;top:1.2rem;right:1.4rem;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted)}
+  .gcard__icon{width:46px;height:46px;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--cyan);background:rgba(34,211,238,.08);margin-bottom:1.2rem}
+  .gcard__title{font-family:var(--display);font-weight:900;font-size:1.8rem;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;margin:0 0 .55rem}
+  .gcard__desc{color:var(--muted);font-size:.95rem;margin:0;flex:1}
+  .gcard__meter{margin-top:1.2rem;display:flex;gap:6px}
+  .gcard__meter span{height:4px;flex:1;background:rgba(255,255,255,.10)}
+  .gcard__meter span.on{background:linear-gradient(90deg,var(--violet),var(--cyan))}
+
+  /* ─────────── BIO ─────────── */
+  .bio-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+  @media(min-width:980px){.bio-grid{grid-template-columns:.7fr 1fr;gap:3rem;align-items:start}}
+  .bio__photo{position:relative;border:1px solid var(--line-strong);aspect-ratio:3/4;overflow:hidden}
+  .bio__photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:contrast(1.05) saturate(1.05)}
+  .bio__photo__tag{position:absolute;left:0;bottom:0;background:var(--ink);color:#050414;padding:.6rem .9rem;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+
+  .langs{display:flex;gap:.4rem;margin-bottom:1.4rem;flex-wrap:wrap}
+  .lang{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.55rem .85rem;border:1px solid var(--line-strong);background:transparent;color:var(--muted);transition:.2s}
+  .lang:hover{color:var(--ink);border-color:var(--ink)}
+  .lang.on{background:var(--ink);color:#050414;border-color:var(--ink)}
+
+  .bio__lede{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.2;letter-spacing:-.01em;text-transform:none;color:var(--ink);margin:0 0 1.5rem;border-left:3px solid var(--violet);padding-left:1.1rem}
+  .bio__body{color:var(--muted);font-size:1rem;line-height:1.75}
+  .bio__body p{margin:0 0 1.05rem}
+  .bio__body p:last-child{margin:0}
+  .bio__body strong{color:var(--ink);font-weight:600}
+
+  .bio__meta{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+  @media(min-width:680px){.bio__meta{grid-template-columns:repeat(4,1fr)}}
+  .meta{display:flex;flex-direction:column;gap:.3rem}
+  .meta__k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .meta__v{font-family:var(--display);font-weight:800;font-size:1.05rem;text-transform:uppercase;letter-spacing:.01em}
+
+  /* ─────────── SHOWS ─────────── */
+  .shows-list{display:grid;gap:.9rem}
+  .show-item{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.4rem;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:1.2rem 1.4rem;transition:.25s}
+  .show-item:hover{border-color:var(--violet);background:rgba(147,51,234,.06)}
+  .show-date{font-family:var(--display);font-weight:900;font-size:1.25rem;line-height:1;color:var(--ink)}
+  .show-date-day{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.35rem}
+  .show-venue{font-family:var(--display);font-weight:800;font-size:1.1rem;text-transform:uppercase;letter-spacing:-.005em}
+  .show-city{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:.25rem}
+  .show-type{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--line-strong);padding:.4rem .7rem;white-space:nowrap}
+  .ticket-btn{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.6rem 1.1rem;background:linear-gradient(115deg,var(--violet),var(--magenta));color:#fff;white-space:nowrap}
+  .ticket-btn.sold-out{background:rgba(255,255,255,.08);color:var(--muted)}
+  .ticket-cancelled{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .no-shows{border:1px dashed var(--line-strong);padding:2.4rem;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+  @media(max-width:680px){.show-item{grid-template-columns:1fr;text-align:left;gap:.6rem}}
+
+  /* ─────────── MUSIC ─────────── */
+  .music-list{display:grid;gap:1rem}
+  .track{border:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden;transition:.25s}
+  .track:hover{border-color:var(--violet);background:rgba(147,51,234,.05)}
+  .track__head{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line)}
+  .track__num{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);min-width:28px}
+  .track__title{font-family:var(--display);font-weight:800;font-size:1.1rem;text-transform:uppercase;letter-spacing:-.005em;flex:1;line-height:1.1}
+  .track__badge{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;padding:.3rem .55rem;background:linear-gradient(115deg,var(--violet),var(--cyan));color:#050414}
+  .track__player{padding:.8rem 1.2rem 1rem;background:rgba(0,0,0,.35)}
+  .track__player iframe{width:100%;height:130px;border:0;display:block}
+
+  /* ─────────── GALLERY ─────────── */
+  .gallery{display:grid;gap:.5rem;grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr);grid-auto-rows:240px}}
+  .gtile{position:relative;overflow:hidden;border:1px solid var(--line);background:#0a0a0a;cursor:pointer}
+  .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:saturate(1.05)}
+  .gtile:hover img{transform:scale(1.04);filter:saturate(1.25) brightness(1.06)}
+  .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,4,20,.78));pointer-events:none}
+  .gtile__cap{position:absolute;left:.8rem;bottom:.7rem;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+  .gtile--wide{grid-column:span 2}
+  .gtile--tall{grid-row:span 2}
+  @media(min-width:760px){.gtile--big{grid-column:span 2;grid-row:span 2}}
+
+  /* ─────────── LINKS ─────────── */
+  .socials{display:grid;gap:.8rem;grid-template-columns:1fr}
+  @media(min-width:680px){.socials{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.socials{grid-template-columns:repeat(4,1fr)}}
+  .soc{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.2rem;border:1px solid var(--line-strong);background:rgba(255,255,255,.025);transition:.25s;position:relative;overflow:hidden}
+  .soc:hover{border-color:var(--violet);background:rgba(147,51,234,.09);transform:translateY(-3px)}
+  .soc__icon{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--ink);flex-shrink:0}
+  .soc__text{display:flex;flex-direction:column;min-width:0}
+  .soc__plat{font-family:var(--display);font-weight:800;font-size:1.05rem;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+  .soc__handle{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:lowercase;margin-top:.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .soc__arrow{margin-left:auto;color:var(--muted);transition:.2s}
+  .soc:hover .soc__arrow{color:var(--violet-2);transform:translate(2px,-2px)}
+
+  .promo-band{margin-top:3rem;padding:2rem;border:1px solid var(--line-strong);background:linear-gradient(135deg,rgba(147,51,234,.14),rgba(34,211,238,.08));display:grid;grid-template-columns:1fr;gap:1rem;align-items:center;position:relative;overflow:hidden}
+  .promo-band::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--magenta))}
+  @media(min-width:760px){.promo-band{grid-template-columns:1fr auto;gap:2rem;padding:2.4rem}}
+  .promo-band h3{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,3vw,2rem);line-height:1;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+  .promo-band p{color:var(--muted);margin:.6rem 0 0;max-width:46ch}
+
+  /* ─────────── FOOTER ─────────── */
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);background:rgba(0,0,0,.5);padding:clamp(3rem,6vw,5rem) 0 1.6rem;margin-top:3rem}
+  .foot-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  .foot-grid h4{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 1rem}
+  .foot-grid a{color:var(--ink);font-size:.95rem;line-height:1.9;display:block;transition:.2s}
+  .foot-grid a:hover{color:var(--violet-2)}
+  .foot-brand{font-family:var(--display);font-weight:900;font-size:2rem;text-transform:uppercase;line-height:1;margin:0 0 .8rem}
+  .foot-brand small{display:block;font-size:.7rem;font-family:var(--mono);font-weight:500;color:var(--muted);letter-spacing:.24em;margin-top:.5rem}
+  .foot-bot{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .foot-bot a{color:var(--ink)}
+  .footer-by{color:var(--violet-2) !important}
+  .footer-by strong{color:var(--ink)}
+
+  /* ─────────── LIGHTBOX ─────────── */
+  .lb{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(5,4,20,.96);backdrop-filter:blur(20px);padding:2rem}
+  .lb.on{display:flex}
+  .lb img{max-width:92vw;max-height:84vh;object-fit:contain;border:1px solid var(--line-strong)}
+  .lb__btn{position:absolute;top:1.5rem;right:1.5rem;width:44px;height:44px;background:rgba(255,255,255,.08);border:1px solid var(--line-strong);color:var(--ink);display:grid;place-items:center;font-size:18px}
+  .lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;background:rgba(147,51,234,.2);border:1px solid var(--violet);color:var(--ink);display:grid;place-items:center;font-size:22px}
+  .lb__nav.prev{left:1.5rem}
+  .lb__nav.next{right:1.5rem}
+
+  /* ─────────── ADMIN PANEL ─────────── */
+  .admin-modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(0,0,0,.97);backdrop-filter:blur(24px);align-items:center;justify-content:center;padding:2rem}
+  .admin-modal.open{display:flex}
+  .admin-panel{width:100%;max-width:900px;max-height:90vh;background:var(--bg-elev);border:1px solid var(--line-strong);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 120px rgba(0,0,0,.8)}
+  #admin-content{display:none;flex:1;flex-direction:column;min-height:0}
+  #admin-content > div:first-child{flex:1;overflow-y:auto;padding:2rem;min-height:0}
+  .admin-header{padding:1.5rem 2rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+  .admin-header h2{font-family:var(--display);font-weight:900;font-size:1.7rem;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+  .admin-close{background:none;border:1px solid var(--line-strong);width:40px;height:40px;display:grid;place-items:center;color:var(--ink);font-size:18px;cursor:pointer;transition:.2s}
+  .admin-close:hover{background:rgba(255,255,255,.05);border-color:var(--violet)}
+
+  .admin-body{flex:1;overflow-y:auto;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+  @media(max-width:760px){.admin-body{grid-template-columns:1fr}}
+
+  .admin-tab{display:none}
+  .admin-tab.active{display:block}
+  .admin-tab h3{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--violet-2);margin:0 0 1.2rem}
+  .admin-tab .field-group{margin-bottom:1.4rem}
+  .admin-tab label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:500}
+  .admin-tab input,.admin-tab textarea,.admin-tab select{width:100%;padding:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;transition:.2s}
+  .admin-tab input:focus,.admin-tab textarea:focus,.admin-tab select:focus{outline:none;border-color:var(--violet);background:rgba(147,51,234,.05)}
+  .admin-tab textarea{resize:vertical;min-height:100px;font-family:var(--mono);font-size:13px}
+
+  .admin-actions{display:flex;gap:.6rem;padding:1.5rem 2rem;border-top:1px solid var(--line);background:rgba(0,0,0,.4)}
+  .admin-btn{padding:.7rem 1.4rem;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--line-strong);background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer;transition:.2s}
+  .admin-btn:hover{background:rgba(255,255,255,.08);border-color:var(--violet)}
+  .admin-btn--save{background:var(--violet);border-color:var(--violet);color:#fff}
+  .admin-btn--save:hover{background:var(--violet-dark);border-color:var(--violet-dark)}
+
+  .admin-tabs-nav{display:flex;gap:.4rem;margin-bottom:1.5rem;border-bottom:1px solid var(--line);padding-bottom:.8rem;flex-wrap:wrap}
+  .admin-tabs-nav button{background:none;border:none;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:.4rem .8rem;border-bottom:2px solid transparent;transition:.2s}
+  .admin-tabs-nav button:hover,.admin-tabs-nav button.active{color:var(--ink);border-bottom-color:var(--violet)}
+
+  .login-screen{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem}
+  .login-screen h3{font-family:var(--display);font-weight:900;font-size:2rem;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+  .login-screen p{color:var(--muted);max-width:42ch;margin:0}
+  .login-screen input{width:100%;max-width:320px;padding:.9rem;background:rgba(255,255,255,.04);border:1px solid var(--line-strong);color:var(--ink);font-family:var(--mono);font-size:14px}
+  .login-screen button{padding:.85rem 2rem;background:var(--violet);border:none;color:#fff;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.2s}
+  .login-screen button:hover{background:var(--violet-dark)}
+
+  /* tiny utils */
+  .center{display:flex;justify-content:center}
+  .mt-2{margin-top:2rem}.mt-3{margin-top:3rem}
+
+  html,body{max-width:100%;overflow-x:hidden}
+  @media(max-width:767px){
+    nav.top .inner{padding:10px 16px !important}
+    .hero__stats{width:100%;max-width:100%}
+    .hero__grid{padding:0 1rem}
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation-duration:.001ms !important;transition-duration:.001ms !important} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+  <!-- ─────────── TOP BAR ─────────── -->
+  <div class="demo-bar" role="banner" aria-label="Noticias">
+    <div class="demo-bar__track" aria-hidden="true">
+      <span>SARRIA — DISPONIBLE PARA BOOKINGS — MEDELLÍN · COLOMBIA <span class="dot"></span></span>
+      <span>TRIBAL · CIRCUIT · HOUSE <span class="dot"></span></span>
+      <span>NUEVO: SARRIA VOYAGE — LIVE SET <span class="dot"></span></span>
+      <span>SARRIA — DISPONIBLE PARA BOOKINGS — MEDELLÍN · COLOMBIA <span class="dot"></span></span>
+      <span>TRIBAL · CIRCUIT · HOUSE <span class="dot"></span></span>
+      <span>NUEVO: SARRIA VOYAGE — LIVE SET <span class="dot"></span></span>
+      <span>SARRIA — DISPONIBLE PARA BOOKINGS — MEDELLÍN · COLOMBIA <span class="dot"></span></span>
+      <span>TRIBAL · CIRCUIT · HOUSE <span class="dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ─────────── NAV ─────────── -->
+  <nav class="top" data-screen-label="nav">
+    <div class="inner">
+      <a href="#top" class="brand" aria-label="SARRIA home">
+        <img src="assets/logo-negro.png" alt="SARRIA" class="brand__logo">
+        <small>PRESS KIT WEB 2026</small>
+      </a>
+      <div class="links">
+        <a href="#bio">Bio</a>
+        <a href="#shows">Shows</a>
+        <a href="#music">Música</a>
+        <a href="#gallery">Galería</a>
+        <a href="#links">Links</a>
+      </div>
+      <div class="cta">
+        <a class="btn btn--magenta" href="mailto:mikee890130@gmail.com?subject=Booking%20SARRIA">Booking</a>
+        <button class="btn btn--ghost" id="admin-trigger" aria-label="Admin panel" title="Ctrl+Alt+A">⚙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────── HERO ─────────── -->
+  <header class="hero" id="top" data-screen-label="hero">
+    <div class="hero__grid">
+      <div class="hero__meta">
+        <span class="hero__location">
+          <span class="pulse" aria-hidden="true"></span>
+          MEDELLÍN · COLOMBIA
+        </span>
+
+        <h1 class="hero__name">
+          <img src="assets/logo-negro.png" alt="SARRIA" class="hero__logo">
+        </h1>
+
+        <p class="hero__sub">
+          <b>Tribal</b><span aria-hidden="true">/</span><b>Circuit</b><span aria-hidden="true">/</span><b>House</b>
+        </p>
+
+        <div class="hero__tags">
+          <span class="hero__badge">La revelación del tribal</span>
+          <span class="hero__flags">🇨🇴</span>
+        </div>
+
+        <p class="hero__lede">
+          Desde Medellín, Colombia — SARRIA construye sets de tribal, circuit y house con una lectura directa de la pista. Energía, tensión y liberación en cada set.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--magenta" href="mailto:mikee890130@gmail.com?subject=Booking%20SARRIA">Contacto →</a>
+          <a class="btn" href="#music">Escuchar sets</a>
+          <a class="btn btn--ghost" href="#gallery">Ver galería ↓</a>
+        </div>
+
+        <div class="hero__stats" aria-label="Key stats">
+          <div class="stat"><div class="stat__k" id="stat-debut">2024</div><div class="stat__l">Debut</div></div>
+          <div class="stat"><div class="stat__k" id="stat-shows">15+</div><div class="stat__l">Shows</div></div>
+          <div class="stat"><div class="stat__k" id="stat-countries">3</div><div class="stat__l">Países</div></div>
+        </div>
+      </div>
+
+      <div class="hero__portrait" aria-hidden="true">
+        <img id="hero-photo-img" src="assets/photos/editorial-2.jpg" alt="SARRIA portrait" />
+        <div class="hero__portrait__tag">SARRIA · 2026</div>
+        <div class="hero__portrait__corner">COL</div>
+      </div>
+
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span><span>BOOKING ABIERTO</span> <span class="dot"></span></span>
+          <span><span class="strk">COLOMBIA · CARIBE · LATAM</span> <span class="dot"></span></span>
+          <span><span>TRIBAL</span> <span class="dot"></span></span>
+          <span><span class="strk">CIRCUIT · HOUSE</span> <span class="dot"></span></span>
+          <span><span>BOOKING ABIERTO</span> <span class="dot"></span></span>
+          <span><span class="strk">COLOMBIA · CARIBE · LATAM</span> <span class="dot"></span></span>
+          <span><span>TRIBAL</span> <span class="dot"></span></span>
+          <span><span class="strk">CIRCUIT · HOUSE</span> <span class="dot"></span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────── NUEVO LANZAMIENTO ─────────── -->
+  <section class="release" id="release" data-screen-label="release">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">＋ / NEW</span>
+          <span class="sec-label">Nuevo Lanzamiento</span>
+        </div>
+        <div class="sec-head__r">Live Set<br>2026</div>
+      </div>
+      <h2 class="sec-title">SARRIA <em>Voyage</em></h2>
+
+      <div class="release-grid mt-3">
+        <div class="release__art">
+          <img src="assets/photos/voyage-cover.jpg" alt="SARRIA VOYAGE — portada oficial" loading="lazy" />
+          <div class="release__pride"></div>
+        </div>
+        <div>
+          <span class="release__badge">Live Set · Nuevo</span>
+          <h3 class="release__title">SARRIA VOYAGE</h3>
+          <p class="release__sub">Gran Vía Pride Edition · Madrid, España · 2026</p>
+          <p class="release__desc">
+            Un viaje sonoro entre tribal, circuit y house, grabado como celebración del Pride en pleno corazón de Madrid.
+            La portada oficial del lanzamiento define la nueva identidad visual de SARRIA: cromo, neón y energía nocturna.
+          </p>
+          <div class="release__cta">
+            <a class="btn btn--magenta" href="#music">▶ Escuchar sets</a>
+            <a class="btn btn--ghost" href="https://soundcloud.com/mikee89" target="_blank" rel="noopener">SoundCloud ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── GÉNEROS ─────────── -->
+  <section class="genres" id="genres" data-screen-label="genres">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">01 / 05</span>
+          <span class="sec-label">Identidad Sonora</span>
+        </div>
+        <div class="sec-head__r">Hecho<br>para<br>la pista</div>
+      </div>
+      <h2 class="sec-title">Energía, <em>tensión</em> y <span class="stroke">LIBERACIÓN</span></h2>
+
+      <div class="genre-grid mt-3">
+        <article class="gcard">
+          <span class="gcard__num">→ 01</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4v16M12 2v20M19 6v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="gcard__title">Tribal</h3>
+          <p class="gcard__desc">Percusión tribal hipnótica que conecta con las raíces latinoamericanas. El sonido insignia de SARRIA: tensión, groove y una lectura directa de la pista.</p>
+          <div class="gcard__meter" aria-label="Intensidad 5 de 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+        </article>
+        <article class="gcard">
+          <span class="gcard__num">→ 02</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M21 12h-3M6 12H3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="gcard__title">Circuit</h3>
+          <p class="gcard__desc">Energía de gran sala y peak-time sin pausas. Sets diseñados para llevar la fiesta a su punto máximo de liberación.</p>
+          <div class="gcard__meter" aria-label="Intensidad 5 de 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+          </div>
+        </article>
+        <article class="gcard">
+          <span class="gcard__num">→ 03</span>
+          <div class="gcard__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="gcard__title">House</h3>
+          <p class="gcard__desc">Groove elegante y atmósferas envolventes que dan respiro entre subidas — el balance que sostiene cada set.</p>
+          <div class="gcard__meter" aria-label="Intensidad 4 de 5">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── BIO ─────────── -->
+  <section id="bio" data-screen-label="bio">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">02 / 05</span>
+          <span class="sec-label">Biografía</span>
+        </div>
+        <div class="sec-head__r">ES / PT / EN</div>
+      </div>
+      <h2 class="sec-title">La revelación <em>del</em> <span class="stroke">TRIBAL</span></h2>
+
+      <div class="bio-grid mt-3">
+        <div class="bio__photo">
+          <img src="assets/photos/hero.jpg" alt="SARRIA foto de prensa" />
+          <div class="bio__photo__tag">SARRIA · 2026</div>
+        </div>
+        <div>
+          <div class="langs" role="tablist" aria-label="Idioma">
+            <button class="lang on" data-lang="es" role="tab" aria-selected="true">ES</button>
+            <button class="lang" data-lang="pt" role="tab" aria-selected="false">PT</button>
+            <button class="lang" data-lang="en" role="tab" aria-selected="false">EN</button>
+          </div>
+
+          <p class="bio__lede" data-bio-lede>
+            SARRIA es la revelación del tribal desde Medellín, Colombia.
+          </p>
+
+          <div class="bio__body" data-lang-body="es">
+            <p>SARRIA construye sets de <strong>tribal</strong>, <strong>circuit</strong> y <strong>house</strong> con una lectura directa de la pista y una identidad enfocada en energía, tensión y liberación.</p>
+            <p>Su propuesta ya lo ha llevado a escenarios en distintos países y a consolidar una base de shows en crecimiento, con una presencia que apunta a circuitos club y eventos especializados.</p>
+            <p>Actualmente trabaja en expandir su alcance regional y posicionar su nombre como una referencia nueva dentro de la escena tribal latina. <a href="mailto:mikee890130@gmail.com" style="color:var(--violet-2);text-decoration:underline;text-underline-offset:3px">Contactar →</a></p>
+          </div>
+          <div class="bio__body" data-lang-body="pt" style="display:none">
+            <p>SARRIA constrói sets de <strong>tribal</strong>, <strong>circuit</strong> e <strong>house</strong> com leitura direta da pista e uma identidade baseada em energia, tensão e liberação.</p>
+            <p>Seu projeto já passou por diferentes países e segue crescendo com datas em clubes e eventos especializados.</p>
+            <p>Agora ele amplia seu alcance regional e posiciona seu nome como uma nova referência na cena tribal latina. <a href="mailto:mikee890130@gmail.com" style="color:var(--violet-2);text-decoration:underline;text-underline-offset:3px">Contatar →</a></p>
+          </div>
+          <div class="bio__body" data-lang-body="en" style="display:none">
+            <p>SARRIA shapes <strong>tribal</strong>, <strong>circuit</strong>, and <strong>house</strong> sets with a direct connection to the dancefloor and a style built on energy, tension, and release.</p>
+            <p>His project has already reached stages across different countries and continues to grow through club dates and specialized events.</p>
+            <p>He is now expanding his regional reach and positioning his name as a new reference in the Latin tribal scene. <a href="mailto:mikee890130@gmail.com" style="color:var(--violet-2);text-decoration:underline;text-underline-offset:3px">Get in touch →</a></p>
+          </div>
+
+          <div class="bio__meta">
+            <div class="meta"><span class="meta__k">Base</span><span class="meta__v">Medellín</span></div>
+            <div class="meta"><span class="meta__k">Origen</span><span class="meta__v">Colombia</span></div>
+            <div class="meta"><span class="meta__k">Debut</span><span class="meta__v" id="bio-debut">2024</span></div>
+            <div class="meta"><span class="meta__k">Géneros</span><span class="meta__v">Tribal · Circuit</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SHOWS ─────────── -->
+  <section id="shows" data-screen-label="shows">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">03 / 05</span>
+          <span class="sec-label">Próximas Fechas</span>
+        </div>
+        <div class="sec-head__r">Booking<br>abierto</div>
+      </div>
+      <h2 class="sec-title">Shows <em>y</em> <span class="stroke">FECHAS</span></h2>
+
+      <div class="shows-list mt-3" id="shows-list"><!-- rendered dynamically --></div>
+
+      <div class="center mt-2">
+        <a class="btn" href="https://wa.me/573019306176?text=Hola%20SARRIA%2C%20quiero%20cotizar%20una%20fecha" target="_blank" rel="noopener">
+          Cotizar fecha por WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── MÚSICA ─────────── -->
+  <section id="music" data-screen-label="music">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">04 / 05</span>
+          <span class="sec-label">Sets y Lanzamientos</span>
+        </div>
+        <div class="sec-head__r">SoundCloud</div>
+      </div>
+      <h2 class="sec-title">Escuchá <em>el set</em></h2>
+
+      <div class="music-list mt-3" id="music-list"><!-- rendered dynamically --></div>
+
+      <div class="center mt-2">
+        <a class="btn" href="https://soundcloud.com/mikee89" target="_blank" rel="noopener">
+          Más en SoundCloud →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── GALERÍA ─────────── -->
+  <section id="gallery" data-screen-label="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">05 / 05</span>
+          <span class="sec-label">Fotos de Prensa</span>
+        </div>
+        <div class="sec-head__r">6 imágenes<br>· listas para prensa</div>
+      </div>
+      <h2 class="sec-title">Galería <em>y visuales</em></h2>
+
+      <div class="gallery mt-3" id="gallery-grid"><!-- Rendered dynamically --></div>
+    </div>
+  </section>
+
+  <!-- ─────────── LINKS / SOCIALES ─────────── -->
+  <section id="links" data-screen-label="links">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__l">
+          <span class="sec-num">+ / ∞</span>
+          <span class="sec-label">Conectar</span>
+        </div>
+        <div class="sec-head__r">Escuchar<br>Seguir<br>Contactar</div>
+      </div>
+      <h2 class="sec-title">Seguí <em>y escuchá</em></h2>
+
+      <div class="socials mt-3">
+        <a class="soc" href="https://www.instagram.com/sarriamike/" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">Instagram</span><span class="soc__handle">@sarriamike</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="https://soundcloud.com/mikee89" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 16v-4M7 16v-7M10 16v-9M13 16V8M16 16V7a4 4 0 0 1 4 4v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">SoundCloud</span><span class="soc__handle">/mikee89</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="https://wa.me/573019306176" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 3.9A10 10 0 0 0 4.6 17.3L3 21l3.8-1.6A10 10 0 1 0 20 3.9z" stroke="currentColor" stroke-width="2"/><path d="M8.5 9.3c.2-.6.7-.6 1-.6h.6c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .7.5.9 1.8 2.1 2.8 2.5.3.1.5.1.7-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5-.1.9-1 1.7-1.9 1.7-2 0-5.9-1.9-6.9-5.6-.3-.9-.1-1.9.1-2.6z" fill="currentColor"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">WhatsApp</span><span class="soc__handle">+57 301 930 6176</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+        <a class="soc" href="mailto:mikee890130@gmail.com" target="_blank" rel="noopener">
+          <div class="soc__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="soc__text"><span class="soc__plat">Booking</span><span class="soc__handle">mikee890130@gmail.com</span></div>
+          <span class="soc__arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="promo-band" id="promo">
+        <div>
+          <span class="sec-label" style="color:var(--violet-2)">Kit de prensa · descarga</span>
+          <h3 style="margin-top:.6rem">Fotos en alta resolución y assets de marca</h3>
+          <p>Imágenes de prensa listas para publicación. Contactá por booking y kit completo.</p>
+        </div>
+        <a class="btn btn--solid" href="mailto:mikee890130@gmail.com?subject=Kit%20de%20Prensa%20SARRIA" target="_blank" rel="noopener">Solicitar Kit →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FOOTER ─────────── -->
+  <footer data-screen-label="footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <h4>El artista</h4>
+          <div class="foot-brand">SARRIA<small>Tribal · Circuit · House</small></div>
+          <p style="color:var(--muted);font-size:.95rem;max-width:38ch;margin:1rem 0 0">Press Kit Web de SARRIA — La revelación del tribal desde Medellín, Colombia. Bookings: mikee890130@gmail.com · +57 301 930 6176.</p>
+        </div>
+        <div>
+          <h4>Secciones</h4>
+          <a href="#bio">Bio</a>
+          <a href="#shows">Shows</a>
+          <a href="#music">Música</a>
+          <a href="#gallery">Galería</a>
+          <a href="#links">Links</a>
+        </div>
+        <div>
+          <h4>Creado por NAWEMEDIA</h4>
+          <a href="mailto:nawemedia@gmail.com">nawemedia@gmail.com</a>
+          <a href="https://instagram.com/nawemedia.pro" target="_blank" rel="noopener">@nawemedia.pro ↗</a>
+          <a class="footer-by" href="https://nawemedia.com" target="_blank" rel="noopener">EPK by <strong>NAWEMEDIA</strong></a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 SARRIA · EPK by NAWEMEDIA</span>
+        <span>Sistema EPK por <a href="https://nawemedia.pro" target="_blank" rel="noopener">NAWEMEDIA.PRO</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─────────── LIGHTBOX ─────────── -->
+  <div class="lb" id="lb" role="dialog" aria-label="Imagen ampliada">
+    <img id="lb-img" src="" alt="" />
+    <button class="lb__btn" id="lb-close" aria-label="Cerrar">✕</button>
+    <button class="lb__nav prev" id="lb-prev" aria-label="Anterior">‹</button>
+    <button class="lb__nav next" id="lb-next" aria-label="Siguiente">›</button>
+  </div>
+
+  <!-- ─────────── ADMIN MODAL ─────────── -->
+  <div class="admin-modal" id="admin-modal">
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h2>Admin Panel</h2>
+        <button class="admin-close" id="admin-close">✕</button>
+      </div>
+
+      <div class="admin-body" id="login-screen">
+        <div style="grid-column:1/-1">
+          <div class="login-screen">
+            <h3>Acceso Admin</h3>
+            <p>Ingresá la contraseña para editar este EPK.</p>
+            <input type="password" id="admin-pwd" placeholder="Contraseña" />
+            <button id="admin-login">Ingresar</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="admin-content">
+        <div>
+          <div class="admin-tabs-nav">
+            <button class="admin-tab-btn active" data-tab="bio">Bio</button>
+            <button class="admin-tab-btn" data-tab="shows">Shows</button>
+            <button class="admin-tab-btn" data-tab="music">Music</button>
+            <button class="admin-tab-btn" data-tab="gallery">Gallery</button>
+            <button class="admin-tab-btn" data-tab="socials">Socials</button>
+            <button class="admin-tab-btn" data-tab="stats">Stats</button>
+          </div>
+
+          <div class="admin-tab active" data-tab="bio">
+            <h3>Bio — Frase Corta Multi-idioma</h3>
+            <div class="field-group">
+              <label>Español</label>
+              <textarea id="bio-es" placeholder="Bio en español..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Português</label>
+              <textarea id="bio-pt" placeholder="Bio em português..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>English</label>
+              <textarea id="bio-en" placeholder="Bio in English..."></textarea>
+            </div>
+            <button class="admin-btn admin-btn--save" data-save="bio">Save Bio</button>
+
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Foto Hero</label>
+              <div id="hero-photo-preview" style="margin-bottom:0.8rem;overflow:hidden;max-height:180px;display:none">
+                <img id="hero-photo-admin-preview" style="width:100%;height:180px;object-fit:cover;object-position:top" />
+              </div>
+              <input type="file" id="hero-photo-input" accept="image/*" style="padding:0.8rem;border:1px solid var(--line-strong);color:var(--muted)" />
+              <button class="admin-btn" id="upload-hero-photo" style="margin-top:0.8rem">📤 Reemplazar Foto Hero</button>
+              <p id="hero-upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+          </div>
+
+          <div class="admin-tab" data-tab="shows">
+            <h3>Shows / Fechas</h3>
+            <div id="shows-admin-list"></div>
+            <button class="admin-btn" id="add-show">+ Add Show</button>
+            <button class="admin-btn admin-btn--save" data-save="shows">Save Shows</button>
+          </div>
+
+          <div class="admin-tab" data-tab="music">
+            <h3>Music Tracks</h3>
+            <div id="music-admin-list"></div>
+            <button class="admin-btn" id="add-track">+ Add Track</button>
+            <button class="admin-btn admin-btn--save" data-save="music">Save Tracks</button>
+          </div>
+
+          <div class="admin-tab" data-tab="gallery">
+            <h3>Fotos de Prensa</h3>
+            <div id="gallery-list"></div>
+            <div class="field-group" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+              <label>Upload New Photo</label>
+              <input type="file" id="gallery-file-input" accept="image/*" style="padding:0.8rem;border:1px solid var(--line-strong);color:var(--muted)" />
+              <button class="admin-btn" id="upload-photo" style="margin-top:0.8rem">📤 Upload Photo</button>
+              <p id="upload-status" style="font-size:12px;color:var(--muted);margin-top:0.5rem"></p>
+            </div>
+            <button class="admin-btn" id="add-gallery">+ Add Manual Photo Link</button>
+            <button class="admin-btn admin-btn--save" data-save="gallery">Save Gallery</button>
+          </div>
+
+          <div class="admin-tab" data-tab="socials">
+            <h3>Social Links</h3>
+            <div id="socials-list"></div>
+            <button class="admin-btn" id="add-social">+ Add Link</button>
+            <button class="admin-btn admin-btn--save" data-save="socials">Save Socials</button>
+          </div>
+
+          <div class="admin-tab" data-tab="stats">
+            <h3>Key Statistics</h3>
+            <div class="field-group">
+              <label>Debut</label>
+              <input type="text" id="stats-debut" placeholder="ej: 2024" />
+            </div>
+            <div class="field-group">
+              <label>Shows</label>
+              <input type="text" id="stats-shows" placeholder="ej: 15+" />
+            </div>
+            <div class="field-group">
+              <label>Países</label>
+              <input type="text" id="stats-countries" placeholder="ej: 3" />
+            </div>
+            <button class="admin-btn admin-btn--save" data-save="stats">Save Stats</button>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="admin-btn" id="admin-logout">Logout</button>
+          <button class="admin-btn admin-btn--save" id="admin-save-all">Save All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ── DATA ──
+  const defaultData = {
+    bio: {
+      es: "SARRIA es la revelación del tribal desde Medellín, Colombia.",
+      pt: "SARRIA é a revelação do tribal vindo de Medellín, Colômbia.",
+      en: "SARRIA is the rising tribal revelation from Medellín, Colombia."
+    },
+    music: [
+      {id:1, title:"RE·S·U·R·G·E·N·CE 2026", type:"set", url:"https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fr-e-s-u-r-g-e-n-c-e-2026&color=%239333ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"},
+      {id:2, title:"BRUJERIA05 BY SARRIADJ", type:"set", url:"https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmikee89%2Fbrujeria05-by-sarriadj&color=%239333ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"}
+    ],
+    video: { url:"", title:"" },
+    shows: [
+      {id:1, date:"2026-06-09", venue:"LA CALETA", city:"Simpson Bay, Sint Maarten", country:"", type:"CLUB", status:"upcoming", ticketUrl:""}
+    ],
+    gallery: [
+      {id:1, src:"assets/photos/editorial-2.jpg", cap:"01 · Voyage"},
+      {id:2, src:"assets/photos/press-3.jpg", cap:"02 · Cabina"},
+      {id:3, src:"assets/photos/hero.jpg", cap:"03 · Prensa"},
+      {id:4, src:"assets/photos/press-1.jpg", cap:"04 · Studio"},
+      {id:5, src:"assets/photos/editorial-1.jpg", cap:"05 · Editorial"},
+      {id:6, src:"assets/photos/press-2.jpg", cap:"06 · Perfil"}
+    ],
+    socials: [
+      {id:1, plat:"Instagram", handle:"@sarriamike", url:"https://www.instagram.com/sarriamike/"},
+      {id:2, plat:"SoundCloud", handle:"/mikee89", url:"https://soundcloud.com/mikee89"},
+      {id:3, plat:"WhatsApp", handle:"+57 301 930 6176", url:"https://wa.me/573019306176"},
+      {id:4, plat:"Booking", handle:"mikee890130@gmail.com", url:"mailto:mikee890130@gmail.com"}
+    ],
+    stats: { debut:"2024", shows:"15+", countries:"3" },
+    hero_photo: "assets/photos/editorial-2.jpg"
+  };
+
+  let adminData = JSON.parse(JSON.stringify(defaultData));
+  let isAuth = false;
+  const DJ_SLUG = "dj-sarria";
+
+  async function loadFromGitHub() {
+    try {
+      const r = await fetch(`/api/epk-load?slug=${DJ_SLUG}`);
+      if(!r.ok) throw new Error("Load failed");
+      const result = await r.json();
+      if(result.data){
+        adminData = {
+          ...defaultData, ...result.data,
+          bio: {...defaultData.bio, ...(result.data.bio||{})},
+          stats: {...defaultData.stats, ...(result.data.stats||{})},
+          video: {...defaultData.video, ...(result.data.video||{})},
+        };
+      }
+    } catch(e){ console.log("Using default data:", e.message); }
+  }
+
+  // ── AUTH ──
+  const adminModal = document.getElementById("admin-modal");
+  const adminTrigger = document.getElementById("admin-trigger");
+  const adminClose = document.getElementById("admin-close");
+  const adminPwd = document.getElementById("admin-pwd");
+  const adminLogin = document.getElementById("admin-login");
+  const adminLogout = document.getElementById("admin-logout");
+  const loginScreen = document.getElementById("login-screen");
+  const adminContent = document.getElementById("admin-content");
+
+  async function openAdmin(){
+    adminModal.classList.add("open");
+    if(!isAuth){ loginScreen.style.display="flex"; adminContent.style.display="none"; adminPwd.focus(); }
+    else{ await loadFromGitHub(); renderAdmin(); updateStats(); loginScreen.style.display="none"; adminContent.style.display="flex"; adminContent.style.flexDirection="column"; }
+  }
+  function closeAdmin(){ adminModal.classList.remove("open"); }
+  function login(){
+    if(adminPwd.value==="sarria2026"){ isAuth=true; loginScreen.style.display="none"; adminContent.style.display="flex"; adminContent.style.flexDirection="column"; renderAdmin(); adminPwd.value=""; }
+    else{ alert("Contraseña incorrecta"); adminPwd.value=""; adminPwd.focus(); }
+  }
+  function logout(){ isAuth=false; adminPwd.value=""; loginScreen.style.display="flex"; adminContent.style.display="none"; closeAdmin(); }
+
+  adminTrigger.addEventListener("click", openAdmin);
+  adminClose.addEventListener("click", closeAdmin);
+  adminLogin.addEventListener("click", login);
+  adminLogout.addEventListener("click", logout);
+  adminPwd.addEventListener("keypress",(e)=>{ if(e.key==="Enter") login(); });
+  document.addEventListener("keydown",(e)=>{ if(e.ctrlKey&&e.altKey&&e.key==="a") openAdmin(); });
+
+  // ── TABS ──
+  document.querySelectorAll(".admin-tab-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".admin-tab-btn").forEach(b=>b.classList.remove("active"));
+      document.querySelectorAll(".admin-tab").forEach(t=>t.classList.remove("active"));
+      btn.classList.add("active");
+      document.querySelector(`.admin-tab[data-tab="${btn.dataset.tab}"]`).classList.add("active");
+    });
+  });
+
+  // ── STATS / HERO / GALLERY ──
+  function updateStats(){
+    document.getElementById("stat-debut").textContent = adminData.stats.debut;
+    document.getElementById("stat-shows").textContent = adminData.stats.shows;
+    document.getElementById("stat-countries").textContent = adminData.stats.countries;
+    document.getElementById("bio-debut").textContent = adminData.stats.debut;
+  }
+
+  function updateHeroPhoto(){
+    const src = adminData.hero_photo || "assets/photos/editorial-2.jpg";
+    document.getElementById("hero-photo-img").src = src;
+    const preview = document.getElementById("hero-photo-preview");
+    const previewImg = document.getElementById("hero-photo-admin-preview");
+    if(preview&&previewImg){ previewImg.src=src; preview.style.display="block"; }
+  }
+
+  function renderGalleryPublic(){
+    const grid = document.getElementById("gallery-grid");
+    if(!grid||!adminData.gallery.length) return;
+    grid.innerHTML = adminData.gallery.map((g,i)=>{
+      const sizeClass = i===0 ? "gtile--big" : i===1 ? "gtile--wide" : "";
+      return `<button class="gtile ${sizeClass}" data-i="${i}" type="button">
+        <img src="${g.src}" alt="${g.cap}" loading="lazy"/>
+        <span class="gtile__cap">${g.cap}</span>
+      </button>`;
+    }).join("");
+    document.querySelectorAll(".gtile").forEach(tile=>{
+      tile.addEventListener("click",()=>{ openLb(+tile.dataset.i); });
+    });
+  }
+
+  // ── SHOWS (public) ──
+  function renderShowsPublic(){
+    const list = document.getElementById("shows-list");
+    const today = new Date().toISOString().split('T')[0];
+    const upcoming = adminData.shows.filter(s => s.date >= today).sort((a,b)=>a.date.localeCompare(b.date));
+    if(!upcoming.length){ list.innerHTML = '<div class="no-shows">Próximas fechas próximamente — síguenos en redes.</div>'; return; }
+    list.innerHTML = upcoming.map(s=>{
+      const d = new Date(s.date+'T12:00:00');
+      const dateStr = d.toLocaleDateString('es-CO',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase();
+      const dayStr = d.toLocaleDateString('es-CO',{weekday:'long'});
+      const isSO = s.status==='sold-out', isC = s.status==='cancelled';
+      const btn = isC ? `<span class="ticket-cancelled">Cancelado</span>`
+        : (s.ticketUrl ? `<a class="ticket-btn ${isSO?'sold-out':''}" href="${s.ticketUrl}" target="_blank">${isSO?'Sold Out':'→ Tickets'}</a>`
+        : `<a class="ticket-btn ${isSO?'sold-out':''}" href="https://wa.me/573019306176" target="_blank">${isSO?'Sold Out':'→ Info'}</a>`);
+      return `<div class="show-item">
+        <div><div class="show-date">${dateStr}</div><div class="show-date-day">${dayStr.charAt(0).toUpperCase()+dayStr.slice(1)}</div></div>
+        <div><div class="show-venue">${s.venue}</div><div class="show-city">${s.city}${s.country?', '+s.country:''}</div></div>
+        <div class="show-type">${s.type}</div>${btn}
+      </div>`;
+    }).join("");
+  }
+
+  // ── MUSIC (public) ──
+  function renderMusicPublic(){
+    const list = document.getElementById("music-list");
+    list.innerHTML = adminData.music.map((t,i)=>`
+      <article class="track">
+        <div class="track__head">
+          <span class="track__num">${String(i+1).padStart(2,'0')}</span>
+          <h3 class="track__title">${t.title}</h3>
+          <span class="track__badge">${t.type==='set'?'Set':'Release'}</span>
+        </div>
+        <div class="track__player">
+          <iframe loading="lazy" scrolling="no" src="${t.url}" title="${t.title}"></iframe>
+        </div>
+      </article>`).join("");
+  }
+
+  // ── LIGHTBOX ──
+  let lbIdx = 0;
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lb-img");
+  function openLb(i){ lbIdx=i; lbImg.src=adminData.gallery[i].src; lbImg.alt=adminData.gallery[i].cap; lb.classList.add("on"); document.body.style.overflow="hidden"; }
+  function closeLb(){ lb.classList.remove("on"); document.body.style.overflow=""; }
+  function lbNav(dir){ lbIdx=(lbIdx+dir+adminData.gallery.length)%adminData.gallery.length; lbImg.src=adminData.gallery[lbIdx].src; lbImg.alt=adminData.gallery[lbIdx].cap; }
+  document.getElementById("lb-close").addEventListener("click",closeLb);
+  document.getElementById("lb-prev").addEventListener("click",()=>lbNav(-1));
+  document.getElementById("lb-next").addEventListener("click",()=>lbNav(1));
+  lb.addEventListener("click",(e)=>{ if(e.target===lb) closeLb(); });
+  document.addEventListener("keydown",(e)=>{ if(!lb.classList.contains("on")) return; if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") lbNav(-1); if(e.key==="ArrowRight") lbNav(1); });
+
+  // ── RENDER ADMIN FORMS ──
+  function renderAdmin(){
+    document.getElementById("bio-es").value = adminData.bio.es;
+    document.getElementById("bio-pt").value = adminData.bio.pt;
+    document.getElementById("bio-en").value = adminData.bio.en;
+    updateHeroPhoto();
+
+    const showsList = document.getElementById("shows-admin-list");
+    showsList.innerHTML = adminData.shows.map((s,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;margin-bottom:.8rem">
+        <label>Show ${i+1}</label>
+        <input type="text" placeholder="Fecha YYYY-MM-DD" value="${s.date}" data-show-field="${i}-date" />
+        <input type="text" placeholder="Venue" value="${s.venue}" data-show-field="${i}-venue" style="margin-top:.4rem" />
+        <input type="text" placeholder="Ciudad" value="${s.city}" data-show-field="${i}-city" style="margin-top:.4rem" />
+        <input type="text" placeholder="País" value="${s.country}" data-show-field="${i}-country" style="margin-top:.4rem" />
+        <input type="text" placeholder="Tipo (CLUB, FESTIVAL...)" value="${s.type}" data-show-field="${i}-type" style="margin-top:.4rem" />
+        <select data-show-field="${i}-status" style="margin-top:.4rem">
+          <option value="upcoming" ${s.status==='upcoming'?'selected':''}>upcoming</option>
+          <option value="sold-out" ${s.status==='sold-out'?'selected':''}>sold-out</option>
+          <option value="cancelled" ${s.status==='cancelled'?'selected':''}>cancelled</option>
+        </select>
+        <input type="text" placeholder="Ticket URL (opcional)" value="${s.ticketUrl||''}" data-show-field="${i}-ticketUrl" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(224,51,158,.3);border-color:rgba(224,51,158,.5)" onclick="adminData.shows.splice(${i},1);renderAdmin()">Remove</button>
+      </div>`).join("");
+
+    const musicList = document.getElementById("music-admin-list");
+    musicList.innerHTML = adminData.music.map((t,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;margin-bottom:.8rem">
+        <label>Track ${i+1}</label>
+        <input type="text" placeholder="Title" value="${t.title}" data-music-field="${i}-title" />
+        <select data-music-field="${i}-type" style="margin-top:.4rem"><option ${t.type==="set"?"selected":""}>set</option><option ${t.type==="release"?"selected":""}>release</option></select>
+        <textarea placeholder="SoundCloud embed URL" data-music-field="${i}-url" style="margin-top:.4rem;font-size:12px;min-height:60px">${t.url}</textarea>
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(224,51,158,.3);border-color:rgba(224,51,158,.5)" onclick="adminData.music.splice(${i},1);renderAdmin()">Remove</button>
+      </div>`).join("");
+
+    const galleryList = document.getElementById("gallery-list");
+    galleryList.innerHTML = adminData.gallery.map((g,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;margin-bottom:.8rem">
+        <label>Photo ${i+1}</label>
+        <input type="text" placeholder="Image URL" value="${g.src}" data-gallery-field="${i}-src" />
+        <input type="text" placeholder="Caption" value="${g.cap}" data-gallery-field="${i}-cap" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(224,51,158,.3);border-color:rgba(224,51,158,.5)" onclick="adminData.gallery.splice(${i},1);renderAdmin()">Remove</button>
+      </div>`).join("");
+
+    const socialsList = document.getElementById("socials-list");
+    socialsList.innerHTML = adminData.socials.map((s,i)=>`
+      <div class="field-group" style="border:1px solid var(--line);padding:1rem;margin-bottom:.8rem">
+        <label>Social ${i+1}</label>
+        <input type="text" placeholder="Platform" value="${s.plat}" data-social-field="${i}-plat" />
+        <input type="text" placeholder="Handle" value="${s.handle}" data-social-field="${i}-handle" style="margin-top:.4rem" />
+        <input type="text" placeholder="URL" value="${s.url}" data-social-field="${i}-url" style="margin-top:.4rem" />
+        <button class="admin-btn" style="margin-top:.6rem;background:rgba(224,51,158,.3);border-color:rgba(224,51,158,.5)" onclick="adminData.socials.splice(${i},1);renderAdmin()">Remove</button>
+      </div>`).join("");
+
+    document.getElementById("stats-debut").value = adminData.stats.debut;
+    document.getElementById("stats-shows").value = adminData.stats.shows;
+    document.getElementById("stats-countries").value = adminData.stats.countries;
+  }
+
+  document.getElementById("add-show").addEventListener("click",()=>{ adminData.shows.push({id:Date.now(),date:"",venue:"",city:"",country:"",type:"CLUB",status:"upcoming",ticketUrl:""}); renderAdmin(); });
+  document.getElementById("add-track").addEventListener("click",()=>{ adminData.music.push({id:Date.now(),title:"New Track",type:"set",url:""}); renderAdmin(); });
+  document.getElementById("add-gallery").addEventListener("click",()=>{ adminData.gallery.push({id:Date.now(),src:"",cap:""}); renderAdmin(); });
+  document.getElementById("add-social").addEventListener("click",()=>{ adminData.socials.push({id:Date.now(),plat:"",handle:"",url:""}); renderAdmin(); });
+
+  // ── PHOTO UPLOAD ──
+  async function uploadPhotoToGithub(file, isHero){
+    const statusEl = document.getElementById(isHero?"hero-upload-status":"upload-status");
+    if(file.size > 2*1024*1024){ statusEl.textContent=`❌ Archivo muy grande (máx. 2MB)`; return; }
+    const reader = new FileReader();
+    reader.onload = async (e)=>{
+      const base64Data = e.target.result.split(',')[1];
+      const ts = Date.now(); const ext = file.name.split('.').pop();
+      const fileName = isHero ? `hero-${ts}.${ext}` : `photo-${ts}.${ext}`;
+      statusEl.textContent="⏳ Subiendo...";
+      const r = await fetch("/api/upload-photo",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fileData:base64Data,fileName,slug:DJ_SLUG})});
+      const result = await r.json();
+      if(!r.ok){ statusEl.textContent=`❌ Error: ${result.error}`; return; }
+      if(isHero){ adminData.hero_photo=result.url; updateHeroPhoto(); }
+      else{ adminData.gallery.push({id:ts,src:result.url,cap:file.name.replace(/\.[^.]+$/,'')}); renderAdmin(); }
+      const saved = await saveData();
+      statusEl.textContent = saved ? "✅ Guardado!" : "⚠️ Subida pero fallo el guardado.";
+      document.getElementById(isHero?"hero-photo-input":"gallery-file-input").value="";
+    };
+    reader.readAsDataURL(file);
+  }
+
+  document.getElementById("upload-photo").addEventListener("click",()=>{
+    const f = document.getElementById("gallery-file-input").files[0];
+    if(!f){ document.getElementById("upload-status").textContent="⚠️ Selecciona una foto primero"; return; }
+    uploadPhotoToGithub(f,false);
+  });
+  document.getElementById("upload-hero-photo").addEventListener("click",()=>{
+    const f = document.getElementById("hero-photo-input").files[0];
+    if(!f){ document.getElementById("hero-upload-status").textContent="⚠️ Selecciona una foto primero"; return; }
+    uploadPhotoToGithub(f,true);
+  });
+  document.getElementById("hero-photo-input").addEventListener("change",(e)=>{
+    if(!e.target.files.length) return;
+    document.getElementById("hero-photo-admin-preview").src=URL.createObjectURL(e.target.files[0]);
+    document.getElementById("hero-photo-preview").style.display="block";
+  });
+
+  // ── SAVE ──
+  document.querySelectorAll("[data-save]").forEach(btn=>{
+    btn.addEventListener("click", async ()=>{
+      const tab = btn.dataset.save;
+      if(tab==="bio"){ adminData.bio.es=document.getElementById("bio-es").value; adminData.bio.pt=document.getElementById("bio-pt").value; adminData.bio.en=document.getElementById("bio-en").value; }
+      else if(tab==="shows"){ adminData.shows.forEach((s,i)=>{ s.date=document.querySelector(`[data-show-field="${i}-date"]`).value; s.venue=document.querySelector(`[data-show-field="${i}-venue"]`).value; s.city=document.querySelector(`[data-show-field="${i}-city"]`).value; s.country=document.querySelector(`[data-show-field="${i}-country"]`).value; s.type=document.querySelector(`[data-show-field="${i}-type"]`).value; s.status=document.querySelector(`[data-show-field="${i}-status"]`).value; s.ticketUrl=document.querySelector(`[data-show-field="${i}-ticketUrl"]`).value; }); renderShowsPublic(); }
+      else if(tab==="music"){ adminData.music.forEach((t,i)=>{ t.title=document.querySelector(`[data-music-field="${i}-title"]`).value; t.type=document.querySelector(`[data-music-field="${i}-type"]`).value; t.url=document.querySelector(`[data-music-field="${i}-url"]`).value; }); renderMusicPublic(); }
+      else if(tab==="gallery"){ adminData.gallery.forEach((g,i)=>{ g.src=document.querySelector(`[data-gallery-field="${i}-src"]`).value; g.cap=document.querySelector(`[data-gallery-field="${i}-cap"]`).value; }); renderGalleryPublic(); }
+      else if(tab==="socials"){ adminData.socials.forEach((s,i)=>{ s.plat=document.querySelector(`[data-social-field="${i}-plat"]`).value; s.handle=document.querySelector(`[data-social-field="${i}-handle"]`).value; s.url=document.querySelector(`[data-social-field="${i}-url"]`).value; }); }
+      else if(tab==="stats"){ adminData.stats.debut=document.getElementById("stats-debut").value; adminData.stats.shows=document.getElementById("stats-shows").value; adminData.stats.countries=document.getElementById("stats-countries").value; updateStats(); }
+      const ok = await saveData();
+      alert(ok ? "¡Guardado! Recargá la página para ver los cambios." : "Error al guardar. Intenta de nuevo.");
+    });
+  });
+
+  document.getElementById("admin-save-all").addEventListener("click", async ()=>{
+    adminData.bio.es=document.getElementById("bio-es").value;
+    adminData.bio.pt=document.getElementById("bio-pt").value;
+    adminData.bio.en=document.getElementById("bio-en").value;
+    adminData.shows.forEach((s,i)=>{ s.date=document.querySelector(`[data-show-field="${i}-date"]`).value; s.venue=document.querySelector(`[data-show-field="${i}-venue"]`).value; s.city=document.querySelector(`[data-show-field="${i}-city"]`).value; s.country=document.querySelector(`[data-show-field="${i}-country"]`).value; s.type=document.querySelector(`[data-show-field="${i}-type"]`).value; s.status=document.querySelector(`[data-show-field="${i}-status"]`).value; s.ticketUrl=document.querySelector(`[data-show-field="${i}-ticketUrl"]`).value; });
+    adminData.music.forEach((t,i)=>{ t.title=document.querySelector(`[data-music-field="${i}-title"]`).value; t.type=document.querySelector(`[data-music-field="${i}-type"]`).value; t.url=document.querySelector(`[data-music-field="${i}-url"]`).value; });
+    adminData.gallery.forEach((g,i)=>{ g.src=document.querySelector(`[data-gallery-field="${i}-src"]`).value; g.cap=document.querySelector(`[data-gallery-field="${i}-cap"]`).value; });
+    adminData.socials.forEach((s,i)=>{ s.plat=document.querySelector(`[data-social-field="${i}-plat"]`).value; s.handle=document.querySelector(`[data-social-field="${i}-handle"]`).value; s.url=document.querySelector(`[data-social-field="${i}-url"]`).value; });
+    adminData.stats.debut=document.getElementById("stats-debut").value;
+    adminData.stats.shows=document.getElementById("stats-shows").value;
+    adminData.stats.countries=document.getElementById("stats-countries").value;
+    updateStats(); renderShowsPublic(); renderMusicPublic(); renderGalleryPublic();
+    const ok = await saveData();
+    alert(ok ? "¡Todo guardado!" : "Error al guardar.");
+  });
+
+  async function saveData(){
+    try{
+      const r = await fetch("/api/epk-save",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({slug:DJ_SLUG,data:adminData})});
+      if(!r.ok) throw new Error("Save failed");
+      return true;
+    }catch(e){ console.error("Save failed:",e.message); return false; }
+  }
+
+  // ── LANGUAGE ──
+  let currentLang = 'es';
+  function switchLang(lang){
+    currentLang=lang;
+    document.querySelector('[data-bio-lede]').textContent = adminData.bio[lang]||adminData.bio.es;
+    document.querySelectorAll('[data-lang-body]').forEach(el=>{ el.style.display = el.dataset.langBody===lang?'':'none'; });
+    document.querySelectorAll('.lang').forEach(btn=>{ btn.classList.toggle('on',btn.dataset.lang===lang); btn.setAttribute('aria-selected',btn.dataset.lang===lang?'true':'false'); });
+  }
+  document.querySelectorAll('.lang').forEach(btn=>{ btn.addEventListener('click',()=>switchLang(btn.dataset.lang)); });
+
+  // ── NAV SCROLL ──
+  window.addEventListener("scroll", ()=>{ document.querySelector("nav.top").classList.toggle("scrolled", window.scrollY>10); }, {passive:true});
+
+  // ── INIT ──
+  loginScreen.style.display="flex";
+  adminContent.style.display="none";
+  updateStats();
+  updateHeroPhoto();
+  renderGalleryPublic();
+  renderShowsPublic();
+  renderMusicPublic();
+  switchLang('es');
+  loadFromGitHub().then(()=>{ updateStats(); updateHeroPhoto(); renderGalleryPublic(); renderShowsPublic(); renderMusicPublic(); switchLang(currentLang); });
+
+</script>
+</body>
+</html>
