@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DJ Virginia Soledispa — Electronic Press Kit oficial. Tribal House · Circuit. Contacto: Virginiasoledispa83@gmail.com">
+  <meta property="og:title" content="DJ Virginia Soledispa — EPK">
+  <meta property="og:description" content="Tribal House · Circuit · Santiago de Chile">
+  <meta property="og:image" content="assets/photos/hero.jpeg">
+  <title>DJ Virginia Soledispa — EPK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #070707;
+      --bg2:     #0e0e0e;
+      --bg3:     #161616;
+      --text:    #ffffff;
+      --text2:   #888888;
+      --text3:   #555555;
+      --accent:  #E8177A;
+      --accent2: rgba(232,23,122,0.12);
+      --border:  rgba(255,255,255,0.06);
+      --borderp: rgba(232,23,122,0.18);
+      --font:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --display: 'Bebas Neue', 'Inter', sans-serif;
+      --nav-h:   64px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ──────────────── NAV ──────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(7,7,7,0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 24px; filter: invert(1); opacity: 0.95; }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #8a8a8a; text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 11px 24px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: #ff2e8d; border-color: #ff2e8d; box-shadow: 0 0 24px rgba(232,23,122,0.4); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: 0.3s; }
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: var(--bg); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+      overflow: hidden;
+    }
+    .mobile-menu::before {
+      content: ''; position: absolute; inset: 0;
+      background: url(assets/photos/FONDO_V03.jpeg) center/cover;
+      opacity: 0.10; pointer-events: none;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      position: relative;
+      font-family: var(--display);
+      font-size: 44px; font-weight: 400;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--text); text-decoration: none; transition: color 0.2s;
+      line-height: 1.15;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ──────────────── HERO ──────────────── */
+    .hero {
+      position: relative; height: 100vh; min-height: 680px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center 18%;
+      background-color: #111;
+      transform: scale(1.04); transition: transform 10s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(7,7,7,0.15) 0%,
+        rgba(7,7,7,0.05) 28%,
+        rgba(7,7,7,0.55) 62%,
+        rgba(7,7,7,0.97) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 0 48px 72px; width: 100%; max-width: 1280px; margin: 0 auto;
+    }
+    .hero-tags { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+    .hero-tag {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 6px 14px; border: 1px solid var(--borderp);
+      color: var(--accent); background: var(--accent2);
+    }
+    .hero-name {
+      font-family: var(--display);
+      margin-bottom: 24px;
+    }
+    .hn-kicker {
+      display: block; font-family: var(--font);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.42em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+    .hn-main {
+      display: block;
+      font-size: clamp(78px, 14vw, 210px);
+      line-height: 0.82; letter-spacing: 0.005em;
+      color: #fff; text-transform: uppercase;
+    }
+    .hn-last {
+      display: block;
+      font-size: clamp(40px, 7vw, 104px);
+      line-height: 0.9; letter-spacing: 0.02em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .hero-sub {
+      font-size: 15px; font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      max-width: 540px; margin-bottom: 44px; line-height: 1.85;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-pink {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 38px; background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s; border: 1px solid var(--accent);
+    }
+    .btn-pink:hover { background: #ff2e8d; border-color: #ff2e8d; box-shadow: 0 0 28px rgba(232,23,122,0.35); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 38px; border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s; background: rgba(255,255,255,0.02);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.45); }
+    .hero-scroll {
+      position: absolute; bottom: 40px; right: 48px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: var(--text3); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 44px; background: var(--accent);
+      opacity: 0.5;
+      animation: pline 2.2s ease-in-out infinite;
+    }
+    @keyframes pline {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @media (max-width: 768px) {
+      .hero-content { padding: 0 24px 56px; }
+      .hero-scroll { right: 24px; }
+    }
+
+    /* ──────────────── LAYOUT ──────────────── */
+    .sw { position: relative; padding: 104px 48px; max-width: 1280px; margin: 0 auto; }
+    .sw-full { max-width: none; }
+    .sw-tape::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: url(assets/photos/FONDO_V01.jpeg) center/cover;
+      opacity: 0.06; pointer-events: none;
+    }
+    .sw-tape > * { position: relative; z-index: 1; }
+    .divider { height: 1px; background: var(--border); }
+    .s-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--accent);
+      opacity: 0.85; margin-bottom: 16px;
+    }
+    .s-title {
+      font-family: var(--display);
+      font-size: clamp(42px, 6.5vw, 88px);
+      font-weight: 400; letter-spacing: 0.015em;
+      text-transform: uppercase; line-height: 0.92;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 768px) {
+      .sw { padding: 68px 24px; }
+      .s-title { margin-bottom: 40px; }
+    }
+
+    /* ──────────────── TAPE DIVIDER ──────────────── */
+    .tape-divider {
+      height: 96px; width: 100%;
+      background-position: center; background-size: cover;
+      position: relative;
+    }
+    .tape-divider::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(7,7,7,0.55), rgba(7,7,7,0) 25%, rgba(7,7,7,0) 75%, rgba(7,7,7,0.55));
+    }
+
+    /* ──────────────── PROMO BAND ──────────────── */
+    .promo-band {
+      position: relative; width: 100%; height: 78vh; min-height: 520px;
+      overflow: hidden; display: flex; align-items: flex-end;
+    }
+    .promo-band-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+    }
+    .promo-band::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(7,7,7,0.25) 0%, rgba(7,7,7,0) 35%, rgba(7,7,7,0.85) 100%);
+    }
+    .promo-band-content {
+      position: relative; z-index: 2; padding: 0 48px 56px;
+      width: 100%; max-width: 1280px; margin: 0 auto;
+    }
+    .promo-band-kicker {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .promo-band-title {
+      font-family: var(--display);
+      font-size: clamp(40px, 7vw, 96px); line-height: 0.9;
+      letter-spacing: 0.02em; text-transform: uppercase; color: #fff;
+    }
+    @media (max-width: 768px) { .promo-band-content { padding: 0 24px 40px; } }
+
+    /* ──────────────── BIO ──────────────── */
+    .bio-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: start; }
+    .bio-text { font-size: 16px; font-weight: 300; line-height: 1.9; color: #9a9a9a; }
+    .bio-text p + p { margin-top: 20px; }
+    .bio-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin-bottom: 24px;
+    }
+    .bio-stat { background: var(--bg2); padding: 34px 28px; }
+    .bio-stat-num {
+      font-family: var(--display);
+      font-size: clamp(54px, 6vw, 82px); font-weight: 400;
+      letter-spacing: 0.01em; line-height: 0.92; display: block; color: var(--text);
+    }
+    .bio-stat-num.accent { color: var(--accent); }
+    .bio-stat-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text3); margin-top: 10px;
+    }
+    .bio-founded {
+      padding: 26px 28px; background: var(--accent2);
+      border: 1px solid var(--borderp);
+    }
+    .bio-founded-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .bio-founded-name { font-family: var(--display); font-size: 30px; letter-spacing: 0.02em; }
+    .bio-founded-sub { font-size: 12px; color: var(--text2); margin-top: 4px; }
+    .bio-social {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-top: 48px; padding-top: 44px; border-top: 1px solid var(--border);
+    }
+    .social-lnk {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text2); text-decoration: none; transition: color 0.2s;
+    }
+    .social-lnk:hover { color: var(--accent); }
+    @media (max-width: 900px) { .bio-grid { grid-template-columns: 1fr; gap: 52px; } }
+
+    /* ──────────────── SHOWS ──────────────── */
+    .show-item {
+      display: grid; grid-template-columns: 140px 1fr 160px auto;
+      gap: 24px; align-items: center;
+      padding: 24px 0; border-top: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .show-item:last-child { border-bottom: 1px solid var(--border); }
+    .show-date { font-family: var(--display); font-size: 22px; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; }
+    .show-date-day { font-size: 10px; color: var(--text3); margin-top: 3px; text-transform: capitalize; }
+    .show-venue { font-size: 17px; font-weight: 600; }
+    .show-city { font-size: 12px; color: var(--text3); margin-top: 3px; }
+    .show-type { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); }
+    .ticket-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 22px; border: 1px solid var(--borderp);
+      background: var(--accent2);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none; white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .ticket-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .ticket-btn.sold-out { opacity: 0.3; pointer-events: none; }
+    .ticket-cancelled { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ff5555; }
+    .no-shows {
+      padding: 80px 0; text-align: center; color: var(--text2);
+      font-size: 14px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      .show-item { grid-template-columns: 90px 1fr auto; }
+      .show-type { display: none; }
+    }
+    @media (max-width: 480px) { .show-item { grid-template-columns: 1fr; gap: 10px; } }
+
+    /* ──────────────── GALLERY ──────────────── */
+    .gallery-filters { display: flex; gap: 6px; margin-bottom: 28px; flex-wrap: wrap; }
+    .filter-btn {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 9px 20px; border: 1px solid var(--border);
+      background: none; color: var(--text2); cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .gallery-item {
+      position: relative; aspect-ratio: 3/4; overflow: hidden;
+      cursor: pointer; background: var(--bg3);
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.6s ease; display: block; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-hover {
+      position: absolute; inset: 0; background: rgba(232,23,122,0.25);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+    }
+    .gallery-item:hover .gallery-hover { opacity: 1; }
+    .gallery-item.feat { grid-column: span 2; grid-row: span 2; }
+    .gallery-item.feat img { aspect-ratio: auto; }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .gallery-item.feat { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/10; }
+    }
+
+    /* ──────────────── LIGHTBOX ──────────────── */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.96); z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lb-img { max-width: 88vw; max-height: 90vh; object-fit: contain; }
+    .lb-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: var(--text2);
+      font-size: 32px; line-height: 1; cursor: pointer; padding: 8px; transition: color 0.2s;
+    }
+    .lb-close:hover { color: var(--accent); }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(232,23,122,0.08); border: 1px solid var(--borderp);
+      color: var(--text2); font-size: 22px; cursor: pointer;
+      padding: 18px 22px; transition: all 0.2s;
+    }
+    .lb-nav:hover { color: var(--accent); background: var(--accent2); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-caption {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 11px; color: var(--text3); letter-spacing: 0.05em; white-space: nowrap;
+    }
+
+    /* ──────────────── MUSIC ──────────────── */
+    .music-list { display: flex; flex-direction: column; gap: 14px; }
+    .music-card {
+      background: linear-gradient(180deg, #0d0d0d, #080808);
+      border: 1px solid var(--border); padding: 26px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .music-card:hover { border-color: var(--borderp); box-shadow: 0 0 40px rgba(232,23,122,0.08); }
+    .music-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 16px; }
+    .music-title { font-size: 15px; font-weight: 600; }
+    .music-badge {
+      font-size: 8px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 5px 11px; border: 1px solid var(--borderp);
+      color: var(--accent); background: var(--accent2); white-space: nowrap;
+    }
+    .music-card iframe { width: 100%; height: 166px; border: none; display: block; }
+    .music-more {
+      margin-top: 28px; display: flex; justify-content: center;
+    }
+    .music-more a {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text2); text-decoration: none; transition: color 0.2s;
+      padding: 13px 30px; border: 1px solid var(--border);
+    }
+    .music-more a:hover { color: var(--accent); border-color: var(--borderp); }
+
+    /* ──────────────── PRESS KIT ──────────────── */
+    .pk-wrap { position: relative; background: var(--bg2); border: 1px solid var(--border); padding: 60px; overflow: hidden; }
+    .pk-wrap::before {
+      content: ''; position: absolute; inset: 0;
+      background: url(assets/photos/FONDO_V04.jpeg) center/cover;
+      opacity: 0.05; pointer-events: none;
+    }
+    .pk-wrap > * { position: relative; z-index: 1; }
+    .pk-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 48px; gap: 40px;
+    }
+    .pk-title { font-family: var(--display); font-size: 30px; letter-spacing: 0.02em; margin-bottom: 12px; }
+    .pk-desc { max-width: 440px; font-size: 14px; color: var(--text2); line-height: 1.75; }
+    .pk-items { display: flex; flex-direction: column; }
+    .pk-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; border-top: 1px solid var(--border); gap: 24px;
+    }
+    .pk-item:last-child { border-bottom: 1px solid var(--border); }
+    .pk-item-left { display: flex; align-items: center; gap: 18px; }
+    .pk-icon {
+      width: 44px; height: 44px; background: var(--accent2); border: 1px solid var(--borderp);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: var(--accent);
+    }
+    .pk-icon svg { width: 19px; height: 19px; }
+    .pk-name { font-size: 14px; font-weight: 600; }
+    .pk-sub { font-size: 11px; color: var(--text3); margin-top: 3px; }
+    .pk-dl-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 11px 22px; border: 1px solid var(--borderp);
+      background: var(--accent2);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .pk-dl-btn svg { width: 14px; height: 14px; }
+    .pk-dl-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pk-note { margin-top: 30px; padding: 18px 22px; background: var(--bg3); font-size: 11px; color: var(--text3); line-height: 1.65; }
+    @media (max-width: 768px) {
+      .pk-wrap { padding: 32px 20px; }
+      .pk-top { flex-direction: column; }
+    }
+
+    /* ──────────────── FOOTER ──────────────── */
+    .footer-wrap { position: relative; padding: 96px 48px 48px; max-width: 1280px; margin: 0 auto; overflow: hidden; }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 48px; border-bottom: 1px solid var(--border); gap: 48px; flex-wrap: wrap;
+    }
+    .footer-left img { height: 88px; opacity: 0.95; }
+    .footer-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 22px; }
+    .footer-rlabel { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+    .footer-email {
+      font-family: var(--display); font-size: 26px; letter-spacing: 0.02em;
+      color: var(--text); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-email:hover { color: var(--accent); }
+    .footer-social { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 11px; color: var(--text3); }
+    .footer-by { font-size: 10px; color: var(--text3); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+    .footer-by:hover { color: var(--accent); }
+    @media (max-width: 768px) {
+      .footer-wrap { padding: 60px 24px 40px; }
+      .footer-right { text-align: left; align-items: flex-start; }
+      .footer-social { justify-content: flex-start; }
+      .footer-left img { height: 64px; }
+    }
+
+    /* ──────────────── ADMIN FAB ──────────────── */
+    .admin-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 150;
+      width: 46px; height: 46px;
+      background: var(--bg2); border: 1px solid var(--borderp);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--accent); font-size: 15px;
+      transition: all 0.2s;
+    }
+    .admin-fab:hover { background: var(--accent2); }
+
+    /* ──────────────── ADMIN PANEL ──────────────── */
+    .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 300; }
+    .admin-overlay.open { display: block; }
+    .admin-panel {
+      position: fixed; top: 0; right: 0;
+      width: min(580px, 100vw); height: 100vh;
+      background: #0a0a0a; border-left: 1px solid var(--border);
+      z-index: 301; overflow-y: auto; display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+    }
+    .admin-overlay.open .admin-panel { transform: translateX(0); }
+    .admin-hdr {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 28px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: #0a0a0a; z-index: 2; flex-shrink: 0;
+    }
+    .admin-hdr-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .admin-hdr-sub { font-size: 10px; color: var(--accent); font-weight: 600; }
+    .admin-x { background: none; border: none; color: var(--text2); font-size: 26px; cursor: pointer; line-height: 1; padding: 4px; }
+    .admin-x:hover { color: var(--text); }
+    .pwd-gate { padding: 48px 28px; }
+    .pwd-gate h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .pwd-gate p { font-size: 13px; color: var(--text3); margin-bottom: 32px; line-height: 1.6; }
+    .admin-field { margin-bottom: 16px; }
+    .admin-field label {
+      display: block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text3); margin-bottom: 7px;
+    }
+    .admin-field input, .admin-field textarea, .admin-field select {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); font-family: var(--font); font-size: 13px;
+      padding: 11px 14px; outline: none; transition: border-color 0.2s;
+    }
+    .admin-field input:focus, .admin-field textarea:focus, .admin-field select:focus {
+      border-color: var(--borderp);
+    }
+    .admin-field textarea { resize: vertical; min-height: 88px; line-height: 1.6; }
+    .admin-field select { appearance: none; cursor: pointer; }
+    .admin-err { font-size: 11px; color: #ff5555; margin-top: 7px; display: none; }
+    .admin-tabs {
+      display: flex; border-bottom: 1px solid var(--border);
+      overflow-x: auto; scrollbar-width: none; flex-shrink: 0;
+    }
+    .admin-tabs::-webkit-scrollbar { display: none; }
+    .admin-tab {
+      padding: 14px 16px; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text3); cursor: pointer; white-space: nowrap;
+      border: none; border-bottom: 2px solid transparent;
+      background: none; transition: all 0.2s;
+    }
+    .admin-tab:hover { color: var(--text2); }
+    .admin-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .admin-body { padding: 28px; flex: 1; }
+    .admin-sec { display: none; }
+    .admin-sec.active { display: block; }
+    .admin-footer {
+      padding: 20px 28px; border-top: 1px solid var(--border);
+      display: flex; gap: 10px; flex-shrink: 0;
+      position: sticky; bottom: 0; background: #0a0a0a;
+    }
+    .btn-save {
+      flex: 1; padding: 14px; background: var(--accent); color: #fff;
+      border: none; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-save:hover { opacity: 0.85; }
+    .btn-export {
+      flex: 1; padding: 14px; background: none; color: var(--text);
+      border: 1px solid var(--border); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-export:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2); }
+    .admin-list-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 11px 14px; background: var(--bg3);
+      border: 1px solid var(--border); margin-bottom: 6px; gap: 14px;
+    }
+    .ali-info { flex: 1; font-size: 13px; }
+    .ali-sub { font-size: 10px; color: var(--text3); margin-top: 2px; }
+    .btn-rm {
+      padding: 6px 10px; background: none;
+      border: 1px solid rgba(255,50,50,0.18); color: rgba(255,100,100,0.5);
+      font-size: 12px; cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+    }
+    .btn-rm:hover { color: #ff5555; border-color: #ff5555; }
+    .add-form { background: #111; border: 1px solid var(--border); padding: 20px; margin-top: 14px; }
+    .add-form-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-2 .admin-field { margin-bottom: 0; }
+    .btn-add-item {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border: 1px solid var(--borderp); background: var(--accent2);
+      color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; cursor: pointer; transition: all 0.2s; margin-top: 12px;
+    }
+    .btn-add-item:hover { background: var(--accent); color: #fff; }
+
+    /* ──────────────── FADE IN ──────────────── */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade.vis { opacity: 1; transform: translateY(0); }
+
+    /* ──────────────── TOAST ──────────────── */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--accent); color: #fff;
+      padding: 11px 24px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; z-index: 500; pointer-events: none;
+      transition: transform 0.28s ease;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ──────────────── SCROLLBAR ──────────────── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--bg3); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ DATA ═══════════════ -->
+<script id="epk-data" type="application/json">
+{
+  "artist": {
+    "name": "Virginia Soledispa",
+    "nameFull": "DJ Virginia Soledispa",
+    "genre": ["Tribal House", "Circuit"],
+    "bio": [
+      "Desde su debut en 2021 en Santiago de Chile, DJ Virginia Soledispa se ha consolidado como una de las artistas más prometedoras y magnéticas de la escena electrónica latinoamericana. Con un estilo tribal electrónico elegante, sofisticado y profundamente envolvente, Virginia transforma cada presentación en un viaje sonoro donde convergen la energía, el ritmo y la emoción pura.",
+      "A lo largo de su trayectoria, Virginia ha conquistado los clubes más icónicos de Chile —Women Festa, Nitro, Club Berlín, Voyage, Face to Face y Berta—, escenarios donde su presencia, carisma y técnica la han posicionado como una figura clave dentro de la música electrónica contemporánea.",
+      "Su talento la ha llevado también a trascender fronteras, con presentaciones internacionales en Brasil 🇧🇷 (After Party Carioca Festa, Goiânia) y Perú 🇵🇪 (Freeland, Voltro, Babylon), donde ha logrado cautivar audiencias diversas y reforzar su identidad como embajadora de la música electrónica latina.",
+      "Además de su carrera como DJ, Virginia Soledispa es fundadora y productora de Women Festa, una marca y movimiento reconocidos en Chile por impulsar la participación femenina en la música electrónica. Con cada beat, construye una experiencia sensorial que fusiona elegancia, energía y una autenticidad que la distingue en cada escenario que pisa."
+    ],
+    "photo": "assets/photos/hero.jpeg",
+    "stats": {
+      "debut": "2021",
+      "shows": "150+",
+      "countries": "3",
+      "founder": "Women Festa"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/virginiasoledispadj/",
+      "soundcloud": "https://soundcloud.com/virginia-soledispadj",
+      "spotify": "",
+      "facebook": ""
+    },
+    "contact": "Virginiasoledispa83@gmail.com"
+  },
+  "shows": [],
+  "gallery": [
+    { "id": 1, "url": "assets/photos/hero.jpeg",          "caption": "Virginia Soledispa — Promo 2026",      "category": "prensa",    "featured": true  },
+    { "id": 2, "url": "assets/photos/press-bw.jpeg",      "caption": "Press Photo — B&W Studio 2026",        "category": "prensa",    "featured": false },
+    { "id": 3, "url": "assets/photos/editorial-suit.jpeg","caption": "Editorial — Pink Suit 2026",           "category": "prensa",    "featured": false },
+    { "id": 4, "url": "assets/photos/editorial-pink.jpeg","caption": "Editorial — Studio 2025",              "category": "lifestyle", "featured": false },
+    { "id": 5, "url": "assets/photos/editorial-golden.jpeg","caption": "Editorial — Golden Light 2025",      "category": "prensa",    "featured": false },
+    { "id": 6, "url": "assets/photos/editorial-denim.jpeg","caption": "Editorial — Denim 2025",              "category": "lifestyle", "featured": false },
+    { "id": 7, "url": "assets/photos/editorial-dark.jpeg", "caption": "Night Out — Santiago 2025",           "category": "lifestyle", "featured": false },
+    { "id": 8, "url": "assets/photos/promo-tape.png",     "caption": "VIRGINIA — Artwork Promo 2026",        "category": "prensa",    "featured": false }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "title": "1er Aniversario Women Festa — Edición Amazonas",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2108055069&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 2,
+      "title": "MULTIVERSE — Virginia Soledispa Set",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2241688841&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 3,
+      "title": "Beéle — No tiene Sentido (Virginia Soledispa Edit)",
+      "type": "release",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2154155898&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    }
+  ],
+  "presskit": {
+    "description": "Material oficial de prensa para medios, productoras y diseñadores. Disponible para uso en comunicaciones relacionadas a DJ Virginia Soledispa. Uso no autorizado o modificación sin consentimiento previo queda prohibido.",
+    "items": [
+      { "id": 1, "name": "Fotos de Prensa HD",    "size": "—",  "format": "JPG · PNG",          "url": "#", "icon": "image" },
+      { "id": 2, "name": "Logo Pack Completo",    "size": "—",  "format": "PNG · SVG",           "url": "#", "icon": "layers" },
+      { "id": 3, "name": "Bio Oficial",           "size": "—",  "format": "PDF · TXT",           "url": "#", "icon": "filetext" },
+      { "id": 4, "name": "Rider Técnico",         "size": "—",  "format": "PDF",                 "url": "#", "icon": "file" }
+    ]
+  },
+  "admin": {
+    "password": "virginia2024"
+  }
+}
+</script>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#" id="nav-logo-link">
+    <img src="assets/logo-black.png" alt="Virginia Soledispa" id="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#bio">Bio</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#music">Música</a></li>
+    <li><a href="#presskit">Press Kit</a></li>
+  </ul>
+  <a class="nav-cta" id="nav-cta" href="#">Booking</a>
+  <div class="hamburger" id="hmb" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mmenu">
+  <a href="#bio"      onclick="closeMobileMenu()">Bio</a>
+  <a href="#shows"    onclick="closeMobileMenu()">Shows</a>
+  <a href="#gallery"  onclick="closeMobileMenu()">Galería</a>
+  <a href="#music"    onclick="closeMobileMenu()">Música</a>
+  <a href="#presskit" onclick="closeMobileMenu()">Press Kit</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tags" id="hero-tags"></div>
+    <h1 class="hero-name" id="hero-name"></h1>
+    <p class="hero-sub" id="hero-sub"></p>
+    <div class="hero-btns">
+      <a class="btn-pink" id="hero-booking" href="#">✉&nbsp; Booking</a>
+      <a class="btn-ghost" href="#music">▶&nbsp; Escuchar Sets</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div><span>scroll</span></div>
+</div>
+
+<!-- ═══════════════ BIO ═══════════════ -->
+<div class="divider"></div>
+<div class="sw sw-tape" id="bio">
+  <div class="fade"><p class="s-label">Artista</p><h2 class="s-title">Biografía</h2></div>
+  <div class="bio-grid fade">
+    <div>
+      <div class="bio-text" id="bio-text"></div>
+      <div class="bio-social" id="bio-social"></div>
+    </div>
+    <div class="bio-right">
+      <div class="bio-stats" id="bio-stats"></div>
+      <div class="bio-founded">
+        <div class="bio-founded-label">Fundadora &amp; Productora</div>
+        <div class="bio-founded-name"><img src="assets/logo-womenfesta.png" alt="Women Festa" style="height:60px;width:auto;display:block;"></div>
+        <div class="bio-founded-sub">Festival · Chile · desde 2021</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PROMO BAND ═══════════════ -->
+<section class="promo-band">
+  <div class="promo-band-img" style="background-image:url(assets/photos/promo-tape.png)"></div>
+  <div class="promo-band-content fade">
+    <div class="promo-band-kicker">Tribal House · Circuit</div>
+    <div class="promo-band-title">Energía. Ritmo.<br>Emoción pura.</div>
+  </div>
+</section>
+
+<!-- ═══════════════ SHOWS ═══════════════ -->
+<div class="sw" id="shows">
+  <div class="fade"><p class="s-label">Agenda</p><h2 class="s-title">Próximas Fechas</h2></div>
+  <div class="fade" id="shows-list"></div>
+</div>
+
+<!-- ═══════════════ TAPE DIVIDER ═══════════════ -->
+<div class="tape-divider" style="background-image:url(assets/photos/FONDO_V02.jpeg)"></div>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<div class="sw" id="gallery">
+  <div class="fade"><p class="s-label">Imágenes</p><h2 class="s-title">Galería</h2></div>
+  <div class="gallery-filters fade">
+    <button class="filter-btn active" onclick="filterGal('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterGal('prensa',this)">Prensa</button>
+    <button class="filter-btn" onclick="filterGal('lifestyle',this)">Lifestyle</button>
+  </div>
+  <div class="gallery-grid fade" id="gallery-grid"></div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">×</button>
+  <button class="lb-nav lb-prev" onclick="navLB(-1)">‹</button>
+  <img class="lb-img" id="lb-img" alt="">
+  <button class="lb-nav lb-next" onclick="navLB(1)">›</button>
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
+
+<!-- ═══════════════ MUSIC ═══════════════ -->
+<div class="divider"></div>
+<div class="sw" id="music">
+  <div class="fade"><p class="s-label">Música</p><h2 class="s-title">Sets &amp; Lanzamientos</h2></div>
+  <div class="music-list fade" id="music-list"></div>
+  <div class="music-more fade" id="music-more"></div>
+</div>
+
+<!-- ═══════════════ PRESS KIT ═══════════════ -->
+<div class="divider"></div>
+<div class="sw" id="presskit">
+  <div class="fade"><p class="s-label">Prensa</p><h2 class="s-title">Press Kit</h2></div>
+  <div class="pk-wrap fade">
+    <div class="pk-top">
+      <div>
+        <div class="pk-title">Material de Prensa Oficial</div>
+        <p class="pk-desc" id="pk-desc"></p>
+      </div>
+      <a class="btn-pink" href="#" onclick="dlAll(event)">↓&nbsp; Descargar Todo</a>
+    </div>
+    <div class="pk-items" id="pk-items"></div>
+    <div class="pk-note">Todo el material descargado es para uso exclusivo en prensa y comunicaciones relacionadas a DJ Virginia Soledispa. No está permitida su modificación o uso comercial sin autorización previa.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="divider"></div>
+<div class="footer-wrap">
+  <div class="footer-top">
+    <div class="footer-left">
+      <img src="assets/logo-pink.png" alt="Virginia Soledispa">
+    </div>
+    <div class="footer-right">
+      <div>
+        <div class="footer-rlabel">Booking &amp; Prensa</div>
+        <a class="footer-email" id="footer-email" href="#">—</a>
+      </div>
+      <div class="footer-social" id="footer-social"></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" id="footer-copy"></div>
+    <a class="footer-by" href="https://nawemedia.com" target="_blank" rel="noopener">EPK by <strong>NAWEMEDIA</strong></a>
+  </div>
+</div>
+
+<!-- ═══════════════ ADMIN FAB ═══════════════ -->
+<div class="admin-fab" onclick="openAdmin()" title="Panel Admin">⚙</div>
+
+<!-- ═══════════════ TOAST ═══════════════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════ ADMIN PANEL ═══════════════ -->
+<div class="admin-overlay" id="adm-overlay" onclick="ovClick(event)">
+  <div class="admin-panel" onclick="event.stopPropagation()">
+
+    <!-- PASSWORD -->
+    <div id="adm-pwd">
+      <div class="admin-hdr">
+        <div><div class="admin-hdr-title">Admin Panel</div><div class="admin-hdr-sub">Virginia Soledispa EPK</div></div>
+        <button class="admin-x" onclick="closeAdmin()">×</button>
+      </div>
+      <div class="pwd-gate">
+        <h3>Acceso Restringido</h3>
+        <p>Ingresa tu contraseña para administrar el EPK.</p>
+        <div class="admin-field">
+          <label>Contraseña</label>
+          <input type="password" id="pwd-in" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPwd()">
+          <div class="admin-err" id="pwd-err">Contraseña incorrecta.</div>
+        </div>
+        <button class="btn-save" onclick="checkPwd()" style="width:100%;margin-top:4px;">Ingresar →</button>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="adm-dash" style="display:none;flex-direction:column;height:100%;">
+      <div class="admin-hdr">
+        <div><div class="admin-hdr-title">Admin Panel</div><div class="admin-hdr-sub">Virginia Soledispa EPK</div></div>
+        <button class="admin-x" onclick="closeAdmin()">×</button>
+      </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="tab('artista',this)">Artista</button>
+        <button class="admin-tab" onclick="tab('shows',this)">Shows</button>
+        <button class="admin-tab" onclick="tab('galeria',this)">Galería</button>
+        <button class="admin-tab" onclick="tab('musica',this)">Música</button>
+        <button class="admin-tab" onclick="tab('presskit',this)">Press Kit</button>
+        <button class="admin-tab" onclick="tab('config',this)">Config</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- ARTISTA -->
+        <div class="admin-sec active" id="tab-artista">
+          <div class="admin-field"><label>Géneros (separados por coma)</label><input type="text" id="a-genres" placeholder="Tribal House, Circuit"></div>
+          <div class="admin-field"><label>Párrafo 1 — Bio</label><textarea id="a-bio1"></textarea></div>
+          <div class="admin-field"><label>Párrafo 2 — Bio</label><textarea id="a-bio2"></textarea></div>
+          <div class="admin-field"><label>Párrafo 3 — Bio</label><textarea id="a-bio3"></textarea></div>
+          <div class="admin-field"><label>Párrafo 4 — Bio (opcional)</label><textarea id="a-bio4"></textarea></div>
+          <div class="admin-field"><label>URL Foto Hero</label><input type="url" id="a-photo" placeholder="assets/photos/hero.jpeg"></div>
+          <div class="admin-field"><label>Email Booking</label><input type="email" id="a-email"></div>
+          <hr style="border-color:var(--border);margin:18px 0;">
+          <p class="add-form-lbl">Estadísticas</p>
+          <div class="grid-2">
+            <div class="admin-field"><label>Año de Debut</label><input type="text" id="a-debut" placeholder="2021"></div>
+            <div class="admin-field"><label>Shows</label><input type="text" id="a-shows-stat" placeholder="150+"></div>
+            <div class="admin-field"><label>Países</label><input type="text" id="a-countries" placeholder="3"></div>
+          </div>
+          <hr style="border-color:var(--border);margin:18px 0;">
+          <p class="add-form-lbl">Redes Sociales</p>
+          <div class="admin-field"><label>Instagram</label><input type="url" id="a-ig"></div>
+          <div class="admin-field"><label>SoundCloud</label><input type="url" id="a-sc"></div>
+          <div class="admin-field"><label>Spotify</label><input type="url" id="a-sp" placeholder="https://open.spotify.com/..."></div>
+          <div class="admin-field"><label>Facebook</label><input type="url" id="a-fb"></div>
+        </div>
+
+        <!-- SHOWS -->
+        <div class="admin-sec" id="tab-shows">
+          <p style="font-size:12px;color:var(--text3);margin-bottom:18px;line-height:1.6;">Agrega las próximas fechas de Virginia. Se muestran ordenadas por fecha.</p>
+          <div id="adm-shows-list"></div>
+          <div class="add-form">
+            <p class="add-form-lbl">Agregar Fecha</p>
+            <div class="grid-2">
+              <div class="admin-field"><label>Fecha</label><input type="date" id="s-date"></div>
+              <div class="admin-field"><label>Tipo</label>
+                <select id="s-type"><option>Club Night</option><option>Headline</option><option>Guest Set</option><option>Festival</option><option>Residency</option><option>Women Festa</option></select>
+              </div>
+              <div class="admin-field"><label>Venue</label><input type="text" id="s-venue" placeholder="Club Berlín"></div>
+              <div class="admin-field"><label>Ciudad</label><input type="text" id="s-city" placeholder="Santiago"></div>
+              <div class="admin-field"><label>País</label><input type="text" id="s-country" placeholder="CL" maxlength="3"></div>
+              <div class="admin-field"><label>Estado</label>
+                <select id="s-status"><option value="upcoming">Confirmado</option><option value="sold-out">Sold Out</option><option value="cancelled">Cancelado</option></select>
+              </div>
+            </div>
+            <div class="admin-field" style="margin-top:10px;"><label>Link Tickets (opcional)</label><input type="url" id="s-ticket" placeholder="https://..."></div>
+            <button class="btn-add-item" onclick="addShow()">+ Agregar fecha</button>
+          </div>
+        </div>
+
+        <!-- GALERÍA -->
+        <div class="admin-sec" id="tab-galeria">
+          <p style="font-size:12px;color:var(--text3);margin-bottom:18px;line-height:1.6;">Puedes usar rutas relativas (assets/photos/...) o URLs externas.</p>
+          <div id="adm-gallery-list"></div>
+          <div class="add-form">
+            <p class="add-form-lbl">Agregar Imagen</p>
+            <div class="admin-field"><label>URL o Ruta</label><input type="text" id="g-url" placeholder="assets/photos/nueva.jpg"></div>
+            <div class="admin-field"><label>Caption</label><input type="text" id="g-cap" placeholder="Venue, Ciudad — 2026"></div>
+            <div class="grid-2">
+              <div class="admin-field"><label>Categoría</label>
+                <select id="g-cat"><option value="prensa">Prensa</option><option value="lifestyle">Lifestyle</option><option value="shows">Shows</option></select>
+              </div>
+              <div class="admin-field"><label>Destacada (2×2)</label>
+                <select id="g-feat"><option value="false">No</option><option value="true">Sí</option></select>
+              </div>
+            </div>
+            <button class="btn-add-item" onclick="addGalleryItem()">+ Agregar imagen</button>
+          </div>
+        </div>
+
+        <!-- MÚSICA -->
+        <div class="admin-sec" id="tab-musica">
+          <p style="font-size:12px;color:var(--text3);margin-bottom:18px;line-height:1.6;">Usa el embed URL de SoundCloud (Share → Embed → copia el src del iframe).</p>
+          <div id="adm-music-list"></div>
+          <div class="add-form">
+            <p class="add-form-lbl">Agregar Set / Track</p>
+            <div class="admin-field"><label>Título</label><input type="text" id="m-title" placeholder="Nombre del set"></div>
+            <div class="admin-field"><label>Tipo</label>
+              <select id="m-type"><option value="set">Set</option><option value="release">Release / Track</option></select>
+            </div>
+            <div class="admin-field"><label>SoundCloud Embed URL</label><input type="url" id="m-url" placeholder="https://w.soundcloud.com/player/?url=..."></div>
+            <button class="btn-add-item" onclick="addMusic()">+ Agregar</button>
+          </div>
+        </div>
+
+        <!-- PRESS KIT -->
+        <div class="admin-sec" id="tab-presskit">
+          <div class="admin-field"><label>Descripción del Press Kit</label><textarea id="pk-desc-in"></textarea></div>
+          <hr style="border-color:var(--border);margin:16px 0 20px;">
+          <p style="font-size:12px;color:var(--text3);margin-bottom:14px;line-height:1.6;">Agrega los links de Google Drive u otro servicio para cada archivo.</p>
+          <div id="adm-pk-list"></div>
+          <div class="add-form">
+            <p class="add-form-lbl">Agregar Archivo</p>
+            <div class="admin-field"><label>Nombre</label><input type="text" id="pk-name" placeholder="Fotos HD"></div>
+            <div class="grid-2">
+              <div class="admin-field"><label>Tamaño</label><input type="text" id="pk-size" placeholder="45 MB"></div>
+              <div class="admin-field"><label>Formato</label><input type="text" id="pk-fmt" placeholder="JPG · PNG"></div>
+            </div>
+            <div class="admin-field"><label>URL de Descarga</label><input type="url" id="pk-url" placeholder="https://drive.google.com/..."></div>
+            <button class="btn-add-item" onclick="addPKItem()">+ Agregar archivo</button>
+          </div>
+        </div>
+
+        <!-- CONFIG -->
+        <div class="admin-sec" id="tab-config">
+          <p style="font-size:13px;font-weight:600;margin-bottom:20px;">Cambiar Contraseña</p>
+          <div class="admin-field"><label>Contraseña Actual</label><input type="password" id="c-cur" placeholder="••••••••"></div>
+          <div class="admin-field"><label>Nueva Contraseña</label><input type="password" id="c-new" placeholder="••••••••"></div>
+          <div class="admin-field"><label>Confirmar Nueva</label><input type="password" id="c-conf" placeholder="••••••••"></div>
+          <button class="btn-add-item" onclick="changePwd()" style="margin-bottom:36px;">Cambiar Contraseña</button>
+          <hr style="border-color:var(--border);margin-bottom:24px;">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;">Cómo publicar cambios</p>
+          <p style="font-size:12px;color:var(--text3);line-height:1.8;">
+            1. Edita el contenido en cada tab.<br>
+            2. <strong style="color:var(--text2)">Guardar Cambios</strong> → se aplican en tiempo real.<br>
+            3. <strong style="color:var(--text2)">Exportar HTML</strong> → descarga <code style="background:var(--bg3);padding:1px 6px;font-size:10px;">index.html</code> actualizado.<br>
+            4. Reemplaza el archivo en tu repositorio GitHub.<br>
+            5. Vercel/Netlify lo despliega automáticamente.
+          </p>
+        </div>
+
+      </div><!-- /admin-body -->
+      <div class="admin-footer">
+        <button class="btn-save" onclick="saveChanges()">Guardar Cambios</button>
+        <button class="btn-export" onclick="exportHTML()">↓ Exportar HTML</button>
+      </div>
+    </div><!-- /adm-dash -->
+
+  </div><!-- /admin-panel -->
+</div><!-- /admin-overlay -->
+
+<script>
+// ═══════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════
+let EPK = JSON.parse(document.getElementById('epk-data').textContent);
+
+// ═══════════════════════════════════════════════════
+// SVG ICONS (Lucide-style stroke)
+// ═══════════════════════════════════════════════════
+const ICONS = {
+  image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.6-3.6a2 2 0 0 0-2.8 0L6 20"/></svg>',
+  layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>',
+  filetext: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>',
+  file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>',
+  download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>'
+};
+function pkIcon(item) {
+  if (item.icon && ICONS[item.icon]) return ICONS[item.icon];
+  const n = (item.name || '').toLowerCase();
+  if (n.includes('foto') || n.includes('photo')) return ICONS.image;
+  if (n.includes('logo')) return ICONS.layers;
+  if (n.includes('bio')) return ICONS.filetext;
+  if (n.includes('rider') || n.includes('técnic')) return ICONS.file;
+  return ICONS.download;
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════
+function render() {
+  const D = EPK;
+  document.title = 'DJ Virginia Soledispa — EPK';
+
+  // Nav
+  document.getElementById('nav-cta').href = 'mailto:' + D.artist.contact;
+
+  // Hero
+  const bg = document.getElementById('hero-bg');
+  if (D.artist.photo) {
+    bg.style.backgroundImage = `url(${D.artist.photo})`;
+    setTimeout(() => bg.classList.add('loaded'), 80);
+  }
+  document.getElementById('hero-tags').innerHTML = D.artist.genre.map(g =>
+    `<span class="hero-tag">${g}</span>`).join('');
+  const parts = D.artist.name.split(' ');
+  const first = parts[0] || '';
+  const rest  = parts.slice(1).join(' ');
+  document.getElementById('hero-name').innerHTML =
+    '<span class="hn-kicker">DJ</span>' +
+    '<span class="hn-main">' + first + '</span>' +
+    (rest ? '<span class="hn-last">' + rest + '</span>' : '');
+  const firstSentence = (D.artist.bio[0] || '').split('. ')[0];
+  document.getElementById('hero-sub').textContent = firstSentence ? firstSentence + '.' : '';
+  document.getElementById('hero-booking').href = 'mailto:' + D.artist.contact;
+
+  // Bio
+  document.getElementById('bio-text').innerHTML = D.artist.bio.map(p => `<p>${p}</p>`).join('');
+  const socials = [
+    { k: 'instagram', l: 'Instagram' },
+    { k: 'soundcloud', l: 'SoundCloud' },
+    { k: 'spotify',   l: 'Spotify' },
+    { k: 'facebook',  l: 'Facebook' },
+  ];
+  const socialHTML = socials
+    .filter(s => D.artist.social[s.k])
+    .map(s => `<a class="social-lnk" href="${D.artist.social[s.k]}" target="_blank" rel="noopener">↗ ${s.l}</a>`)
+    .join('');
+  document.getElementById('bio-social').innerHTML = socialHTML;
+  document.getElementById('footer-social').innerHTML = socialHTML;
+  const statArr = [
+    { n: 'Desde ' + D.artist.stats.debut, l: 'Año debut', a: false },
+    { n: D.artist.stats.shows,            l: 'Presentaciones', a: true },
+    { n: D.artist.stats.countries,        l: 'Países', a: true },
+    { n: 'Chile',                          l: 'Base', a: false },
+  ];
+  document.getElementById('bio-stats').innerHTML = statArr.map(s =>
+    `<div class="bio-stat"><span class="bio-stat-num${s.a ? ' accent' : ''}">${s.n}</span><span class="bio-stat-label">${s.l}</span></div>`
+  ).join('');
+
+  // Shows
+  renderShows();
+
+  // Gallery
+  renderGallery(currentFilter);
+
+  // Music
+  document.getElementById('music-list').innerHTML = D.music.map(m => `
+    <div class="music-card">
+      <div class="music-head">
+        <div class="music-title">${m.title}</div>
+        <span class="music-badge">${m.type === 'set' ? 'Set' : 'Release'}</span>
+      </div>
+      <iframe scrolling="no" src="${m.embedUrl}" allow="autoplay"></iframe>
+    </div>
+  `).join('');
+  document.getElementById('music-more').innerHTML = D.artist.social.soundcloud
+    ? `<a href="${D.artist.social.soundcloud}" target="_blank" rel="noopener">Escuchar más en SoundCloud ↗</a>`
+    : '';
+
+  // Press Kit
+  document.getElementById('pk-desc').textContent = D.presskit.description;
+  document.getElementById('pk-items').innerHTML = D.presskit.items.map(item => `
+    <div class="pk-item">
+      <div class="pk-item-left">
+        <div class="pk-icon">${pkIcon(item)}</div>
+        <div><div class="pk-name">${item.name}</div><div class="pk-sub">${item.format}${item.size && item.size !== '—' ? ' · ' + item.size : ''}</div></div>
+      </div>
+      <a class="pk-dl-btn" href="${item.url}" target="_blank">${ICONS.download} Descargar</a>
+    </div>
+  `).join('');
+
+  // Footer
+  document.getElementById('footer-email').textContent = D.artist.contact;
+  document.getElementById('footer-email').href = 'mailto:' + D.artist.contact;
+  document.getElementById('footer-copy').textContent =
+    `© ${new Date().getFullYear()} DJ Virginia Soledispa. Todos los derechos reservados.`;
+}
+
+function renderShows() {
+  const today = new Date().toISOString().split('T')[0];
+  const list = document.getElementById('shows-list');
+  const upcoming = EPK.shows
+    .filter(s => s.date >= today)
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  if (!upcoming.length) {
+    list.innerHTML = '<div class="no-shows">Próximas fechas próximamente — síguenos en redes para no perderte nada.</div>';
+    return;
+  }
+  list.innerHTML = upcoming.map(s => {
+    const d = new Date(s.date + 'T12:00:00');
+    const dateStr = d.toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+    const dayStr  = d.toLocaleDateString('es-CL', { weekday: 'long' });
+    const isSO = s.status === 'sold-out', isC = s.status === 'cancelled';
+    const btn = isC
+      ? `<span class="ticket-cancelled">Cancelado</span>`
+      : `<a class="ticket-btn ${isSO ? 'sold-out' : ''}" href="${s.ticketUrl||'#'}" target="_blank">${isSO ? 'Sold Out' : '→ Tickets'}</a>`;
+    return `<div class="show-item">
+      <div><div class="show-date">${dateStr}</div><div class="show-date-day">${dayStr.charAt(0).toUpperCase()+dayStr.slice(1)}</div></div>
+      <div><div class="show-venue">${s.venue}</div><div class="show-city">${s.city}, ${s.country}</div></div>
+      <div class="show-type">${s.type}</div>
+      ${btn}
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════
+// GALLERY
+// ═══════════════════════════════════════════════════
+let currentFilter = 'all';
+let lbItems = [], lbIdx = 0;
+
+function renderGallery(filter) {
+  currentFilter = filter;
+  lbItems = filter === 'all' ? EPK.gallery : EPK.gallery.filter(g => g.category === filter);
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = lbItems.map((g, i) => `
+    <div class="gallery-item ${g.featured && filter === 'all' ? 'feat' : ''}" onclick="openLB(${i})">
+      <img src="${g.url}" alt="${g.caption}" loading="lazy">
+      <div class="gallery-hover">${g.caption || ''}</div>
+    </div>`).join('');
+}
+
+function filterGal(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGallery(cat);
+}
+
+function openLB(i) {
+  lbIdx = i; updateLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateLB() {
+  const item = lbItems[lbIdx];
+  if (!item) return;
+  document.getElementById('lb-img').src = item.url;
+  document.getElementById('lb-cap').textContent = item.caption;
+}
+function navLB(dir) {
+  lbIdx = (lbIdx + dir + lbItems.length) % lbItems.length;
+  updateLB();
+}
+document.getElementById('lightbox').addEventListener('click', function(e) { if(e.target===this) closeLB(); });
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowLeft')  navLB(-1);
+  if (e.key === 'ArrowRight') navLB(1);
+});
+
+// ═══════════════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════════════
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+function toggleMobileMenu() { document.getElementById('mmenu').classList.toggle('open'); }
+function closeMobileMenu()  { document.getElementById('mmenu').classList.remove('open'); }
+
+// ═══════════════════════════════════════════════════
+// FADE IN
+// ═══════════════════════════════════════════════════
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+// ═══════════════════════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════════════════════
+function openAdmin() {
+  document.getElementById('adm-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('pwd-in').value = '';
+  document.getElementById('pwd-err').style.display = 'none';
+}
+function closeAdmin() {
+  document.getElementById('adm-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function ovClick(e) { if (e.target === document.getElementById('adm-overlay')) closeAdmin(); }
+
+function checkPwd() {
+  if (document.getElementById('pwd-in').value === EPK.admin.password) {
+    document.getElementById('adm-pwd').style.display = 'none';
+    const dash = document.getElementById('adm-dash');
+    dash.style.display = 'flex';
+    loadAdminData();
+  } else {
+    document.getElementById('pwd-err').style.display = 'block';
+    document.getElementById('pwd-in').value = '';
+    document.getElementById('pwd-in').focus();
+  }
+}
+
+function tab(name, btn) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-sec').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function loadAdminData() {
+  const D = EPK;
+  document.getElementById('a-genres').value     = D.artist.genre.join(', ');
+  document.getElementById('a-bio1').value        = D.artist.bio[0] || '';
+  document.getElementById('a-bio2').value        = D.artist.bio[1] || '';
+  document.getElementById('a-bio3').value        = D.artist.bio[2] || '';
+  document.getElementById('a-bio4').value        = D.artist.bio[3] || '';
+  document.getElementById('a-photo').value       = D.artist.photo || '';
+  document.getElementById('a-email').value       = D.artist.contact || '';
+  document.getElementById('a-debut').value       = D.artist.stats.debut;
+  document.getElementById('a-shows-stat').value  = D.artist.stats.shows;
+  document.getElementById('a-countries').value   = D.artist.stats.countries;
+  document.getElementById('a-ig').value          = D.artist.social.instagram || '';
+  document.getElementById('a-sc').value          = D.artist.social.soundcloud || '';
+  document.getElementById('a-sp').value          = D.artist.social.spotify || '';
+  document.getElementById('a-fb').value          = D.artist.social.facebook || '';
+  document.getElementById('pk-desc-in').value    = D.presskit.description;
+  renderAdmShows(); renderAdmGallery(); renderAdmMusic(); renderAdmPK();
+}
+
+function renderAdmShows() {
+  document.getElementById('adm-shows-list').innerHTML = EPK.shows.length
+    ? EPK.shows.sort((a,b)=>a.date.localeCompare(b.date)).map((s,i) => `
+      <div class="admin-list-item">
+        <div class="ali-info"><strong>${s.date} — ${s.venue}</strong>
+        <div class="ali-sub">${s.city}, ${s.country} · ${s.type} · ${s.status}</div></div>
+        <button class="btn-rm" onclick="rmShow(${i})">✕</button>
+      </div>`).join('')
+    : '<p style="font-size:12px;color:var(--text3);padding:12px 0;">Aún no hay fechas.</p>';
+}
+function renderAdmGallery() {
+  document.getElementById('adm-gallery-list').innerHTML = EPK.gallery.map((g,i) => `
+    <div class="admin-list-item">
+      <div class="ali-info"><strong>${g.caption}</strong>
+      <div class="ali-sub">${g.category}${g.featured?' · destacada':''}</div></div>
+      <button class="btn-rm" onclick="rmGallery(${i})">✕</button>
+    </div>`).join('');
+}
+function renderAdmMusic() {
+  document.getElementById('adm-music-list').innerHTML = EPK.music.map((m,i) => `
+    <div class="admin-list-item">
+      <div class="ali-info"><strong>${m.title}</strong><div class="ali-sub">${m.type}</div></div>
+      <button class="btn-rm" onclick="rmMusic(${i})">✕</button>
+    </div>`).join('');
+}
+function renderAdmPK() {
+  document.getElementById('adm-pk-list').innerHTML = EPK.presskit.items.map((item,i) => `
+    <div class="admin-list-item">
+      <div class="ali-info"><strong>${item.name}</strong><div class="ali-sub">${item.format}</div></div>
+      <button class="btn-rm" onclick="rmPK(${i})">✕</button>
+    </div>`).join('');
+}
+
+function addShow() {
+  const date = document.getElementById('s-date').value;
+  const venue = document.getElementById('s-venue').value;
+  if (!date || !venue) return toast('⚠ Completa fecha y venue');
+  EPK.shows.push({
+    id: Date.now(), date, venue,
+    city:    document.getElementById('s-city').value,
+    country: document.getElementById('s-country').value.toUpperCase(),
+    type:    document.getElementById('s-type').value,
+    ticketUrl: document.getElementById('s-ticket').value,
+    status:  document.getElementById('s-status').value
+  });
+  renderAdmShows(); toast('✓ Fecha agregada');
+}
+function addGalleryItem() {
+  const url = document.getElementById('g-url').value;
+  if (!url) return toast('⚠ Agrega una URL');
+  EPK.gallery.push({
+    id: Date.now(), url,
+    caption:  document.getElementById('g-cap').value,
+    category: document.getElementById('g-cat').value,
+    featured: document.getElementById('g-feat').value === 'true'
+  });
+  renderAdmGallery(); toast('✓ Imagen agregada');
+}
+function addMusic() {
+  const title = document.getElementById('m-title').value;
+  const embedUrl = document.getElementById('m-url').value;
+  if (!title || !embedUrl) return toast('⚠ Completa título y URL');
+  EPK.music.push({ id: Date.now(), title, type: document.getElementById('m-type').value, embedUrl });
+  renderAdmMusic(); toast('✓ Track agregado');
+}
+function addPKItem() {
+  const name = document.getElementById('pk-name').value;
+  if (!name) return toast('⚠ Agrega un nombre');
+  EPK.presskit.items.push({
+    id: Date.now(), name, icon: 'download',
+    size:   document.getElementById('pk-size').value,
+    format: document.getElementById('pk-fmt').value,
+    url:    document.getElementById('pk-url').value
+  });
+  renderAdmPK(); toast('✓ Archivo agregado');
+}
+
+function rmShow(i)   { EPK.shows.splice(i,1);           renderAdmShows(); }
+function rmGallery(i){ EPK.gallery.splice(i,1);         renderAdmGallery(); }
+function rmMusic(i)  { EPK.music.splice(i,1);           renderAdmMusic(); }
+function rmPK(i)     { EPK.presskit.items.splice(i,1);  renderAdmPK(); }
+
+function saveChanges() {
+  EPK.artist.genre    = document.getElementById('a-genres').value.split(',').map(g=>g.trim()).filter(Boolean);
+  EPK.artist.bio      = [
+    document.getElementById('a-bio1').value,
+    document.getElementById('a-bio2').value,
+    document.getElementById('a-bio3').value,
+    document.getElementById('a-bio4').value
+  ].filter(Boolean);
+  EPK.artist.photo              = document.getElementById('a-photo').value.trim();
+  EPK.artist.contact            = document.getElementById('a-email').value.trim();
+  EPK.artist.stats.debut        = document.getElementById('a-debut').value.trim();
+  EPK.artist.stats.shows        = document.getElementById('a-shows-stat').value.trim();
+  EPK.artist.stats.countries    = document.getElementById('a-countries').value.trim();
+  EPK.artist.social.instagram   = document.getElementById('a-ig').value.trim();
+  EPK.artist.social.soundcloud  = document.getElementById('a-sc').value.trim();
+  EPK.artist.social.spotify     = document.getElementById('a-sp').value.trim();
+  EPK.artist.social.facebook    = document.getElementById('a-fb').value.trim();
+  EPK.presskit.description      = document.getElementById('pk-desc-in').value.trim();
+  render();
+  toast('✓ Cambios aplicados en tiempo real');
+}
+
+function changePwd() {
+  const cur = document.getElementById('c-cur').value;
+  const nw  = document.getElementById('c-new').value;
+  const cf  = document.getElementById('c-conf').value;
+  if (cur !== EPK.admin.password) return toast('⚠ Contraseña actual incorrecta');
+  if (nw  !== cf)                 return toast('⚠ Las contraseñas no coinciden');
+  if (nw.length < 4)              return toast('⚠ Mínimo 4 caracteres');
+  EPK.admin.password = nw;
+  ['c-cur','c-new','c-conf'].forEach(id => document.getElementById(id).value='');
+  toast('✓ Contraseña actualizada — recuerda exportar el HTML');
+}
+
+function exportHTML() {
+  document.getElementById('epk-data').textContent = JSON.stringify(EPK, null, 2);
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'index.html';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  toast('✓ index.html exportado — sube a GitHub para publicar');
+}
+
+function dlAll(e) {
+  e.preventDefault();
+  toast('Configura los links en Admin → Press Kit');
+}
+
+let tTimer;
+function toast(msg, dur=3200) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(tTimer);
+  tTimer = setTimeout(() => el.classList.remove('show'), dur);
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+render();
+</script>
+</body>
+</html>
