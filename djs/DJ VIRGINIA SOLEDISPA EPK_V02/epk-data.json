@@ -2,7 +2,10 @@
   "artist": {
     "name": "Virginia Soledispa",
     "nameFull": "DJ Virginia Soledispa",
-    "genre": ["Tribal House", "Circuit"],
+    "genre": [
+      "Tribal House",
+      "Circuit"
+    ],
     "bio": [
       "Desde su debut en 2021 en Santiago de Chile, DJ Virginia Soledispa se ha consolidado como una de las artistas más prometedoras y magnéticas de la escena electrónica latinoamericana. Con un estilo tribal electrónico elegante, sofisticado y profundamente envolvente, Virginia transforma cada presentación en un viaje sonoro donde convergen la energía, el ritmo y la emoción pura.",
       "A lo largo de su trayectoria, Virginia ha conquistado los clubes más icónicos de Chile —Women Festa, Nitro, Club Berlín, Voyage, Face to Face y Berta—, escenarios donde su presencia, carisma y técnica la han posicionado como una figura clave dentro de la música electrónica contemporánea.",
@@ -26,14 +29,62 @@
   },
   "shows": [],
   "gallery": [
-    { "id": 1, "url": "assets/photos/hero.jpeg",          "caption": "Virginia Soledispa — Promo 2026",      "category": "prensa",    "featured": true  },
-    { "id": 2, "url": "assets/photos/press-bw.jpeg",      "caption": "Press Photo — B&W Studio 2026",        "category": "prensa",    "featured": false },
-    { "id": 3, "url": "assets/photos/editorial-suit.jpeg","caption": "Editorial — Pink Suit 2026",           "category": "prensa",    "featured": false },
-    { "id": 4, "url": "assets/photos/editorial-pink.jpeg","caption": "Editorial — Studio 2025",              "category": "lifestyle", "featured": false },
-    { "id": 5, "url": "assets/photos/editorial-golden.jpeg","caption": "Editorial — Golden Light 2025",      "category": "prensa",    "featured": false },
-    { "id": 6, "url": "assets/photos/editorial-denim.jpeg","caption": "Editorial — Denim 2025",              "category": "lifestyle", "featured": false },
-    { "id": 7, "url": "assets/photos/editorial-dark.jpeg", "caption": "Night Out — Santiago 2025",           "category": "lifestyle", "featured": false },
-    { "id": 8, "url": "assets/photos/promo-tape.png",     "caption": "VIRGINIA — Artwork Promo 2026",        "category": "prensa",    "featured": false }
+    {
+      "id": 1,
+      "url": "assets/photos/hero.jpeg",
+      "caption": "Virginia Soledispa — Promo 2026",
+      "category": "prensa",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "url": "assets/photos/press-bw.jpeg",
+      "caption": "Press Photo — B&W Studio 2026",
+      "category": "prensa",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "url": "assets/photos/editorial-suit.jpeg",
+      "caption": "Editorial — Pink Suit 2026",
+      "category": "prensa",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "url": "assets/photos/editorial-pink.jpeg",
+      "caption": "Editorial — Studio 2025",
+      "category": "lifestyle",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "url": "assets/photos/editorial-golden.jpeg",
+      "caption": "Editorial — Golden Light 2025",
+      "category": "prensa",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "url": "assets/photos/editorial-denim.jpeg",
+      "caption": "Editorial — Denim 2025",
+      "category": "lifestyle",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "url": "assets/photos/editorial-dark.jpeg",
+      "caption": "Night Out — Santiago 2025",
+      "category": "lifestyle",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "url": "assets/photos/promo-tape.png",
+      "caption": "VIRGINIA — Artwork Promo 2026",
+      "category": "prensa",
+      "featured": false
+    }
   ],
   "music": [
     {
@@ -58,10 +109,38 @@
   "presskit": {
     "description": "Material oficial de prensa para medios, productoras y diseñadores. Disponible para uso en comunicaciones relacionadas a DJ Virginia Soledispa. Uso no autorizado o modificación sin consentimiento previo queda prohibido.",
     "items": [
-      { "id": 1, "name": "Fotos de Prensa HD",    "size": "—",  "format": "JPG · PNG",          "url": "#", "icon": "image" },
-      { "id": 2, "name": "Logo Pack Completo",    "size": "—",  "format": "PNG · SVG",           "url": "#", "icon": "layers" },
-      { "id": 3, "name": "Bio Oficial",           "size": "—",  "format": "PDF · TXT",           "url": "#", "icon": "filetext" },
-      { "id": 4, "name": "Rider Técnico",         "size": "—",  "format": "PDF",                 "url": "#", "icon": "file" }
+      {
+        "id": 1,
+        "name": "Fotos de Prensa HD",
+        "size": "—",
+        "format": "JPG · PNG",
+        "url": "#",
+        "icon": "image"
+      },
+      {
+        "id": 2,
+        "name": "Logo Pack Completo",
+        "size": "—",
+        "format": "PNG · SVG",
+        "url": "#",
+        "icon": "layers"
+      },
+      {
+        "id": 3,
+        "name": "Bio Oficial",
+        "size": "—",
+        "format": "PDF · TXT",
+        "url": "#",
+        "icon": "filetext"
+      },
+      {
+        "id": 4,
+        "name": "Rider Técnico",
+        "size": "—",
+        "format": "PDF",
+        "url": "#",
+        "icon": "file"
+      }
     ]
   },
   "admin": {
