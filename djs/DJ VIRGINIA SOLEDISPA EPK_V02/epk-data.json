@@ -1,0 +1,70 @@
+{
+  "artist": {
+    "name": "Virginia Soledispa",
+    "nameFull": "DJ Virginia Soledispa",
+    "genre": ["Tribal House", "Circuit"],
+    "bio": [
+      "Desde su debut en 2021 en Santiago de Chile, DJ Virginia Soledispa se ha consolidado como una de las artistas más prometedoras y magnéticas de la escena electrónica latinoamericana. Con un estilo tribal electrónico elegante, sofisticado y profundamente envolvente, Virginia transforma cada presentación en un viaje sonoro donde convergen la energía, el ritmo y la emoción pura.",
+      "A lo largo de su trayectoria, Virginia ha conquistado los clubes más icónicos de Chile —Women Festa, Nitro, Club Berlín, Voyage, Face to Face y Berta—, escenarios donde su presencia, carisma y técnica la han posicionado como una figura clave dentro de la música electrónica contemporánea.",
+      "Su talento la ha llevado también a trascender fronteras, con presentaciones internacionales en Brasil 🇧🇷 (After Party Carioca Festa, Goiânia) y Perú 🇵🇪 (Freeland, Voltro, Babylon), donde ha logrado cautivar audiencias diversas y reforzar su identidad como embajadora de la música electrónica latina.",
+      "Además de su carrera como DJ, Virginia Soledispa es fundadora y productora de Women Festa, una marca y movimiento reconocidos en Chile por impulsar la participación femenina en la música electrónica. Con cada beat, construye una experiencia sensorial que fusiona elegancia, energía y una autenticidad que la distingue en cada escenario que pisa."
+    ],
+    "photo": "assets/photos/hero.jpeg",
+    "stats": {
+      "debut": "2021",
+      "shows": "150+",
+      "countries": "3",
+      "founder": "Women Festa"
+    },
+    "social": {
+      "instagram": "https://www.instagram.com/virginiasoledispadj/",
+      "soundcloud": "https://soundcloud.com/virginia-soledispadj",
+      "spotify": "",
+      "facebook": ""
+    },
+    "contact": "Virginiasoledispa83@gmail.com"
+  },
+  "shows": [],
+  "gallery": [
+    { "id": 1, "url": "assets/photos/hero.jpeg",          "caption": "Virginia Soledispa — Promo 2026",      "category": "prensa",    "featured": true  },
+    { "id": 2, "url": "assets/photos/press-bw.jpeg",      "caption": "Press Photo — B&W Studio 2026",        "category": "prensa",    "featured": false },
+    { "id": 3, "url": "assets/photos/editorial-suit.jpeg","caption": "Editorial — Pink Suit 2026",           "category": "prensa",    "featured": false },
+    { "id": 4, "url": "assets/photos/editorial-pink.jpeg","caption": "Editorial — Studio 2025",              "category": "lifestyle", "featured": false },
+    { "id": 5, "url": "assets/photos/editorial-golden.jpeg","caption": "Editorial — Golden Light 2025",      "category": "prensa",    "featured": false },
+    { "id": 6, "url": "assets/photos/editorial-denim.jpeg","caption": "Editorial — Denim 2025",              "category": "lifestyle", "featured": false },
+    { "id": 7, "url": "assets/photos/editorial-dark.jpeg", "caption": "Night Out — Santiago 2025",           "category": "lifestyle", "featured": false },
+    { "id": 8, "url": "assets/photos/promo-tape.png",     "caption": "VIRGINIA — Artwork Promo 2026",        "category": "prensa",    "featured": false }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "title": "1er Aniversario Women Festa — Edición Amazonas",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2108055069&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 2,
+      "title": "MULTIVERSE — Virginia Soledispa Set",
+      "type": "set",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2241688841&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    },
+    {
+      "id": 3,
+      "title": "Beéle — No tiene Sentido (Virginia Soledispa Edit)",
+      "type": "release",
+      "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2154155898&color=%23E8177A&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+    }
+  ],
+  "presskit": {
+    "description": "Material oficial de prensa para medios, productoras y diseñadores. Disponible para uso en comunicaciones relacionadas a DJ Virginia Soledispa. Uso no autorizado o modificación sin consentimiento previo queda prohibido.",
+    "items": [
+      { "id": 1, "name": "Fotos de Prensa HD",    "size": "—",  "format": "JPG · PNG",          "url": "#", "icon": "image" },
+      { "id": 2, "name": "Logo Pack Completo",    "size": "—",  "format": "PNG · SVG",           "url": "#", "icon": "layers" },
+      { "id": 3, "name": "Bio Oficial",           "size": "—",  "format": "PDF · TXT",           "url": "#", "icon": "filetext" },
+      { "id": 4, "name": "Rider Técnico",         "size": "—",  "format": "PDF",                 "url": "#", "icon": "file" }
+    ]
+  },
+  "admin": {
+    "password": "virginia2024"
+  }
+}
