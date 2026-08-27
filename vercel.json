@@ -59,6 +59,16 @@
       "source": "/((?!api/).*)",
       "destination": "/djs/dj-sarria/index.html",
       "has": [{ "type": "host", "value": "www.djsarria.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/mario-beckam/assets/:path*",
+      "has": [{ "type": "host", "value": "mariobeckman.nawemedia.com" }]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/djs/mario-beckam/index.html",
+      "has": [{ "type": "host", "value": "mariobeckman.nawemedia.com" }]
     }
   ]
 }
