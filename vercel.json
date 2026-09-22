@@ -69,6 +69,26 @@
       "source": "/((?!api/).*)",
       "destination": "/djs/mario-beckam/index.html",
       "has": [{ "type": "host", "value": "mariobeckman.nawemedia.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/yemix/assets/:path*",
+      "has": [{ "type": "host", "value": "yemixdj.com" }]
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/djs/yemix/assets/:path*",
+      "has": [{ "type": "host", "value": "www.yemixdj.com" }]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/djs/yemix/index.html",
+      "has": [{ "type": "host", "value": "yemixdj.com" }]
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/djs/yemix/index.html",
+      "has": [{ "type": "host", "value": "www.yemixdj.com" }]
     }
   ]
 }
