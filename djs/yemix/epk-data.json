@@ -33,7 +33,16 @@
       "body": "Seus sets combinam tribal house, circuit, tech house e afro house com uma leitura de pista voltada para energia, sensualidade e impacto em club. Construídos para sustentar tensão, elevar o ambiente e manter a pista em movimento.\n\nFoi residente do MALEVO, uma das festas mais fortes do circuito tribal e circuit de Buenos Aires, e participou de eventos como La Fiesta del Perrito, Glam, Touch Party Chile 2022 e Pandora Chile 2023. Dividiu a cabine com Anne Louise, Erik Vilar, Athy Saback, Paulo Goes, Niko Kayan, José Vásquez, Taito Tikaro e Iván Gómez.\n\nCom mais de 500 shows, presença em 6 países e carreira iniciada em 2013, Yemix se consolida como referência da cena noturna LGBTQ na Argentina e na região."
     }
   },
-  "shows": [],
+  "shows": [
+    {
+      "id": 1,
+      "venue": "Republik Club",
+      "city": "Madrid",
+      "country": "España",
+      "date": "2026-10-10",
+      "type": "club"
+    }
+  ],
   "gallery": [
     {
       "id": 1,
