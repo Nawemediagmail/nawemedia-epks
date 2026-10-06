@@ -598,13 +598,18 @@ function renderAll() {
   bindBioTabs();
 }
 
+function parseLocalDate(dateStr) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+
 function nextShowBadge() {
   const shows = (EPK.shows||[]).filter(s=>s.date);
   if(!shows.length) return '';
-  const sorted = [...shows].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const sorted = [...shows].sort((a,b)=>parseLocalDate(a.date)-parseLocalDate(b.date));
   const today = new Date(); today.setHours(0,0,0,0);
-  const s = sorted.find(s=>new Date(s.date) >= today) || sorted[sorted.length-1];
-  const d = new Date(s.date);
+  const s = sorted.find(s=>parseLocalDate(s.date) >= today) || sorted[sorted.length-1];
+  const d = parseLocalDate(s.date);
   const weekday = d.toLocaleString('es',{weekday:'long'});
   const day = d.getDate();
   const mon = d.toLocaleString('es',{month:'long'});
@@ -762,7 +767,7 @@ function renderShows() {
         <a href="mailto:${EPK.artist.contact}" class="btn-primary">✉ Consultar disponibilidad</a>
        </div>`
     : shows.map(s=>{
-        const d = new Date(s.date);
+        const d = parseLocalDate(s.date);
         const day = d.getDate();
         const mon = d.toLocaleString('es',{month:'short'}).toUpperCase();
         return `<div class="show-card">
