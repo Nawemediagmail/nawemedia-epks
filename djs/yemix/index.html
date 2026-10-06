@@ -77,6 +77,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem var(--gap);dis
 @keyframes beam-fall{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 .hero-location{position:absolute;top:calc(var(--gap)*3);right:var(--gap);font-family:var(--m);font-size:.68rem;letter-spacing:.14em;color:var(--text2);text-transform:uppercase;z-index:3;display:flex;align-items:center;gap:.45rem}
 .hero-location::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cy);box-shadow:0 0 8px var(--cy),0 0 16px rgba(var(--cyr),.4);flex-shrink:0}
+.hero-next-show{position:absolute;top:var(--gap);left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:.55rem;padding:.6rem 1.4rem;border-radius:999px;background:rgba(10,10,15,.6);backdrop-filter:blur(10px);border:1px solid rgba(var(--pur),.4);font-family:var(--m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;box-shadow:0 0 26px rgba(var(--pur),.3);text-decoration:none;white-space:nowrap;max-width:calc(100% - var(--gap)*2)}
+.hero-next-show:hover{border-color:var(--pu)}
+.hero-next-show-label{color:var(--cy);font-weight:600}
+.hero-next-show-sep{color:var(--text2);opacity:.6}
+@media(max-width:640px){.hero-next-show{font-size:.58rem;padding:.5rem 1rem;gap:.4rem;white-space:normal;text-align:center;top:calc(var(--gap)*.6)}}
 .hero-content{position:relative;z-index:3;max-width:min(640px,58vw);width:100%}
 @media(max-width:768px){.hero-content{max-width:100%}}
 .hero-genres{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.4rem}
@@ -593,6 +598,20 @@ function renderAll() {
   bindBioTabs();
 }
 
+function nextShowBadge() {
+  const shows = (EPK.shows||[]).filter(s=>s.date);
+  if(!shows.length) return '';
+  const sorted = [...shows].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const today = new Date(); today.setHours(0,0,0,0);
+  const s = sorted.find(s=>new Date(s.date) >= today) || sorted[sorted.length-1];
+  const d = new Date(s.date);
+  const weekday = d.toLocaleString('es',{weekday:'long'});
+  const day = d.getDate();
+  const mon = d.toLocaleString('es',{month:'long'});
+  const place = [s.venue, s.city].filter(Boolean).join(' · ');
+  return `<a href="#shows" class="hero-next-show"><span class="hero-next-show-label">${weekday} ${day} de ${mon}</span>${place?`<span class="hero-next-show-sep">·</span><span>${place}</span>`:''}</a>`;
+}
+
 function renderHero() {
   const a = EPK.artist;
   const beams = Array.from({length:6},(_,i)=>{
@@ -607,6 +626,7 @@ function renderHero() {
 <section id="hero">
   <div class="hero-bg"${heroBgStyle}></div>
   <div class="hero-beams">${beams}</div>
+  ${nextShowBadge()}
   <div class="hero-location">${a.location}</div>
   <div class="hero-content">
     <div class="hero-genres">${genres}</div>
