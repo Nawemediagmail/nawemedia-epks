@@ -958,7 +958,7 @@ function renderAdmin() {
         <option value="remix" ${m.type==='remix'?'selected':''}>Remix</option>
         <option value="release" ${m.type==='release'?'selected':''}>Release</option>
       </select>
-      <textarea class="adm-input adm-textarea" placeholder="SoundCloud embed URL" data-music-field="${i}-embedUrl" style="margin-top:.4rem;font-size:12px;min-height:60px">${m.embedUrl||''}</textarea>
+      <textarea class="adm-input adm-textarea" placeholder="URL del player de SoundCloud (o pegá el código embed completo, se extrae sola)" data-music-field="${i}-embedUrl" style="margin-top:.4rem;font-size:12px;min-height:60px">${m.embedUrl||''}</textarea>
       <button class="adm-save-btn" style="margin-top:.6rem;background:rgba(200,0,0,.25);box-shadow:none" onclick="EPK.music.splice(${i},1);renderAdmin()">✕ Eliminar</button>
     </div>`).join('');
 
@@ -1098,7 +1098,9 @@ async function admSave() {
     (EPK.music||[]).forEach((m,i)=>{
       m.title    = (document.querySelector(`[data-music-field="${i}-title"]`)||{}).value||m.title;
       m.type     = (document.querySelector(`[data-music-field="${i}-type"]`)||{}).value||m.type;
-      m.embedUrl = (document.querySelector(`[data-music-field="${i}-embedUrl"]`)||{}).value||m.embedUrl;
+      const rawEmbed = (document.querySelector(`[data-music-field="${i}-embedUrl"]`)||{}).value||m.embedUrl;
+      const srcMatch = rawEmbed && rawEmbed.match(/src=["']([^"']+)["']/);
+      m.embedUrl = srcMatch ? srcMatch[1] : rawEmbed;
     });
     ((EPK.presskit||{}).items||[]).forEach((pk,i)=>{
       pk.name   = (document.querySelector(`[data-pk-field="${i}-name"]`)||{}).value||pk.name;
